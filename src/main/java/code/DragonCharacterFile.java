@@ -19,23 +19,24 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import code.cards.Defend;
+import code.cards.ScaleGuard;
 import code.cards.Strike;
 import code.relics.TodoItem;
 
 import java.util.ArrayList;
 
-import static code.CharacterFile.Enums.TODO_COLOR;
+import static code.DragonCharacterFile.Enums.DRAGON_COLOR;
 import static code.ModFile.*;
 
-public class CharacterFile extends CustomPlayer {
+public class DragonCharacterFile extends CustomPlayer {
 
-    static final String ID = makeID("ModdedCharacter");
+    static final String ID = makeID("DragonCharacter");
     static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     static final String[] NAMES = characterStrings.NAMES;
     static final String[] TEXT = characterStrings.TEXT;
 
 
-    public CharacterFile(String name, PlayerClass setClass) {
+    public DragonCharacterFile(String name, PlayerClass setClass) {
         super(name, setClass, new CustomEnergyOrb(orbTextures, modID + "Resources/images/char/mainChar/orb/vfx.png", null), new SpriterAnimation(
                 modID + "Resources/images/char/mainChar/static.scml"));
         initializeClass(null,
@@ -56,6 +57,7 @@ public class CharacterFile extends CustomPlayer {
                 getStartingDeck(), false);
     }
 
+    //TODO add starting cards
     @Override
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
@@ -65,6 +67,7 @@ public class CharacterFile extends CustomPlayer {
         for (int i = 0; i < 4; i++) {
             retVal.add(Defend.ID);
         }
+        retVal.add(ScaleGuard.ID);
         return retVal;
     }
 
@@ -106,7 +109,7 @@ public class CharacterFile extends CustomPlayer {
 
     @Override
     public AbstractCard.CardColor getCardColor() {
-        return TODO_COLOR;
+        return DRAGON_COLOR;
     }
 
     @Override
@@ -137,7 +140,7 @@ public class CharacterFile extends CustomPlayer {
 
     @Override
     public AbstractPlayer newInstance() {
-        return new CharacterFile(name, chosenClass);
+        return new DragonCharacterFile(name, chosenClass);
     }
 
     @Override
@@ -169,12 +172,11 @@ public class CharacterFile extends CustomPlayer {
     }
 
     public static class Enums {
-        //TODO: Change these.
         @SpireEnum
-        public static AbstractPlayer.PlayerClass THE_TODO;
-        @SpireEnum(name = "TODO_COLOR")
-        public static AbstractCard.CardColor TODO_COLOR;
-        @SpireEnum(name = "TODO_COLOR")
+        public static AbstractPlayer.PlayerClass THE_DRAGON;
+        @SpireEnum(name = "DRAGON_GOLD_COLOR")
+        public static AbstractCard.CardColor DRAGON_COLOR;
+        @SpireEnum(name = "DRAGON_GOLD_COLOR")
         @SuppressWarnings("unused")
         public static CardLibrary.LibraryType LIBRARY_COLOR;
     }

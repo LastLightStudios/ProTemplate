@@ -6,7 +6,6 @@ import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
@@ -32,13 +31,13 @@ public class ModFile implements
         EditKeywordsSubscriber,
         EditCharactersSubscriber {
 
-    public static final String modID = "todomod"; //TODO: Change this.
+    public static final String modID = "dragonmod"; //TODO: Change this.
 
     public static String makeID(String idText) {
         return modID + ":" + idText;
     }
 
-    public static Color characterColor = new Color(MathUtils.random(), MathUtils.random(), MathUtils.random(), 1); // This should be changed eventually
+    public static Color characterColor = new Color(255, 215, 0, 1); // This should be changed eventually is "MathUtils.random(), MathUtils.random(), MathUtils.random(), 1" by default
 
     public static final String SHOULDER1 = modID + "Resources/images/char/mainChar/shoulder.png";
     public static final String SHOULDER2 = modID + "Resources/images/char/mainChar/shoulder2.png";
@@ -71,7 +70,7 @@ public class ModFile implements
     public ModFile() {
         BaseMod.subscribe(this);
 
-        BaseMod.addColor(CharacterFile.Enums.TODO_COLOR, characterColor, characterColor, characterColor,
+        BaseMod.addColor(DragonCharacterFile.Enums.DRAGON_COLOR, characterColor, characterColor, characterColor,
                 characterColor, characterColor, characterColor, characterColor,
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
@@ -104,8 +103,8 @@ public class ModFile implements
 
     @Override
     public void receiveEditCharacters() {
-        BaseMod.addCharacter(new CharacterFile(CharacterFile.characterStrings.NAMES[1], CharacterFile.Enums.THE_TODO),
-                CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, CharacterFile.Enums.THE_TODO);
+        BaseMod.addCharacter(new DragonCharacterFile(DragonCharacterFile.characterStrings.NAMES[1], DragonCharacterFile.Enums.THE_DRAGON),
+                CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, DragonCharacterFile.Enums.THE_DRAGON);
     }
 
     @Override

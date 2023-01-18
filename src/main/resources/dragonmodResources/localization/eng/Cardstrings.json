@@ -7,6 +7,24 @@
     "NAME": "Defend",
     "DESCRIPTION": "Gain !B! Block."
   },
+  "${ModID}:ScaleGuard": {
+    "NAME": "Scale Guard",
+    "DESCRIPTION": "Gain !B! Block twice."
+  },
+  "${ModID}:BlazingSpark": {
+    "NAME": "Blazing Spark",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Spark. NL If you have !${ModID}:m2! Spark, this transforms into *Blazing Breath.",
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Deal !D! damage. NL Gain !M! Spark. NL If you have !${ModID}:m2! Spark, this transforms into *Blazing Breath+."
+  },
+  "${ModID}:BlazingBreath": {
+    "NAME": "Blazing Breath",
+    "DESCRIPTION": "Deal !D! damage to all enemies. NL Expends all your Spark to increase damage by !M! per Spark, then transforms back into *Blazing Spark.",
+    "EXTENDED_DESCRIPTION": "Deal !D! damage to all enemies. NL Expends all your Spark to increase damage by !M! per Spark, then transforms back into *Blazing Spark+."
+  },
+  "${ModID}:PlaceholderGem": {
+    "NAME": "Placeholder Gem",
+    "DESCRIPTION": "This will have various effects in the future. For now it'll block. NL Exhaust."
+  },
   "${ModID}:ExampleTwoAmountPowerCard": {
     "NAME": "Two Amount Power",
     "DESCRIPTION": "At the start of your turn, gain !M! Strength and !${ModID}:m2! Dexterity."

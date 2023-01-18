@@ -6,5 +6,12 @@
       " #yStrength and #b",
       " #yDexterity."
     ]
-  }
+  },
+  "${ModID}:SparkPower": {
+  "NAME": "Sparks",
+  "DESCRIPTIONS": [
+    "The Dragon has #b",
+    " $ySpark stored."
+  ]
+}
 }
