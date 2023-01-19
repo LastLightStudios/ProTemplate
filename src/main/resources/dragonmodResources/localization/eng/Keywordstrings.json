@@ -1,9 +1,27 @@
 [
   {
+    "PROPER_NAME": "Ember",
+    "NAMES": [
+      "Ember",
+      "ember",
+      "embers"
+    ],
+    "DESCRIPTION": "The Dragon builds #yEmbers in her chest, then consumes them in order to unleash big #yBreath #yAttacks."
+  },
+  {
     "PROPER_NAME": "Spark",
     "NAMES": [
+      "Spark",
       "spark"
     ],
-    "DESCRIPTION": "The Dragon builds *Sparks in her chest in order to unleash big *Breath *Attacks."
+    "DESCRIPTION": "This card has a #ySpark and #yBreath form. Whenever you have 5 or more #yEmbers this card transforms into its #yBreath form."
+  },
+  {
+    "PROPER_NAME": "Breath",
+    "NAMES": [
+      "Breath",
+      "breath"
+    ],
+    "DESCRIPTION": "This card has a #ySpark and #yBreath form. Whenever you have less than 5 #yEmbers this card transforms into its #ySpark form."
   }
 ]

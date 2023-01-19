@@ -31,7 +31,7 @@ public class ModFile implements
         EditKeywordsSubscriber,
         EditCharactersSubscriber {
 
-    public static final String modID = "dragonmod"; //TODO: Change this.
+    public static final String modID = "dragonmod";
 
     public static String makeID(String idText) {
         return modID + ":" + idText;

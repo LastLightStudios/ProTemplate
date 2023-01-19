@@ -8,10 +8,10 @@
     ]
   },
   "${ModID}:SparkPower": {
-  "NAME": "Sparks",
+  "NAME": "Spark",
   "DESCRIPTIONS": [
     "The Dragon has #b",
-    " $ySpark stored."
+    " #ySpark stored."
   ]
 }
 }

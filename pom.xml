@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>dragonmod</groupId>
 
-    <artifactId>DragonMod</artifactId>
+    <artifactId>dragonmod</artifactId>
     <version>0.0.1</version>
     <name>Dragon Mod</name>
     <description>TODO: Change this description</description>

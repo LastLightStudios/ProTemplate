@@ -18,10 +18,11 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import code.cards.BlazingSpark;
 import code.cards.Defend;
 import code.cards.ScaleGuard;
 import code.cards.Strike;
-import code.relics.TodoItem;
+import code.relics.Dragonstone;
 
 import java.util.ArrayList;
 
@@ -57,7 +58,6 @@ public class DragonCharacterFile extends CustomPlayer {
                 getStartingDeck(), false);
     }
 
-    //TODO add starting cards
     @Override
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
@@ -68,12 +68,13 @@ public class DragonCharacterFile extends CustomPlayer {
             retVal.add(Defend.ID);
         }
         retVal.add(ScaleGuard.ID);
+        retVal.add(BlazingSpark.ID);
         return retVal;
     }
 
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(TodoItem.ID);
+        retVal.add(Dragonstone.ID);
         return retVal;
     }
 

@@ -13,13 +13,23 @@
   },
   "${ModID}:BlazingSpark": {
     "NAME": "Blazing Spark",
-    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Spark. NL If you have !${ModID}:m2! Spark, this transforms into *Blazing Breath.",
-    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Deal !D! damage. NL Gain !M! Spark. NL If you have !${ModID}:m2! Spark, this transforms into *Blazing Breath+."
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember."
   },
   "${ModID}:BlazingBreath": {
     "NAME": "Blazing Breath",
-    "DESCRIPTION": "Deal !D! damage to all enemies. NL Expends all your Spark to increase damage by !M! per Spark, then transforms back into *Blazing Spark.",
-    "EXTENDED_DESCRIPTION": "Deal !D! damage to all enemies. NL Expends all your Spark to increase damage by !M! per Spark, then transforms back into *Blazing Spark+."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Consumes all your ${ModID}:Ember to deal additional!M! damage per ${ModID}:Ember consumed.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Consumes all your ${ModID}:Ember to deal additional!M! damage per ${ModID}:Ember consumed."
+  },
+  "${ModID}:BlazingTest": {
+    "NAME": "Blazing Test",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember."
+  },
+  "${ModID}:BlazingTest2": {
+    "NAME": "Blazing Test2",
+    "DESCRIPTION": "This is the alt text!",
+    "UPGRADE_DESCRIPTION": "This is upgraded alt text!"
   },
   "${ModID}:PlaceholderGem": {
     "NAME": "Placeholder Gem",
