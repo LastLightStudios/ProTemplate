@@ -17,20 +17,21 @@ import static code.util.Wiz.atb;
 
 public class BlazingSpark extends AbstractSwappableCard {
     public final static String ID = makeID("BlazingSpark");
-    public final static String BreathID = makeID("BlazingBreath");
 
     public BlazingSpark() {
-        this(true);
+        this(null);
     }
 
-    public BlazingSpark(boolean needsPreview){
+    public BlazingSpark(AbstractSwappableCard linkedCard){
         super(ID,0, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY, DRAGON_COLOR);
         baseDamage = 1;
         baseMagicNumber = 1; // Amount of Spark gained
         magicNumber = baseMagicNumber;
         tags.add(CustomTags.SPARK);
-        if (needsPreview) {
-            setLinkedCard(new BlazingBreath(false));
+        if (linkedCard == null) {
+            setLinkedCard(new BlazingBreath(this));
+        } else {
+            setLinkedCard(linkedCard);
         }
     }
 

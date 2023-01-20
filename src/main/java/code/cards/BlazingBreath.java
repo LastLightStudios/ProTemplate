@@ -19,20 +19,21 @@ public class BlazingBreath extends AbstractSwappableCard {
     public final static String ID = makeID("BlazingBreath");
 
     public BlazingBreath() {
-        this(true);
+        this(null);
     }
 
-    public BlazingBreath(boolean needsPreview) {
+    public BlazingBreath(AbstractSwappableCard linkedCard) {
         super(ID, 2, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ALL_ENEMY, DRAGON_COLOR);
         baseDamage = 15;
         baseMagicNumber = 1; // Increases dmg by this amount per Spark
         magicNumber = baseMagicNumber;
         isMultiDamage = true;
         tags.add(CustomTags.BREATH);
-        if (needsPreview) {
-            setLinkedCard(new BlazingSpark(false));
+        if (linkedCard == null) {
+            setLinkedCard(new BlazingSpark(this));
+        } else {
+            setLinkedCard(linkedCard);
         }
-
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

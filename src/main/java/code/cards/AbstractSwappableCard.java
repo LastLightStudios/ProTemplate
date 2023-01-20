@@ -1,11 +1,5 @@
 package code.cards;
 
-
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-
-import static code.util.Wiz.adp;
-import static code.util.Wiz.att;
-
 public abstract class AbstractSwappableCard extends AbstractEasyCard{
 
     private static boolean looping;
