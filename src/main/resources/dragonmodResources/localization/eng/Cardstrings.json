@@ -18,8 +18,8 @@
   },
   "${ModID}:BlazingBreath": {
     "NAME": "Blazing Breath",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Consumes all your ${ModID}:Ember to deal additional!M! damage per ${ModID}:Ember consumed.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Consumes all your ${ModID}:Ember to deal additional!M! damage per ${ModID}:Ember consumed."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Consumes all your ${ModID}:Ember to deal additional !M! damage per ${ModID}:Ember consumed.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Consumes all your ${ModID}:Ember to deal additional !M! damage per ${ModID}:Ember consumed."
   },
   "${ModID}:BlazingTest": {
     "NAME": "Blazing Test",
@@ -28,8 +28,7 @@
   },
   "${ModID}:BlazingTest2": {
     "NAME": "Blazing Test2",
-    "DESCRIPTION": "This is the alt text!",
-    "UPGRADE_DESCRIPTION": "This is upgraded alt text!"
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Consumes all your ${ModID}:Ember to deal additional !${ModID}:m2! damage per ${ModID}:Ember consumed."
   },
   "${ModID}:PlaceholderGem": {
     "NAME": "Placeholder Gem",

@@ -1,6 +1,7 @@
 package code.cards;
 
 
+
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -8,20 +9,29 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import code.powers.EmberPower;
 
+import static code.DragonCharacterFile.Enums.DRAGON_COLOR;
 import static code.ModFile.makeID;
+import code.util.CustomTags;
 import static code.util.Wiz.applyToSelf;
 import static code.util.Wiz.atb;
 
-public class BlazingSpark extends AbstractSparkCard {
+public class BlazingSpark extends AbstractSwappableCard {
     public final static String ID = makeID("BlazingSpark");
     public final static String BreathID = makeID("BlazingBreath");
 
     public BlazingSpark() {
-        super(ID, BreathID, 0, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY);
+        this(true);
+    }
+
+    public BlazingSpark(boolean needsPreview){
+        super(ID,0, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY, DRAGON_COLOR);
         baseDamage = 1;
         baseMagicNumber = 1; // Amount of Spark gained
         magicNumber = baseMagicNumber;
-        cardsToPreview = new BlazingBreath();
+        tags.add(CustomTags.SPARK);
+        if (needsPreview) {
+            setLinkedCard(new BlazingBreath(false));
+        }
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

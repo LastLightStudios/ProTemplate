@@ -14,7 +14,7 @@ public class Dragonstone extends AbstractEasyRelic {
 
 
     // Stats
-    private static final int STARTING_SPARK_AMOUNT = 4;
+    private static final int STARTING_EMBER_AMOUNT = 4;
 
     public Dragonstone() {
         super(ID, RelicTier.STARTER, LandingSound.MAGICAL, DragonCharacterFile.Enums.DRAGON_COLOR);
@@ -23,12 +23,12 @@ public class Dragonstone extends AbstractEasyRelic {
     @Override
     public void atBattleStart() {
         flash();
-        applyToSelfTop(new EmberPower(AbstractDungeon.player, STARTING_SPARK_AMOUNT));
+        applyToSelfTop(new EmberPower(AbstractDungeon.player, STARTING_EMBER_AMOUNT));
     }
 
     // Description
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0] + STARTING_SPARK_AMOUNT + DESCRIPTIONS[1];
+        return DESCRIPTIONS[0] + STARTING_EMBER_AMOUNT + DESCRIPTIONS[1];
     }
 }

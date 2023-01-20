@@ -7,11 +7,11 @@
       " #yDexterity."
     ]
   },
-  "${ModID}:SparkPower": {
-  "NAME": "Spark",
+  "${ModID}:EmberPower": {
+  "NAME": "Ember",
   "DESCRIPTIONS": [
     "The Dragon has #b",
-    " #ySpark stored."
+    " #yEmber stored."
   ]
 }
 }

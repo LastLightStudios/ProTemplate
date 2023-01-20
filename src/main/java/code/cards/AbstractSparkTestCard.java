@@ -1,11 +1,13 @@
 package code.cards;
 
 
+import basemod.AutoAdd;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 
 import code.DragonCharacterFile;
 
+@AutoAdd.Ignore
 public abstract class AbstractSparkTestCard extends AbstractEasyCard{
 
     protected final CardStrings altCardStrings;

@@ -4,7 +4,7 @@
     "FLAVOR": "The start of a great hoard.",
     "DESCRIPTIONS": [
       "At the start of combat, gain #b",
-      " #y${ModID}:Spark."
+      " #y${ModID}:Ember."
     ]
   }
 }

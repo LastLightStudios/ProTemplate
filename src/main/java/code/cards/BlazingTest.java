@@ -22,19 +22,25 @@ public class BlazingTest extends AbstractEasyCard {
 
     public boolean isSpark;
 
-    public BlazingTest(boolean _isSpark) {
+    public BlazingTest(boolean _isSpark, boolean needsPreview) {
         super(ID,  0, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY);
         altCardStrings = CardCrawlGame.languagePack.getCardStrings(altID);
         if (_isSpark){
             isSpark = true;
             changeToSpark();
+            if (needsPreview){
+                cardsToPreview = new BlazingTest(false, false);
+            }
         } else {
             isSpark = false;
+            if (needsPreview){
+                cardsToPreview = new BlazingTest(true, false);
+            }
         }
     }
 
     public BlazingTest() {
-        this(true);
+        this(true, true);
     }
 
     public void changeToSpark(){
@@ -65,11 +71,10 @@ public class BlazingTest extends AbstractEasyCard {
         secondMagic = baseSecondMagic;
         isMultiDamage = true;
 
+        rawDescription = altCardStrings.DESCRIPTION;
         if (upgraded){
-            rawDescription = altCardStrings.UPGRADE_DESCRIPTION;
             name = altCardStrings.NAME + "+";
         } else {
-            rawDescription = altCardStrings.DESCRIPTION;
             name = originalName = altCardStrings.NAME;
         }
         initializeTitle();

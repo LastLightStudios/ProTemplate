@@ -9,20 +9,30 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import code.powers.EmberPower;
 
+
 import static code.DragonCharacterFile.Enums.DRAGON_COLOR;
 import static code.ModFile.makeID;
+import code.util.CustomTags;
 import static code.util.Wiz.*;
 
-public class BlazingBreath extends AbstractEasyCard {
+public class BlazingBreath extends AbstractSwappableCard {
     public final static String ID = makeID("BlazingBreath");
 
     public BlazingBreath() {
+        this(true);
+    }
+
+    public BlazingBreath(boolean needsPreview) {
         super(ID, 2, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ALL_ENEMY, DRAGON_COLOR);
         baseDamage = 15;
         baseMagicNumber = 1; // Increases dmg by this amount per Spark
         magicNumber = baseMagicNumber;
         isMultiDamage = true;
-        cardsToPreview = new BlazingSpark();
+        tags.add(CustomTags.BREATH);
+        if (needsPreview) {
+            setLinkedCard(new BlazingSpark(false));
+        }
+
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

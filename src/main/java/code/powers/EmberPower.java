@@ -1,17 +1,20 @@
 package code.powers;
 
-import code.util.Wiz;
+
+import org.apache.logging.log4j.Logger;
+
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 
+import code.actions.SwapCardsAction;
+import code.cards.AbstractSwappableCard;
 import code.util.CustomTags;
 
-import java.util.ArrayList;
-
 import static code.ModFile.makeID;
+import static code.util.Wiz.adp;
+import static code.util.Wiz.att;
 
 public class EmberPower extends AbstractEasyPower {
 
@@ -30,15 +33,27 @@ public class EmberPower extends AbstractEasyPower {
         updateDescription();
     }
 
+    // need to make all of these also trigger not just in hand
+    // probably need to extract into a change to spark and change to breath method
+    @Override
+    public void onInitialApplication(){
+        if (amount >= EMBER_BREAKPOINT){
+            swapSparkCards();
+        }
+    }
+
     @Override
     public void stackPower(int stackAmount){
         super.stackPower(stackAmount);
         if (amount >= EMBER_BREAKPOINT){
-            for (AbstractCard c : Wiz.getAllCardsInCardGroups(true, true)){
-                if (isSpark(c)){
-                    // transform into its breath
-                }
-            }
+            swapSparkCards();
+        }
+    }
+
+    @Override
+    public void onRemove(){
+        if (amount <= EMBER_BREAKPOINT ) {
+            swapBreathCards();
         }
     }
 
@@ -46,7 +61,49 @@ public class EmberPower extends AbstractEasyPower {
     public void reducePower(int reduceAmount){
         super.reducePower(reduceAmount);
         if (amount <= EMBER_BREAKPOINT ) {
-            // transform Breaths into Sparks
+            swapBreathCards();
+        }
+    }
+
+    public void swapSparkCards(){
+        for (AbstractCard c : adp().hand.group){
+            if (isSpark(c) && c instanceof  AbstractSwappableCard){
+                att(new SwapCardsAction((AbstractSwappableCard)c, (AbstractSwappableCard)c.cardsToPreview, adp().hand));
+            }
+        }for (AbstractCard c : adp().drawPile.group){
+            if (isSpark(c) && c instanceof  AbstractSwappableCard){
+                att(new SwapCardsAction((AbstractSwappableCard)c, (AbstractSwappableCard)c.cardsToPreview, adp().drawPile));
+            }
+        }
+        for (AbstractCard c : adp().discardPile.group){
+            if (isSpark(c) && c instanceof  AbstractSwappableCard){
+                att(new SwapCardsAction((AbstractSwappableCard)c, (AbstractSwappableCard)c.cardsToPreview, adp().discardPile));
+            }
+        }for (AbstractCard c : adp().exhaustPile.group){
+            if (isSpark(c) && c instanceof  AbstractSwappableCard){
+                att(new SwapCardsAction((AbstractSwappableCard)c, (AbstractSwappableCard)c.cardsToPreview, adp().exhaustPile));
+            }
+        }
+    }
+
+    public void swapBreathCards(){
+        for (AbstractCard c : adp().hand.group){
+            if (isBreath(c) && c instanceof  AbstractSwappableCard){
+                att(new SwapCardsAction((AbstractSwappableCard)c, (AbstractSwappableCard)c.cardsToPreview, adp().hand));
+            }
+        }for (AbstractCard c : adp().drawPile.group){
+            if (isBreath(c) && c instanceof  AbstractSwappableCard){
+                att(new SwapCardsAction((AbstractSwappableCard)c, (AbstractSwappableCard)c.cardsToPreview, adp().drawPile));
+            }
+        }
+        for (AbstractCard c : adp().discardPile.group){
+            if (isBreath(c) && c instanceof  AbstractSwappableCard){
+                att(new SwapCardsAction((AbstractSwappableCard)c, (AbstractSwappableCard)c.cardsToPreview, adp().discardPile));
+            }
+        }for (AbstractCard c : adp().exhaustPile.group){
+            if (isBreath(c) && c instanceof  AbstractSwappableCard){
+                att(new SwapCardsAction((AbstractSwappableCard)c, (AbstractSwappableCard)c.cardsToPreview, adp().exhaustPile));
+            }
         }
     }
 

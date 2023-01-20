@@ -1,12 +1,12 @@
 package code.actions;
 
-import code.cards.AbstractSparkCard;
+import code.cards.AbstractSwappableCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 
 import static code.util.Wiz.adp;
 
 public class TransformSparkCardAction {
-    public TransformSparkCardAction(AbstractSparkCard originalCard, AbstractSparkCard swapCard, CardGroup.CardGroupType cardGroup){
+    public TransformSparkCardAction(AbstractSwappableCard originalCard, AbstractSwappableCard swapCard, CardGroup.CardGroupType cardGroup){
         switch(cardGroup){
             case HAND:
                 int index = -1;
