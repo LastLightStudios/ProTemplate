@@ -1,7 +1,8 @@
 package code.powers;
 
 
-import org.apache.logging.log4j.Logger;
+import code.cards.AbstractTwoSidedCard;
+import code.util.Wiz;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -39,6 +40,8 @@ public class EmberPower extends AbstractEasyPower {
     public void onInitialApplication(){
         if (amount >= EMBER_BREAKPOINT){
             swapSparkCards();
+        } else {
+            swapBreathCards();
         }
     }
 
@@ -47,20 +50,22 @@ public class EmberPower extends AbstractEasyPower {
         super.stackPower(stackAmount);
         if (amount >= EMBER_BREAKPOINT){
             swapSparkCards();
-        }
-    }
-
-    @Override
-    public void onRemove(){
-        if (amount <= EMBER_BREAKPOINT ) {
+        } else {
             swapBreathCards();
         }
     }
 
     @Override
+    public void onRemove(){
+        swapBreathCards();
+    }
+
+    @Override
     public void reducePower(int reduceAmount){
         super.reducePower(reduceAmount);
-        if (amount <= EMBER_BREAKPOINT ) {
+        if (amount >= EMBER_BREAKPOINT){
+            swapSparkCards();
+        } else {
             swapBreathCards();
         }
     }
@@ -84,6 +89,11 @@ public class EmberPower extends AbstractEasyPower {
                 att(new SwapCardsAction((AbstractSwappableCard)c, (AbstractSwappableCard)c.cardsToPreview, adp().exhaustPile));
             }
         }
+        for (AbstractCard c : Wiz.getAllCardsInCardGroups(true, true)){
+            if (isDoubleSided(c) && c instanceof AbstractTwoSidedCard){
+                ((AbstractTwoSidedCard) c).changeToFront();
+            }
+        }
     }
 
     public void swapBreathCards(){
@@ -105,6 +115,11 @@ public class EmberPower extends AbstractEasyPower {
                 att(new SwapCardsAction((AbstractSwappableCard)c, (AbstractSwappableCard)c.cardsToPreview, adp().exhaustPile));
             }
         }
+        for (AbstractCard c : Wiz.getAllCardsInCardGroups(true, true)){
+            if (isDoubleSided(c) && c instanceof AbstractTwoSidedCard){
+                ((AbstractTwoSidedCard) c).changeToBack();
+            }
+        }
     }
 
     public static boolean isSpark(AbstractCard c){
@@ -113,6 +128,14 @@ public class EmberPower extends AbstractEasyPower {
 
     public static boolean isBreath(AbstractCard c){
         return c.hasTag(CustomTags.BREATH);
+    }
+
+    public static boolean isDoubleSided(AbstractCard c){
+        return c.hasTag(CustomTags.DOUBLE_SIDED);
+    }
+
+    public static int getEmberBreakpoint(){
+        return EMBER_BREAKPOINT;
     }
 
     @Override

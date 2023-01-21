@@ -76,6 +76,20 @@ public class SwapCardsAction extends AbstractGameAction {
                 System.out.println("Somehow the card in exhaustPile is not in exhaustPile");
             }
         }
+        if (currentLocation == adp().limbo){
+            int index = -1;
+            for (int i = 0; i < adp().limbo.group.size(); i++) {
+                if (card1 == adp().limbo.group.get(i)) {
+                    index = i;
+                }
+            }
+            if (index != -1) {
+                updateNewSwappedCard(card2);
+                att(new TransformCardInLimboAction(index, card2));
+            } else {
+                System.out.println("Somehow the card in Limbo is not in Limbo");
+            }
+        }
         this.isDone = true;
     }
 

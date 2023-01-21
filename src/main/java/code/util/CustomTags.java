@@ -8,4 +8,6 @@ public class CustomTags {
     public static AbstractCard.CardTags SPARK;
     @SpireEnum
     public static AbstractCard.CardTags BREATH;
+    @SpireEnum
+    public static AbstractCard.CardTags DOUBLE_SIDED;
 }

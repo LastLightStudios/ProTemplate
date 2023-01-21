@@ -1,6 +1,7 @@
 package code.cards;
 
 
+import code.actions.SwapCardsAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -39,6 +40,7 @@ public class BlazingBreath extends AbstractSwappableCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         allDmg(AbstractGameAction.AttackEffect.FIRE);
         atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
+        atb(new SwapCardsAction(this, (AbstractSwappableCard)this.cardsToPreview, adp().limbo));
     }
 
     @Override
@@ -50,6 +52,8 @@ public class BlazingBreath extends AbstractSwappableCard {
             super.calculateCardDamage(m);
             baseDamage = realBaseDamage; //restore the realBaseDamage
             isDamageModified = (damage != baseDamage);
+        } else {
+            super.calculateCardDamage(m);
         }
     }
 
@@ -62,6 +66,8 @@ public class BlazingBreath extends AbstractSwappableCard {
             super.applyPowers();
             baseDamage = realBaseDamage; //restore the realBaseDamage
             isDamageModified = (damage != baseDamage);
+        } else {
+            super.applyPowers();
         }
     }
 

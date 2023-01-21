@@ -2,6 +2,7 @@ package code.cards;
 
 
 
+import code.actions.SwapCardsAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -11,9 +12,10 @@ import code.powers.EmberPower;
 
 import static code.DragonCharacterFile.Enums.DRAGON_COLOR;
 import static code.ModFile.makeID;
+import static code.util.Wiz.*;
+
 import code.util.CustomTags;
-import static code.util.Wiz.applyToSelf;
-import static code.util.Wiz.atb;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class BlazingSpark extends AbstractSwappableCard {
     public final static String ID = makeID("BlazingSpark");
@@ -40,7 +42,14 @@ public class BlazingSpark extends AbstractSwappableCard {
             atb(new DrawCardAction(1));
         }
         dmg(m, AbstractGameAction.AttackEffect.FIRE);
-        applyToSelf(new EmberPower(p, baseMagicNumber));
+        // so this is in a wonky order b/c the whole use function happens before the actions are resolved
+        AbstractPower ember = adp().getPower(EmberPower.POWER_ID);
+        if (ember != null) {
+            if (ember.amount + magicNumber >= EmberPower.getEmberBreakpoint()){
+                atb(new SwapCardsAction(this, (AbstractSwappableCard)this.cardsToPreview, adp().limbo));
+            }
+        }
+        applyToSelf(new EmberPower(p, magicNumber));
     }
 
     public void upp() {
