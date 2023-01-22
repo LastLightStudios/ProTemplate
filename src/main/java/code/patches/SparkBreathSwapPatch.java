@@ -6,6 +6,7 @@ import code.util.CustomTags;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import javassist.CtBehavior;
 
@@ -41,16 +42,16 @@ public class SparkBreathSwapPatch {
                 if (ember != null){
                     if (ember.amount >= EmberPower.getEmberBreakpoint()){
                         if (tempTargetCard.hasTag(CustomTags.SPARK)){
-                            ReflectionHacks.setPrivate(__instance, UseCardAction.class, "targetCard", tempTargetCard.cardsToPreview);
+                            ReflectionHacks.setPrivate(__instance, UseCardAction.class, "targetCard", tempTargetCard.cardsToPreview.makeSameInstanceOf());
                         }
                     } else {
                         if (tempTargetCard.hasTag(CustomTags.BREATH)){
-                            ReflectionHacks.setPrivate(__instance, UseCardAction.class, "targetCard", tempTargetCard.cardsToPreview);
+                            ReflectionHacks.setPrivate(__instance, UseCardAction.class, "targetCard", tempTargetCard.cardsToPreview.makeSameInstanceOf());
                         }
                     }
                 } else {
                     if (tempTargetCard.hasTag(CustomTags.BREATH)){
-                        ReflectionHacks.setPrivate(__instance, UseCardAction.class, "targetCard", tempTargetCard.cardsToPreview);
+                        ReflectionHacks.setPrivate(__instance, UseCardAction.class, "targetCard", tempTargetCard.cardsToPreview.makeSameInstanceOf());
                     }
 
                 }
@@ -60,7 +61,7 @@ public class SparkBreathSwapPatch {
         private static class StrangeSpoonFinder extends SpireInsertLocator{
             @Override
             public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
-                Matcher finalMatcher = new Matcher.MethodCallMatcher(adp().getClass(), "hasRelic");
+                Matcher finalMatcher = new Matcher.MethodCallMatcher(AbstractPlayer.class, "hasRelic");
                 return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
             }
         }

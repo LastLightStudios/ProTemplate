@@ -17,7 +17,7 @@ public class TransformCardInDiscardPileAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        adp().discardPile.group.set(this.handIndex, this.replacement);
+        adp().discardPile.group.set(this.handIndex, this.replacement.makeSameInstanceOf());
         this.isDone = true;
     }
 }

@@ -40,7 +40,6 @@ public class BlazingBreath extends AbstractSwappableCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         allDmg(AbstractGameAction.AttackEffect.FIRE);
         atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
-        atb(new SwapCardsAction(this, (AbstractSwappableCard)this.cardsToPreview, adp().limbo));
     }
 
     @Override

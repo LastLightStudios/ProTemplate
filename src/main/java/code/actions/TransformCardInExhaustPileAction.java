@@ -17,7 +17,7 @@ public class TransformCardInExhaustPileAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        adp().exhaustPile.group.set(this.handIndex, this.replacement);
+        adp().exhaustPile.group.set(this.handIndex, this.replacement.makeSameInstanceOf());
         this.isDone = true;
     }
 }

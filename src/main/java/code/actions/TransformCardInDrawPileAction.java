@@ -19,7 +19,7 @@ public class TransformCardInDrawPileAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        adp().drawPile.group.set(this.handIndex, this.replacement);
+        adp().drawPile.group.set(this.handIndex, this.replacement.makeSameInstanceOf());
         this.isDone = true;
     }
 }

@@ -36,7 +36,7 @@ public class TransformCardInHandAction extends AbstractGameAction {
             this.replacement.angle = target.angle;
             this.replacement.targetAngle = target.targetAngle;
             this.replacement.superFlash(Color.WHITE.cpy());
-            adp().hand.group.set(this.handIndex, this.replacement);
+            adp().hand.group.set(this.handIndex, this.replacement.makeSameInstanceOf());
             adp().hand.glowCheck();
         }
         this.tickDuration();

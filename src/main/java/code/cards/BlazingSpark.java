@@ -42,13 +42,6 @@ public class BlazingSpark extends AbstractSwappableCard {
             atb(new DrawCardAction(1));
         }
         dmg(m, AbstractGameAction.AttackEffect.FIRE);
-        // so this is in a wonky order b/c the whole use function happens before the actions are resolved
-        AbstractPower ember = adp().getPower(EmberPower.POWER_ID);
-        if (ember != null) {
-            if (ember.amount + magicNumber >= EmberPower.getEmberBreakpoint()){
-                atb(new SwapCardsAction(this, (AbstractSwappableCard)this.cardsToPreview, adp().limbo));
-            }
-        }
         applyToSelf(new EmberPower(p, magicNumber));
     }
 
