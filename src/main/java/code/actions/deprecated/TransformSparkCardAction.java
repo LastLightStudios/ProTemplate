@@ -1,4 +1,4 @@
-package code.actions;
+package code.actions.deprecated;
 
 import code.cards.AbstractSwappableCard;
 import com.megacrit.cardcrawl.cards.CardGroup;

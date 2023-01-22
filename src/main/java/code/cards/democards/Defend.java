@@ -1,5 +1,6 @@
-package code.cards;
+package code.cards.democards;
 
+import code.cards.AbstractEasyCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 

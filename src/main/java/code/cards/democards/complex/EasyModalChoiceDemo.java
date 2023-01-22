@@ -5,9 +5,9 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import code.actions.EasyModalChoiceAction;
+import code.actions.deprecated.EasyModalChoiceAction;
 import code.cards.AbstractEasyCard;
-import code.cards.EasyModalChoiceCard;
+import code.cards.democards.EasyModalChoiceCard;
 
 import java.util.ArrayList;
 

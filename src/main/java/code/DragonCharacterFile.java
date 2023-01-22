@@ -18,10 +18,10 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import code.cards.BlazingSpark;
-import code.cards.Defend;
+import code.deprecatedcards.BlazingSpark_Dep;
+import code.cards.democards.Defend;
 import code.cards.ScaleGuard;
-import code.cards.Strike;
+import code.cards.democards.Strike;
 import code.relics.Dragonstone;
 
 import java.util.ArrayList;
@@ -68,7 +68,7 @@ public class DragonCharacterFile extends CustomPlayer {
             retVal.add(Defend.ID);
         }
         retVal.add(ScaleGuard.ID);
-        retVal.add(BlazingSpark.ID);
+        retVal.add(BlazingSpark_Dep.ID);
         return retVal;
     }
 

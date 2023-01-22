@@ -1,4 +1,4 @@
-package code.actions;
+package code.actions.deprecated;
 
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -6,18 +6,18 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 
 import static code.util.Wiz.adp;
 
-public class TransformCardInLimboAction extends AbstractGameAction {
+public class TransformCardInExhaustPileAction extends AbstractGameAction {
     private AbstractCard replacement;
     private int handIndex;
 
-    public TransformCardInLimboAction(int index, AbstractCard replacement) {
+    public TransformCardInExhaustPileAction(int index, AbstractCard replacement) {
         this.handIndex = index;
         this.replacement = replacement;
     }
 
     @Override
     public void update() {
-        adp().limbo.group.set(this.handIndex, this.replacement);
+        adp().exhaustPile.group.set(this.handIndex, this.replacement.makeSameInstanceOf());
         this.isDone = true;
     }
 }

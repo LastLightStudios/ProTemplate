@@ -4,7 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import code.actions.EasyXCostAction;
+import code.actions.deprecated.EasyXCostAction;
 import code.cards.AbstractEasyCard;
 
 import static code.util.Wiz.*;

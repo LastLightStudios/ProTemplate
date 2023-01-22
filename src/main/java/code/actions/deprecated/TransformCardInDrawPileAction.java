@@ -1,4 +1,4 @@
-package code.actions;
+package code.actions.deprecated;
 
 
 import com.badlogic.gdx.graphics.Color;

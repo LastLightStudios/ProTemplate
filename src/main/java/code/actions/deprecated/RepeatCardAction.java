@@ -1,4 +1,4 @@
-package code.actions;
+package code.actions.deprecated;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;

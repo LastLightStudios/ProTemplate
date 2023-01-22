@@ -6,11 +6,16 @@ import code.util.CustomTags;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
 
+import static code.ModFile.makeID;
 import code.DragonCharacterFile;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import java.util.List;
+
 public abstract class AbstractTwoSidedCard extends AbstractEasyCard{
+    protected static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(makeID("Spark"));
     protected boolean isFront; //true = front(Spark), false = back(Breath)
 
     private String nameA;
@@ -39,12 +44,10 @@ public abstract class AbstractTwoSidedCard extends AbstractEasyCard{
     protected CardTarget cardTargetB;
 
     protected final CardStrings cardStrings;
-    //protected final CardStrings altCardStrings;
 
     public AbstractTwoSidedCard(String cardID, int costA, int costB, CardType typeA, CardType typeB, CardRarity rarity, CardTarget targetA, CardTarget targetB, boolean generatePreview){
         super(cardID, costA, typeA, rarity, targetA, DragonCharacterFile.Enums.DRAGON_COLOR);
         cardStrings = CardCrawlGame.languagePack.getCardStrings(cardID);
-        //altCardStrings = CardCrawlGame.languagePack.getCardStrings(otherCardID);
         nameA = cardStrings.NAME;
         nameB = cardStrings.EXTENDED_DESCRIPTION[0];
 
@@ -79,6 +82,9 @@ public abstract class AbstractTwoSidedCard extends AbstractEasyCard{
     }
 
     protected abstract AbstractTwoSidedCard noPreviewCopy();
+
+    @Override
+    public abstract List<String> getCardDescriptors();
 
     public void changeSide(boolean changeToBack){
         if (!changeToBack){ // change to Spark
@@ -118,7 +124,18 @@ public abstract class AbstractTwoSidedCard extends AbstractEasyCard{
         isFront = !changeToBack;
         initializeTitle();
         initializeDescription();
-        ((AbstractTwoSidedCard)cardsToPreview).changeSide(changeToBack);
+
+        if (!changeToBack){ //has changed to Spark
+            // the preview doesn't have a preview, so have to do a null check.
+            if(cardsToPreview != null){
+                ((AbstractTwoSidedCard)cardsToPreview).changeSide(true); // make the preview a Breath
+            }
+        } else { //has changed to Breath
+            // the preview doesn't have a preview, so have to do a null check.
+            if(cardsToPreview != null){
+                ((AbstractTwoSidedCard)cardsToPreview).changeSide(false); // make the preview a Spark
+            }
+        }
     }
 
     @Override

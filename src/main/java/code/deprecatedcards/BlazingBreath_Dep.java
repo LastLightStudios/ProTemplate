@@ -1,7 +1,7 @@
-package code.cards;
+package code.deprecatedcards;
 
 
-import code.actions.SwapCardsAction;
+import code.cards.AbstractSwappableCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -16,14 +16,14 @@ import static code.ModFile.makeID;
 import code.util.CustomTags;
 import static code.util.Wiz.*;
 
-public class BlazingBreath extends AbstractSwappableCard {
+public class BlazingBreath_Dep extends AbstractSwappableCard {
     public final static String ID = makeID("BlazingBreath");
 
-    public BlazingBreath() {
+    public BlazingBreath_Dep() {
         this(null);
     }
 
-    public BlazingBreath(AbstractSwappableCard linkedCard) {
+    public BlazingBreath_Dep(AbstractSwappableCard linkedCard) {
         super(ID, 2, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ALL_ENEMY, DRAGON_COLOR);
         baseDamage = 15;
         baseMagicNumber = 1; // Increases dmg by this amount per Spark
@@ -31,7 +31,7 @@ public class BlazingBreath extends AbstractSwappableCard {
         isMultiDamage = true;
         tags.add(CustomTags.BREATH);
         if (linkedCard == null) {
-            setLinkedCard(new BlazingSpark(this));
+            setLinkedCard(new BlazingSpark_Dep(this));
         } else {
             setLinkedCard(linkedCard);
         }

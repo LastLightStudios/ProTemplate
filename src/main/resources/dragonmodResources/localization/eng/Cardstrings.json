@@ -14,20 +14,10 @@
   "${ModID}:BlazingSpark": {
     "NAME": "Blazing Spark",
     "DESCRIPTION": "Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
-    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember."
-  },
-  "${ModID}:BlazingBreath": {
-    "NAME": "Blazing Breath",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Consumes all your ${ModID}:Ember to deal additional !M! damage per ${ModID}:Ember consumed.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Consumes all your ${ModID}:Ember to deal additional !M! damage per ${ModID}:Ember consumed."
-  },
-  "${ModID}:BlazingTest": {
-    "NAME": "Blazing Test",
-    "DESCRIPTION": "Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
     "UPGRADE_DESCRIPTION": "Draw 1 card. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
     "EXTENDED_DESCRIPTION": [
-      "Blazing Test Back",
-      "Deal !D! damage to ALL enemies. NL Consumes all your ${ModID}:Ember to deal additional !${ModID}:m2! damage per ${ModID}:Ember consumed."
+      "Blazing Breath",
+      "Deal !D! damage to ALL enemies. NL Consumes all your ${ModID}:Ember to deal additional !M! damage per ${ModID}:Ember consumed."
     ]
   },
   "${ModID}:BlazingTest2": {
