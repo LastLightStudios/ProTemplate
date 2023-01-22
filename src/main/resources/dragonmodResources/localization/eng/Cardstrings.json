@@ -24,7 +24,11 @@
   "${ModID}:BlazingTest": {
     "NAME": "Blazing Test",
     "DESCRIPTION": "Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
-    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember."
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
+    "EXTENDED_DESCRIPTION": [
+      "Blazing Test Back",
+      "Deal !D! damage to ALL enemies. NL Consumes all your ${ModID}:Ember to deal additional !${ModID}:m2! damage per ${ModID}:Ember consumed."
+    ]
   },
   "${ModID}:BlazingTest2": {
     "NAME": "Blazing Test2",

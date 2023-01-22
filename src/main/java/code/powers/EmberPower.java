@@ -91,7 +91,7 @@ public class EmberPower extends AbstractEasyPower {
         }
         for (AbstractCard c : Wiz.getAllCardsInCardGroups(true, true)){
             if (isDoubleSided(c) && c instanceof AbstractTwoSidedCard){
-                ((AbstractTwoSidedCard) c).changeToFront();
+                ((AbstractTwoSidedCard) c).changeSide(false);
             }
         }
     }
@@ -117,7 +117,7 @@ public class EmberPower extends AbstractEasyPower {
         }
         for (AbstractCard c : Wiz.getAllCardsInCardGroups(true, true)){
             if (isDoubleSided(c) && c instanceof AbstractTwoSidedCard){
-                ((AbstractTwoSidedCard) c).changeToBack();
+                ((AbstractTwoSidedCard) c).changeSide(true);
             }
         }
     }

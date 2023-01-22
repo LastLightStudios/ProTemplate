@@ -2,26 +2,176 @@ package code.cards;
 
 
 import basemod.AutoAdd;
+import code.util.CustomTags;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 
 import code.DragonCharacterFile;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public abstract class AbstractTwoSidedCard extends AbstractEasyCard{
+    protected boolean isFront; //true = front(Spark), false = back(Breath)
 
+    private String nameA;
+    private String nameB;
+
+    protected String descriptionA;
+    protected String descriptionB;
+
+    public int cardCostA;
+    public int cardCostB;
+    public int baseDamageA;
+    public int baseDamageB;
+    public int baseBlockA;
+    public int baseBlockB;
+    public int baseMagicNumberA;
+    public int baseMagicNumberB;
+    public int baseSecondMagicA;
+    public int baseSecondMagicB;
+    public int baseSecondDamageA;
+    public int baseSecondDamageB;
+
+    private CardType cardTypeA;
+    private CardType cardTypeB;
+
+    protected CardTarget cardTargetA;
+    protected CardTarget cardTargetB;
+
+    protected final CardStrings cardStrings;
     //protected final CardStrings altCardStrings;
 
-    public AbstractTwoSidedCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target){
-        super(cardID, cost, type, rarity, target, DragonCharacterFile.Enums.DRAGON_COLOR);
-        // altCardStrings = CardCrawlGame.languagePack.getCardStrings(otherCardID);
+    public AbstractTwoSidedCard(String cardID, int costA, int costB, CardType typeA, CardType typeB, CardRarity rarity, CardTarget targetA, CardTarget targetB, boolean generatePreview){
+        super(cardID, costA, typeA, rarity, targetA, DragonCharacterFile.Enums.DRAGON_COLOR);
+        cardStrings = CardCrawlGame.languagePack.getCardStrings(cardID);
+        //altCardStrings = CardCrawlGame.languagePack.getCardStrings(otherCardID);
+        nameA = cardStrings.NAME;
+        nameB = cardStrings.EXTENDED_DESCRIPTION[0];
+
+        descriptionA = cardStrings.DESCRIPTION;
+        descriptionB = cardStrings.EXTENDED_DESCRIPTION[1];
+
+        cardCostA = costA;
+        cardCostB = costB;
+
+        cardTypeA = typeA;
+        cardTypeB = typeB;
+
+        cardTargetA = targetA;
+        cardTargetB = targetB;
+
+        baseDamageA = 0;
+        baseDamageB = 0;
+        baseBlockA = 0;
+        baseBlockB = 0;
+        baseMagicNumberA = 0;
+        baseMagicNumberB = 0;
+        baseSecondMagicA = 0;
+        baseSecondMagicB = 0;
+        baseSecondDamageA = 0;
+        baseSecondDamageB = 0;
+
+        if (generatePreview){
+            cardsToPreview = noPreviewCopy();
+        }
+
+        tags.add(CustomTags.DOUBLE_SIDED);
+    }
+
+    protected abstract AbstractTwoSidedCard noPreviewCopy();
+
+    public void changeSide(boolean changeToBack){
+        if (!changeToBack){ // change to Spark
+            name = nameA;
+            rawDescription = descriptionA;
+
+            //TODO: img switching
+
+            type = cardTypeA;
+            target = cardTargetA;
+
+            baseDamage = baseDamageA;
+            baseBlock = baseBlockA;
+            baseMagicNumber = magicNumber = baseMagicNumberA;
+            baseSecondMagic = secondMagic = baseSecondMagicA;
+            baseSecondDamage = secondDamage = baseSecondDamageA;
+        } else { // change to Breath
+            name = nameB;
+            rawDescription = descriptionB;
+
+            //TODO: img switching
+
+            type = cardTypeB;
+            target = cardTargetB;
+
+            baseDamage = baseDamageB;
+            baseBlock = baseBlockB;
+            baseMagicNumber = magicNumber = baseMagicNumberB;
+            baseSecondMagic = secondMagic = baseSecondMagicB;
+            baseSecondDamage = secondDamage = baseSecondDamageB;
+        }
+        if (target == CardTarget.ALL_ENEMY){
+            isMultiDamage = true;
+        } else {
+            isMultiDamage = false;
+        }
+        isFront = !changeToBack;
+        initializeTitle();
+        initializeDescription();
+        ((AbstractTwoSidedCard)cardsToPreview).changeSide(changeToBack);
     }
 
     @Override
     public void applyPowers(){
-
+        super.applyPowers();
+        if (cardsToPreview != null){
+            cardsToPreview.applyPowers();
+        }
     }
 
-    public abstract void changeToFront();
+    @Override
+    public void calculateCardDamage(AbstractMonster mo){
+        super.calculateCardDamage(mo);
+        if (cardsToPreview != null){
+            cardsToPreview.applyPowers();
+        }
+    }
 
-    public abstract void changeToBack();
+    @Override
+    public void resetAttributes() {
+        super.resetAttributes();
+        if (cardsToPreview != null){
+            cardsToPreview.resetAttributes();
+        }
+    }
+
+    @Override
+    public void upgrade(){
+        if(!upgraded){
+            ++timesUpgraded;
+            upgraded = true;
+            name = this.name + "+";
+            nameA = this.nameA + "+";
+            nameB = this.nameB + "+";
+            initializeTitle();
+        }
+    }
+
+    public abstract void upp();
+
+    @Override
+    public AbstractCard makeStatEquivalentCopy(){
+
+        AbstractCard baseCopy = super.makeStatEquivalentCopy();
+
+        if (baseCopy instanceof AbstractTwoSidedCard) {
+            ((AbstractTwoSidedCard) baseCopy).baseBlockA = this.baseBlockA;
+            ((AbstractTwoSidedCard) baseCopy).baseBlockB = this.baseBlockB;
+            ((AbstractTwoSidedCard) baseCopy).baseDamageA = this.baseDamageA;
+            ((AbstractTwoSidedCard) baseCopy).baseDamageB = this.baseDamageB;
+            ((AbstractTwoSidedCard) baseCopy).baseMagicNumberA = this.baseMagicNumberA;
+            ((AbstractTwoSidedCard) baseCopy).baseMagicNumberB = this.baseMagicNumberB;
+        }
+        return baseCopy;
+    }
 }

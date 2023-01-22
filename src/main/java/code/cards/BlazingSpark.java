@@ -15,7 +15,6 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.*;
 
 import code.util.CustomTags;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class BlazingSpark extends AbstractSwappableCard {
     public final static String ID = makeID("BlazingSpark");

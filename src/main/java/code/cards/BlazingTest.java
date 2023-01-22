@@ -19,90 +19,49 @@ public class BlazingTest extends AbstractTwoSidedCard {
     public final static String ID = makeID("BlazingTest");
     public final static String altID = makeID("BlazingTest2");
 
-    protected final CardStrings altCardStrings;
+    private final static int COST_A = 0;
+    private final static int COST_B = 2;
+
+    private final static int DAMAGE_A = 1;
+    private final static int DAMAGE_B = 15;
+    private final static int UPGRADE_DAMAGE_A = 1;
+    private final static int UPGRADE_DAMAGE_B = 15;
+
+    private final static int MAGIC_NUMBER_A = 1; //spark gain
+    private final static int MAGIC_NUMBER_B = 1; //spark multiplier
+    private final static int UPGRADE_MAGIC_NUMBER_B = 1; //spark multiplier increase
+
+    //protected final CardStrings altCardStrings;
 
     public boolean isFrontSide;
 
-    public BlazingTest(boolean _isFrontSide, boolean needsPreview) {
-        super(ID,  0, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY);
-        altCardStrings = CardCrawlGame.languagePack.getCardStrings(altID);
-        tags.add(CustomTags.DOUBLE_SIDED);
-        if (_isFrontSide){
-            isFrontSide = true;
-            changeToFront();
-            if (needsPreview){
-                cardsToPreview = new BlazingTest(false, false);
-            }
-        } else {
-            isFrontSide = false;
-            changeToBack();
-            if (needsPreview){
-                cardsToPreview = new BlazingTest(true, false);
-            }
-        }
+    public BlazingTest(boolean needsPreview) {
+        super(ID,  COST_A, COST_B, CardType.ATTACK, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY, CardTarget.ALL_ENEMY, needsPreview);
+        //altCardStrings = CardCrawlGame.languagePack.getCardStrings(altID);
+        baseDamageA = DAMAGE_A;
+        baseDamageB = DAMAGE_B;
+        baseMagicNumberA = MAGIC_NUMBER_A;
+        baseMagicNumberB = MAGIC_NUMBER_B;
     }
 
     public BlazingTest() {
-        this(true, true);
+        this(true);
     }
 
     @Override
-    public void changeToFront(){
-        if (!isFrontSide){
-            target = CardTarget.ENEMY;
-            cost = 0;
-            baseDamage = 1;
-            baseMagicNumber = 1; // Amount of Spark gained
-            magicNumber = baseMagicNumber;
-            isMultiDamage = false;
-
-            if (upgraded){
-                rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-                name = cardStrings.NAME + "+";
-            } else {
-                rawDescription = cardStrings.DESCRIPTION;
-                name = originalName = cardStrings.NAME;
-            }
-            initializeTitle();
-            initializeDescription();
-            isFrontSide = true;
-        }
-    }
-
-    @Override
-    public void changeToBack(){
-        if (isFrontSide){
-            target = CardTarget.ALL_ENEMY;
-            cost = 2;
-            baseDamage = 15;
-            if (upgraded) {
-                baseSecondMagic = 2; // Increases dmg by this amount per Spark
-            } else {
-                baseSecondMagic = 1; // Increases dmg by this amount per Spark
-            }
-            secondMagic = baseSecondMagic;
-            isMultiDamage = true;
-
-            rawDescription = altCardStrings.DESCRIPTION;
-            if (upgraded){
-                name = altCardStrings.NAME + "+";
-            } else {
-                name = originalName = altCardStrings.NAME;
-            }
-            initializeTitle();
-            initializeDescription();
-            isFrontSide = false;
-        }
+    protected AbstractTwoSidedCard noPreviewCopy(){
+        return new BlazingTest(false);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (isFrontSide) {
+        if (isFront) {
             if(upgraded){
                 atb(new DrawCardAction(1));
             }
             dmg(m, AbstractGameAction.AttackEffect.FIRE);
             applyToSelf(new EmberPower(p, magicNumber));
         } else { // Breath
+            dmg(m, AbstractGameAction.AttackEffect.FIRE);
             allDmg(AbstractGameAction.AttackEffect.FIRE);
             atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
         }
@@ -110,11 +69,11 @@ public class BlazingTest extends AbstractTwoSidedCard {
 
     @Override
     public void calculateCardDamage(AbstractMonster m){
-        if (isFrontSide){
+        if (isFront){
             AbstractPower ember = adp().getPower(EmberPower.POWER_ID);
-            if (ember != null){ //idk how tf it can ever not be null but
+            if (ember != null) {
                 int realBaseDamage = baseDamage; //temp store realBaseDamage b/c baseDamage is used in card damage calculations
-                baseDamage = baseDamage + (secondMagic * ember.amount);
+                baseDamage = baseDamage + (magicNumber * ember.amount);
                 super.calculateCardDamage(m);
                 baseDamage = realBaseDamage; //restore the realBaseDamage
                 isDamageModified = (damage != baseDamage);
@@ -126,13 +85,13 @@ public class BlazingTest extends AbstractTwoSidedCard {
 
     @Override
     public void applyPowers() {
-        if (isFrontSide) {
+        if (isFront) {
             super.applyPowers();
         } else {
             AbstractPower ember = adp().getPower(EmberPower.POWER_ID);
-            if (ember != null) { //idk how tf it can ever not be null but
+            if (ember != null) {
                 int realBaseDamage = baseDamage; //temp store realBaseDamage b/c baseDamage is used in card damage calculations
-                baseDamage = baseDamage + (secondMagic * ember.amount);
+                baseDamage = baseDamage + (magicNumber * ember.amount);
                 super.applyPowers();
                 baseDamage = realBaseDamage; //restore the realBaseDamage
                 isDamageModified = (damage != baseDamage);
@@ -141,6 +100,7 @@ public class BlazingTest extends AbstractTwoSidedCard {
     }
 
     public void upp() {
-        rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+        baseMagicNumberB += UPGRADE_MAGIC_NUMBER_B;
+        descriptionA = cardStrings.UPGRADE_DESCRIPTION;
     }
 }
