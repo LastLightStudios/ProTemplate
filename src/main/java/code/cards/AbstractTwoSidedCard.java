@@ -3,6 +3,7 @@ package code.cards;
 
 import basemod.AutoAdd;
 import code.util.CustomTags;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -12,6 +13,7 @@ import static code.ModFile.makeID;
 import code.DragonCharacterFile;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractTwoSidedCard extends AbstractEasyCard{
@@ -24,18 +26,18 @@ public abstract class AbstractTwoSidedCard extends AbstractEasyCard{
     protected String descriptionA;
     protected String descriptionB;
 
-    public int cardCostA;
-    public int cardCostB;
-    public int baseDamageA;
-    public int baseDamageB;
-    public int baseBlockA;
-    public int baseBlockB;
-    public int baseMagicNumberA;
-    public int baseMagicNumberB;
-    public int baseSecondMagicA;
-    public int baseSecondMagicB;
-    public int baseSecondDamageA;
-    public int baseSecondDamageB;
+    protected int cardCostA;
+    protected int cardCostB;
+    protected int baseDamageA;
+    protected int baseDamageB;
+    protected int baseBlockA;
+    protected int baseBlockB;
+    protected int baseMagicNumberA;
+    protected int baseMagicNumberB;
+    protected int baseSecondMagicA;
+    protected int baseSecondMagicB;
+    protected int baseSecondDamageA;
+    protected int baseSecondDamageB;
 
     private CardType cardTypeA;
     private CardType cardTypeB;
@@ -65,14 +67,14 @@ public abstract class AbstractTwoSidedCard extends AbstractEasyCard{
 
         baseDamageA = 0;
         baseDamageB = 0;
+        baseSecondDamageA = 0;
+        baseSecondDamageB = 0;
         baseBlockA = 0;
         baseBlockB = 0;
         baseMagicNumberA = 0;
         baseMagicNumberB = 0;
         baseSecondMagicA = 0;
         baseSecondMagicB = 0;
-        baseSecondDamageA = 0;
-        baseSecondDamageB = 0;
 
         if (generatePreview){
             cardsToPreview = noPreviewCopy();
@@ -83,8 +85,67 @@ public abstract class AbstractTwoSidedCard extends AbstractEasyCard{
 
     protected abstract AbstractTwoSidedCard noPreviewCopy();
 
+    // This is for Sparks/Breaths, can take this out into another abstract class if i decide to use 2 sided cards in the future
     @Override
-    public abstract List<String> getCardDescriptors();
+    public List<String> getCardDescriptors(){
+        ArrayList<String> retVal = new ArrayList<>();
+        if (isFront){
+            retVal.add(uiStrings.TEXT[0]);
+        } else {
+            retVal.add(uiStrings.TEXT[1]);
+        }
+        return retVal;
+    }
+
+    protected void setDamage(int damageA, int damageB){
+        baseDamageA = damageA;
+        baseDamageB = damageB;
+        if (isFront) {
+            baseDamage = baseDamageA;
+        } else {
+            baseDamage = baseDamageB;
+        }
+    }
+
+    protected void setSecondDamage(int secondDamageA, int secondDamageB){
+        baseSecondDamageA = secondDamageA;
+        baseSecondDamageB = secondDamageB;
+        if (isFront) {
+            baseSecondDamage = baseSecondDamageA;
+        } else {
+            baseSecondDamage = baseSecondDamageB;
+        }
+    }
+
+    protected void setBlock(int blockA, int blockB){
+        baseBlockA = blockA;
+        baseBlockB = blockB;
+        if (isFront) {
+            baseBlock = baseBlockA;
+        } else {
+            baseBlock = baseBlockB;
+        }
+    }
+
+    protected void setMagic(int magicA, int magicB){
+        baseMagicNumberA = magicA;
+        baseMagicNumberB = magicB;
+        if (isFront) {
+            baseMagicNumber = baseMagicNumberA;
+        } else {
+            baseMagicNumber = baseMagicNumberB;
+        }
+    }
+
+    protected void setSecondMagic(int secondMagicA, int secondMagicB){
+        baseSecondMagicA = secondMagicA;
+        baseSecondMagicB = secondMagicB;
+        if (isFront) {
+            baseSecondMagic = baseSecondMagicA;
+        } else {
+            baseSecondMagic = baseSecondMagicB;
+        }
+    }
 
     public void changeSide(boolean changeToBack){
         if (!changeToBack){ // change to Spark
@@ -170,11 +231,98 @@ public abstract class AbstractTwoSidedCard extends AbstractEasyCard{
             name = this.name + "+";
             nameA = this.nameA + "+";
             nameB = this.nameB + "+";
+            upp();
+            if (cardsToPreview != null){
+                cardsToPreview.upgrade();
+            }
             initializeTitle();
         }
     }
 
     public abstract void upp();
+
+    // doesn't actually Override the AbstractCard.upgradeDamage(int amount)
+    protected void upgradeDamage(int amountA, int amountB) {
+        baseDamageA += amountA;
+        baseDamageB += amountB;
+        if (isFront) {
+            if (amountA != 0){
+                upgradedDamage = true;
+            }
+            baseDamage = baseDamageA;
+        } else {
+            if (amountB != 0){
+                upgradedDamage = true;
+            }
+            baseDamage = baseDamageB;
+        }
+    }
+
+    protected void upgradeSecondDamage(int amountA, int amountB) {
+        baseSecondDamageA += amountA;
+        baseSecondDamageB += amountB;
+        if (isFront) {
+            if (amountA != 0){
+                upgradedSecondDamage = true;
+            }
+            baseSecondDamage = baseSecondDamageA;
+        } else {
+            if (amountB != 0){
+                upgradedSecondDamage = true;
+            }
+            baseSecondDamage = baseSecondDamageB;
+        }
+    }
+
+    protected void upgradeBlock(int amountA, int amountB) {
+        baseBlockA += amountA;
+        baseBlockB += amountB;
+        if (isFront) {
+            if (amountA != 0){
+                upgradedBlock = true;
+            }
+            baseBlock = baseBlockA;
+        } else {
+            if (amountB != 0){
+                upgradedBlock = true;
+            }
+            baseBlock = baseBlockB;
+        }
+    }
+
+    protected void upgradeMagicNumber(int amountA, int amountB) {
+        baseMagicNumberA += amountA;
+        baseMagicNumberB += amountB;
+        if (isFront) {
+            if (amountA != 0){
+                upgradedMagicNumber = true;
+            }
+            baseMagicNumber = baseMagicNumberA;
+        } else {
+            if (amountA != 0){
+                upgradedMagicNumber = true;
+            }
+            baseMagicNumber = baseMagicNumberB;
+        }
+        magicNumber = baseMagicNumber;
+    }
+
+    protected void upgradeSecondMagicNumber(int amountA, int amountB) {
+        baseSecondMagicA += amountA;
+        baseSecondMagicB += amountB;
+        if (isFront) {
+            if (amountA != 0){
+                upgradedSecondMagic = true;
+            }
+            baseSecondMagic = baseSecondMagicA;
+        } else {
+            if (amountB != 0){
+                upgradedSecondMagic = true;
+            }
+            baseSecondMagic = baseSecondMagicB;
+        }
+        secondMagic = baseSecondMagic;
+    }
 
     @Override
     public void initializeDescription(){

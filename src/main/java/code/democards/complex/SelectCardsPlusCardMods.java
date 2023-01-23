@@ -1,4 +1,4 @@
-package code.cards.democards.complex;
+package code.democards.complex;
 
 import basemod.cardmods.EtherealMod;
 import basemod.cardmods.ExhaustMod;

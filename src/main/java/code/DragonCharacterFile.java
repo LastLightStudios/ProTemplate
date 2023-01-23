@@ -19,9 +19,9 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import code.deprecatedcards.BlazingSpark_Dep;
-import code.cards.democards.Defend;
+import code.cards.Defend;
 import code.cards.ScaleGuard;
-import code.cards.democards.Strike;
+import code.cards.Strike;
 import code.relics.Dragonstone;
 
 import java.util.ArrayList;

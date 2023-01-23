@@ -20,6 +20,33 @@
       "Deal !D! damage to ALL enemies. NL Consumes all ${ModID}:Ember to deal additional !M! damage per ${ModID}:Ember."
     ]
   },
+  "${ModID}:ProfaneSpark": {
+    "NAME": "Profane Spark",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !${ModID}:m2! Weak. NL Gain !M! ${ModID}:Ember.",
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Apply !${ModID}:m2! Weak.  NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
+    "EXTENDED_DESCRIPTION": [
+      "Profane Breath",
+      "Deal !D! damage and apply !${ModID}:m2! Weak to ALL enemies. NL Consumes all ${ModID}:Ember to deal additional !M! damage per ${ModID}:Ember."
+    ]
+  },
+  "${ModID}:ToxicSpark": {
+    "NAME": "Toxic Spark",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !${ModID}:m2! Poison. NL Gain !M! ${ModID}:Ember.",
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Apply !${ModID}:m2! Poison.  NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
+    "EXTENDED_DESCRIPTION": [
+      "Toxic Breath",
+      "Deal !D! damage and apply !${ModID}:m2! Poison to ALL enemies. NL Consumes all ${ModID}:Ember to deal additional !M! damage and apply Poison per ${ModID}:Ember."
+    ]
+  },
+  "${ModID}:SwiftSpark": {
+    "NAME": "Swift Spark",
+    "DESCRIPTION": "Draw !${ModID}:m2! card. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
+    "UPGRADE_DESCRIPTION": "Draw !${ModID}:m2! card. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
+    "EXTENDED_DESCRIPTION": [
+      "Swift Breath",
+      "Deal !D! damage to ALL enemies. NL Draw !${ModID}:m2! card. NL Consumes all ${ModID}:Ember to deal additional !M! damage per ${ModID}:Ember."
+    ]
+  },
   "${ModID}:PlaceholderGem": {
     "NAME": "Placeholder Gem",
     "DESCRIPTION": "This will have various effects in the future. For now it'll block. NL Exhaust."

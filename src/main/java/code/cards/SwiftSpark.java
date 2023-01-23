@@ -8,16 +8,14 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 
-import static code.powers.EmberPower.getEmberBreakpoint;
 import static code.ModFile.makeID;
+import static code.powers.EmberPower.getEmberBreakpoint;
 import static code.util.Wiz.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class BlazingSpark extends AbstractTwoSidedCard {
-    public final static String ID = makeID("BlazingSpark");
+public class SwiftSpark extends AbstractTwoSidedCard {
+    public final static String ID = makeID("SwiftSpark");
 
     private final static int COST_A = 0;
     private final static int COST_B = 2;
@@ -27,30 +25,32 @@ public class BlazingSpark extends AbstractTwoSidedCard {
 
     private final static int MAGIC_NUMBER_A = 1; //spark gain
     private final static int MAGIC_NUMBER_B = 1; //spark multiplier
-    private final static int UPGRADE_MAGIC_NUMBER_B = 1; //spark multiplier increase
+    private final static int SECOND_MAGIC_NUMBER_A = 1; //cards drawn
+    private final static int SECOND_MAGIC_NUMBER_B = 2; //cards drawn
+    private final static int UPGRADE_SECOND_MAGIC_NUMBER_A = 1; //cards drawn increase
+    private final static int UPGRADE_SECOND_MAGIC_NUMBER_B = 1; //cards drawn increase
 
-    public BlazingSpark(boolean needsPreview) {
-        super(ID,  COST_A, COST_B, CardType.ATTACK, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY, CardTarget.ALL_ENEMY, needsPreview);
+    public SwiftSpark(boolean needsPreview) {
+        super(ID,  COST_A, COST_B, CardType.ATTACK, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CardTarget.ALL_ENEMY, needsPreview);
         setDamage(DAMAGE_A, DAMAGE_B);
         setMagic(MAGIC_NUMBER_A, MAGIC_NUMBER_B);
+        setSecondMagic(SECOND_MAGIC_NUMBER_A, SECOND_MAGIC_NUMBER_B);
 
         this.changeSide(false);
     }
 
-    public BlazingSpark() {
+    public SwiftSpark() {
         this(true);
     }
 
     @Override
     protected AbstractTwoSidedCard noPreviewCopy(){
-        return new BlazingSpark(false);
+        return new SwiftSpark(false);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (isFront) {
-            if(upgraded){
-                atb(new DrawCardAction(1));
-            }
+            atb(new DrawCardAction(secondMagic));
             dmg(m, AbstractGameAction.AttackEffect.FIRE);
             applyToSelf(new EmberPower(p, magicNumber));
             AbstractPower ember = adp().getPower(EmberPower.POWER_ID);
@@ -60,6 +60,7 @@ public class BlazingSpark extends AbstractTwoSidedCard {
                 }
             }
         } else { // Breath
+            atb(new DrawCardAction(secondMagic));
             allDmg(AbstractGameAction.AttackEffect.FIRE);
             atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
             atb(new TransformTwoSidedCardAction(this, false));
@@ -100,7 +101,7 @@ public class BlazingSpark extends AbstractTwoSidedCard {
 
     @Override
     public void upp() {
-        upgradeMagicNumber(0, UPGRADE_MAGIC_NUMBER_B);
+        upgradeSecondMagicNumber(UPGRADE_SECOND_MAGIC_NUMBER_A, UPGRADE_SECOND_MAGIC_NUMBER_B);
         descriptionA = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
     }

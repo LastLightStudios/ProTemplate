@@ -1,4 +1,4 @@
-package code.cards.democards.complex;
+package code.democards.complex;
 
 import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;

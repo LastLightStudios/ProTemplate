@@ -8,16 +8,17 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-
-import static code.powers.EmberPower.getEmberBreakpoint;
-import static code.ModFile.makeID;
-import static code.util.Wiz.*;
+import com.megacrit.cardcrawl.powers.WeakPower;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlazingSpark extends AbstractTwoSidedCard {
-    public final static String ID = makeID("BlazingSpark");
+import static code.ModFile.makeID;
+import static code.powers.EmberPower.getEmberBreakpoint;
+import static code.util.Wiz.*;
+
+public class ProfaneSpark extends AbstractTwoSidedCard {
+    public final static String ID = makeID("ProfaneSpark");
 
     private final static int COST_A = 0;
     private final static int COST_B = 2;
@@ -27,23 +28,26 @@ public class BlazingSpark extends AbstractTwoSidedCard {
 
     private final static int MAGIC_NUMBER_A = 1; //spark gain
     private final static int MAGIC_NUMBER_B = 1; //spark multiplier
-    private final static int UPGRADE_MAGIC_NUMBER_B = 1; //spark multiplier increase
+    private final static int SECOND_MAGIC_NUMBER_A = 1; //weak application
+    private final static int SECOND_MAGIC_NUMBER_B = 2; //weak application
+    private final static int UPGRADE_SECOND_MAGIC_NUMBER_B = 1; //weak application increase
 
-    public BlazingSpark(boolean needsPreview) {
-        super(ID,  COST_A, COST_B, CardType.ATTACK, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY, CardTarget.ALL_ENEMY, needsPreview);
+    public ProfaneSpark(boolean needsPreview) {
+        super(ID,  COST_A, COST_B, CardType.ATTACK, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CardTarget.ALL_ENEMY, needsPreview);
         setDamage(DAMAGE_A, DAMAGE_B);
         setMagic(MAGIC_NUMBER_A, MAGIC_NUMBER_B);
+        setSecondMagic(SECOND_MAGIC_NUMBER_A, SECOND_MAGIC_NUMBER_B);
 
         this.changeSide(false);
     }
 
-    public BlazingSpark() {
+    public ProfaneSpark() {
         this(true);
     }
 
     @Override
     protected AbstractTwoSidedCard noPreviewCopy(){
-        return new BlazingSpark(false);
+        return new ProfaneSpark(false);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -52,6 +56,7 @@ public class BlazingSpark extends AbstractTwoSidedCard {
                 atb(new DrawCardAction(1));
             }
             dmg(m, AbstractGameAction.AttackEffect.FIRE);
+            applyToEnemy(m, new WeakPower(m, SECOND_MAGIC_NUMBER_A, false));
             applyToSelf(new EmberPower(p, magicNumber));
             AbstractPower ember = adp().getPower(EmberPower.POWER_ID);
             if (ember != null){
@@ -61,6 +66,9 @@ public class BlazingSpark extends AbstractTwoSidedCard {
             }
         } else { // Breath
             allDmg(AbstractGameAction.AttackEffect.FIRE);
+            for (AbstractMonster monster : getEnemies()){
+                applyToEnemy(monster, new WeakPower(monster, SECOND_MAGIC_NUMBER_B, false));
+            }
             atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
             atb(new TransformTwoSidedCardAction(this, false));
         }
@@ -78,6 +86,13 @@ public class BlazingSpark extends AbstractTwoSidedCard {
                 super.calculateCardDamage(m);
                 baseDamage = realBaseDamage; //restore the realBaseDamage
                 isDamageModified = (damage != baseDamage);
+
+                // adjusting Weak values based on Ember
+                int realSecondMagic = baseSecondMagic; //temp store realBaseDamage b/c baseDamage is used in card damage calculations
+                baseSecondMagic = baseSecondMagic + ember.amount;
+                super.calculateCardDamage(m);
+                baseSecondMagic = realSecondMagic; //restore the realBaseDamage
+                isDamageModified = (damage != baseSecondMagic);
             }
         }
     }
@@ -94,13 +109,20 @@ public class BlazingSpark extends AbstractTwoSidedCard {
                 super.applyPowers();
                 baseDamage = realBaseDamage; //restore the realBaseDamage
                 isDamageModified = (damage != baseDamage);
+
+                // adjusting Weak values based on Ember
+                int realSecondMagic = baseSecondMagic; //temp store realBaseDamage b/c baseDamage is used in card damage calculations
+                baseSecondMagic = baseSecondMagic + ember.amount;
+                super.applyPowers();
+                baseSecondMagic = realSecondMagic; //restore the realBaseDamage
+                isDamageModified = (damage != baseSecondMagic);
             }
         }
     }
 
     @Override
     public void upp() {
-        upgradeMagicNumber(0, UPGRADE_MAGIC_NUMBER_B);
+        upgradeSecondMagicNumber(0, UPGRADE_SECOND_MAGIC_NUMBER_B);
         descriptionA = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
     }

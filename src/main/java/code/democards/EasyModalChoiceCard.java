@@ -1,4 +1,4 @@
-package code.cards.democards;
+package code.democards;
 
 import basemod.AutoAdd;
 import code.cards.AbstractEasyCard;
