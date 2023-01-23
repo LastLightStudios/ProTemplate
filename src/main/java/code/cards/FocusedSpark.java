@@ -26,7 +26,8 @@ public class FocusedSpark extends AbstractSparkBreathCard {
         super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY, CardTarget.ENEMY, needsPreview);
         setDamage(DAMAGE_A, DAMAGE_B);
         setMagic(MAGIC_NUMBER_A, MAGIC_NUMBER_B);
-        this.changeSide(false);
+
+        initializeSide();
     }
 
     public FocusedSpark() {

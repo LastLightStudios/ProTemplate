@@ -25,14 +25,6 @@ public abstract class AbstractSparkBreathCard extends AbstractTwoSidedCard{
 
     public AbstractSparkBreathCard(String cardID, CardType typeA, CardType typeB, CardRarity rarity, CardTarget targetA, CardTarget targetB, boolean generatePreview){
         super(cardID, 0, 2, typeA, typeB, rarity, targetA, targetB, DragonCharacterFile.Enums.DRAGON_COLOR, generatePreview);
-        if (adp() != null){
-            AbstractPower ember = adp().getPower(EmberPower.POWER_ID);
-            if (ember != null){
-                if (ember.amount >= getEmberBreakpoint()){
-                    changeSide(true);
-                }
-            }
-        }
         tags.add(CustomTags.DOUBLE_SIDED);
     }
 
@@ -50,5 +42,19 @@ public abstract class AbstractSparkBreathCard extends AbstractTwoSidedCard{
 
     public void checkEmberTrigger(){
         atb(new CheckEmberBreakpointAction(this));
+    }
+
+    // call this at the end of the Card constructor
+    public void initializeSide() {
+        boolean changeToBreath = false;
+        if (adp() != null){
+            AbstractPower ember = adp().getPower(EmberPower.POWER_ID);
+            if (ember != null){
+                if (ember.amount >= getEmberBreakpoint()) {
+                    changeToBreath = true;
+                }
+            }
+        }
+        changeSide(changeToBreath);
     }
 }

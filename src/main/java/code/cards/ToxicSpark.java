@@ -30,7 +30,7 @@ public class ToxicSpark extends AbstractSparkBreathCard {
         setMagic(MAGIC_NUMBER_A, MAGIC_NUMBER_B);
         setSecondMagic(SECOND_MAGIC_NUMBER_A, SECOND_MAGIC_NUMBER_B);
 
-        this.changeSide(false);
+        initializeSide();
     }
 
     public ToxicSpark() {

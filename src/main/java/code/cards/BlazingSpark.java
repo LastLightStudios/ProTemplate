@@ -26,7 +26,7 @@ public class BlazingSpark extends AbstractSparkBreathCard {
         setDamage(DAMAGE_A, DAMAGE_B);
         setMagic(MAGIC_NUMBER_A, MAGIC_NUMBER_B);
 
-        this.changeSide(false);
+        initializeSide();
     }
 
     public BlazingSpark() {

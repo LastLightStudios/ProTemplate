@@ -30,7 +30,7 @@ public class PureSpark extends AbstractSparkBreathCard {
         setBlock(BLOCK_NUMBER_A, BLOCK_NUMBER_B);
         setMagic(MAGIC_NUMBER_A, MAGIC_NUMBER_B);
 
-        this.changeSide(false);
+        initializeSide();
     }
 
     public PureSpark() {
