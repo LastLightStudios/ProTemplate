@@ -5,6 +5,7 @@ import code.actions.TransformTwoSidedCardAction;
 import code.cards.AbstractTwoSidedCard;
 import code.util.Wiz;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -71,7 +72,7 @@ public class EmberPower extends AbstractEasyPower {
     public void swapSparkCards(){ // Swap Sparks to Breaths
         for (AbstractCard c : Wiz.getAllCardsInCardGroups(true, true)){
             if (isDoubleSided(c) && c instanceof AbstractTwoSidedCard){
-                atb(new TransformTwoSidedCardAction((AbstractTwoSidedCard) c, true));
+                atb(new TransformTwoSidedCardAction((AbstractTwoSidedCard) c, true, Color.valueOf("cc5500")));
             }
         }
         /*
@@ -99,7 +100,7 @@ public class EmberPower extends AbstractEasyPower {
     public void swapBreathCards(){ // Swap Breaths to Sparks
         for (AbstractCard c : Wiz.getAllCardsInCardGroups(true, true)){
             if (isDoubleSided(c) && c instanceof AbstractTwoSidedCard){
-                atb(new TransformTwoSidedCardAction((AbstractTwoSidedCard) c, false));
+                atb(new TransformTwoSidedCardAction((AbstractTwoSidedCard) c, false, Color.valueOf("cc5500")));
             }
         }
         /*

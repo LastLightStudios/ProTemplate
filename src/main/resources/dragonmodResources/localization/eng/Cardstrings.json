@@ -17,7 +17,7 @@
     "UPGRADE_DESCRIPTION": "Draw 1 card. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
     "EXTENDED_DESCRIPTION": [
       "Blazing Breath",
-      "Deal !D! damage to ALL enemies. NL Consumes all ${ModID}:Ember to deal additional !M! damage per ${ModID}:Ember."
+      "Deal !D! damage to ALL enemies. NL Consumes all ${ModID}:Ember to deal increase damage by !M! per ${ModID}:Ember."
     ]
   },
   "${ModID}:ProfaneSpark": {
@@ -26,7 +26,7 @@
     "UPGRADE_DESCRIPTION": "Draw 1 card. NL Apply !${ModID}:m2! Weak.  NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
     "EXTENDED_DESCRIPTION": [
       "Profane Breath",
-      "Deal !D! damage and apply !${ModID}:m2! Weak to ALL enemies. NL Consumes all ${ModID}:Ember to deal additional !M! damage per ${ModID}:Ember."
+      "Deal !D! damage and apply !${ModID}:m2! Weak to ALL enemies. NL Consumes all ${ModID}:Ember to increase damage by !M! per ${ModID}:Ember."
     ]
   },
   "${ModID}:ToxicSpark": {
@@ -35,7 +35,7 @@
     "UPGRADE_DESCRIPTION": "Draw 1 card. NL Apply !${ModID}:m2! Poison.  NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
     "EXTENDED_DESCRIPTION": [
       "Toxic Breath",
-      "Deal !D! damage and apply !${ModID}:m2! Poison to ALL enemies. NL Consumes all ${ModID}:Ember to deal additional !M! damage and apply Poison per ${ModID}:Ember."
+      "Deal !D! damage and apply !${ModID}:m2! Poison to ALL enemies. NL Consumes all ${ModID}:Ember to increase both effects by !M! per ${ModID}:Ember."
     ]
   },
   "${ModID}:SwiftSpark": {
@@ -44,7 +44,44 @@
     "UPGRADE_DESCRIPTION": "Draw !${ModID}:m2! card. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
     "EXTENDED_DESCRIPTION": [
       "Swift Breath",
-      "Deal !D! damage to ALL enemies. NL Draw !${ModID}:m2! card. NL Consumes all ${ModID}:Ember to deal additional !M! damage per ${ModID}:Ember."
+      "Deal !D! damage to ALL enemies. NL Draw !${ModID}:m2! card. NL Consumes all ${ModID}:Ember to increase damage by !M! per ${ModID}:Ember."
+    ]
+  },
+  "${ModID}:BarrageSpark": {
+    "NAME": "Barrage Spark",
+    "DESCRIPTION": "Deal !D! damage to a random enemy !${ModID}:m2! times. NL Gain !M! ${ModID}:Ember.",
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Deal !D! damage to a random enemy !${ModID}:m2! times. NL Gain !M! ${ModID}:Ember.",
+    "EXTENDED_DESCRIPTION": [
+      "Barrage Breath",
+      "Deal !D! damage to a random enemy !${ModID}:m2! times. NL Consumes all ${ModID}:Ember to increase damage by !M! per ${ModID}:Ember."
+    ]
+  },
+  "${ModID}:PureSpark": {
+    "NAME": "Pure Spark",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block. NL Gain !M! ${ModID}:Ember.",
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Gain !B! Block. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
+    "EXTENDED_DESCRIPTION": [
+      "Pure Breath",
+      "Deal !D! damage to ALL enemies. NL Gain !B! Block. NL Consumes all ${ModID}:Ember to deal increase both effects by !M! per ${ModID}:Ember."
+    ]
+  },
+  "${ModID}:RadiantSpark": {
+    "NAME": "Radiant Spark",
+    "DESCRIPTION": "Deal !D! damage. NL Gain [E]. NL Gain !M! ${ModID}:Ember.",
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Gain [E]. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
+    "EXTENDED_DESCRIPTION": [
+      "Radiant Breath",
+      "Deal !D! damage to ALL enemies. NL Gain [E]. NL Consumes all ${ModID}:Ember to deal increase damage by !M! per ${ModID}:Ember.",
+      "Deal !D! damage to ALL enemies. NL Gain [E][E]. NL Consumes all ${ModID}:Ember to deal increase damage by !M! per ${ModID}:Ember."
+    ]
+  },
+  "${ModID}:FocusedSpark": {
+    "NAME": "Focused Spark",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
+    "EXTENDED_DESCRIPTION": [
+      "Focused Breath",
+      "Deal !D! damage for each enemy in combat. NL Consumes all ${ModID}:Ember to deal increase damage by !M! per ${ModID}:Ember."
     ]
   },
   "${ModID}:PlaceholderGem": {

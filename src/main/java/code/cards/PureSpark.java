@@ -7,39 +7,39 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.PoisonPower;
 
 import static code.ModFile.makeID;
 import static code.util.Wiz.*;
 
-public class ToxicSpark extends AbstractSparkBreathCard {
-    public final static String ID = makeID("ToxicSpark");
+public class PureSpark extends AbstractSparkBreathCard {
+    public final static String ID = makeID("PureSpark");
 
     private final static int DAMAGE_A = 1;
     private final static int DAMAGE_B = 15;
 
     private final static int MAGIC_NUMBER_A = 1; //spark gain
     private final static int MAGIC_NUMBER_B = 1; //spark multiplier
-    private final static int SECOND_MAGIC_NUMBER_A = 1; //poison application
-    private final static int SECOND_MAGIC_NUMBER_B = 1; //poison application
-    private final static int UPGRADE_SECOND_MAGIC_NUMBER_B = 1; //poison application increase
+    private final static int BLOCK_NUMBER_A = 3; //poison application
+    private final static int BLOCK_NUMBER_B = 10; //poison application
+    private final static int UPGRADE_BLOCK_NUMBER_A = 2; //poison application
+    private final static int UPGRADE_BLOCK_NUMBER_B = 5; //poison application
 
-    public ToxicSpark(boolean needsPreview) {
+    public PureSpark(boolean needsPreview) {
         super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CardTarget.ALL_ENEMY, needsPreview);
         setDamage(DAMAGE_A, DAMAGE_B);
+        setBlock(BLOCK_NUMBER_A, BLOCK_NUMBER_B);
         setMagic(MAGIC_NUMBER_A, MAGIC_NUMBER_B);
-        setSecondMagic(SECOND_MAGIC_NUMBER_A, SECOND_MAGIC_NUMBER_B);
 
         this.changeSide(false);
     }
 
-    public ToxicSpark() {
+    public PureSpark() {
         this(true);
     }
 
     @Override
     protected AbstractTwoSidedCard noPreviewCopy(){
-        return new ToxicSpark(false);
+        return new PureSpark(false);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -48,16 +48,11 @@ public class ToxicSpark extends AbstractSparkBreathCard {
                 atb(new DrawCardAction(1));
             }
             dmg(m, AbstractGameAction.AttackEffect.FIRE);
-            applyToEnemy(m, new PoisonPower(m, p, SECOND_MAGIC_NUMBER_A));
+            blck();
             applyToSelf(new EmberPower(p, magicNumber));
         } else { // Breath
             allDmg(AbstractGameAction.AttackEffect.FIRE);
-            AbstractPower ember = adp().getPower(EmberPower.POWER_ID);
-            if (ember != null) {
-                for (AbstractMonster monster : getEnemies()){
-                    applyToEnemy(monster, new PoisonPower(monster, p, SECOND_MAGIC_NUMBER_B + ember.amount));
-                }
-            }
+            blck();
             atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
         }
         checkEmberTrigger();
@@ -73,13 +68,15 @@ public class ToxicSpark extends AbstractSparkBreathCard {
                 int realBaseDamage = baseDamage; //temp store realBaseDamage b/c baseDamage is used in card damage calculations
                 baseDamage = baseDamage + (magicNumber * ember.amount);
 
-                // adjusting Poison values based on Ember
-                secondMagic = baseSecondMagic + ember.amount;
+                // adjusting Block values based on Ember
+                int realBaseBlock = baseBlock;
+                baseBlock = baseBlock + (magicNumber * ember.amount);
                 super.calculateCardDamage(m);
 
                 baseDamage = realBaseDamage; //restore the realBaseDamage
+                baseBlock = realBaseBlock;
                 isDamageModified = (damage != baseDamage);
-                isSecondMagicModified = (secondMagic != baseSecondMagic);
+                isBlockModified = (block != baseBlock);
             }
         }
     }
@@ -94,20 +91,22 @@ public class ToxicSpark extends AbstractSparkBreathCard {
                 int realBaseDamage = baseDamage; //temp store realBaseDamage b/c baseDamage is used in card damage calculations
                 baseDamage = baseDamage + (magicNumber * ember.amount);
 
-                // adjusting Poison values based on Ember
-                secondMagic = baseSecondMagic + ember.amount;
+                // adjusting Block values based on Ember
+                int realBaseBlock = baseBlock;
+                baseBlock = baseBlock + (magicNumber * ember.amount);
                 super.applyPowers();
 
                 baseDamage = realBaseDamage; //restore the realBaseDamage
+                baseBlock = realBaseBlock;
                 isDamageModified = (damage != baseDamage);
-                isSecondMagicModified = (secondMagic != baseSecondMagic);
+                isBlockModified = (block != baseBlock);
             }
         }
     }
 
     @Override
     public void upp() {
-        upgradeSecondMagicNumber(0, UPGRADE_SECOND_MAGIC_NUMBER_B);
+        upgradeBlock(UPGRADE_BLOCK_NUMBER_A, UPGRADE_BLOCK_NUMBER_B);
         descriptionA = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
     }

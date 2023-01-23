@@ -1,23 +1,14 @@
 package code.cards;
 
 
-import basemod.AutoAdd;
 import code.util.CustomTags;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.localization.UIStrings;
 
-import static code.ModFile.makeID;
-import code.DragonCharacterFile;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public abstract class AbstractTwoSidedCard extends AbstractEasyCard{
-    protected static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(makeID("Spark"));
     protected boolean isFront; //true = front(Spark), false = back(Breath)
 
     private String nameA;
@@ -47,8 +38,8 @@ public abstract class AbstractTwoSidedCard extends AbstractEasyCard{
 
     protected final CardStrings cardStrings;
 
-    public AbstractTwoSidedCard(String cardID, int costA, int costB, CardType typeA, CardType typeB, CardRarity rarity, CardTarget targetA, CardTarget targetB, boolean generatePreview){
-        super(cardID, costA, typeA, rarity, targetA, DragonCharacterFile.Enums.DRAGON_COLOR);
+    public AbstractTwoSidedCard(String cardID, int costA, int costB, CardType typeA, CardType typeB, CardRarity rarity, CardTarget targetA, CardTarget targetB, CardColor color, boolean generatePreview){
+        super(cardID, costA, typeA, rarity, targetA, color);
         cardStrings = CardCrawlGame.languagePack.getCardStrings(cardID);
         nameA = cardStrings.NAME;
         nameB = cardStrings.EXTENDED_DESCRIPTION[0];
@@ -84,18 +75,6 @@ public abstract class AbstractTwoSidedCard extends AbstractEasyCard{
     }
 
     protected abstract AbstractTwoSidedCard noPreviewCopy();
-
-    // This is for Sparks/Breaths, can take this out into another abstract class if i decide to use 2 sided cards in the future
-    @Override
-    public List<String> getCardDescriptors(){
-        ArrayList<String> retVal = new ArrayList<>();
-        if (isFront){
-            retVal.add(uiStrings.TEXT[0]);
-        } else {
-            retVal.add(uiStrings.TEXT[1]);
-        }
-        return retVal;
-    }
 
     protected void setDamage(int damageA, int damageB){
         baseDamageA = damageA;
@@ -154,6 +133,8 @@ public abstract class AbstractTwoSidedCard extends AbstractEasyCard{
 
             //TODO: img switching
 
+            cost = cardCostA;
+            costForTurn = cardCostA;
             type = cardTypeA;
             target = cardTargetA;
 
@@ -168,6 +149,8 @@ public abstract class AbstractTwoSidedCard extends AbstractEasyCard{
 
             //TODO: img switching
 
+            cost = cardCostB;
+            costForTurn = cardCostB;
             type = cardTypeB;
             target = cardTargetB;
 
@@ -348,5 +331,9 @@ public abstract class AbstractTwoSidedCard extends AbstractEasyCard{
             ((AbstractTwoSidedCard) baseCopy).baseMagicNumberB = this.baseMagicNumberB;
         }
         return baseCopy;
+    }
+
+    public boolean isFront(){
+        return isFront;
     }
 }

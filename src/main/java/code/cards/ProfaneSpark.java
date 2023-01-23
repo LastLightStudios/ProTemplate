@@ -1,6 +1,5 @@
 package code.cards;
 
-import code.actions.TransformTwoSidedCardAction;
 import code.powers.EmberPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -10,18 +9,11 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static code.ModFile.makeID;
-import static code.powers.EmberPower.getEmberBreakpoint;
 import static code.util.Wiz.*;
 
-public class ProfaneSpark extends AbstractTwoSidedCard {
+public class ProfaneSpark extends AbstractSparkBreathCard {
     public final static String ID = makeID("ProfaneSpark");
-
-    private final static int COST_A = 0;
-    private final static int COST_B = 2;
 
     private final static int DAMAGE_A = 1;
     private final static int DAMAGE_B = 15;
@@ -33,7 +25,7 @@ public class ProfaneSpark extends AbstractTwoSidedCard {
     private final static int UPGRADE_SECOND_MAGIC_NUMBER_B = 1; //weak application increase
 
     public ProfaneSpark(boolean needsPreview) {
-        super(ID,  COST_A, COST_B, CardType.ATTACK, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CardTarget.ALL_ENEMY, needsPreview);
+        super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CardTarget.ALL_ENEMY, needsPreview);
         setDamage(DAMAGE_A, DAMAGE_B);
         setMagic(MAGIC_NUMBER_A, MAGIC_NUMBER_B);
         setSecondMagic(SECOND_MAGIC_NUMBER_A, SECOND_MAGIC_NUMBER_B);
@@ -58,20 +50,14 @@ public class ProfaneSpark extends AbstractTwoSidedCard {
             dmg(m, AbstractGameAction.AttackEffect.FIRE);
             applyToEnemy(m, new WeakPower(m, SECOND_MAGIC_NUMBER_A, false));
             applyToSelf(new EmberPower(p, magicNumber));
-            AbstractPower ember = adp().getPower(EmberPower.POWER_ID);
-            if (ember != null){
-                if (ember.amount + magicNumber >= getEmberBreakpoint()){
-                    atb(new TransformTwoSidedCardAction(this, true));
-                }
-            }
         } else { // Breath
             allDmg(AbstractGameAction.AttackEffect.FIRE);
             for (AbstractMonster monster : getEnemies()){
                 applyToEnemy(monster, new WeakPower(monster, SECOND_MAGIC_NUMBER_B, false));
             }
             atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
-            atb(new TransformTwoSidedCardAction(this, false));
         }
+        checkEmberTrigger();
     }
 
     @Override
@@ -86,13 +72,6 @@ public class ProfaneSpark extends AbstractTwoSidedCard {
                 super.calculateCardDamage(m);
                 baseDamage = realBaseDamage; //restore the realBaseDamage
                 isDamageModified = (damage != baseDamage);
-
-                // adjusting Weak values based on Ember
-                int realSecondMagic = baseSecondMagic; //temp store realBaseDamage b/c baseDamage is used in card damage calculations
-                baseSecondMagic = baseSecondMagic + ember.amount;
-                super.calculateCardDamage(m);
-                baseSecondMagic = realSecondMagic; //restore the realBaseDamage
-                isDamageModified = (damage != baseSecondMagic);
             }
         }
     }
@@ -109,13 +88,6 @@ public class ProfaneSpark extends AbstractTwoSidedCard {
                 super.applyPowers();
                 baseDamage = realBaseDamage; //restore the realBaseDamage
                 isDamageModified = (damage != baseDamage);
-
-                // adjusting Weak values based on Ember
-                int realSecondMagic = baseSecondMagic; //temp store realBaseDamage b/c baseDamage is used in card damage calculations
-                baseSecondMagic = baseSecondMagic + ember.amount;
-                super.applyPowers();
-                baseSecondMagic = realSecondMagic; //restore the realBaseDamage
-                isDamageModified = (damage != baseSecondMagic);
             }
         }
     }

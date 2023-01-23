@@ -1,7 +1,5 @@
 package code.cards;
 
-import basemod.AutoAdd;
-import code.actions.TransformTwoSidedCardAction;
 import code.powers.EmberPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction;
@@ -12,16 +10,11 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static code.ModFile.makeID;
-import static code.powers.EmberPower.getEmberBreakpoint;
 import static code.util.Wiz.*;
 
 
-@AutoAdd.Ignore
-public class BarrageSpark extends AbstractTwoSidedCard {
-    public final static String ID = makeID("BlazingSpark");
-
-    private final static int COST_A = 0;
-    private final static int COST_B = 2;
+public class BarrageSpark extends AbstractSparkBreathCard {
+    public final static String ID = makeID("BarrageSpark");
 
     private final static int DAMAGE_A = 1;
     private final static int DAMAGE_B = 1;
@@ -33,7 +26,7 @@ public class BarrageSpark extends AbstractTwoSidedCard {
     private final static int UPGRADE_MAGIC_NUMBER_B = 1; //Number of hits increase
 
     public BarrageSpark(boolean needsPreview) {
-        super(ID,  COST_A, COST_B, CardType.ATTACK, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY, CardTarget.ALL_ENEMY, needsPreview);
+        super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.BASIC, CardTarget.ALL_ENEMY, CardTarget.ALL_ENEMY, needsPreview);
         setDamage(DAMAGE_A, DAMAGE_B);
         setMagic(MAGIC_NUMBER_A, MAGIC_NUMBER_B);
         setSecondMagic(SECOND_MAGIC_NUMBER_A, SECOND_MAGIC_NUMBER_B);
@@ -59,20 +52,13 @@ public class BarrageSpark extends AbstractTwoSidedCard {
                 atb(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.FIRE));
             }
             applyToSelf(new EmberPower(p, magicNumber));
-            AbstractPower ember = adp().getPower(EmberPower.POWER_ID);
-            if (ember != null){
-                if (ember.amount + magicNumber >= getEmberBreakpoint()){
-                    atb(new TransformTwoSidedCardAction(this, true));
-                }
-            }
         } else { // Breath
-            //TODO: this may require a new action since the base dmg changes
             for (int i = 0; i < secondMagic; i++){
                 atb(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.FIRE));
             }
             atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
-            atb(new TransformTwoSidedCardAction(this, false));
         }
+        checkEmberTrigger();
     }
 
     @Override

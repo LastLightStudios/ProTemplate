@@ -9,15 +9,17 @@ import code.cards.AbstractTwoSidedCard;
 public class TransformTwoSidedCardAction extends AbstractGameAction {
     private AbstractTwoSidedCard changingCard;
     private boolean changeToBack;
-    public TransformTwoSidedCardAction(AbstractTwoSidedCard originalCard, boolean _changeToBack){
+    private Color color;
+    public TransformTwoSidedCardAction(AbstractTwoSidedCard originalCard, boolean _changeToBack, Color _color){
         changingCard = originalCard;
         changeToBack = _changeToBack;
+        color = _color;
     }
 
     @Override
     public void update() {
         changingCard.changeSide(changeToBack);
-        changingCard.superFlash(Color.valueOf("cc5500"));
+        changingCard.superFlash(color);
         this.isDone = true;
     }
 }
