@@ -118,5 +118,6 @@ public class BlazingSpark extends AbstractTwoSidedCard {
     public void upp() {
         baseMagicNumberB += UPGRADE_MAGIC_NUMBER_B;
         descriptionA = cardStrings.UPGRADE_DESCRIPTION;
+        initializeDescription();
     }
 }

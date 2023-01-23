@@ -177,6 +177,16 @@ public abstract class AbstractTwoSidedCard extends AbstractEasyCard{
     public abstract void upp();
 
     @Override
+    public void initializeDescription(){
+        if (isFront && (descriptionA != null)) { //added null checks b/c idk this was getting called before the descriptionA/B was found
+            rawDescription = descriptionA;
+        } else if (!isFront && (descriptionB != null)) {
+            rawDescription = descriptionB;
+        }
+        super.initializeDescription();
+    }
+
+    @Override
     public AbstractCard makeStatEquivalentCopy(){
 
         AbstractCard baseCopy = super.makeStatEquivalentCopy();
