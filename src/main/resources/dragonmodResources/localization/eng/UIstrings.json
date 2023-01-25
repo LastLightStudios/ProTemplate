@@ -2,7 +2,15 @@
   "${ModID}:Spark": {
     "TEXT": [
       "Spark",
-      "Breath"
+      "Breath",
+      "This card has a #ySpark and #yBreath form. Whenever you have 5 or more #yEmbers this card transforms into its #yBreath form.",
+      "This card has a #ySpark and #yBreath form. Whenever you have less than 5 #yEmbers this card transforms into its #ySpark form."
+    ]
+  },
+  "${ModID}:Gem": {
+    "TEXT": [
+      "Gem",
+      "When a card generates a #yGem, it will randomly generate one of many possible #yGems. #yGems have various small effects. #yGems #yExhaust."
     ]
   }
 }

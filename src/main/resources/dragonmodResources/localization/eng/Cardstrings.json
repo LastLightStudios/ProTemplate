@@ -84,9 +84,21 @@
       "Deal !D! damage for each enemy in combat. NL Consumes all ${ModID}:Ember to deal increase damage by !M! per ${ModID}:Ember."
     ]
   },
-  "${ModID}:PlaceholderGem": {
-    "NAME": "Placeholder Gem",
-    "DESCRIPTION": "This will have various effects in the future. For now it'll block. NL Exhaust."
+  "${ModID}:Aquamarine": {
+    "NAME": "Aquamarine",
+    "DESCRIPTION": "Gain !B! Block. NL Exhaust."
+  },
+  "${ModID}:Emerald": {
+    "NAME": "Emerald",
+    "DESCRIPTION": "Gain !M! temporary Dexterity. NL Exhaust."
+  },
+  "${ModID}:Rhodonite": {
+    "NAME": "Rhodonite",
+    "DESCRIPTION": "Gain !M! temporary Strength. NL Exhaust."
+  },
+  "${ModID}:Ruby": {
+    "NAME": "Ruby",
+    "DESCRIPTION": "Gain !M! ${ModID}:Ember. NL Exhaust."
   },
   "${ModID}:ExampleTwoAmountPowerCard": {
     "NAME": "Two Amount Power",

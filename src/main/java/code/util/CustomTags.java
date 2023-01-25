@@ -10,4 +10,6 @@ public class CustomTags {
     public static AbstractCard.CardTags BREATH;
     @SpireEnum
     public static AbstractCard.CardTags DOUBLE_SIDED;
+    @SpireEnum
+    public static AbstractCard.CardTags GEM;
 }
