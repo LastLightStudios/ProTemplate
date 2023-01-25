@@ -5,7 +5,7 @@ import basemod.helpers.TooltipInfo;
 import code.DragonCharacterFile;
 import code.actions.CheckEmberBreakpointAction;
 import code.powers.EmberPower;
-import code.util.CustomTags;
+import code.util.DragonUtils.CustomTags;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -14,9 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static code.ModFile.makeID;
-import static code.util.Wiz.adp;
 import static code.powers.EmberPower.getEmberBreakpoint;
-import static code.util.Wiz.atb;
+import static code.util.Wiz.*;
 
 public abstract class AbstractSparkBreathCard extends AbstractTwoSidedCard{
     protected static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(makeID("Spark"));
@@ -58,11 +57,8 @@ public abstract class AbstractSparkBreathCard extends AbstractTwoSidedCard{
     public void initializeSide() {
         boolean changeToBreath = false;
         if (adp() != null){
-            AbstractPower ember = adp().getPower(EmberPower.POWER_ID);
-            if (ember != null){
-                if (ember.amount >= getEmberBreakpoint()) {
-                    changeToBreath = true;
-                }
+            if (pwrAmt(adp(), EmberPower.POWER_ID) >= getEmberBreakpoint()) {
+                changeToBreath = true;
             }
         }
         changeSide(changeToBreath);

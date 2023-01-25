@@ -14,7 +14,7 @@ import static code.DragonCharacterFile.Enums.DRAGON_COLOR;
 import static code.ModFile.makeID;
 import static code.util.Wiz.*;
 
-import code.util.CustomTags;
+import code.util.DragonUtils.CustomTags;
 
 public class BlazingSpark_Dep extends AbstractSwappableCard {
     public final static String ID = makeID("BlazingSpark");

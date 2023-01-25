@@ -13,5 +13,19 @@
     "The Dragon has #b",
     " #yEmber stored."
   ]
-}
+  },
+  "${ModID}:OutscalePower": {
+    "NAME": "Outscaled",
+    "DESCRIPTIONS": [
+      "The Dragon's #yOutscales gain #b",
+      " bonus #yBlock."
+    ]
+  },
+  "${ModID}:BurningScalesPower": {
+    "NAME": "Burning Scales",
+    "DESCRIPTIONS": [
+      "When attacked, deals #b",
+      " damage back."
+    ]
+  }
 }

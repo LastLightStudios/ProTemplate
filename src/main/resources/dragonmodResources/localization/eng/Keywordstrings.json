@@ -23,5 +23,15 @@
       "breath"
     ],
     "DESCRIPTION": "This card has a #ySpark and #yBreath form. Whenever you have less than 5 #yEmbers this card transforms into its #ySpark form."
+  },
+  {
+    "PROPER_NAME": "Gem",
+    "NAMES": [
+      "Gem",
+      "gem",
+      "Gems",
+      "gems"
+    ],
+    "DESCRIPTION": "When a card generates a #yGem, it will randomly generate one of many possible #yGems. #yGems have various small effects. #yGems #yExhaust."
   }
 ]

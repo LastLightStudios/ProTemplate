@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 
-import code.util.CustomTags;
+import code.util.DragonUtils.CustomTags;
 
 import static code.ModFile.makeID;
 import static code.util.Wiz.*;

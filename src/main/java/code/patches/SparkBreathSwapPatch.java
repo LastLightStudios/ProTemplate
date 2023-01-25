@@ -2,7 +2,7 @@ package code.patches;
 
 import basemod.ReflectionHacks;
 import code.cards.AbstractSwappableCard;
-import code.util.CustomTags;
+import code.util.DragonUtils.CustomTags;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;

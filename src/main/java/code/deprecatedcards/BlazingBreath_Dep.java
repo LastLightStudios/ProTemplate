@@ -13,7 +13,7 @@ import code.powers.EmberPower;
 
 import static code.DragonCharacterFile.Enums.DRAGON_COLOR;
 import static code.ModFile.makeID;
-import code.util.CustomTags;
+import code.util.DragonUtils.CustomTags;
 import static code.util.Wiz.*;
 
 public class BlazingBreath_Dep extends AbstractSwappableCard {

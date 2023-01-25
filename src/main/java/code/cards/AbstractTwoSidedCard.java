@@ -1,7 +1,7 @@
 package code.cards;
 
 
-import code.util.CustomTags;
+import code.util.DragonUtils.CustomTags;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;

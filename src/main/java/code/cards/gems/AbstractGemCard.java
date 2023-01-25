@@ -3,11 +3,9 @@ package code.cards.gems;
 import basemod.helpers.TooltipInfo;
 import code.DragonCharacterFile;
 import code.cards.AbstractEasyCard;
-import code.util.CustomTags;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import code.util.DragonUtils.CustomTags;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.UIStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import java.util.ArrayList;
 import java.util.List;

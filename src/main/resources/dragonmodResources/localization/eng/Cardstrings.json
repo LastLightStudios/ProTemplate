@@ -20,6 +20,53 @@
       "Deal !D! damage to ALL enemies. NL Consumes all ${ModID}:Ember to deal increase damage by !M! per ${ModID}:Ember."
     ]
   },
+  "${ModID}:BurningClaw": {
+    "NAME": "Burning Claw",
+    "DESCRIPTION": "Deal !D! damage. NL Gain ${ModID}:Ember."
+  },
+  "${ModID}:TreasureClaw": {
+    "NAME": "Treasure Claw",
+    "DESCRIPTION": "Deal !D! damage. NL Add a random ${ModID}:Gem into hand."
+  },
+  "${ModID}:Wingbeat": {
+    "NAME": "Wingbeat",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies !M! times."
+  },
+  "${ModID}:Wingrake": {
+    "NAME": "Wing Rake",
+    "DESCRIPTION": "Deal !D! damage. Draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. Draw !M! cards."
+  },
+  "${ModID}:Ignition": {
+    "NAME": "Ignition",
+    "DESCRIPTION": "Gain ${ModID}:Ember. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain ${ModID}:Ember."
+  },
+  "${ModID}:BurningScales": {
+    "NAME": "Burning Scales",
+    "DESCRIPTION": "Gain !B! Block. NL Gain ${ModID}:Ember."
+  },
+  "${ModID}:BurningHeart": {
+    "NAME": "Burning Heart",
+    "DESCRIPTION": "Draw !M! cards. NL Gain ${ModID}:Ember."
+  },
+  "${ModID}:WingGuard": {
+    "NAME": "Wing Guard",
+    "DESCRIPTION": "Draw !M! card. NL Gain !M! Block.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Gain !M! Block."
+  },
+  "${ModID}:Outscale": {
+    "NAME": "Outscale",
+    "DESCRIPTION": "Gain !B! Block. Increase the Block of ALL Outscale cards by !M! this combat."
+  },
+  "${ModID}:LetThemCome": {
+    "NAME": "Let Them Come!",
+    "DESCRIPTION": "Gain !B! Block for each enemy in combat."
+  },
+  "${ModID}:BlazingScales": {
+    "NAME": "Blazing Scales",
+    "DESCRIPTION": "Gain !B! Block. Whenever you are attacked this turn, deal !M! damage back."
+  },
   "${ModID}:ProfaneSpark": {
     "NAME": "Profane Spark",
     "DESCRIPTION": "Deal !D! damage. NL Apply !${ModID}:m2! Weak. NL Gain !M! ${ModID}:Ember.",
@@ -99,6 +146,24 @@
   "${ModID}:Ruby": {
     "NAME": "Ruby",
     "DESCRIPTION": "Gain !M! ${ModID}:Ember. NL Exhaust."
+  },
+  "${ModID}:Amethyst": {
+    "NAME": "Amethyst",
+    "DESCRIPTION": "ALL enemies lost !M! Strength this turn. NL Exhaust."
+  },
+  "${ModID}:Garnet": {
+    "NAME": "Garnet",
+    "DESCRIPTION": "Apply !M! Vulnerable to ALL enemies. NL Exhaust."
+  },
+  "${ModID}:Quartz": {
+    "NAME": "Quartz",
+    "DESCRIPTION": "Draw !M! card. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Exhaust."
+  },
+  "${ModID}:Citrine": {
+    "NAME": "Ruby",
+    "DESCRIPTION": "Gain [E]. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain [E][E]. NL Exhaust."
   },
   "${ModID}:ExampleTwoAmountPowerCard": {
     "NAME": "Two Amount Power",

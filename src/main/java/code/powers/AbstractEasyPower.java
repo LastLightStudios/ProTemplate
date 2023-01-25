@@ -26,6 +26,8 @@ public abstract class AbstractEasyPower extends AbstractPower {
 
         this.owner = owner;
         this.amount = amount;
+        if (this.amount >= 9999)
+            this.amount = 9999;
         this.type = powerType;
 
         Texture normalTexture = TexLoader.getTexture(ModFile.modID + "Resources/images/powers/" + ID.replaceAll(ModFile.modID + ":", "") + "32.png");
