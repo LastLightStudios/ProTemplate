@@ -1,10 +1,12 @@
-package code.cards;
+package code.cards.sparkbreaths;
 
+import code.cards.AbstractSparkBreathCard;
+import code.cards.AbstractTwoSidedCard;
 import code.powers.EmberPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -13,30 +15,34 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.*;
 
 
-public class FocusedSpark extends AbstractSparkBreathCard {
-    public final static String ID = makeID("FocusedSpark");
+public class BarrageSpark extends AbstractSparkBreathCard {
+    public final static String ID = makeID("BarrageSpark");
 
     private final static int DAMAGE_A = 1;
-    private final static int DAMAGE_B = 10;
+    private final static int DAMAGE_B = 1;
 
     private final static int MAGIC_NUMBER_A = 1; //spark gain
     private final static int MAGIC_NUMBER_B = 1; //spark multiplier
+    private final static int SECOND_MAGIC_NUMBER_A = 5; //Number of hits
+    private final static int SECOND_MAGIC_NUMBER_B = 5; //Number of hits
+    private final static int UPGRADE_MAGIC_NUMBER_B = 1; //Number of hits increase
 
-    public FocusedSpark(boolean needsPreview) {
-        super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY, CardTarget.ENEMY, needsPreview);
+    public BarrageSpark(boolean needsPreview) {
+        super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.BASIC, CardTarget.ALL_ENEMY, CardTarget.ALL_ENEMY, needsPreview);
         setDamage(DAMAGE_A, DAMAGE_B);
         setMagic(MAGIC_NUMBER_A, MAGIC_NUMBER_B);
+        setSecondMagic(SECOND_MAGIC_NUMBER_A, SECOND_MAGIC_NUMBER_B);
 
         initializeSide();
     }
 
-    public FocusedSpark() {
+    public BarrageSpark() {
         this(true);
     }
 
     @Override
     protected AbstractTwoSidedCard noPreviewCopy(){
-        return new FocusedSpark(false);
+        return new BarrageSpark(false);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -44,14 +50,13 @@ public class FocusedSpark extends AbstractSparkBreathCard {
             if(upgraded){
                 atb(new DrawCardAction(1));
             }
-            dmg(m, AbstractGameAction.AttackEffect.FIRE);
+            for (int i = 0; i < secondMagic; i++){
+                atb(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.FIRE));
+            }
             applyToSelf(new EmberPower(p, magicNumber));
         } else { // Breath
-            for (AbstractMonster monster : getEnemies()){
-                dmg(m, AbstractGameAction.AttackEffect.FIRE);
-            }
-            if (getEnemies().size() > 2){
-                atb(new SFXAction("ATTACK_BOWLING"));
+            for (int i = 0; i < secondMagic; i++){
+                atb(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.FIRE));
             }
             atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
         }
@@ -92,6 +97,7 @@ public class FocusedSpark extends AbstractSparkBreathCard {
 
     @Override
     public void upp() {
+        upgradeMagicNumber(0, UPGRADE_MAGIC_NUMBER_B);
         descriptionA = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
     }

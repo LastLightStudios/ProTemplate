@@ -27,5 +27,47 @@
       "When attacked, deals #b",
       " damage back."
     ]
+  },
+  "${ModID}:KindlePower": {
+    "NAME": "Kindle",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain #b",
+      " #yEmber."
+    ]
+  },
+  "${ModID}:TakingFlightPower": {
+    "NAME": "Taking Flight",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain #b",
+      " #yBuffer."
+    ]
+  },
+  "${ModID}:CrashingPower": {
+    "NAME": "Crashing",
+    "DESCRIPTIONS": [
+      "At the end of your turn, deal #b",
+      " damage to ALL characters."
+    ]
+  },
+  "${ModID}:OceanNestPower": {
+    "NAME": "Ocean Nest",
+    "DESCRIPTIONS": [
+      "For each #yEnergy you have at the end of your turn, draw #b",
+      " #ycards at the start of your next turn."
+    ]
+  },
+  "${ModID}:TundraNestPower": {
+    "NAME": "Tundra Nest",
+    "DESCRIPTIONS": [
+      "For each #yEnergy you have at the end of your turn, gain #b",
+      " #yBlock at the start of your next turn."
+    ]
+  },
+  "${ModID}:HeavenlyNestPower": {
+    "NAME": "Heavenly Nest",
+    "DESCRIPTIONS": [
+      "For each #yEnergy you have at the end of your turn, gain #b",
+      " #yEnergy at the start of your next turn."
+    ]
   }
 }

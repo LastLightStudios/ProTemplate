@@ -12,8 +12,8 @@ import static code.util.Wiz.applyToSelf;
 public class Ruby extends AbstractGemCard {
     public final static String ID = makeID("Ruby");
 
-    private final static int MAGIC_NUMBER = 2; //Ember gain
-    private final static int UPGRADE_MAGIC_NUMBER = 2; //increase Ember gain
+    private final static int MAGIC_NUMBER = 2; //temp str gain
+    private final static int UPGRADE_MAGIC_NUMBER = 2; //increase temp str gain
 
     public Ruby() {
         super(ID, CardType.SKILL, CardRarity.SPECIAL, CardTarget.SELF);
@@ -21,7 +21,8 @@ public class Ruby extends AbstractGemCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        applyToSelf(new EmberPower(p, MAGIC_NUMBER));
+        applyToSelf(new StrengthPower(p, MAGIC_NUMBER));
+        applyToSelf(new LoseStrengthPower(p, MAGIC_NUMBER));
     }
 
     public void upp() {

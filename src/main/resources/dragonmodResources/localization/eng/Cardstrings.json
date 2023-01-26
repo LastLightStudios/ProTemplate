@@ -26,7 +26,11 @@
   },
   "${ModID}:TreasureClaw": {
     "NAME": "Treasure Claw",
-    "DESCRIPTION": "Deal !D! damage. NL Add a random ${ModID}:Gem into hand."
+    "DESCRIPTION": "Deal !D! damage. NL Add a random ${ModID}:Gem into your hand."
+  },
+  "${ModID}:MassiveClaw": {
+    "NAME": "Massive Claw",
+    "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage for every !${ModID}:m2! cards in your deck."
   },
   "${ModID}:Wingbeat": {
     "NAME": "Wingbeat",
@@ -66,6 +70,31 @@
   "${ModID}:BlazingScales": {
     "NAME": "Blazing Scales",
     "DESCRIPTION": "Gain !B! Block. Whenever you are attacked this turn, deal !M! damage back."
+  },
+  "${ModID}:StretchYourWings": {
+    "NAME": "Stretch Your Wings",
+    "DESCRIPTION": "Gain [E][E][E][E]. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain [E][E][E][E]."
+  },
+  "${ModID}:StretchYourLegs": {
+    "NAME": "Stretch Your Legs",
+    "DESCRIPTION": "Gain [E][E]. Gain !${ModID}:m2! Weak."
+  },
+  "${ModID}:StretchYourTail": {
+    "NAME": "Stretch Your Tail",
+    "DESCRIPTION": "Gain [E][E]. Gain !${ModID}:m2! Frail."
+  },
+  "${ModID}:StretchYourBelly": {
+    "NAME": "Stretch Your Belly",
+    "DESCRIPTION": "Gain [E][E]. Gain !${ModID}:m2! Vulnerable."
+  },
+  "${ModID}:TreasureScale": {
+    "NAME": "Treasure Scale",
+    "DESCRIPTION": "Gain !B! Block. NL Add a random ${ModID}:Gem into your hand."
+  },
+  "${ModID}:MassiveScale": {
+    "NAME": "Massive Scale",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! additional Block for every !${ModID}:m2! cards in your deck."
   },
   "${ModID}:ProfaneSpark": {
     "NAME": "Profane Spark",
@@ -131,6 +160,63 @@
       "Deal !D! damage for each enemy in combat. NL Consumes all ${ModID}:Ember to deal increase damage by !M! per ${ModID}:Ember."
     ]
   },
+  "${ModID}:CrystallineSpark": {
+    "NAME": "Crystalline Spark",
+    "DESCRIPTION": "Deal !D! damage. NL Add a random ${ModID}:Gem into your hand. NL Gain !M! ${ModID}:Ember.",
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
+    "EXTENDED_DESCRIPTION": [
+      "Crystalline Breath",
+      "Deal !D! damage to ALL enemies. NL Add a random ${ModID}:Gem into your hand NL Consumes all ${ModID}:Ember to deal increase both effects by !M! per ${ModID}:Ember."
+    ]
+  },
+  "${ModID}:PridefulClaw": {
+    "NAME": "Prideful Claw",
+    "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage for every Rare card in your deck."
+  },
+  "${ModID}:Armorfryer": {
+    "NAME": "Armorfryer",
+    "DESCRIPTION": "Remove all block from ALL enemies. NL Deal !D! damage to ALL enemies."
+  },
+  "${ModID}:TreasureBath": {
+    "NAME": "Treasure Bath",
+    "DESCRIPTION": "Fill your hand with ${ModID}:Gems."
+  },
+  "${ModID}:TreasureMind": {
+    "NAME": "Treasure Mind",
+    "DESCRIPTION": "Draw !M! cards. NL Add !${ModID}:m2! ${ModID}:Gem to your hand.",
+    "UPGRADE_DESCRIPTIONS": "Draw !M! cards. NL Add !${ModID}:m2! ${ModID}:Gems to your hand."
+  },
+  "${ModID}:TakeFlight": {
+    "NAME": "Take Flight",
+    "DESCRIPTION": "Gain !M! Buffer at the start of your next turn."
+  },
+  "${ModID}:CrashLanding": {
+    "NAME": "Crash Landing",
+    "DESCRIPTION": "Gain !B! Block. At the end of your turn, ALL characters take !D! damage."
+  },
+  "${ModID}:Kindle": {
+    "NAME": "Kindle",
+    "DESCRIPTION": "At the start of your turn, gain !M! Block."
+  },
+  "${ModID}:DraconicWrath": {
+    "NAME": "Draconic Wrath",
+    "DESCRIPTION": "Gain !M! Rage and !M! Flame Barrier for each enemy in combat."
+  },
+  "${ModID}:OceanNest": {
+    "NAME": "Ocean Nest",
+    "DESCRIPTION": "If you have [E] at the end of your turn, draw !M! card for each [E] at the start of your next turn.",
+    "UPGRADE_DESCRIPTION": "Draw !${ModID}:m2! cards. NL If you have [E] at the end of your turn, draw !M! card for each [E] at the start of your next turn."
+  },
+  "${ModID}:TundraNest": {
+    "NAME": "Tundra Nest",
+    "DESCRIPTION": "If you have [E] at the end of your turn, gain !M! Block for each [E] at the start of your next turn.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL If you have [E] at the end of your turn, gain !M! Block for each [E] at the start of your next turn."
+  },
+  "${ModID}:HeavenlyNest": {
+    "NAME": "Heavenly Nest",
+    "DESCRIPTION": "If you have [E] at the end of your turn, gain [E] for each [E] at the start of your next turn.",
+    "UPGRADE_DESCRIPTION": "Gain [E] next turn. NL If you have [E] at the end of your turn, gain [E] for each [E] at the start of your next turn."
+  },
   "${ModID}:Aquamarine": {
     "NAME": "Aquamarine",
     "DESCRIPTION": "Gain !B! Block. NL Exhaust."
@@ -141,11 +227,11 @@
   },
   "${ModID}:Rhodonite": {
     "NAME": "Rhodonite",
-    "DESCRIPTION": "Gain !M! temporary Strength. NL Exhaust."
+    "DESCRIPTION": "Gain !M! ${ModID}:Ember. NL Exhaust."
   },
   "${ModID}:Ruby": {
     "NAME": "Ruby",
-    "DESCRIPTION": "Gain !M! ${ModID}:Ember. NL Exhaust."
+    "DESCRIPTION": "Gain !M! temporary Strength. NL Exhaust."
   },
   "${ModID}:Amethyst": {
     "NAME": "Amethyst",

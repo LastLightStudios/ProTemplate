@@ -2,14 +2,11 @@ package code.cards;
 
 import code.powers.EmberPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.ModFile.makeID;
-import static code.util.DragonUtils.getRandomGem;
 import static code.util.Wiz.applyToSelf;
-import static code.util.Wiz.atb;
 
 public class BurningClaw extends AbstractEasyCard {
     public final static String ID = makeID("TreasureClaw");

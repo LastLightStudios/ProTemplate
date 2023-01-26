@@ -1,9 +1,12 @@
-package code.cards;
+package code.cards.sparkbreaths;
 
+import code.cards.AbstractSparkBreathCard;
+import code.cards.AbstractTwoSidedCard;
 import code.powers.EmberPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -11,35 +14,31 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import static code.ModFile.makeID;
 import static code.util.Wiz.*;
 
-public class PureSpark extends AbstractSparkBreathCard {
-    public final static String ID = makeID("PureSpark");
+
+public class FocusedSpark extends AbstractSparkBreathCard {
+    public final static String ID = makeID("FocusedSpark");
 
     private final static int DAMAGE_A = 1;
-    private final static int DAMAGE_B = 15;
+    private final static int DAMAGE_B = 10;
 
     private final static int MAGIC_NUMBER_A = 1; //spark gain
     private final static int MAGIC_NUMBER_B = 1; //spark multiplier
-    private final static int BLOCK_NUMBER_A = 3; //poison application
-    private final static int BLOCK_NUMBER_B = 10; //poison application
-    private final static int UPGRADE_BLOCK_NUMBER_A = 2; //poison application
-    private final static int UPGRADE_BLOCK_NUMBER_B = 5; //poison application
 
-    public PureSpark(boolean needsPreview) {
-        super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CardTarget.ALL_ENEMY, needsPreview);
+    public FocusedSpark(boolean needsPreview) {
+        super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY, CardTarget.ENEMY, needsPreview);
         setDamage(DAMAGE_A, DAMAGE_B);
-        setBlock(BLOCK_NUMBER_A, BLOCK_NUMBER_B);
         setMagic(MAGIC_NUMBER_A, MAGIC_NUMBER_B);
 
         initializeSide();
     }
 
-    public PureSpark() {
+    public FocusedSpark() {
         this(true);
     }
 
     @Override
     protected AbstractTwoSidedCard noPreviewCopy(){
-        return new PureSpark(false);
+        return new FocusedSpark(false);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -48,11 +47,14 @@ public class PureSpark extends AbstractSparkBreathCard {
                 atb(new DrawCardAction(1));
             }
             dmg(m, AbstractGameAction.AttackEffect.FIRE);
-            blck();
             applyToSelf(new EmberPower(p, magicNumber));
         } else { // Breath
-            allDmg(AbstractGameAction.AttackEffect.FIRE);
-            blck();
+            for (AbstractMonster monster : getEnemies()){
+                dmg(m, AbstractGameAction.AttackEffect.FIRE);
+            }
+            if (getEnemies().size() > 2){
+                atb(new SFXAction("ATTACK_BOWLING"));
+            }
             atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
         }
         checkEmberTrigger();
@@ -66,17 +68,10 @@ public class PureSpark extends AbstractSparkBreathCard {
             AbstractPower ember = adp().getPower(EmberPower.POWER_ID);
             if (ember != null) {
                 int realBaseDamage = baseDamage; //temp store realBaseDamage b/c baseDamage is used in card damage calculations
-                baseDamage = baseDamage + (magicNumber * ember.amount);
-
-                // adjusting Block values based on Ember
-                int realBaseBlock = baseBlock;
-                baseBlock = baseBlock + (magicNumber * ember.amount);
+                baseDamage = baseDamage + ember.amount;
                 super.calculateCardDamage(m);
-
                 baseDamage = realBaseDamage; //restore the realBaseDamage
-                baseBlock = realBaseBlock;
                 isDamageModified = (damage != baseDamage);
-                isBlockModified = (block != baseBlock);
             }
         }
     }
@@ -89,24 +84,16 @@ public class PureSpark extends AbstractSparkBreathCard {
             AbstractPower ember = adp().getPower(EmberPower.POWER_ID);
             if (ember != null) {
                 int realBaseDamage = baseDamage; //temp store realBaseDamage b/c baseDamage is used in card damage calculations
-                baseDamage = baseDamage + (magicNumber * ember.amount);
-
-                // adjusting Block values based on Ember
-                int realBaseBlock = baseBlock;
-                baseBlock = baseBlock + (magicNumber * ember.amount);
+                baseDamage = baseDamage + ember.amount;
                 super.applyPowers();
-
                 baseDamage = realBaseDamage; //restore the realBaseDamage
-                baseBlock = realBaseBlock;
                 isDamageModified = (damage != baseDamage);
-                isBlockModified = (block != baseBlock);
             }
         }
     }
 
     @Override
     public void upp() {
-        upgradeBlock(UPGRADE_BLOCK_NUMBER_A, UPGRADE_BLOCK_NUMBER_B);
         descriptionA = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
     }
