@@ -9,7 +9,7 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.applyToSelf;
 
 public class BurningClaw extends AbstractEasyCard {
-    public final static String ID = makeID("TreasureClaw");
+    public final static String ID = makeID("BurningClaw");
 
     private final static int DAMAGE = 8;
     private final static int UPGRADE_DAMAGE = 2;

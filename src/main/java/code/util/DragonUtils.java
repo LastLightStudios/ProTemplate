@@ -1,6 +1,7 @@
 package code.util;
 
 import code.cards.gems.*;
+import code.cards.nests.*;
 import code.cards.sparkbreaths.*;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -14,6 +15,14 @@ public class DragonUtils {
 
     public static AbstractCard getRandomGem(){
         return Wiz.getRandomItem(gemList);
+    }
+
+    public static AbstractCard getRandomSpark(){
+        return Wiz.getRandomItem(sparkList);
+    }
+
+    public static AbstractCard getRandomNest(){
+        return Wiz.getRandomItem(nestList);
     }
 
     public static int countRaresInDeck(){
@@ -46,6 +55,18 @@ public class DragonUtils {
             new RadiantSpark(),
             new SwiftSpark(),
             new ToxicSpark()
+    ));
+
+    static ArrayList<AbstractCard> nestList = new ArrayList<AbstractCard>(Arrays.asList(
+            new AbyssNest(),
+            new AncientNest(),
+            new DesertNest(),
+            new ForestNest(),
+            new HeavenlyNest(),
+            new OceanNest(),
+            new TundraNest(),
+            new VolcanicNest(),
+            new NestingForm()
     ));
 
     public static class CustomTags {

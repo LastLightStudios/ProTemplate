@@ -49,6 +49,48 @@
       " damage to ALL characters."
     ]
   },
+  "${ModID}:ComfyNestPower": {
+    "NAME": "Comfy Nest",
+    "DESCRIPTIONS": [
+      "For each #yEnergy you have at the end of your turn, gain #b",
+      " #yEmber at the start of your next turn."
+    ]
+  },
+  "${ModID}:DelayedEmberPower": {
+    "NAME": "Gain Ember Next Turn ",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " #yEmber at the start of your next turn."
+    ]
+  },
+  "${ModID}:DesertNestPower": {
+    "NAME": "Desert Nest",
+    "DESCRIPTIONS": [
+      "For each #yEnergy you have at the end of your turn, gain #b",
+      " temporary #yStrength at the start of your next turn."
+    ]
+  },
+  "${ModID}:DelayedTempStrPower": {
+    "NAME": "Temporary Strength Next Turn ",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " temporary #yStrength at the start of your next turn."
+    ]
+  },
+  "${ModID}:ForestNestPower": {
+    "NAME": "Forest Nest",
+    "DESCRIPTIONS": [
+      "For each #yEnergy you have at the end of your turn, gain #b",
+      " temporary #yDexterity at the start of your next turn."
+    ]
+  },
+  "${ModID}:DelayedTempDexPower": {
+    "NAME": "Temporary Dexterity Next Turn ",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " temporary #yDexterity at the start of your next turn."
+    ]
+  },
   "${ModID}:OceanNestPower": {
     "NAME": "Ocean Nest",
     "DESCRIPTIONS": [
@@ -63,11 +105,69 @@
       " #yBlock at the start of your next turn."
     ]
   },
+  "${ModID}:AbyssNestPower": {
+    "NAME": "Abyss Nest",
+    "DESCRIPTIONS": [
+      "For each #yEnergy you have at the end of your turn, gain #b",
+      " #yMetallicize at the start of your next turn."
+    ]
+  },
+  "${ModID}:DelayedMetallicizePower": {
+    "NAME": "Gain Metallicize Next Turn",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " #yMetallicize at the start of your next turn."
+    ]
+  },
+  "${ModID}:AncientNestPower": {
+    "NAME": "Ancient Nest",
+    "DESCRIPTIONS": [
+      "For each #yEnergy you have at the end of your turn, gain #b",
+      " #yArtifact at the start of your next turn."
+    ]
+  },
+  "${ModID}:DelayedArtifactPower": {
+    "NAME": "Gain Artifact Next Turn",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " #yArtifact at the start of your next turn."
+    ]
+  },
   "${ModID}:HeavenlyNestPower": {
     "NAME": "Heavenly Nest",
     "DESCRIPTIONS": [
       "For each #yEnergy you have at the end of your turn, gain #b",
       " #yEnergy at the start of your next turn."
+    ]
+  },
+  "${ModID}:VolcanicNestPower": {
+    "NAME": "Volcanic Nest",
+    "DESCRIPTIONS": [
+      "For each #yEnergy you have at the end of your turn, gain #b",
+      " #yDemon #yForm at the start of your next turn."
+    ]
+  },
+  "${ModID}:DelayedDemonFormPower": {
+    "NAME": "Gain Demon Form Next Turn",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " #yDemon #yForm at the start of your next turn."
+    ]
+  },
+  "${ModID}:NestingFormPower": {
+    "NAME": "Nesting Form",
+    "DESCRIPTIONS": [
+      "For each #yEnergy you have at the end of your turn, add #b",
+      " random #yNest card at the start of your next turn.",
+      " random #yNest cards at the start of your next turn."
+    ]
+  },
+  "${ModID}:GainNestNextTurnPower": {
+    "NAME": "Gain Nest Next Turn",
+    "DESCRIPTIONS": [
+      "Add #b",
+      " random #yNest card into your hand at the start of your next turn.",
+      " random #yNest cards into your hand  at the start of your next turn."
     ]
   }
 }

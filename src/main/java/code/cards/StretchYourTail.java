@@ -17,7 +17,7 @@ public class StretchYourTail extends AbstractEasyCard {
     private final static int UPGRADE_FRAIL_GAIN = -1;
 
     public StretchYourTail() {
-        super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         magicNumber = baseMagicNumber = ENERGY_GAIN;
         secondMagic = baseSecondMagic = FRAIL_GAIN;
     }

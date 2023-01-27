@@ -14,7 +14,7 @@
   "${ModID}:BlazingSpark": {
     "NAME": "Blazing Spark",
     "DESCRIPTION": "Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
-    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain !M! ${ModID}:Ember. NL Draw 1 card.",
     "EXTENDED_DESCRIPTION": [
       "Blazing Breath",
       "Deal !D! damage to ALL enemies. NL Consumes all ${ModID}:Ember to deal increase damage by !M! per ${ModID}:Ember."
@@ -36,7 +36,7 @@
     "NAME": "Wingbeat",
     "DESCRIPTION": "Deal !D! damage to ALL enemies !M! times."
   },
-  "${ModID}:Wingrake": {
+  "${ModID}:WingRake": {
     "NAME": "Wing Rake",
     "DESCRIPTION": "Deal !D! damage. Draw !M! card.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. Draw !M! cards."
@@ -52,12 +52,12 @@
   },
   "${ModID}:BurningHeart": {
     "NAME": "Burning Heart",
-    "DESCRIPTION": "Draw !M! cards. NL Gain ${ModID}:Ember."
+    "DESCRIPTION": "Gain ${ModID}:Ember. NL Draw !M! cards."
   },
   "${ModID}:WingGuard": {
     "NAME": "Wing Guard",
-    "DESCRIPTION": "Draw !M! card. NL Gain !M! Block.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Gain !M! Block."
+    "DESCRIPTION": "Gain !M! Block. Draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Block. NL Draw !M! cards."
   },
   "${ModID}:Outscale": {
     "NAME": "Outscale",
@@ -99,7 +99,7 @@
   "${ModID}:ProfaneSpark": {
     "NAME": "Profane Spark",
     "DESCRIPTION": "Deal !D! damage. NL Apply !${ModID}:m2! Weak. NL Gain !M! ${ModID}:Ember.",
-    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Apply !${ModID}:m2! Weak.  NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
+    "UPGRADE_DESCRIPTION": "Apply !${ModID}:m2! Weak.  NL Deal !D! damage. NL Gain !M! ${ModID}:Ember. NL Draw 1 card.",
     "EXTENDED_DESCRIPTION": [
       "Profane Breath",
       "Deal !D! damage and apply !${ModID}:m2! Weak to ALL enemies. NL Consumes all ${ModID}:Ember to increase damage by !M! per ${ModID}:Ember."
@@ -108,7 +108,7 @@
   "${ModID}:ToxicSpark": {
     "NAME": "Toxic Spark",
     "DESCRIPTION": "Deal !D! damage. NL Apply !${ModID}:m2! Poison. NL Gain !M! ${ModID}:Ember.",
-    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Apply !${ModID}:m2! Poison.  NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
+    "UPGRADE_DESCRIPTION": "Apply !${ModID}:m2! Poison.  NL Deal !D! damage. NL Gain !M! ${ModID}:Ember. NL Draw 1 card.",
     "EXTENDED_DESCRIPTION": [
       "Toxic Breath",
       "Deal !D! damage and apply !${ModID}:m2! Poison to ALL enemies. NL Consumes all ${ModID}:Ember to increase both effects by !M! per ${ModID}:Ember."
@@ -116,17 +116,17 @@
   },
   "${ModID}:SwiftSpark": {
     "NAME": "Swift Spark",
-    "DESCRIPTION": "Draw !${ModID}:m2! card. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
-    "UPGRADE_DESCRIPTION": "Draw !${ModID}:m2! card. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! ${ModID}:Ember. NL Draw !${ModID}:m2! card.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain !M! ${ModID}:Ember. NL Draw !${ModID}:m2! cards.",
     "EXTENDED_DESCRIPTION": [
       "Swift Breath",
-      "Deal !D! damage to ALL enemies. NL Draw !${ModID}:m2! card. NL Consumes all ${ModID}:Ember to increase damage by !M! per ${ModID}:Ember."
+      "Deal !D! damage to ALL enemies. NL Draw !${ModID}:m2! cards. NL Consumes all ${ModID}:Ember to increase damage by !M! per ${ModID}:Ember."
     ]
   },
   "${ModID}:BarrageSpark": {
     "NAME": "Barrage Spark",
     "DESCRIPTION": "Deal !D! damage to a random enemy !${ModID}:m2! times. NL Gain !M! ${ModID}:Ember.",
-    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Deal !D! damage to a random enemy !${ModID}:m2! times. NL Gain !M! ${ModID}:Ember.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to a random enemy !${ModID}:m2! times. NL Gain !M! ${ModID}:Ember. NL Draw 1 card.",
     "EXTENDED_DESCRIPTION": [
       "Barrage Breath",
       "Deal !D! damage to a random enemy !${ModID}:m2! times. NL Consumes all ${ModID}:Ember to increase damage by !M! per ${ModID}:Ember."
@@ -134,17 +134,17 @@
   },
   "${ModID}:PureSpark": {
     "NAME": "Pure Spark",
-    "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block. NL Gain !M! ${ModID}:Ember.",
-    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Gain !B! Block. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
+    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember. NL Draw 1 card.",
     "EXTENDED_DESCRIPTION": [
       "Pure Breath",
-      "Deal !D! damage to ALL enemies. NL Gain !B! Block. NL Consumes all ${ModID}:Ember to deal increase both effects by !M! per ${ModID}:Ember."
+      "Gain !B! Block. NL Deal !D! damage to ALL enemies. NL Consumes all ${ModID}:Ember to deal increase both effects by !M! per ${ModID}:Ember."
     ]
   },
   "${ModID}:RadiantSpark": {
     "NAME": "Radiant Spark",
     "DESCRIPTION": "Deal !D! damage. NL Gain [E]. NL Gain !M! ${ModID}:Ember.",
-    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Gain [E]. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain [E]. NL Gain !M! ${ModID}:Ember. NL Draw 1 card.",
     "EXTENDED_DESCRIPTION": [
       "Radiant Breath",
       "Deal !D! damage to ALL enemies. NL Gain [E]. NL Consumes all ${ModID}:Ember to deal increase damage by !M! per ${ModID}:Ember.",
@@ -162,11 +162,11 @@
   },
   "${ModID}:CrystallineSpark": {
     "NAME": "Crystalline Spark",
-    "DESCRIPTION": "Deal !D! damage. NL Add a random ${ModID}:Gem into your hand. NL Gain !M! ${ModID}:Ember.",
-    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! ${ModID}:Ember. NL Add a random ${ModID}:Gem into your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain !M! ${ModID}:Ember. NL Add a random ${ModID}:Gem into your hand. NL Draw 1 card.",
     "EXTENDED_DESCRIPTION": [
       "Crystalline Breath",
-      "Deal !D! damage to ALL enemies. NL Add a random ${ModID}:Gem into your hand NL Consumes all ${ModID}:Ember to deal increase both effects by !M! per ${ModID}:Ember."
+      "Deal !D! damage to ALL enemies. NL Add a random ${ModID}:Gem into your hand. NL Consumes all ${ModID}:Ember to increase both effects by !M! per ${ModID}:Ember."
     ]
   },
   "${ModID}:PridefulClaw": {
@@ -179,12 +179,12 @@
   },
   "${ModID}:TreasureBath": {
     "NAME": "Treasure Bath",
-    "DESCRIPTION": "Fill your hand with ${ModID}:Gems."
+    "DESCRIPTION": "Fill your hand with random ${ModID}:Gems."
   },
   "${ModID}:TreasureMind": {
     "NAME": "Treasure Mind",
-    "DESCRIPTION": "Draw !M! cards. NL Add !${ModID}:m2! ${ModID}:Gem to your hand.",
-    "UPGRADE_DESCRIPTIONS": "Draw !M! cards. NL Add !${ModID}:m2! ${ModID}:Gems to your hand."
+    "DESCRIPTION": "Draw !M! cards. NL Add !${ModID}:m2! ${ModID}:Gem into your hand.",
+    "UPGRADE_DESCRIPTIONS": "Draw !M! cards. NL Add !${ModID}:m2! ${ModID}:Gems into your hand."
   },
   "${ModID}:TakeFlight": {
     "NAME": "Take Flight",
@@ -194,28 +194,71 @@
     "NAME": "Crash Landing",
     "DESCRIPTION": "Gain !B! Block. At the end of your turn, ALL characters take !D! damage."
   },
+  "${ModID}:PridefulScale": {
+    "NAME": "Prideful Scale",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! additional Block for every Rare card in your deck."
+  },
   "${ModID}:Kindle": {
     "NAME": "Kindle",
-    "DESCRIPTION": "At the start of your turn, gain !M! Block."
+    "DESCRIPTION": "At the start of your turn, gain !M! ${ModID}Ember."
   },
   "${ModID}:DraconicWrath": {
     "NAME": "Draconic Wrath",
     "DESCRIPTION": "Gain !M! Rage and !M! Flame Barrier for each enemy in combat."
   },
+  "${ModID}:FrightfulPresence": {
+    "NAME": "Frightful Presence",
+    "DESCRIPTION": "Apply !M! Weak and !M! Vulnerable.",
+    "UPGRADE_DESCRIPTION": "Apply !M! Weak and !M! Vulnerable to ALL enemies."
+  },
+  "${ModID}:LegendaryResistance": {
+    "NAME": "Legendary Resistance",
+    "DESCRIPTION": "Gain !B! Block and !M! Artifact."
+  },
+  "${ModID}:DesertNest": {
+    "NAME": "Desert Nest",
+    "DESCRIPTION": "Whenever you have [E] at the end of your turn, gain !M! temporary Strength for each [E] at the start of your next turn.",
+    "UPGRADE_DESCRIPTION": "Gain !${ModID}:m2! temporary Strength. NL Whenever you have [E] at the end of your turn, gain !M! temporary Strength for each [E] at the start of your next turn."
+  },
+  "${ModID}:ForestNest": {
+    "NAME": "Forest Nest",
+    "DESCRIPTION": "Whenever you have [E] at the end of your turn, gain !M! temporary Dexterity at the start of your next turn for each [E].",
+    "UPGRADE_DESCRIPTION": "Gain !${ModID}:m2! temporary Dexterity. NL Whenever you have [E] at the end of your turn, gain !M! temporary Dexterity at the start of your next turn for each [E]."
+  },
   "${ModID}:OceanNest": {
     "NAME": "Ocean Nest",
-    "DESCRIPTION": "If you have [E] at the end of your turn, draw !M! card for each [E] at the start of your next turn.",
-    "UPGRADE_DESCRIPTION": "Draw !${ModID}:m2! cards. NL If you have [E] at the end of your turn, draw !M! card for each [E] at the start of your next turn."
+    "DESCRIPTION": "Whenever you have [E] at the end of your turn, draw !M! card at the start of your next turn for each [E].",
+    "UPGRADE_DESCRIPTION": "Draw !${ModID}:m2! card. NL Whenever you have [E] at the end of your turn, draw !M! card at the start of your next turn for each [E]."
   },
   "${ModID}:TundraNest": {
     "NAME": "Tundra Nest",
-    "DESCRIPTION": "If you have [E] at the end of your turn, gain !M! Block for each [E] at the start of your next turn.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL If you have [E] at the end of your turn, gain !M! Block for each [E] at the start of your next turn."
+    "DESCRIPTION": "Whenever you have [E] at the end of your turn, gain !M! Block at the start of your next turn for each [E].",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Whenever you have [E] at the end of your turn, gain !M! Block at the start of your next turn for each [E]."
+  },
+  "${ModID}:AbyssNest": {
+    "NAME": "Abyss Nest",
+    "DESCRIPTION": "Whenever you have [E] at the end of your turn, gain !M! Metallicize at the start of your next turn for each [E].",
+    "UPGRADE_DESCRIPTION": "Gain !${ModID}:m2! Metallicize. NL Whenever you have [E] at the end of your turn, gain !M! Metallicize at the start of your next turn for each [E]."
+  },
+  "${ModID}:AncientNest": {
+    "NAME": "Ancient Nest",
+    "DESCRIPTION": "Whenever you have [E] at the end of your turn, gain !M! Artifact at the start of your next turn for each [E].",
+    "UPGRADE_DESCRIPTION": "Gain !${ModID}:m2! Artifact. NL Whenever you have [E] at the end of your turn, gain !M! Artifact at the start of your next turn. for each [E]"
   },
   "${ModID}:HeavenlyNest": {
     "NAME": "Heavenly Nest",
-    "DESCRIPTION": "If you have [E] at the end of your turn, gain [E] for each [E] at the start of your next turn.",
-    "UPGRADE_DESCRIPTION": "Gain [E] next turn. NL If you have [E] at the end of your turn, gain [E] for each [E] at the start of your next turn."
+    "DESCRIPTION": "Whenever you have [E] at the end of your turn, gain [E] at the start of your next turn for each [E].",
+    "UPGRADE_DESCRIPTION": "Gain [E] next turn. NL Whenever you have [E] at the end of your turn, gain [E] at the start of your next turn for each [E]."
+  },
+  "${ModID}:VolcanicNest": {
+    "NAME": "Volcanic Nest",
+    "DESCRIPTION": "Whenever you have [E] at the end of your turn, gain !M! Demon Form at the start of your next turn for each [E].",
+    "UPGRADE_DESCRIPTION": "Gain !${ModID}:m2! Demon Form. NL Whenever you have [E] at the end of your turn, gain !M! Demon Form at the start of your next turn for each [E]."
+  },
+  "${ModID}:NestingForm": {
+    "NAME": "Nesting Form",
+    "DESCRIPTION": "Whenever you have [E] at the end of your turn, add a random ${ModID}:Nest to your hand at the start of your next turn. for each [E]",
+    "UPGRADE_DESCRIPTION": "Add a random ${ModID}:Nest to your hand. NL Whenever you have [E] at the end of your turn, add a random ${ModID}:Nest to your hand at the start of your next turn for each [E]."
   },
   "${ModID}:Aquamarine": {
     "NAME": "Aquamarine",
@@ -235,7 +278,7 @@
   },
   "${ModID}:Amethyst": {
     "NAME": "Amethyst",
-    "DESCRIPTION": "ALL enemies lost !M! Strength this turn. NL Exhaust."
+    "DESCRIPTION": "ALL enemies lose !M! Strength this turn. NL Exhaust."
   },
   "${ModID}:Garnet": {
     "NAME": "Garnet",
@@ -247,7 +290,7 @@
     "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Exhaust."
   },
   "${ModID}:Citrine": {
-    "NAME": "Ruby",
+    "NAME": "Citrine",
     "DESCRIPTION": "Gain [E]. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Gain [E][E]. NL Exhaust."
   },

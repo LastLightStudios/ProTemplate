@@ -17,7 +17,7 @@ public class StretchYourLegs extends AbstractEasyCard {
     private final static int UPGRADE_WEAK_GAIN = -1;
 
     public StretchYourLegs() {
-        super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         magicNumber = baseMagicNumber = ENERGY_GAIN;
         secondMagic = baseSecondMagic = WEAK_GAIN;
     }

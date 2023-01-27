@@ -46,12 +46,12 @@ public class ToxicSpark extends AbstractSparkBreathCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (isFront) {
-            if(upgraded){
-                atb(new DrawCardAction(1));
-            }
             dmg(m, AbstractGameAction.AttackEffect.FIRE);
             applyToEnemy(m, new PoisonPower(m, p, SECOND_MAGIC_NUMBER_A));
             applyToSelf(new EmberPower(p, magicNumber));
+            if(upgraded){
+                atb(new DrawCardAction(1));
+            }
         } else { // Breath
             allDmg(AbstractGameAction.AttackEffect.FIRE);
             AbstractPower ember = adp().getPower(EmberPower.POWER_ID);

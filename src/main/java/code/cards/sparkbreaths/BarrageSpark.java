@@ -47,13 +47,13 @@ public class BarrageSpark extends AbstractSparkBreathCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (isFront) {
-            if(upgraded){
-                atb(new DrawCardAction(1));
-            }
             for (int i = 0; i < secondMagic; i++){
                 atb(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.FIRE));
             }
             applyToSelf(new EmberPower(p, magicNumber));
+            if(upgraded){
+                atb(new DrawCardAction(1));
+            }
         } else { // Breath
             for (int i = 0; i < secondMagic; i++){
                 atb(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.FIRE));

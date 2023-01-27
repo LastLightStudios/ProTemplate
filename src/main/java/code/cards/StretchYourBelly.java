@@ -18,7 +18,7 @@ public class StretchYourBelly extends AbstractEasyCard {
     private final static int UPGRADE_VULN_GAIN = -1;
 
     public StretchYourBelly() {
-        super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         magicNumber = baseMagicNumber = ENERGY_GAIN;
         secondMagic = baseSecondMagic = VULN_GAIN;
     }

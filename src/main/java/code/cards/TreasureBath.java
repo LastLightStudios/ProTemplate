@@ -13,16 +13,9 @@ import static code.util.Wiz.*;
 public class TreasureBath extends AbstractEasyCard {
     public final static String ID = makeID("TreasureBath");
 
-    private final static int CARD_DRAW = 1;
-    private final static int UPGRADE_CARD_DRAW = 1;
-    private final static int BLOCK = 12;
-    private final static int UPGRADE_BLOCK = 4;
-
 
     public TreasureBath() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, DRAGON_COLOR);
-        baseBlock = BLOCK;
-        baseMagicNumber = magicNumber = CARD_DRAW;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -32,7 +25,5 @@ public class TreasureBath extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(UPGRADE_CARD_DRAW);
-        upgradeBlock(UPGRADE_BLOCK);
     }
 }

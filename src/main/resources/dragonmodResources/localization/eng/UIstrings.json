@@ -12,5 +12,11 @@
       "Gem",
       "When a card generates a #yGem, it will randomly generate one of many possible #yGems. #yGems have various small effects. #yGems #yExhaust."
     ]
+  },
+  "${ModID}:Nest": {
+    "TEXT": [
+      "Nest",
+      "A #Nest is a power that grants bonus effects at the start of the next turn based on unspent [E]."
+    ]
   }
 }

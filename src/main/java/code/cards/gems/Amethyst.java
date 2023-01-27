@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
@@ -27,7 +28,7 @@ public class Amethyst extends AbstractGemCard {
             atb(new ApplyPowerAction(mon, p, new StrengthPower(mon, -magicNumber), -magicNumber, true, AbstractGameAction.AttackEffect.NONE));
         }
         for (AbstractMonster mon : getEnemies()){
-            if (!mon.hasPower("Artifact"))
+            if (!mon.hasPower(ArtifactPower.POWER_ID)) //TODO test if this still works, used to be hard coded "Artifact"
             atb(new ApplyPowerAction(mon, p, new GainStrengthPower(mon, magicNumber), magicNumber, true, AbstractGameAction.AttackEffect.NONE));
         }
     }

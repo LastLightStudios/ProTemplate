@@ -21,10 +21,10 @@ public class PureSpark extends AbstractSparkBreathCard {
 
     private final static int MAGIC_NUMBER_A = 1; //spark gain
     private final static int MAGIC_NUMBER_B = 1; //spark multiplier
-    private final static int BLOCK_NUMBER_A = 3; //poison application
-    private final static int BLOCK_NUMBER_B = 10; //poison application
-    private final static int UPGRADE_BLOCK_NUMBER_A = 2; //poison application
-    private final static int UPGRADE_BLOCK_NUMBER_B = 5; //poison application
+    private final static int BLOCK_NUMBER_A = 3;
+    private final static int BLOCK_NUMBER_B = 10;
+    private final static int UPGRADE_BLOCK_NUMBER_A = 2;
+    private final static int UPGRADE_BLOCK_NUMBER_B = 5;
 
     public PureSpark(boolean needsPreview) {
         super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CardTarget.ALL_ENEMY, needsPreview);
@@ -46,15 +46,15 @@ public class PureSpark extends AbstractSparkBreathCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (isFront) {
+            blck();
+            dmg(m, AbstractGameAction.AttackEffect.FIRE);
+            applyToSelf(new EmberPower(p, magicNumber));
             if(upgraded){
                 atb(new DrawCardAction(1));
             }
-            dmg(m, AbstractGameAction.AttackEffect.FIRE);
-            blck();
-            applyToSelf(new EmberPower(p, magicNumber));
         } else { // Breath
-            allDmg(AbstractGameAction.AttackEffect.FIRE);
             blck();
+            allDmg(AbstractGameAction.AttackEffect.FIRE);
             atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
         }
         checkEmberTrigger();

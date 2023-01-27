@@ -42,11 +42,11 @@ public class BlazingSpark extends AbstractSparkBreathCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (isFront) {
+            dmg(m, AbstractGameAction.AttackEffect.FIRE);
+            applyToSelf(new EmberPower(p, magicNumber));
             if(upgraded){
                 atb(new DrawCardAction(1));
             }
-            dmg(m, AbstractGameAction.AttackEffect.FIRE);
-            applyToSelf(new EmberPower(p, magicNumber));
         } else { // Breath
             allDmg(AbstractGameAction.AttackEffect.FIRE);
             atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));

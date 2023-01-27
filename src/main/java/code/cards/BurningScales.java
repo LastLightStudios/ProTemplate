@@ -12,7 +12,7 @@ public class BurningScales extends AbstractEasyCard {
     public final static String ID = makeID("BurningScales");
 
     private final static int BLOCK = 7;
-    private final static int UPGRADE_BLOCK = 2;
+    private final static int UPGRADE_BLOCK = 3;
     private final static int EMBER_GAIN = 2;
     private final static int UPGRADE_EMBER_GAIN = 1;
 

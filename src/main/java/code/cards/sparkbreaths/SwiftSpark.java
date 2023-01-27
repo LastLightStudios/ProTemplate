@@ -46,13 +46,13 @@ public class SwiftSpark extends AbstractSparkBreathCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (isFront) {
-            atb(new DrawCardAction(secondMagic));
             dmg(m, AbstractGameAction.AttackEffect.FIRE);
             applyToSelf(new EmberPower(p, magicNumber));
-        } else { // Breath
             atb(new DrawCardAction(secondMagic));
+        } else { // Breath
             allDmg(AbstractGameAction.AttackEffect.FIRE);
             atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
+            atb(new DrawCardAction(secondMagic));
         }
         checkEmberTrigger();
     }

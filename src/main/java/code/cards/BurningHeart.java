@@ -13,7 +13,7 @@ import static code.util.Wiz.atb;
 public class BurningHeart extends AbstractEasyCard {
     public final static String ID = makeID("BurningHeart");
 
-    private final static int CARD_DRAW = 1;
+    private final static int CARD_DRAW = 2;
     private final static int UPGRADE_CARD_DRAW = 1;
     private final static int EMBER_GAIN = 2;
     private final static int UPGRADE_EMBER_GAIN = 1;
@@ -26,8 +26,8 @@ public class BurningHeart extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        atb(new DrawCardAction(magicNumber));
         applyToSelf(new EmberPower(p, secondMagic));
+        atb(new DrawCardAction(magicNumber));
     }
 
     public void upp() {

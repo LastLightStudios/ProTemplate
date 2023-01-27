@@ -26,8 +26,8 @@ public class WingGuard extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        atb(new DrawCardAction(magicNumber));
         blck();
+        atb(new DrawCardAction(magicNumber));
     }
 
     public void upp() {

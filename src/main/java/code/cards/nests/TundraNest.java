@@ -1,8 +1,6 @@
 package code.cards.nests;
 
-import code.cards.AbstractEasyCard;
 import code.powers.nestpowers.TundraNestPower;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -12,7 +10,7 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.applyToSelf;
 import static code.util.Wiz.atb;
 
-public class TundraNest extends AbstractEasyCard {
+public class TundraNest extends AbstractNestCard {
     public final static String ID = makeID("TundraNest");
     private final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
@@ -20,7 +18,7 @@ public class TundraNest extends AbstractEasyCard {
     private final static int BLOCK_PER_ENERGY = 5;
 
     public TundraNest() {
-        super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 1, CardRarity.UNCOMMON);
         baseMagicNumber = magicNumber = BLOCK_PER_ENERGY;
         baseBlock = BLOCK_UPGRADE;
     }

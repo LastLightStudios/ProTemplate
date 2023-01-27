@@ -44,12 +44,12 @@ public class CrystallineSpark extends AbstractSparkBreathCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (isFront) {
+            dmg(m, AbstractGameAction.AttackEffect.FIRE);
+            applyToSelf(new EmberPower(p, magicNumber));
+            makeInHand(getRandomGem().makeCopy());
             if(upgraded){
                 atb(new DrawCardAction(1));
             }
-            dmg(m, AbstractGameAction.AttackEffect.FIRE);
-            makeInHand(getRandomGem().makeCopy());
-            applyToSelf(new EmberPower(p, magicNumber));
         } else { // Breath
             allDmg(AbstractGameAction.AttackEffect.FIRE);
             for (int i = 0; i <= pwrAmt(adp(), EmberPower.POWER_ID); i++) {

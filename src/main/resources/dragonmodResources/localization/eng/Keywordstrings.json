@@ -4,6 +4,7 @@
     "NAMES": [
       "Ember",
       "ember",
+      "Embers",
       "embers"
     ],
     "DESCRIPTION": "The Dragon builds #yEmbers in her chest, then consumes them in order increase the power of her #yBreath #yAttacks."
@@ -12,7 +13,9 @@
     "PROPER_NAME": "Spark",
     "NAMES": [
       "Spark",
-      "spark"
+      "spark",
+      "Sparks",
+      "sparks"
     ],
     "DESCRIPTION": "This card has a #ySpark and #yBreath form. Whenever you have 5 or more #yEmbers this card transforms into its #yBreath form."
   },
@@ -20,7 +23,9 @@
     "PROPER_NAME": "Breath",
     "NAMES": [
       "Breath",
-      "breath"
+      "breath",
+      "Breaths",
+      "breaths"
     ],
     "DESCRIPTION": "This card has a #ySpark and #yBreath form. Whenever you have less than 5 #yEmbers this card transforms into its #ySpark form."
   },
@@ -33,5 +38,15 @@
       "gems"
     ],
     "DESCRIPTION": "When a card generates a #yGem, it will randomly generate one of many possible #yGems. #yGems have various small effects. #yGems #yExhaust."
+  },
+  {
+    "PROPER_NAME": "Nest",
+    "NAMES": [
+      "Nest",
+      "nest",
+      "Nests",
+      "nests"
+    ],
+    "DESCRIPTION": "A #Nest is a power that grants bonus effects at the start of the next turn based on unspent [E]."
   }
 ]
