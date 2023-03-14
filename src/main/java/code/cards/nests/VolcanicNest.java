@@ -32,5 +32,6 @@ public class VolcanicNest extends AbstractNestCard {
 
     public void upp() {
         rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+        initializeDescription();
     }
 }

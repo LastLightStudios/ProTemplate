@@ -34,5 +34,6 @@ public class ComfyNest extends AbstractNestCard {
 
     public void upp() {
         rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+        initializeDescription();
     }
 }

@@ -1,9 +1,10 @@
-package code.cards;
+package code.cards.sparkbreaths;
 
 
 import basemod.helpers.TooltipInfo;
 import code.DragonCharacterFile;
 import code.actions.CheckEmberBreakpointAction;
+import code.cards.AbstractTwoSidedCard;
 import code.powers.EmberPower;
 import code.util.DragonUtils.CustomTags;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -17,7 +18,7 @@ import static code.ModFile.makeID;
 import static code.powers.EmberPower.getEmberBreakpoint;
 import static code.util.Wiz.*;
 
-public abstract class AbstractSparkBreathCard extends AbstractTwoSidedCard{
+public abstract class AbstractSparkBreathCard extends AbstractTwoSidedCard {
     protected static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(makeID("Spark"));
 
     private static ArrayList<TooltipInfo> SparkBreathTooltip;
@@ -62,5 +63,17 @@ public abstract class AbstractSparkBreathCard extends AbstractTwoSidedCard{
             }
         }
         changeSide(changeToBreath);
+    }
+
+    @Override
+    public void changeSide(boolean changeToBack){
+        if (!changeToBack) { // change to Spark
+            tags.add(CustomTags.SPARK);
+            tags.remove(CustomTags.BREATH);
+        } else { // change to Breath
+            tags.add(CustomTags.BREATH);
+            tags.remove(CustomTags.SPARK);
+        }
+        super.changeSide(changeToBack);
     }
 }

@@ -1,5 +1,6 @@
 package code.cards;
 
+import code.util.DragonUtils;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -31,7 +32,7 @@ public class TreasureMind extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new DrawCardAction(magicNumber));
         for (int i = 0; i < secondMagic; i++){
-            makeInHand(getRandomGem().makeCopy());
+            makeInHand(DragonUtils.returnTrulyRandomCardWithTagInCombat(DragonUtils.CustomTags.GEM).makeCopy());
             AbstractDungeon.effectList.add(new RainingGoldEffect(MAKE_IT_RAIN, false));
         }
     }

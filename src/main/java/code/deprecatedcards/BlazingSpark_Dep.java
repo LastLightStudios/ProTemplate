@@ -2,7 +2,7 @@ package code.deprecatedcards;
 
 
 
-import code.cards.AbstractSwappableCard;
+import code.cards.deprecated.AbstractSwappableCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;

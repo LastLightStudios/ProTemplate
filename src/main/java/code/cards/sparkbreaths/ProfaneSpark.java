@@ -1,6 +1,5 @@
 package code.cards.sparkbreaths;
 
-import code.cards.AbstractSparkBreathCard;
 import code.cards.AbstractTwoSidedCard;
 import code.powers.EmberPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;

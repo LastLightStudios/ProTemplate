@@ -5,13 +5,18 @@ import code.cards.nests.*;
 import code.cards.sparkbreaths.*;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import static code.util.Wiz.adp;
 
 public class DragonUtils {
+    private static HashMap<AbstractCard.CardTags, ArrayList<AbstractCard>> tagsWithLists = new HashMap<>();
 
     public static AbstractCard getRandomGem(){
         return Wiz.getRandomItem(gemList);
@@ -33,6 +38,31 @@ public class DragonUtils {
             }
         }
         return count;
+    }
+
+    public static AbstractCard returnTrulyRandomCardWithTagInCombat(AbstractCard.CardTags tag){
+        return returnTrulyRandomCardWithTagInCombat(tag, false);
+    }
+
+    public static AbstractCard returnTrulyRandomCardWithTagInCombat(AbstractCard.CardTags tag, boolean includeHealing) {
+        if (tagsWithLists.get(tag) == null) {
+            ArrayList<AbstractCard> list = new ArrayList<>();
+            for (Map.Entry<String, AbstractCard> potentialCard : CardLibrary.cards.entrySet()) {
+                AbstractCard card = potentialCard.getValue();
+                if (includeHealing){
+                    if (card.hasTag(tag)) {
+                        list.add(card.makeCopy());
+                    }
+                } else {
+                    if (card.hasTag(tag) && !card.hasTag(AbstractCard.CardTags.HEALING)) {
+                        list.add(card.makeCopy());
+                    }
+                }
+            }
+            tagsWithLists.put(tag, list);
+        }
+        ArrayList<AbstractCard> list = tagsWithLists.get(tag);
+        return list.get(AbstractDungeon.cardRandomRng.random(list.size() - 1));
     }
 
     static ArrayList<AbstractCard> gemList = new ArrayList<AbstractCard>(Arrays.asList(

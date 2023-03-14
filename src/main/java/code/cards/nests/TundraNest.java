@@ -32,5 +32,6 @@ public class TundraNest extends AbstractNestCard {
 
     public void upp() {
         rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+        initializeDescription();
     }
 }

@@ -1,6 +1,6 @@
 package code.actions.deprecated;
 
-import code.cards.AbstractSwappableCard;
+import code.cards.deprecated.AbstractSwappableCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 
 import static code.util.Wiz.adp;

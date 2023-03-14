@@ -1,5 +1,6 @@
 package code.cards;
 
+import code.util.DragonUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -24,7 +25,7 @@ public class TreasureScale extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         blck();
-        makeInHand(getRandomGem().makeCopy());
+        makeInHand(DragonUtils.returnTrulyRandomCardWithTagInCombat(DragonUtils.CustomTags.GEM).makeCopy());
         AbstractDungeon.effectList.add(new RainingGoldEffect(MAKE_IT_RAIN, true));
     }
 

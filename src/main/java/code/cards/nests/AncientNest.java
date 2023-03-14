@@ -35,5 +35,6 @@ public class AncientNest extends AbstractNestCard {
 
     public void upp() {
         rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+        initializeDescription();
     }
 }

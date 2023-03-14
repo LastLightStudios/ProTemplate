@@ -1,7 +1,7 @@
 package code.actions;
 
 
-import code.cards.AbstractSparkBreathCard;
+import code.cards.sparkbreaths.AbstractSparkBreathCard;
 import code.powers.EmberPower;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;

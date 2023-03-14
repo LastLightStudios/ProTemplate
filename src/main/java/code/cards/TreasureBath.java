@@ -1,6 +1,8 @@
 package code.cards;
 
+import code.util.DragonUtils;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import basemod.BaseMod;
@@ -20,7 +22,7 @@ public class TreasureBath extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0; i < (BaseMod.MAX_HAND_SIZE - adp().hand.group.size()); i++){
-            makeInHand(getRandomGem().makeCopy());
+            makeInHand(DragonUtils.returnTrulyRandomCardWithTagInCombat(DragonUtils.CustomTags.GEM).makeCopy());
         }
     }
 

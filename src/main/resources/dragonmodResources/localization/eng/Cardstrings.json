@@ -22,7 +22,7 @@
   },
   "${ModID}:BurningClaw": {
     "NAME": "Burning Claw",
-    "DESCRIPTION": "Deal !D! damage. NL Gain ${ModID}:Ember."
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! ${ModID}:Ember."
   },
   "${ModID}:TreasureClaw": {
     "NAME": "Treasure Claw",
@@ -56,8 +56,8 @@
   },
   "${ModID}:WingGuard": {
     "NAME": "Wing Guard",
-    "DESCRIPTION": "Gain !M! Block. Draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Gain !M! Block. NL Draw !M! cards."
+    "DESCRIPTION": "Gain !B! Block. Draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Draw !M! cards."
   },
   "${ModID}:Outscale": {
     "NAME": "Outscale",
@@ -214,6 +214,18 @@
   "${ModID}:LegendaryResistance": {
     "NAME": "Legendary Resistance",
     "DESCRIPTION": "Gain !B! Block and !M! Artifact."
+  },
+  "${ModID}:Inferno": {
+    "NAME": "Inferno",
+    "DESCRIPTION": "Play all Spark cards in your Hand, Draw Pile, and Discard Pile and Exhaust them. NL Then, add Infernal Breath into your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Play all Spark cards in your Hand, Draw Pile, and Discard Pile and Exhaust them. NL Then, add Infernal Breath+ into your hand. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      "All my Sparks are Breaths because I have too much Ember."
+    ]
+  },
+  "${ModID}:InfernalBreath": {
+    "NAME": "Infernal Breath",
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage to ALL enemies. NL Consumes all ${ModID}:Ember to increase damage by !M! per ${ModID}:Ember. NL Exhaust."
   },
   "${ModID}:DesertNest": {
     "NAME": "Desert Nest",

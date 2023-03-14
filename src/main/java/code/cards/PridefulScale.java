@@ -22,7 +22,7 @@ public class PridefulScale extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        dmg(m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
+        blck();
     }
 
     @Override

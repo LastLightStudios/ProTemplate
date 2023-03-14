@@ -1,6 +1,8 @@
-package code.cards;
+package code.cards.deprecated;
 
-public abstract class AbstractSwappableCard extends AbstractEasyCard{
+import code.cards.AbstractEasyCard;
+
+public abstract class AbstractSwappableCard extends AbstractEasyCard {
 
     private static boolean looping;
 

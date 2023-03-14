@@ -1,7 +1,7 @@
 package code.cards.nests;
 
-import code.cards.AbstractEasyCard;
-import code.powers.nestpowers.VolcanicNestPower;
+import code.powers.nestpowers.NestingFormPower;
+import code.util.DragonUtils;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -28,9 +28,9 @@ public class NestingForm extends AbstractNestCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (upgraded){
-            makeInHand(getRandomNest(), secondMagic);
+            makeInHand(DragonUtils.returnTrulyRandomCardWithTagInCombat(DragonUtils.CustomTags.NEST).makeCopy(), secondMagic);
         }
-        applyToSelf(new VolcanicNestPower(p, magicNumber));
+        applyToSelf(new NestingFormPower(p, magicNumber));
     }
 
     public void upp() {

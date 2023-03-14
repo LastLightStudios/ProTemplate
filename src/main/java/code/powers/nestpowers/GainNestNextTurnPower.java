@@ -1,6 +1,7 @@
 package code.powers.nestpowers;
 
 import code.powers.AbstractEasyPower;
+import code.util.DragonUtils;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -26,7 +27,7 @@ public class GainNestNextTurnPower extends AbstractEasyPower {
     public void atStartOfTurn(){
         flash();
         for (int i = 0; i < amount; i++){
-            makeInHand(getRandomNest());
+            makeInHand(DragonUtils.returnTrulyRandomCardWithTagInCombat(DragonUtils.CustomTags.NEST).makeCopy());
         }
         atb(new RemoveSpecificPowerAction(adp(), adp(),POWER_ID));
     }

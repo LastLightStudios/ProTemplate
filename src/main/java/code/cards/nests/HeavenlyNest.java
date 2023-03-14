@@ -16,7 +16,7 @@ public class HeavenlyNest extends AbstractNestCard {
     private final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     private final static int ENERGY_UPGRADE = 1;
-    private final static int ENERGY_PER_ENERGY = 5;
+    private final static int ENERGY_PER_ENERGY = 1;
 
     public HeavenlyNest() {
         super(ID, 1, CardRarity.UNCOMMON);
@@ -33,5 +33,6 @@ public class HeavenlyNest extends AbstractNestCard {
 
     public void upp() {
         rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+        initializeDescription();
     }
 }

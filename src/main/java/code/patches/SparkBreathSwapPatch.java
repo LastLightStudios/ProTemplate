@@ -1,7 +1,7 @@
 package code.patches;
 
 import basemod.ReflectionHacks;
-import code.cards.AbstractSwappableCard;
+import code.cards.deprecated.AbstractSwappableCard;
 import code.util.DragonUtils.CustomTags;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -29,7 +29,7 @@ import static code.util.Wiz.adp;
 *
 *
 */
-
+/*
 public class SparkBreathSwapPatch {
 
     @SpirePatch(clz = UseCardAction.class, method = "update")
@@ -67,3 +67,4 @@ public class SparkBreathSwapPatch {
         }
     }
 }
+*/

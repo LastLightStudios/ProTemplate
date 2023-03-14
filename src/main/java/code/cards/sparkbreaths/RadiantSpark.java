@@ -1,6 +1,5 @@
 package code.cards.sparkbreaths;
 
-import code.cards.AbstractSparkBreathCard;
 import code.cards.AbstractTwoSidedCard;
 import code.powers.EmberPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -22,6 +21,7 @@ public class RadiantSpark extends AbstractSparkBreathCard {
 
     private final static int MAGIC_NUMBER_A = 1; //spark gain
     private final static int MAGIC_NUMBER_B = 1; //spark multiplier
+    private final static int UPGRADE_MAGIC_NUMBER_B = 1; //spark multiplier increase
     private final static int SECOND_MAGIC_NUMBER_A = 1; //Energy Gain
     private final static int SECOND_MAGIC_NUMBER_B = 1; //Energy Gain
     private final static int UPGRADE_SECOND_MAGIC_NUMBER_A = 0; //Energy Gain increase
@@ -95,6 +95,7 @@ public class RadiantSpark extends AbstractSparkBreathCard {
 
     @Override
     public void upp() {
+        upgradeMagicNumber(0, UPGRADE_MAGIC_NUMBER_B);
         upgradeSecondMagicNumber(UPGRADE_SECOND_MAGIC_NUMBER_A, UPGRADE_SECOND_MAGIC_NUMBER_B);
         descriptionA = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();

@@ -1,8 +1,8 @@
 package code.cards.sparkbreaths;
 
-import code.cards.AbstractSparkBreathCard;
 import code.cards.AbstractTwoSidedCard;
 import code.powers.EmberPower;
+import code.util.DragonUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static code.ModFile.makeID;
-import static code.util.DragonUtils.getRandomGem;
 import static code.util.Wiz.*;
 
 public class CrystallineSpark extends AbstractSparkBreathCard {
@@ -46,7 +45,7 @@ public class CrystallineSpark extends AbstractSparkBreathCard {
         if (isFront) {
             dmg(m, AbstractGameAction.AttackEffect.FIRE);
             applyToSelf(new EmberPower(p, magicNumber));
-            makeInHand(getRandomGem().makeCopy());
+            makeInHand(DragonUtils.returnTrulyRandomCardWithTagInCombat(DragonUtils.CustomTags.GEM).makeCopy());
             if(upgraded){
                 atb(new DrawCardAction(1));
             }
@@ -54,7 +53,7 @@ public class CrystallineSpark extends AbstractSparkBreathCard {
             allDmg(AbstractGameAction.AttackEffect.FIRE);
             for (int i = 0; i <= pwrAmt(adp(), EmberPower.POWER_ID); i++) {
                 //i <= pwrAmt instead of i < pwrAmt because there's a base 1 gem before consuming Ember for bonus gems
-                makeInHand(getRandomGem().makeCopy());
+                makeInHand(DragonUtils.returnTrulyRandomCardWithTagInCombat(DragonUtils.CustomTags.GEM).makeCopy());
             }
             atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
         }
