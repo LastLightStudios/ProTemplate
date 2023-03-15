@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.vfx.RainingGoldEffect;
 
 import static code.ModFile.makeID;
 import static code.util.Wiz.*;
-import static code.util.DragonUtils.getRandomGem;
 
 public class TreasureClaw extends AbstractEasyCard {
     public final static String ID = makeID("TreasureClaw");

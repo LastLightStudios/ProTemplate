@@ -49,6 +49,14 @@
       " damage to ALL characters."
     ]
   },
+  "${ModID}:HoardingInstinctPower": {
+    "NAME": "Hoarding Instinct",
+    "DESCRIPTIONS": [
+      "At the start of your turn, add #b",
+      " random #yGem card into your hand.",
+      " random #yGem cards into your hand."
+    ]
+  },
   "${ModID}:ComfyNestPower": {
     "NAME": "Comfy Nest",
     "DESCRIPTIONS": [
@@ -157,17 +165,9 @@
   "${ModID}:NestingFormPower": {
     "NAME": "Nesting Form",
     "DESCRIPTIONS": [
-      "For each #yEnergy you have at the end of your turn, add #b",
-      " random #yNest card at the start of your next turn.",
-      " random #yNest cards at the start of your next turn."
-    ]
-  },
-  "${ModID}:GainNestNextTurnPower": {
-    "NAME": "Gain Nest Next Turn",
-    "DESCRIPTIONS": [
-      "Add #b",
-      " random #yNest card into your hand at the start of your next turn.",
-      " random #yNest cards into your hand at the start of your next turn."
+      "At the start of your turn, add #b",
+      " random #yNest card into your hand.",
+      " random #yNest cards into your hand."
     ]
   }
 }

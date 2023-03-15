@@ -1,32 +1,34 @@
-package code.powers.nestpowers;
+package code.powers.dep;
 
 import code.powers.AbstractEasyPower;
+import code.util.DragonUtils;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
-import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
+import com.megacrit.cardcrawl.powers.DemonFormPower;
 
 import static code.ModFile.makeID;
-import static code.util.Wiz.adp;
-import static code.util.Wiz.applyToSelf;
+import static code.util.Wiz.*;
 
-public class NestingFormPower extends AbstractEasyPower {
+public class GainNestNextTurnPower extends AbstractEasyPower {
 
-    public static final String POWER_ID = makeID("NestingFormPower");
+    public static final String POWER_ID = makeID("GainNestNextTurnPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public NestingFormPower(AbstractCreature owner, int amount) {
+    public GainNestNextTurnPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
     }
 
     @Override
-    public void atEndOfTurn(boolean isPlayer){
-        if (EnergyPanel.getCurrentEnergy() > 0){
-            applyToSelf(new GainNestNextTurnPower(adp(), EnergyPanel.getCurrentEnergy() * amount));
+    public void atStartOfTurn(){
+        flash();
+        for (int i = 0; i < amount; i++){
+            makeInHand(DragonUtils.returnTrulyRandomCardWithTagInCombat(DragonUtils.CustomTags.NEST).makeCopy());
         }
+        atb(new RemoveSpecificPowerAction(adp(), adp(),POWER_ID));
     }
 
     @Override

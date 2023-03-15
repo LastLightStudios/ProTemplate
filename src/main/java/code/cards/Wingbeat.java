@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
 import com.megacrit.cardcrawl.vfx.combat.WhirlwindEffect;
 
 import static code.ModFile.makeID;
-import static code.util.DragonUtils.getRandomGem;
 import static code.util.Wiz.*;
 
 public class Wingbeat extends AbstractEasyCard {

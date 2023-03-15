@@ -16,7 +16,7 @@
   "${ModID}:Nest": {
     "TEXT": [
       "Nest",
-      "A #Nest is a power that grants bonus effects at the start of the next turn based on unspent [E]."
+      "A #yNest is a power that grants bonus effects at the start of the next turn based on unspent #yEnergy."
     ]
   }
 }

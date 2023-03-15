@@ -1,8 +1,6 @@
 package code.cards.nests;
 
-import code.cards.AbstractEasyCard;
 import code.powers.nestpowers.DesertNestPower;
-import code.powers.nestpowers.TundraNestPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;

@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,18 +16,6 @@ import static code.util.Wiz.adp;
 
 public class DragonUtils {
     private static HashMap<AbstractCard.CardTags, ArrayList<AbstractCard>> tagsWithLists = new HashMap<>();
-
-    public static AbstractCard getRandomGem(){
-        return Wiz.getRandomItem(gemList);
-    }
-
-    public static AbstractCard getRandomSpark(){
-        return Wiz.getRandomItem(sparkList);
-    }
-
-    public static AbstractCard getRandomNest(){
-        return Wiz.getRandomItem(nestList);
-    }
 
     public static int countRaresInDeck(){
         int count = 0;
@@ -64,7 +51,7 @@ public class DragonUtils {
         ArrayList<AbstractCard> list = tagsWithLists.get(tag);
         return list.get(AbstractDungeon.cardRandomRng.random(list.size() - 1));
     }
-
+/*
     static ArrayList<AbstractCard> gemList = new ArrayList<AbstractCard>(Arrays.asList(
             new Aquamarine(),
             new Emerald(),
@@ -90,15 +77,15 @@ public class DragonUtils {
     static ArrayList<AbstractCard> nestList = new ArrayList<AbstractCard>(Arrays.asList(
             new AbyssNest(),
             new AncientNest(),
+            new ComfyNest(),
             new DesertNest(),
             new ForestNest(),
             new HeavenlyNest(),
             new OceanNest(),
             new TundraNest(),
             new VolcanicNest(),
-            new NestingForm()
     ));
-
+*/
     public static class CustomTags {
         @SpireEnum
         public static AbstractCard.CardTags SPARK;

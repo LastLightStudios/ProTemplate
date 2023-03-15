@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.vfx.RainingGoldEffect;
 
 import static code.DragonCharacterFile.Enums.DRAGON_COLOR;
 import static code.ModFile.makeID;
-import static code.util.DragonUtils.getRandomGem;
 import static code.util.Wiz.atb;
 import static code.util.Wiz.makeInHand;
 

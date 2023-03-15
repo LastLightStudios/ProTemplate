@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.ModFile.makeID;
 import static code.util.Wiz.applyToSelf;
-import static code.util.Wiz.atb;
 
 public class TundraNest extends AbstractNestCard {
     public final static String ID = makeID("TundraNest");

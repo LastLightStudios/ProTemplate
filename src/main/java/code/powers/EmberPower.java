@@ -137,13 +137,4 @@ public class EmberPower extends AbstractEasyPower {
     public void updateDescription() {
         description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     };
-    /*
-    public static boolean isSpark(AbstractCard c){
-        return c.hasTag(CustomTags.SPARK);
-    }
-
-    public static boolean isBreath(AbstractCard c){
-        return c.hasTag(CustomTags.BREATH);
-    }
-     */
 }

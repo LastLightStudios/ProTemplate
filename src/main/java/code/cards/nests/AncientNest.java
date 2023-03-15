@@ -1,14 +1,11 @@
 package code.cards.nests;
 
-import code.cards.AbstractEasyCard;
-import code.powers.nestpowers.AbyssNestPower;
 import code.powers.nestpowers.AncientNestPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.ArtifactPower;
-import com.megacrit.cardcrawl.powers.MetallicizePower;
 
 import static code.ModFile.makeID;
 import static code.util.Wiz.applyToSelf;

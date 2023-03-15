@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.RainingGoldEffect;
 
 import static code.ModFile.makeID;
-import static code.util.DragonUtils.getRandomGem;
 import static code.util.Wiz.makeInHand;
 
 public class TreasureScale extends AbstractEasyCard {

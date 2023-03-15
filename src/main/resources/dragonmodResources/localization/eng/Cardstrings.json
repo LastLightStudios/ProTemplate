@@ -200,11 +200,20 @@
   },
   "${ModID}:Kindle": {
     "NAME": "Kindle",
-    "DESCRIPTION": "At the start of your turn, gain !M! ${ModID}Ember."
+    "DESCRIPTION": "At the start of your turn, gain !M! ${ModID}:Ember."
   },
   "${ModID}:DraconicWrath": {
     "NAME": "Draconic Wrath",
     "DESCRIPTION": "Gain !M! Rage and !M! Flame Barrier for each enemy in combat."
+  },
+  "${ModID}:HoardingInstinct": {
+    "NAME": "Hoarding Instinct",
+    "DESCRIPTION": "At the start of your turn, add a random ${ModID}:Gem into your hand."
+  },
+  "${ModID}:BurningTemper": {
+    "NAME": "Burning Temper",
+    "DESCRIPTION": "Discard your hand. Add a random ${ModID}:Spark into your hand for each card discarded.",
+    "UPGRADE_DESCRIPTION": "Discard your hand. Add a random ${ModID}:Spark+ into your hand for each card discarded."
   },
   "${ModID}:FrightfulPresence": {
     "NAME": "Frightful Presence",
@@ -226,6 +235,11 @@
   "${ModID}:InfernalBreath": {
     "NAME": "Infernal Breath",
     "DESCRIPTION": "Ethereal. NL Deal !D! damage to ALL enemies. NL Consumes all ${ModID}:Ember to increase damage by !M! per ${ModID}:Ember. NL Exhaust."
+  },
+  "${ModID}:ComfyNest": {
+    "NAME": "Comfy Nest",
+    "DESCRIPTION": "Whenever you have [E] at the end of your turn, gain !M! ${ModID}:Ember for each [E] at the start of your next turn.",
+    "UPGRADE_DESCRIPTION": "Gain !${ModID}:m2! ${ModID}:Ember. NL Whenever you have [E] at the end of your turn, gain !M! ${ModID}:Ember for each [E] at the start of your next turn."
   },
   "${ModID}:DesertNest": {
     "NAME": "Desert Nest",
@@ -269,8 +283,7 @@
   },
   "${ModID}:NestingForm": {
     "NAME": "Nesting Form",
-    "DESCRIPTION": "Whenever you have [E] at the end of your turn, add a random ${ModID}:Nest to your hand at the start of your next turn. for each [E]",
-    "UPGRADE_DESCRIPTION": "Add a random ${ModID}:Nest to your hand. NL Whenever you have [E] at the end of your turn, add a random ${ModID}:Nest to your hand at the start of your next turn for each [E]."
+    "DESCRIPTION": "At the start of your turn, add a random ${ModID}:Nest into your hand."
   },
   "${ModID}:Aquamarine": {
     "NAME": "Aquamarine",
