@@ -1,8 +1,6 @@
 package code.cards;
 
 import code.util.DragonUtils;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import basemod.BaseMod;
@@ -13,7 +11,7 @@ import static code.util.Wiz.*;
 
 public class TreasureBath extends AbstractEasyCard {
     public final static String ID = makeID("TreasureBath");
-
+    private final static int UPGRADED_COST = 0;
 
     public TreasureBath() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, DRAGON_COLOR);
@@ -26,5 +24,6 @@ public class TreasureBath extends AbstractEasyCard {
     }
 
     public void upp() {
+        upgradeBaseCost(UPGRADED_COST);
     }
 }

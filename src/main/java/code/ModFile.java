@@ -90,6 +90,10 @@ public class ModFile implements
         return modID + "Resources/images/relics/" + resourcePath;
     }
 
+    public static String makePotionPath(String resourcePath) {
+        return modID + "Resources/images/potions/" + resourcePath;
+    }
+
     public static String makePowerPath(String resourcePath) {
         return modID + "Resources/images/powers/" + resourcePath;
     }

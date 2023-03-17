@@ -1,17 +1,17 @@
 package code.cards;
 
 import code.powers.TakingFlightPower;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import code.powers.InFlightPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static code.DragonCharacterFile.Enums.DRAGON_COLOR;
 import static code.ModFile.makeID;
-import static code.util.Wiz.applyToSelf;
-import static code.util.Wiz.atb;
+import static code.util.Wiz.*;
 
 public class TakeFlight extends AbstractEasyCard {
-    public final static String ID = makeID("Take Flight");
+    public final static String ID = makeID("TakeFlight");
 
     private final static int BUFFER_GAIN = 1;
     private final static int UPGRADE_BUFFER_GAIN = 1;
@@ -23,7 +23,29 @@ public class TakeFlight extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        applyToSelf(new TakingFlightPower(p, magicNumber));
+        AbstractPower takingFlight = adp().getPower(TakingFlightPower.POWER_ID);
+        AbstractPower landing = adp().getPower(InFlightPower.POWER_ID);
+        if (takingFlight == null && landing == null){
+            applyToSelf(new TakingFlightPower(p, magicNumber));
+        }
+    }
+
+    public boolean canUse(AbstractPlayer p, AbstractMonster m){
+        boolean canUse = super.canUse(p, m);
+        if (!canUse){
+            return false;
+        }
+        AbstractPower takingFlight = adp().getPower(TakingFlightPower.POWER_ID);
+        AbstractPower inFlight = adp().getPower(InFlightPower.POWER_ID);
+        if (takingFlight != null){
+            canUse = false;
+            cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
+        }
+        if (inFlight != null){
+            canUse = false;
+            cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[1];
+        }
+        return canUse;
     }
 
     public void upp() {

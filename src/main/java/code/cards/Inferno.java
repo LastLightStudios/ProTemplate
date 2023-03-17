@@ -23,7 +23,7 @@ public class Inferno extends AbstractEasyCard {
 
 
     public Inferno() {
-        super(ID, 0, CardType.SKILL, CardRarity.RARE, CardTarget.ENEMY, DRAGON_COLOR);
+        super(ID, 3, CardType.SKILL, CardRarity.RARE, CardTarget.ENEMY, DRAGON_COLOR);
         exhaust = true;
         cardsToPreview = new InfernalBreath();
     }

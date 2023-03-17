@@ -39,7 +39,13 @@
     "NAME": "Taking Flight",
     "DESCRIPTIONS": [
       "At the start of your turn, gain #b",
-      " #yBuffer."
+      " #yBuffer. You cannot #yTake #yFlight."
+    ]
+  },
+  "${ModID}:InFlightPower": {
+    "NAME": "In Flight",
+    "DESCRIPTIONS": [
+      "You are currently #yIn #yFlight and cannot #yTake #yFlight."
     ]
   },
   "${ModID}:CrashingPower": {

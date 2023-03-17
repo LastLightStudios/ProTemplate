@@ -22,7 +22,7 @@ public class LegendaryResistance extends AbstractEasyCard {
 
 
     public LegendaryResistance() {
-        super(ID, 2, CardType.SKILL, CardRarity.RARE, CardTarget.ENEMY, DRAGON_COLOR);
+        super(ID, 3, CardType.SKILL, CardRarity.RARE, CardTarget.SELF, DRAGON_COLOR);
         baseBlock = BLOCK;
         baseMagicNumber = magicNumber = ARTIFACT;
     }

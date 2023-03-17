@@ -1,0 +1,9 @@
+{
+  "${ModID}:EmberPotion": {
+    "NAME": "Ember Potion",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " #yEmber."
+    ]
+  }
+}

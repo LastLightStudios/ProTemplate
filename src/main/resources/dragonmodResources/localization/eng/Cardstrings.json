@@ -48,11 +48,11 @@
   },
   "${ModID}:BurningScales": {
     "NAME": "Burning Scales",
-    "DESCRIPTION": "Gain !B! Block. NL Gain ${ModID}:Ember."
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! ${ModID}:Ember."
   },
   "${ModID}:BurningHeart": {
     "NAME": "Burning Heart",
-    "DESCRIPTION": "Gain ${ModID}:Ember. NL Draw !M! cards."
+    "DESCRIPTION": "Gain !${ModID}:m2! ${ModID}:Ember. NL Draw !M! cards."
   },
   "${ModID}:WingGuard": {
     "NAME": "Wing Guard",
@@ -73,20 +73,20 @@
   },
   "${ModID}:StretchYourWings": {
     "NAME": "Stretch Your Wings",
-    "DESCRIPTION": "Gain [E][E][E][E]. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain [E][E][E][E]."
+    "DESCRIPTION": "Gain [E] [E] [E] [E]. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain [E] [E] [E] [E]."
   },
   "${ModID}:StretchYourLegs": {
     "NAME": "Stretch Your Legs",
-    "DESCRIPTION": "Gain [E][E]. Gain !${ModID}:m2! Weak."
+    "DESCRIPTION": "Gain [E] [E]. NL Gain !${ModID}:m2! Weak."
   },
   "${ModID}:StretchYourTail": {
     "NAME": "Stretch Your Tail",
-    "DESCRIPTION": "Gain [E][E]. Gain !${ModID}:m2! Frail."
+    "DESCRIPTION": "Gain [E] [E]. NL Gain !${ModID}:m2! Frail."
   },
   "${ModID}:StretchYourBelly": {
     "NAME": "Stretch Your Belly",
-    "DESCRIPTION": "Gain [E][E]. Gain !${ModID}:m2! Vulnerable."
+    "DESCRIPTION": "Gain [E] [E]. NL Gain !${ModID}:m2! Vulnerable."
   },
   "${ModID}:TreasureScale": {
     "NAME": "Treasure Scale",
@@ -188,7 +188,11 @@
   },
   "${ModID}:TakeFlight": {
     "NAME": "Take Flight",
-    "DESCRIPTION": "Gain !M! Buffer at the start of your next turn."
+    "DESCRIPTION": "Gain !M! Buffer at the start of your next turn.",
+    "EXTENDED_DESCRIPTION": [
+      "I am already Taking Flight, so I cannot Take Flight.",
+      "I am In Flight, so I cannot Take Flight."
+    ]
   },
   "${ModID}:CrashLanding": {
     "NAME": "Crash Landing",
@@ -209,6 +213,10 @@
   "${ModID}:HoardingInstinct": {
     "NAME": "Hoarding Instinct",
     "DESCRIPTION": "At the start of your turn, add a random ${ModID}:Gem into your hand."
+  },
+  "${ModID}:GreedFeed": {
+    "NAME": "Greed Feed",
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage. Costs 1 more Energy each time you play this card this combat. NL If Fatal, raise your Max HP by !M!."
   },
   "${ModID}:BurningTemper": {
     "NAME": "Burning Temper",

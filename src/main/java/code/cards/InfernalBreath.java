@@ -20,7 +20,7 @@ public class InfernalBreath extends AbstractEasyCard {
     private final static int UPGRADE_EMBER_MULTIPLIER = 2;
 
     public InfernalBreath() {
-        super(ID, 3, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ALL_ENEMY);
+        super(ID, 0, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ALL_ENEMY);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = EMBER_MULTIPLIER;
         isEthereal = true;

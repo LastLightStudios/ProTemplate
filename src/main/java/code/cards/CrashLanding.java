@@ -16,7 +16,7 @@ public class CrashLanding extends AbstractEasyCard {
 
     private final static int DAMAGE = 15;
     private final static int UPGRADE_DAMAGE = 5;
-    private final static int BLOCK = 30;
+    private final static int BLOCK = 40;
     private final static int UPGRADE_BLOCK = 10;
 
 

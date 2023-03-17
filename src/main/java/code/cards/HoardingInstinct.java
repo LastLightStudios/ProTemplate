@@ -1,7 +1,6 @@
 package code.cards;
 
 import code.powers.HoardingInstinctPower;
-import code.powers.KindlePower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
