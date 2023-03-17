@@ -20,7 +20,7 @@ public class BlazingScales extends AbstractEasyCard {
 
 
     public BlazingScales() {
-        super(ID, 3, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, DRAGON_COLOR);
+        super(ID, 3, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, DRAGON_COLOR);
         baseBlock = BLOCK;
         magicNumber = baseMagicNumber = RETURN_DMG;
     }

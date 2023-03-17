@@ -18,7 +18,7 @@ public class MassiveScale extends AbstractEasyCard {
 
     public MassiveScale() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        baseDamage = BLOCK;
+        baseBlock = BLOCK;
         baseMagicNumber = magicNumber = DAMAGE_SCALAR;
         baseSecondMagic = secondMagic = PER_CARDS;
     }

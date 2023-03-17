@@ -1,5 +1,6 @@
 package code.cards;
 
+import code.actions.IncreaseCardCostAction;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.unique.FeedAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -21,7 +22,7 @@ public class GreedFeed extends AbstractEasyCard {
     private final static int UPGRADE_MAX_HP_INCREASE = 1;
 
     public GreedFeed() {
-        super(ID, 0, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, 1, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAX_HP_INCREASE;
         isEthereal = true;
@@ -30,7 +31,7 @@ public class GreedFeed extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         vfx(new BiteEffect(m.hb.cX, m.hb.cY - 40.0F * Settings.scale, Color.SCARLET.cpy()), 0.3F);
         atb(new FeedAction(m, new DamageInfo(p, damage, damageTypeForTurn), magicNumber));
-        updateCost(1);
+        atb(new IncreaseCardCostAction(this, 1));
     }
 
     public void upp() {

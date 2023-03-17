@@ -150,8 +150,15 @@
   "${ModID}:HeavenlyNestPower": {
     "NAME": "Heavenly Nest",
     "DESCRIPTIONS": [
-      "For each #yEnergy you have at the end of your turn, gain #b",
-      " #yEnergy at the start of your next turn."
+      "For each #yEnergy you have at the end of your turn, add #b",
+      " #yMiracles to your hand at the start of your next turn."
+    ]
+  },
+  "${ModID}:DelayedGainMiraclePower": {
+    "NAME": "Gain Miracles Next Turn",
+    "DESCRIPTIONS": [
+      "Add #b",
+      " #yMiracles to your hand at the start of your next turn."
     ]
   },
   "${ModID}:VolcanicNestPower": {
