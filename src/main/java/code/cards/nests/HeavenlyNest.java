@@ -24,6 +24,7 @@ public class HeavenlyNest extends AbstractNestCard {
         super(ID, 1, CardRarity.RARE);
         baseMagicNumber = magicNumber = ENERGY_PER_ENERGY;
         baseSecondMagic = secondMagic = MIRACLES_CREATED;
+        cardsToPreview = new Miracle();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

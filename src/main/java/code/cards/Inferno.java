@@ -1,17 +1,11 @@
 package code.cards;
 
 import code.actions.PlayAllSparksAction;
-import code.cards.AbstractEasyCard;
-import code.cards.InfernalBreath;
 import code.powers.EmberPower;
-import code.util.DragonUtils;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-
-import java.util.ArrayList;
 
 import static code.powers.EmberPower.getEmberBreakpoint;
 import static code.DragonCharacterFile.Enums.DRAGON_COLOR;

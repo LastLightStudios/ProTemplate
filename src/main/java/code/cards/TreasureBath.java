@@ -14,7 +14,7 @@ public class TreasureBath extends AbstractEasyCard {
     private final static int UPGRADED_COST = 0;
 
     public TreasureBath() {
-        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, DRAGON_COLOR);
+        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, DRAGON_COLOR);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

@@ -18,5 +18,12 @@
       "Nest",
       "A #yNest is a power that grants bonus effects at the start of the next turn based on unspent #yEnergy."
     ]
+  },
+  "${ModID}:TradeOfferScreen": {
+    "TEXT": [
+      "Trade Offer",
+      "Select a card to add to your hand. It will be replaced by a random #yGem",
+      "Select a card to add to your hand. It will be replaced by a random #yGem+"
+    ]
   }
 }

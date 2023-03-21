@@ -63,6 +63,14 @@
       " random #yGem cards into your hand."
     ]
   },
+  "${ModID}:MoreMoreMorePower": {
+    "NAME": "More. More! More!!",
+    "DESCRIPTIONS": [
+      "Whenever you draw a #yGem, draw",
+      " a card.",
+      " cards."
+    ]
+  },
   "${ModID}:ComfyNestPower": {
     "NAME": "Comfy Nest",
     "DESCRIPTIONS": [

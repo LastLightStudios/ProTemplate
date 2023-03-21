@@ -17,12 +17,13 @@ public class ToxicSpark extends AbstractSparkBreathCard {
     public final static String ID = makeID("ToxicSpark");
 
     private final static int DAMAGE_A = 1;
-    private final static int DAMAGE_B = 15;
+    private final static int DAMAGE_B = 10;
 
     private final static int MAGIC_NUMBER_A = 1; //spark gain
     private final static int MAGIC_NUMBER_B = 1; //spark multiplier
     private final static int SECOND_MAGIC_NUMBER_A = 1; //poison application
     private final static int SECOND_MAGIC_NUMBER_B = 1; //poison application
+    private final static int UPGRADE_MAGIC_NUMBER_B = 1; //spark multiplier increase
     private final static int UPGRADE_SECOND_MAGIC_NUMBER_B = 1; //poison application increase
 
     public ToxicSpark(boolean needsPreview) {
@@ -56,7 +57,7 @@ public class ToxicSpark extends AbstractSparkBreathCard {
             AbstractPower ember = adp().getPower(EmberPower.POWER_ID);
             if (ember != null) {
                 for (AbstractMonster monster : getEnemies()){
-                    applyToEnemy(monster, new PoisonPower(monster, p, SECOND_MAGIC_NUMBER_B + ember.amount));
+                    applyToEnemy(monster, new PoisonPower(monster, p, secondMagic));
                 }
             }
             atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
@@ -75,7 +76,7 @@ public class ToxicSpark extends AbstractSparkBreathCard {
                 baseDamage = baseDamage + (magicNumber * ember.amount);
 
                 // adjusting Poison values based on Ember
-                secondMagic = baseSecondMagic + ember.amount;
+                secondMagic = baseSecondMagic + (magicNumber * ember.amount);
                 super.calculateCardDamage(m);
 
                 baseDamage = realBaseDamage; //restore the realBaseDamage
@@ -96,7 +97,7 @@ public class ToxicSpark extends AbstractSparkBreathCard {
                 baseDamage = baseDamage + (magicNumber * ember.amount);
 
                 // adjusting Poison values based on Ember
-                secondMagic = baseSecondMagic + ember.amount;
+                secondMagic = baseSecondMagic + (magicNumber * ember.amount);
                 super.applyPowers();
 
                 baseDamage = realBaseDamage; //restore the realBaseDamage
@@ -108,6 +109,7 @@ public class ToxicSpark extends AbstractSparkBreathCard {
 
     @Override
     public void upp() {
+        upgradeMagicNumber(0, UPGRADE_MAGIC_NUMBER_B);
         upgradeSecondMagicNumber(0, UPGRADE_SECOND_MAGIC_NUMBER_B);
         descriptionA = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();

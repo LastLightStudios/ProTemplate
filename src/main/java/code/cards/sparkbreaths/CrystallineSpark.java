@@ -14,7 +14,7 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.*;
 
 public class CrystallineSpark extends AbstractSparkBreathCard {
-    public final static String ID = makeID("ToxicSpark");
+    public final static String ID = makeID("CrystallineSpark");
 
     private final static int DAMAGE_A = 1;
     private final static int DAMAGE_B = 10;

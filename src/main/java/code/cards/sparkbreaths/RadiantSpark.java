@@ -17,7 +17,7 @@ public class RadiantSpark extends AbstractSparkBreathCard {
     public final static String ID = makeID("RadiantSpark");
 
     private final static int DAMAGE_A = 1;
-    private final static int DAMAGE_B = 15;
+    private final static int DAMAGE_B = 10;
 
     private final static int MAGIC_NUMBER_A = 1; //spark gain
     private final static int MAGIC_NUMBER_B = 1; //spark multiplier
@@ -98,6 +98,7 @@ public class RadiantSpark extends AbstractSparkBreathCard {
         upgradeMagicNumber(0, UPGRADE_MAGIC_NUMBER_B);
         upgradeSecondMagicNumber(UPGRADE_SECOND_MAGIC_NUMBER_A, UPGRADE_SECOND_MAGIC_NUMBER_B);
         descriptionA = cardStrings.UPGRADE_DESCRIPTION;
+        descriptionB = cardStrings.EXTENDED_DESCRIPTION[2];
         initializeDescription();
     }
 }

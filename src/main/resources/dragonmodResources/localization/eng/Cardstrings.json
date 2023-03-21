@@ -26,11 +26,16 @@
   },
   "${ModID}:TreasureClaw": {
     "NAME": "Treasure Claw",
-    "DESCRIPTION": "Deal !D! damage. NL Add a random ${ModID}:Gem into your hand."
+    "DESCRIPTION": "Deal !D! damage. NL Shuffle a random ${ModID}:Gem into your deck.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Shuffle a random ${ModID}:Gem+ into your deck."
   },
   "${ModID}:MassiveClaw": {
     "NAME": "Massive Claw",
-    "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage for every !${ModID}:m2! cards in your deck."
+    "DESCRIPTION": "Deal damage equal to the number of cards in your draw pile or discard pile, whichever is greater.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Deal damage equal to the number of cards in your draw pile or discard pile, whichever is greater.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
   },
   "${ModID}:Wingbeat": {
     "NAME": "Wingbeat",
@@ -38,8 +43,13 @@
   },
   "${ModID}:WingRake": {
     "NAME": "Wing Rake",
-    "DESCRIPTION": "Deal !D! damage. Draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. Draw !M! cards."
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Draw !M! cards."
+  },
+  "${ModID}:StrikeGold": {
+    "NAME": "Strike Gold",
+    "DESCRIPTION": "Deal !D! damage. NL Put a random ${ModID}:Gem and the next card you play this turn on top of your draw pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Put a random ${ModID}:Gem+ and the next card you play this turn on top of your draw pile."
   },
   "${ModID}:Ignition": {
     "NAME": "Ignition",
@@ -90,11 +100,16 @@
   },
   "${ModID}:TreasureScale": {
     "NAME": "Treasure Scale",
-    "DESCRIPTION": "Gain !B! Block. NL Add a random ${ModID}:Gem into your hand."
+    "DESCRIPTION": "Gain !B! Block. NL Shuffle a random ${ModID}:Gem into your deck.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Shuffle a random ${ModID}:Gem+ into your deck."
   },
   "${ModID}:MassiveScale": {
     "NAME": "Massive Scale",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !M! additional Block for every !${ModID}:m2! cards in your deck."
+    "DESCRIPTION": "Gain Block equal to the number of cards in your discard pile, whichever is greater.",
+    "UPGRADE_DESCRIPTION": "Gain Block equal to the number of cards in your draw pile or discard pile, whichever is greater, +3.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Gains !B! Block.)"
+    ]
   },
   "${ModID}:ProfaneSpark": {
     "NAME": "Profane Spark",
@@ -148,7 +163,7 @@
     "EXTENDED_DESCRIPTION": [
       "Radiant Breath",
       "Deal !D! damage to ALL enemies. NL Gain [E]. NL Consumes all ${ModID}:Ember to deal increase damage by !M! per ${ModID}:Ember.",
-      "Deal !D! damage to ALL enemies. NL Gain [E][E]. NL Consumes all ${ModID}:Ember to deal increase damage by !M! per ${ModID}:Ember."
+      "Deal !D! damage to ALL enemies. NL Gain [E] [E] . NL Consumes all ${ModID}:Ember to deal increase damage by !M! per ${ModID}:Ember."
     ]
   },
   "${ModID}:FocusedSpark": {
@@ -183,8 +198,8 @@
   },
   "${ModID}:TreasureMind": {
     "NAME": "Treasure Mind",
-    "DESCRIPTION": "Draw !M! cards. NL Add !${ModID}:m2! ${ModID}:Gem into your hand.",
-    "UPGRADE_DESCRIPTIONS": "Draw !M! cards. NL Add !${ModID}:m2! ${ModID}:Gems into your hand."
+    "DESCRIPTION": "Shuffle !${ModID}:m2! ${ModID}:Gem into your deck. NL Draw !M! cards.",
+    "UPGRADE_DESCRIPTION": "Shuffle !${ModID}:m2! ${ModID}:Gems+ into your deck. NL Draw !M! cards."
   },
   "${ModID}:TakeFlight": {
     "NAME": "Take Flight",
@@ -214,23 +229,33 @@
     "NAME": "Hoarding Instinct",
     "DESCRIPTION": "At the start of your turn, add a random ${ModID}:Gem into your hand."
   },
+  "${ModID}:MoreMoreMore": {
+    "NAME": "More. More! More!!",
+    "DESCRIPTION": "Whenever you draw a ${ModID}:Gem, draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Whenever you draw a ${ModID}:Gem, draw !M! cards."
+  },
   "${ModID}:GreedFeed": {
     "NAME": "Greed Feed",
     "DESCRIPTION": "Ethereal. NL Deal !D! damage. Costs 1 more Energy each time you play this card this combat. NL If Fatal, raise your Max HP by !M!."
   },
   "${ModID}:BurningTemper": {
     "NAME": "Burning Temper",
-    "DESCRIPTION": "Discard your hand. Add a random ${ModID}:Spark into your hand for each card discarded.",
-    "UPGRADE_DESCRIPTION": "Discard your hand. Add a random ${ModID}:Spark+ into your hand for each card discarded."
+    "DESCRIPTION": "Discard your hand. NL Add a random ${ModID}:Spark into your hand for each card discarded.",
+    "UPGRADE_DESCRIPTION": "Discard your hand. NL Add a random ${ModID}:Spark+ into your hand for each card discarded."
   },
   "${ModID}:FrightfulPresence": {
     "NAME": "Frightful Presence",
-    "DESCRIPTION": "Apply !M! Weak and !M! Vulnerable.",
-    "UPGRADE_DESCRIPTION": "Apply !M! Weak and !M! Vulnerable to ALL enemies."
+    "DESCRIPTION": "Apply !M! Weak and !M! Vulnerable. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Apply !M! Weak and !M! Vulnerable to ALL enemies. NL Exhaust"
   },
   "${ModID}:LegendaryResistance": {
     "NAME": "Legendary Resistance",
     "DESCRIPTION": "Gain !B! Block and !M! Artifact."
+  },
+  "${ModID}:TradeOffer": {
+    "NAME": "Trade Offer",
+    "DESCRIPTION": "Put a card from draw or discard pile into your hand. NL Add a random ${ModID}:Gem where it was. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Put a card from draw or discard pile into your hand. NL Add a random ${ModID}:Gem+ where it was. NL Exhaust."
   },
   "${ModID}:Inferno": {
     "NAME": "Inferno",
@@ -281,8 +306,8 @@
   },
   "${ModID}:HeavenlyNest": {
     "NAME": "Heavenly Nest",
-    "DESCRIPTION": "Whenever you have [E] at the end of your turn, gain [E] at the start of your next turn for each [E].",
-    "UPGRADE_DESCRIPTION": "Gain [E] next turn. NL Whenever you have [E] at the end of your turn, gain [E] at the start of your next turn for each [E]."
+    "DESCRIPTION": "Whenever you have [E] at the end of your turn, add !M! Miracle into your hand at the start of your next turn for each [E].",
+    "UPGRADE_DESCRIPTION": "Put !${ModID}:m2! Miracle into your hand. NL Whenever you have [E] at the end of your turn, add !M! Miracle into your hand at the start of your next turn for each [E]."
   },
   "${ModID}:VolcanicNest": {
     "NAME": "Volcanic Nest",

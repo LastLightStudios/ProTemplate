@@ -14,7 +14,8 @@ public class TakeFlight extends AbstractEasyCard {
     public final static String ID = makeID("TakeFlight");
 
     private final static int BUFFER_GAIN = 1;
-    private final static int UPGRADE_BUFFER_GAIN = 1;
+    private final static int UPGRADE_BUFFER_GAIN = 0;
+    private final static int UPGRADED_COST = 0;
 
 
     public TakeFlight() {
@@ -49,6 +50,7 @@ public class TakeFlight extends AbstractEasyCard {
     }
 
     public void upp() {
+        upgradeBaseCost(UPGRADED_COST);
         upgradeMagicNumber(UPGRADE_BUFFER_GAIN);
     }
 }

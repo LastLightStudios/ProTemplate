@@ -19,12 +19,14 @@ public class FocusedSpark extends AbstractSparkBreathCard {
 
     private final static int DAMAGE_A = 1;
     private final static int DAMAGE_B = 10;
+    private final static int UPGRADE_DAMAGE_B = 5;
 
     private final static int MAGIC_NUMBER_A = 1; //spark gain
     private final static int MAGIC_NUMBER_B = 1; //spark multiplier
+    private final static int UPGRADE_MAGIC_NUMBER_B = 1; //spark multiplier increase
 
     public FocusedSpark(boolean needsPreview) {
-        super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY, CardTarget.ENEMY, needsPreview);
+        super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CardTarget.ENEMY, needsPreview);
         setDamage(DAMAGE_A, DAMAGE_B);
         setMagic(MAGIC_NUMBER_A, MAGIC_NUMBER_B);
 
@@ -93,6 +95,8 @@ public class FocusedSpark extends AbstractSparkBreathCard {
 
     @Override
     public void upp() {
+        upgradeDamage(0, UPGRADE_DAMAGE_B);
+        upgradeMagicNumber(0, UPGRADE_MAGIC_NUMBER_B);
         descriptionA = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
     }

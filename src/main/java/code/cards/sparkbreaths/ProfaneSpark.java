@@ -17,12 +17,13 @@ public class ProfaneSpark extends AbstractSparkBreathCard {
     public final static String ID = makeID("ProfaneSpark");
 
     private final static int DAMAGE_A = 1;
-    private final static int DAMAGE_B = 15;
+    private final static int DAMAGE_B = 10;
 
     private final static int MAGIC_NUMBER_A = 1; //spark gain
     private final static int MAGIC_NUMBER_B = 1; //spark multiplier
     private final static int SECOND_MAGIC_NUMBER_A = 1; //weak application
     private final static int SECOND_MAGIC_NUMBER_B = 2; //weak application
+    private final static int UPGRADE_MAGIC_NUMBER_B = 1; //spark multiplier increase
     private final static int UPGRADE_SECOND_MAGIC_NUMBER_B = 1; //weak application increase
 
     public ProfaneSpark(boolean needsPreview) {
@@ -95,7 +96,8 @@ public class ProfaneSpark extends AbstractSparkBreathCard {
 
     @Override
     public void upp() {
-        upgradeSecondMagicNumber(0, UPGRADE_SECOND_MAGIC_NUMBER_B);
+        upgradeMagicNumber(0, UPGRADE_MAGIC_NUMBER_B);
+        //upgradeSecondMagicNumber(0, UPGRADE_SECOND_MAGIC_NUMBER_B);
         descriptionA = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
     }

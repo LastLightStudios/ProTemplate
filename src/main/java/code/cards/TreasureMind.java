@@ -2,6 +2,7 @@ package code.cards;
 
 import code.util.DragonUtils;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -9,34 +10,41 @@ import com.megacrit.cardcrawl.vfx.RainingGoldEffect;
 
 import static code.DragonCharacterFile.Enums.DRAGON_COLOR;
 import static code.ModFile.makeID;
-import static code.util.Wiz.atb;
-import static code.util.Wiz.makeInHand;
+import static code.util.Wiz.*;
 
 public class TreasureMind extends AbstractEasyCard {
     public final static String ID = makeID("TreasureMind");
 
     private final static int CARD_DRAW = 2;
-    // private final static int UPGRADE_CARD_DRAW = 1;
+    private final static int UPGRADE_CARD_DRAW = 1;
     private final static int GEMS = 1;
     private final static int UPGRADE_GEMS = 1;
     private final static int MAKE_IT_RAIN = 25;
 
 
     public TreasureMind() {
-        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, DRAGON_COLOR);
+        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, DRAGON_COLOR);
         baseMagicNumber = magicNumber = CARD_DRAW;
         baseSecondMagic = secondMagic = GEMS;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        atb(new DrawCardAction(magicNumber));
+        AbstractCard gem;
         for (int i = 0; i < secondMagic; i++){
-            makeInHand(DragonUtils.returnTrulyRandomCardWithTagInCombat(DragonUtils.CustomTags.GEM).makeCopy());
+            gem = DragonUtils.returnTrulyRandomCardWithTagInCombat(DragonUtils.CustomTags.GEM).makeCopy();
+            if (upgraded){
+                gem.upgrade();
+            }
+            shuffleIn(gem);
             AbstractDungeon.effectList.add(new RainingGoldEffect(MAKE_IT_RAIN, false));
         }
+        atb(new DrawCardAction(magicNumber));
     }
 
     public void upp() {
+        upgradeMagicNumber(UPGRADE_CARD_DRAW);
         upgradeSecondMagic(UPGRADE_GEMS);
+        rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+        initializeDescription();
     }
 }

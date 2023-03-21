@@ -13,7 +13,7 @@ import static code.util.Wiz.atb;
 public class StretchYourBelly extends AbstractEasyCard {
     public final static String ID = makeID("StretchYourBelly");
 
-    private final static int ENERGY_GAIN = 1;
+    private final static int ENERGY_GAIN = 2;
     private final static int VULN_GAIN = 2;
     private final static int UPGRADE_VULN_GAIN = -1;
 
@@ -25,7 +25,7 @@ public class StretchYourBelly extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new GainEnergyAction(magicNumber));
-        applyToSelf(new VulnerablePower(p, magicNumber, false));
+        applyToSelf(new VulnerablePower(p, secondMagic, false));
     }
 
     public void upp() {

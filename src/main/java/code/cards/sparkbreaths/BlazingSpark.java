@@ -16,7 +16,7 @@ public class BlazingSpark extends AbstractSparkBreathCard {
     public final static String ID = makeID("BlazingSpark");
 
     private final static int DAMAGE_A = 1;
-    private final static int DAMAGE_B = 15;
+    private final static int DAMAGE_B = 10;
 
     private final static int MAGIC_NUMBER_A = 1; //spark gain
     private final static int MAGIC_NUMBER_B = 1; //spark multiplier

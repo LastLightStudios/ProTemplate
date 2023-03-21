@@ -1,7 +1,6 @@
 package code.cards;
 
 import code.DragonCharacterFile;
-import code.cards.AbstractEasyCard;
 import code.powers.NestingFormPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;

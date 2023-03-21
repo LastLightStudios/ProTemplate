@@ -24,10 +24,10 @@ public class BarrageSpark extends AbstractSparkBreathCard {
     private final static int MAGIC_NUMBER_B = 1; //spark multiplier
     private final static int SECOND_MAGIC_NUMBER_A = 5; //Number of hits
     private final static int SECOND_MAGIC_NUMBER_B = 5; //Number of hits
-    private final static int UPGRADE_MAGIC_NUMBER_B = 1; //Number of hits increase
+    private final static int UPGRADE_MAGIC_NUMBER_B = 2; //Number of hits increase
 
     public BarrageSpark(boolean needsPreview) {
-        super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.BASIC, CardTarget.ALL_ENEMY, CardTarget.ALL_ENEMY, needsPreview);
+        super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY, CardTarget.ALL_ENEMY, needsPreview);
         setDamage(DAMAGE_A, DAMAGE_B);
         setMagic(MAGIC_NUMBER_A, MAGIC_NUMBER_B);
         setSecondMagic(SECOND_MAGIC_NUMBER_A, SECOND_MAGIC_NUMBER_B);
