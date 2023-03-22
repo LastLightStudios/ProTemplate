@@ -11,20 +11,20 @@ import static code.util.Wiz.*;
 public class Emerald extends AbstractGemCard {
     public final static String ID = makeID("Emerald");
 
-    private final static int MAGIC_NUMBER = 2; //temp dex gain
-    private final static int UPGRADE_MAGIC_NUMBER = 2; //increase temp dex gain
+    private final static int TEMP_DEX_GAIN = 2; //temp dex gain
+    private final static int UPGRADE_TEMP_DEX_GAIN = 2; //increase temp dex gain
 
     public Emerald() {
         super(ID, CardType.SKILL, CardRarity.SPECIAL, CardTarget.SELF);
-        baseMagicNumber = magicNumber = MAGIC_NUMBER;
+        baseMagicNumber = magicNumber = TEMP_DEX_GAIN;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        applyToSelf(new DexterityPower(p, MAGIC_NUMBER));
-        applyToSelf(new LoseDexterityPower(p, MAGIC_NUMBER));
+        applyToSelf(new DexterityPower(p, magicNumber));
+        applyToSelf(new LoseDexterityPower(p, magicNumber));
     }
 
     public void upp() {
-        upgradeMagicNumber(UPGRADE_MAGIC_NUMBER);
+        upgradeMagicNumber(UPGRADE_TEMP_DEX_GAIN);
     }
 }

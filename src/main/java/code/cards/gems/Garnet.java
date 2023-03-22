@@ -15,12 +15,12 @@ import static code.util.Wiz.getEnemies;
 public class Garnet extends AbstractGemCard {
     public final static String ID = makeID("Garnet");
 
-    private final static int MAGIC_NUMBER = 1; //Amount of Vuln Applied
-    private final static int UPGRADE_MAGIC_NUMBER = 1; //increase Amount of Vuln Applied
+    private final static int VULN_APPLIED = 1; //Amount of Vuln Applied
+    private final static int UPGRADE_VULN_APPLIED = 1; //increase Amount of Vuln Applied
 
     public Garnet() {
         super(ID, CardType.SKILL, CardRarity.SPECIAL, CardTarget.ALL_ENEMY);
-        baseMagicNumber = magicNumber = MAGIC_NUMBER;
+        baseMagicNumber = magicNumber = VULN_APPLIED;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -30,6 +30,6 @@ public class Garnet extends AbstractGemCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(UPGRADE_MAGIC_NUMBER);
+        upgradeMagicNumber(UPGRADE_VULN_APPLIED);
     }
 }

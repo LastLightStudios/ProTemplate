@@ -15,12 +15,12 @@ import static code.util.Wiz.getEnemies;
 public class Quartz extends AbstractGemCard {
     public final static String ID = makeID("Quartz");
 
-    private final static int MAGIC_NUMBER = 1; //Cards drawn
-    private final static int UPGRADE_MAGIC_NUMBER = 1; //increase Cards drawn
+    private final static int CARDS_DRAWN = 1; //Cards drawn
+    private final static int UPGRADE_CARDS_DRAWN = 1; //increase Cards drawn
 
     public Quartz() {
         super(ID, CardType.SKILL, CardRarity.SPECIAL, CardTarget.SELF);
-        baseMagicNumber = magicNumber = MAGIC_NUMBER;
+        baseMagicNumber = magicNumber = CARDS_DRAWN;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -28,7 +28,7 @@ public class Quartz extends AbstractGemCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(UPGRADE_MAGIC_NUMBER);
+        upgradeMagicNumber(UPGRADE_CARDS_DRAWN);
         rawDescription = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
     }

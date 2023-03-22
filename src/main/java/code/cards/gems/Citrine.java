@@ -11,12 +11,12 @@ import static code.util.Wiz.atb;
 public class Citrine extends AbstractGemCard {
     public final static String ID = makeID("Citrine");
 
-    private final static int MAGIC_NUMBER = 1; //Energy Gain
-    private final static int UPGRADE_MAGIC_NUMBER = 1; //increase energy gain
+    private final static int ENERGY_GAIN = 1; //Energy Gain
+    private final static int UPGRADE_ENERGY_GAIN = 1; //increase energy gain
 
     public Citrine() {
         super(ID, CardType.SKILL, CardRarity.SPECIAL, CardTarget.SELF);
-        baseMagicNumber = magicNumber = MAGIC_NUMBER;
+        baseMagicNumber = magicNumber = ENERGY_GAIN;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -24,7 +24,7 @@ public class Citrine extends AbstractGemCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(UPGRADE_MAGIC_NUMBER);
+        upgradeMagicNumber(UPGRADE_ENERGY_GAIN);
         rawDescription = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
     }

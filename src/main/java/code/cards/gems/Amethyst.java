@@ -15,12 +15,12 @@ import static code.util.Wiz.getEnemies;
 public class Amethyst extends AbstractGemCard {
     public final static String ID = makeID("Amethyst");
 
-    private final static int MAGIC_NUMBER = 2; //Enemy Strength Reduction
-    private final static int UPGRADE_MAGIC_NUMBER = 2; //increase Enemy Strength Reduction
+    private final static int TEMP_STR_REDUX = 2; //Enemy Strength Reduction
+    private final static int UPGRADE_TEMP_STR_REDUX = 2; //increase Enemy Strength Reduction
 
     public Amethyst() {
         super(ID, CardType.SKILL, CardRarity.SPECIAL, CardTarget.ALL_ENEMY);
-        baseMagicNumber = magicNumber = MAGIC_NUMBER;
+        baseMagicNumber = magicNumber = TEMP_STR_REDUX;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -34,6 +34,6 @@ public class Amethyst extends AbstractGemCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(UPGRADE_MAGIC_NUMBER);
+        upgradeMagicNumber(UPGRADE_TEMP_STR_REDUX);
     }
 }

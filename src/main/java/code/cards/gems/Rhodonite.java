@@ -12,19 +12,19 @@ import static code.util.Wiz.applyToSelf;
 public class Rhodonite extends AbstractGemCard {
     public final static String ID = makeID("Rhodonite");
 
-    private final static int MAGIC_NUMBER = 2; //Ember gain
-    private final static int UPGRADE_MAGIC_NUMBER = 2; //increase Ember gain
+    private final static int EMBER_GAIN = 2; //Ember gain
+    private final static int UPGRADE_EMBER_GAIN = 2; //increase Ember gain
 
     public Rhodonite() {
         super(ID, CardType.SKILL, CardRarity.SPECIAL, CardTarget.SELF);
-        baseMagicNumber = magicNumber = MAGIC_NUMBER;
+        baseMagicNumber = magicNumber = EMBER_GAIN;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        applyToSelf(new EmberPower(p, MAGIC_NUMBER));
+        applyToSelf(new EmberPower(p, magicNumber));
     }
 
     public void upp() {
-        upgradeMagicNumber(UPGRADE_MAGIC_NUMBER);
+        upgradeMagicNumber(UPGRADE_EMBER_GAIN);
     }
 }
