@@ -23,6 +23,7 @@ public class FrightfulPresence extends AbstractEasyCard {
     public FrightfulPresence() {
         super(ID, 2, CardType.SKILL, CardRarity.RARE, CardTarget.ENEMY, DRAGON_COLOR);
         baseMagicNumber = magicNumber = WEAK_VULN_APPLIED;
+        exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

@@ -1,8 +1,5 @@
 package code.util;
 
-import code.cards.gems.*;
-import code.cards.nests.*;
-import code.cards.sparkbreaths.*;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -12,14 +9,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import static code.util.Wiz.adp;
+import static code.util.Wiz.*;
 
 public class DragonUtils {
     private static HashMap<AbstractCard.CardTags, ArrayList<AbstractCard>> tagsWithLists = new HashMap<>();
 
     public static int countRaresInDeck(){
         int count = 0;
-        for (AbstractCard c : adp().masterDeck.group){
+        for (AbstractCard c : getAllCardsInCardGroups(true, true)){
             if (c.rarity == AbstractCard.CardRarity.RARE){
                 count++;
             }

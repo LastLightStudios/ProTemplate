@@ -40,7 +40,7 @@ public class PridefulScale extends AbstractEasyCard {
         baseBlock += magicNumber * countRaresInDeck();
         super.applyPowers();
         baseBlock = realBaseBlock;
-        isDamageModified = (block != baseBlock);
+        isBlockModified = (block != baseBlock);
     }
 
     public void upp() {
