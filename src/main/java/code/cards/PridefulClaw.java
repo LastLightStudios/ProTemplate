@@ -10,9 +10,9 @@ import static code.util.DragonUtils.countRaresInDeck;
 public class PridefulClaw extends AbstractEasyCard {
     public final static String ID = makeID("PridefulClaw");
 
-    private final static int DAMAGE = 10;
+    private final static int DAMAGE = 12;
     private final static int UPGRADE_DAMAGE = 4;
-    private final static int DAMAGE_SCALAR = 4;
+    private final static int DAMAGE_SCALAR = 3;
     private final static int UPGRADE_DAMAGE_SCALAR = 1;
 
     public PridefulClaw() {

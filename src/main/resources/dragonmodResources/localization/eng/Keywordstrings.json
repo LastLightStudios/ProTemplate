@@ -7,7 +7,7 @@
       "Embers",
       "embers"
     ],
-    "DESCRIPTION": "The Dragon builds #yEmbers in her chest, then consumes them in order increase the power of her #yBreath #yAttacks."
+    "DESCRIPTION": "The Dragon builds #yEmbers in her chest, then consumes them in order to increase the power of her #yBreath #yAttacks."
   },
   {
     "PROPER_NAME": "Spark",
@@ -47,6 +47,6 @@
       "Nests",
       "nests"
     ],
-    "DESCRIPTION": "A #Nest is a power that grants bonus effects at the start of the next turn based on unspent [E]."
+    "DESCRIPTION": "A #yNest is a power that grants bonus effects at the start of the next turn based on unspent #yEnergy."
   }
 ]

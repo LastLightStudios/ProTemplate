@@ -53,8 +53,8 @@
   },
   "${ModID}:Ignition": {
     "NAME": "Ignition",
-    "DESCRIPTION": "Gain ${ModID}:Ember. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain ${ModID}:Ember."
+    "DESCRIPTION": "Gain !M! ${ModID}:Ember. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !M! ${ModID}:Ember."
   },
   "${ModID}:BurningScales": {
     "NAME": "Burning Scales",
@@ -105,7 +105,7 @@
   },
   "${ModID}:MassiveScale": {
     "NAME": "Massive Scale",
-    "DESCRIPTION": "Gain Block equal to the number of cards in your discard pile, whichever is greater.",
+    "DESCRIPTION": "Gain Block equal to the number of cards in your draw pile or discard pile, whichever is greater.",
     "UPGRADE_DESCRIPTION": "Gain Block equal to the number of cards in your draw pile or discard pile, whichever is greater, +3.",
     "EXTENDED_DESCRIPTION": [
       " NL (Gains !B! Block.)"
@@ -153,7 +153,7 @@
     "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember. NL Draw 1 card.",
     "EXTENDED_DESCRIPTION": [
       "Pure Breath",
-      "Gain !B! Block. NL Deal !D! damage to ALL enemies. NL Consumes all ${ModID}:Ember to deal increase both effects by !M! per ${ModID}:Ember."
+      "Gain !B! Block. NL Deal !D! damage to ALL enemies. NL Consumes all ${ModID}:Ember to increase both effects by !M! per ${ModID}:Ember."
     ]
   },
   "${ModID}:RadiantSpark": {
