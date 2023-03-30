@@ -10,7 +10,7 @@
   "${ModID}:Gem": {
     "TEXT": [
       "Gem",
-      "When a card generates a #yGem, it will randomly generate one of many possible #yGems. #yGems have various small effects. #yGems #yExhaust."
+      "#yGems are 0 cost skills with #yHoard."
     ]
   },
   "${ModID}:Nest": {
@@ -22,8 +22,17 @@
   "${ModID}:TradeOfferScreen": {
     "TEXT": [
       "Trade Offer",
-      "Select a card to add to your hand. It will be replaced by a random #yGem",
-      "Select a card to add to your hand. It will be replaced by a random #yGem+"
+      "Select a card to add to your hand. It will be replaced by a random Gem.",
+      "Select a card to add to your hand. It will be replaced by a random Gem+."
+    ]
+  },
+  "${ModID}:Hoard": {
+    "TEXT": [
+      "Hoard",
+      "Hoard. This Exhausts the card and you gain 1 Plated Armor.",
+      "Hoard. This Exhausts the cards and you gain Plated Armor for each card Hoarded.",
+      "Exhaust",
+      "Removed until end of combat."
     ]
   }
 }

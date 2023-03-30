@@ -71,6 +71,13 @@
       " cards."
     ]
   },
+  "${ModID}:CauterizePower": {
+    "NAME": "Cauterized",
+    "DESCRIPTIONS": [
+      "When attacked, receives #b",
+      " additional damage."
+    ]
+  },
   "${ModID}:ComfyNestPower": {
     "NAME": "Comfy Nest",
     "DESCRIPTIONS": [

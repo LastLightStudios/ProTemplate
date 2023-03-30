@@ -37,7 +37,7 @@
       "Gems",
       "gems"
     ],
-    "DESCRIPTION": "When a card generates a #yGem, it will randomly generate one of many possible #yGems. #yGems have various small effects. #yGems #yExhaust."
+    "DESCRIPTION": "yGems are 0 cost skills with #yHoard."
   },
   {
     "PROPER_NAME": "Nest",
@@ -48,5 +48,45 @@
       "nests"
     ],
     "DESCRIPTION": "A #yNest is a power that grants bonus effects at the start of the next turn based on unspent #yEnergy."
+  },
+  {
+    "PROPER_NAME": "Cauterize",
+    "NAMES": [
+      "Cauterize",
+      "cauterize",
+      "Cauterizes",
+      "cauterizes",
+      "Cauterized",
+      "cauterized"
+    ],
+    "DESCRIPTION": "#yCauterized creatures cannot heal. Additionally, when #yCauterized creatures are attacked, they receive additional damage."
+  },
+  {
+    "PROPER_NAME": "Shed",
+    "NAMES": [
+      "Shed",
+      "shed",
+      "Sheds",
+      "sheds"
+    ],
+    "DESCRIPTION": "The Dragon #ySheds her scales, removing a layer of #yDebuffs from her."
+  },
+  {
+    "PROPER_NAME": "Hoard",
+    "NAMES": [
+      "Hoard",
+      "hoard",
+      "Hoards",
+      "hoards"
+    ],
+    "DESCRIPTION": "#yExhaust and gain 1 #yPlated #yArmor."
+  },
+  {
+    "PROPER_NAME": "Plated Armor",
+    "NAMES": [
+      "Plated Armor",
+      "plated armor"
+    ],
+    "DESCRIPTION": "At the end of your turn, gain #yBlock. #yPlated #yArmor is reduced by unblocked attack damage"
   }
 ]

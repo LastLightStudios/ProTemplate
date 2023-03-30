@@ -1,5 +1,6 @@
 package code.cards.gems;
 
+import code.actions.HoardThisCardAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -28,9 +29,10 @@ public class Amethyst extends AbstractGemCard {
             atb(new ApplyPowerAction(mon, p, new StrengthPower(mon, -magicNumber), -magicNumber, true, AbstractGameAction.AttackEffect.NONE));
         }
         for (AbstractMonster mon : getEnemies()){
-            if (!mon.hasPower(ArtifactPower.POWER_ID)) //TODO test if this still works, used to be hard coded "Artifact"
+            if (!mon.hasPower(ArtifactPower.POWER_ID))
             atb(new ApplyPowerAction(mon, p, new GainStrengthPower(mon, magicNumber), magicNumber, true, AbstractGameAction.AttackEffect.NONE));
         }
+        atb(new HoardThisCardAction(p, this));
     }
 
     public void upp() {

@@ -1,5 +1,6 @@
 package code.cards.gems;
 
+import code.actions.HoardThisCardAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -27,6 +28,7 @@ public class Garnet extends AbstractGemCard {
         for (AbstractMonster mon : getEnemies()){
             atb(new ApplyPowerAction(mon, p, new VulnerablePower(mon, magicNumber, false), magicNumber, true, AbstractGameAction.AttackEffect.NONE));
         }
+        atb(new HoardThisCardAction(p, this));
     }
 
     public void upp() {

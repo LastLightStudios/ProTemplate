@@ -1,6 +1,5 @@
 package code.powers;
 
-import com.evacipated.cardcrawl.mod.stslib.patches.NeutralPowertypePatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -21,7 +20,7 @@ public class BurningScalesPower extends AbstractEasyPower {
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
     public BurningScalesPower(AbstractCreature owner, int amount) {
-        super(POWER_ID, NAME, NeutralPowertypePatch.NEUTRAL, false, owner, amount);
+        super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
     }
 
     @Override

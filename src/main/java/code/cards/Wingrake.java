@@ -5,7 +5,6 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
 import com.megacrit.cardcrawl.vfx.combat.WhirlwindEffect;
 
 import static code.ModFile.makeID;
@@ -17,8 +16,8 @@ public class WingRake extends AbstractEasyCard {
 
     private final static int DAMAGE = 15;
     private final static int UPGRADE_DAMAGE = 5;
-    private final static int CARD_DRAW = 1;
-    private final static int UPGRADE_CARD_DRAW = 1;
+    private final static int CARD_DRAW = 2;
+    private final static int UPGRADE_CARD_DRAW = 1; //no longer used to bring it in line with Wheel Kick/Predator
 
 
     public WingRake() {
@@ -26,6 +25,8 @@ public class WingRake extends AbstractEasyCard {
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = CARD_DRAW;
         isMultiDamage = true;
+        rawDescription = cardStrings.UPGRADE_DESCRIPTION; //the upgraded description has "cards" instead of "card"
+        initializeDescription();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -37,6 +38,6 @@ public class WingRake extends AbstractEasyCard {
 
     public void upp() {
         upgradeDamage(UPGRADE_DAMAGE);
-        upgradeMagicNumber(UPGRADE_CARD_DRAW);
+        //upgradeMagicNumber(UPGRADE_CARD_DRAW);
     }
 }

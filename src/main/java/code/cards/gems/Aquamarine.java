@@ -1,9 +1,11 @@
 package code.cards.gems;
 
+import code.actions.HoardThisCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.ModFile.makeID;
+import static code.util.Wiz.atb;
 
 public class Aquamarine extends AbstractGemCard {
     public final static String ID = makeID("Aquamarine");
@@ -19,6 +21,7 @@ public class Aquamarine extends AbstractGemCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         blck();
+        atb(new HoardThisCardAction(p, this));
     }
 
     public void upp() {

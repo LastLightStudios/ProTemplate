@@ -1,5 +1,6 @@
 package code.cards.gems;
 
+import code.actions.HoardThisCardAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -25,6 +26,7 @@ public class Quartz extends AbstractGemCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new DrawCardAction(magicNumber));
+        atb(new HoardThisCardAction(p, this));
     }
 
     public void upp() {

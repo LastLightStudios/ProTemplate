@@ -13,25 +13,26 @@ import java.util.List;
 import static code.ModFile.makeID;
 
 public abstract class AbstractGemCard extends AbstractEasyCard {
-    protected static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(makeID("Gem"));
+    protected static final UIStrings gemUIStrings = CardCrawlGame.languagePack.getUIString(makeID("Gem"));
+    protected static final UIStrings hoardUIStrings = CardCrawlGame.languagePack.getUIString(makeID("Hoard"));
 
     public AbstractGemCard(final String cardID, final CardType type, final CardRarity rarity, final CardTarget target) {
         super(cardID, 0, type, rarity, target, DragonCharacterFile.Enums.DRAGON_COLOR);
-        exhaust = true;
         tags.add(CustomTags.GEM);
     }
 
     @Override
     public List<String> getCardDescriptors(){
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(uiStrings.TEXT[0]);
+        retVal.add(gemUIStrings.TEXT[0]);
         return retVal;
     }
 
     @Override
     public List<TooltipInfo> getCustomTooltips() {
         ArrayList<TooltipInfo> retVal = new ArrayList<>();
-        retVal.add(new TooltipInfo(uiStrings.TEXT[0], uiStrings.TEXT[1]));
+        retVal.add(new TooltipInfo(gemUIStrings.TEXT[0], gemUIStrings.TEXT[1]));
+        retVal.add(new TooltipInfo(hoardUIStrings.TEXT[3], hoardUIStrings.TEXT[4]));
         return retVal;
     }
 }

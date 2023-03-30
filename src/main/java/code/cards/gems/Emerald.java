@@ -1,5 +1,6 @@
 package code.cards.gems;
 
+import code.actions.HoardThisCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
@@ -22,6 +23,7 @@ public class Emerald extends AbstractGemCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         applyToSelf(new DexterityPower(p, magicNumber));
         applyToSelf(new LoseDexterityPower(p, magicNumber));
+        atb(new HoardThisCardAction(p, this));
     }
 
     public void upp() {

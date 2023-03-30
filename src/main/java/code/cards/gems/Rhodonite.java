@@ -1,5 +1,6 @@
 package code.cards.gems;
 
+import code.actions.HoardThisCardAction;
 import code.powers.EmberPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -8,6 +9,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static code.ModFile.makeID;
 import static code.util.Wiz.applyToSelf;
+import static code.util.Wiz.atb;
 
 public class Rhodonite extends AbstractGemCard {
     public final static String ID = makeID("Rhodonite");
@@ -22,6 +24,7 @@ public class Rhodonite extends AbstractGemCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         applyToSelf(new EmberPower(p, magicNumber));
+        atb(new HoardThisCardAction(p, this));
     }
 
     public void upp() {

@@ -51,6 +51,10 @@
     "DESCRIPTION": "Deal !D! damage. NL Put a random ${ModID}:Gem and the next card you play this turn on top of your draw pile.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Put a random ${ModID}:Gem+ and the next card you play this turn on top of your draw pile."
   },
+  "${ModID}:FireFang": {
+    "NAME": "Fire Fang",
+    "DESCRIPTION": "Deal !D! damage. NL If the target has ${ModID}:Cauterize, deal !${ModID}:sd! damage again. NL If not, apply !M! ${ModID}:Cauterize."
+  },
   "${ModID}:Ignition": {
     "NAME": "Ignition",
     "DESCRIPTION": "Gain !M! ${ModID}:Ember. NL Exhaust.",
@@ -88,15 +92,18 @@
   },
   "${ModID}:StretchYourLegs": {
     "NAME": "Stretch Your Legs",
-    "DESCRIPTION": "Gain [E] [E]. NL Gain !${ModID}:m2! Weak."
+    "DESCRIPTION": "Gain [E] [E]. NL Gain !${ModID}:m2! Weak.",
+    "UPGRADE_DESCRIPTION": "Gain [E] [E]. NL Gain !${ModID}:m2! Weak. NL ${ModID}:Shed 1."
   },
   "${ModID}:StretchYourTail": {
     "NAME": "Stretch Your Tail",
-    "DESCRIPTION": "Gain [E] [E]. NL Gain !${ModID}:m2! Frail."
+    "DESCRIPTION": "Gain [E] [E]. NL Gain !${ModID}:m2! Frail.",
+    "UPGRADE_DESCRIPTION": "Gain [E] [E]. NL Gain !${ModID}:m2! Frail. NL ${ModID}:Shed 1."
   },
   "${ModID}:StretchYourBelly": {
     "NAME": "Stretch Your Belly",
-    "DESCRIPTION": "Gain [E] [E]. NL Gain !${ModID}:m2! Vulnerable."
+    "DESCRIPTION": "Gain [E] [E]. NL Gain !${ModID}:m2! Vulnerable.",
+    "UPGRADE_DESCRIPTION": "Gain [E] [E]. NL Gain !${ModID}:m2! Vulnerable. NL ${ModID}:Shed 1."
   },
   "${ModID}:TreasureScale": {
     "NAME": "Treasure Scale",
@@ -114,7 +121,7 @@
   "${ModID}:ProfaneSpark": {
     "NAME": "Profane Spark",
     "DESCRIPTION": "Deal !D! damage. NL Apply !${ModID}:m2! Weak. NL Gain !M! ${ModID}:Ember.",
-    "UPGRADE_DESCRIPTION": "Apply !${ModID}:m2! Weak.  NL Deal !D! damage. NL Gain !M! ${ModID}:Ember. NL Draw 1 card.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !${ModID}:m2! Weak.  NL Gain !M! ${ModID}:Ember. NL Draw 1 card.",
     "EXTENDED_DESCRIPTION": [
       "Profane Breath",
       "Deal !D! damage and apply !${ModID}:m2! Weak to ALL enemies. NL Consumes all ${ModID}:Ember to increase damage by !M! per ${ModID}:Ember."
@@ -123,7 +130,7 @@
   "${ModID}:ToxicSpark": {
     "NAME": "Toxic Spark",
     "DESCRIPTION": "Deal !D! damage. NL Apply !${ModID}:m2! Poison. NL Gain !M! ${ModID}:Ember.",
-    "UPGRADE_DESCRIPTION": "Apply !${ModID}:m2! Poison.  NL Deal !D! damage. NL Gain !M! ${ModID}:Ember. NL Draw 1 card.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !${ModID}:m2! Poison. NL Gain !M! ${ModID}:Ember. NL Draw 1 card.",
     "EXTENDED_DESCRIPTION": [
       "Toxic Breath",
       "Deal !D! damage and apply !${ModID}:m2! Poison to ALL enemies. NL Consumes all ${ModID}:Ember to increase both effects by !M! per ${ModID}:Ember."
@@ -169,7 +176,7 @@
   "${ModID}:FocusedSpark": {
     "NAME": "Focused Spark",
     "DESCRIPTION": "Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
-    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain !M! ${ModID}:Ember. NL Draw 1 card. ",
     "EXTENDED_DESCRIPTION": [
       "Focused Breath",
       "Deal !D! damage for each enemy in combat. NL Consumes all ${ModID}:Ember to deal increase damage by !M! per ${ModID}:Ember."
@@ -183,6 +190,10 @@
       "Crystalline Breath",
       "Deal !D! damage to ALL enemies. NL Add a random ${ModID}:Gem into your hand. NL Consumes all ${ModID}:Ember to increase both effects by !M! per ${ModID}:Ember."
     ]
+  },
+  "${ModID}:SearingSwipe": {
+    "NAME": "Searing Swipe",
+    "DESCRIPTION": "Deal !D! damage and apply !M! ${ModID}:Cauterize to ALL enemies. NL Exhaust."
   },
   "${ModID}:PridefulClaw": {
     "NAME": "Prideful Claw",
@@ -234,9 +245,23 @@
     "DESCRIPTION": "Whenever you draw a ${ModID}:Gem, draw !M! card.",
     "UPGRADE_DESCRIPTION": "Whenever you draw a ${ModID}:Gem, draw !M! cards."
   },
+  "${ModID}:CauterizingSpark": {
+    "NAME": "Cauterizing Spark",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !${ModID}:m2! ${ModID}:Cauterize. NL Gain !M! ${ModID}:Ember.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !${ModID}:m2! ${ModID}:Cauterize. NL Gain !M! ${ModID}:Ember. NL Draw 1 card.",
+    "EXTENDED_DESCRIPTION": [
+      "Cauterizing Breath",
+      "Deal !D! damage and apply !${ModID}:m2! ${ModID}:Cauterize to ALL enemies. NL Consumes all ${ModID}:Ember to increase both effects by !M! per ${ModID}:Ember."
+    ]
+  },
   "${ModID}:GreedFeed": {
     "NAME": "Greed Feed",
     "DESCRIPTION": "Ethereal. NL Deal !D! damage. Costs 1 more Energy each time you play this card this combat. NL If Fatal, raise your Max HP by !M!."
+  },
+  "${ModID}:Conflagration": {
+    "NAME": "Conflagration",
+    "DESCRIPTION": "Gain X ${ModID}:Ember. NL Apply X ${ModID}:Cauterize. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain X+1 ${ModID}:Ember. NL Apply X+1 ${ModID}:Cauterize. NL Exhaust."
   },
   "${ModID}:BurningTemper": {
     "NAME": "Burning Temper",
@@ -320,37 +345,41 @@
   },
   "${ModID}:Aquamarine": {
     "NAME": "Aquamarine",
-    "DESCRIPTION": "Gain !B! Block. NL Exhaust."
+    "DESCRIPTION": "Gain !B! Block. NL ${ModID}:Hoard."
   },
   "${ModID}:Emerald": {
     "NAME": "Emerald",
-    "DESCRIPTION": "Gain !M! temporary Dexterity. NL Exhaust."
+    "DESCRIPTION": "Gain !M! temporary Dexterity. NL ${ModID}:Hoard."
   },
   "${ModID}:Rhodonite": {
     "NAME": "Rhodonite",
-    "DESCRIPTION": "Gain !M! ${ModID}:Ember. NL Exhaust."
+    "DESCRIPTION": "Gain !M! ${ModID}:Ember. NL ${ModID}:Hoard."
   },
   "${ModID}:Ruby": {
     "NAME": "Ruby",
-    "DESCRIPTION": "Gain !M! temporary Strength. NL Exhaust."
+    "DESCRIPTION": "Gain !M! temporary Strength. NL ${ModID}:Hoard."
   },
   "${ModID}:Amethyst": {
     "NAME": "Amethyst",
-    "DESCRIPTION": "ALL enemies lose !M! Strength this turn. NL Exhaust."
+    "DESCRIPTION": "ALL enemies lose !M! Strength this turn. NL ${ModID}:Hoard."
   },
   "${ModID}:Garnet": {
     "NAME": "Garnet",
-    "DESCRIPTION": "Apply !M! Vulnerable to ALL enemies. NL Exhaust."
+    "DESCRIPTION": "Apply !M! Vulnerable to ALL enemies. NL ${ModID}:Hoard."
   },
   "${ModID}:Quartz": {
     "NAME": "Quartz",
-    "DESCRIPTION": "Draw !M! card. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Exhaust."
+    "DESCRIPTION": "Draw !M! card. NL ${ModID}:Hoard.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL ${ModID}:Hoard."
   },
   "${ModID}:Citrine": {
     "NAME": "Citrine",
-    "DESCRIPTION": "Gain [E]. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain [E][E]. NL Exhaust."
+    "DESCRIPTION": "Gain [E]. NL ${ModID}:Hoard.",
+    "UPGRADE_DESCRIPTION": "Gain [E][E]. NL ${ModID}:Hoard."
+  },
+  "${ModID}:TestHoardThreeCards": {
+    "NAME": "Test Hoard Three Cards",
+    "DESCRIPTION": "Test ${ModID}:Hoard Three Cards Desc"
   },
   "${ModID}:ExampleTwoAmountPowerCard": {
     "NAME": "Two Amount Power",

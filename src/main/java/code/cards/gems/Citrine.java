@@ -1,5 +1,6 @@
 package code.cards.gems;
 
+import code.actions.HoardThisCardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -21,6 +22,7 @@ public class Citrine extends AbstractGemCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new GainEnergyAction(magicNumber));
+        atb(new HoardThisCardAction(p, this));
     }
 
     public void upp() {

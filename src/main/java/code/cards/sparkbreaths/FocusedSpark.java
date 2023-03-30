@@ -44,11 +44,11 @@ public class FocusedSpark extends AbstractSparkBreathCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (isFront) {
+            dmg(m, AbstractGameAction.AttackEffect.FIRE);
+            applyToSelf(new EmberPower(p, magicNumber));
             if(upgraded){
                 atb(new DrawCardAction(1));
             }
-            dmg(m, AbstractGameAction.AttackEffect.FIRE);
-            applyToSelf(new EmberPower(p, magicNumber));
         } else { // Breath
             for (AbstractMonster monster : getEnemies()){
                 dmg(m, AbstractGameAction.AttackEffect.FIRE);
