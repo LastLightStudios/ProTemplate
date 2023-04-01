@@ -16,21 +16,25 @@ import static code.util.Wiz.*;
 public class ToxicSpark extends AbstractSparkBreathCard {
     public final static String ID = makeID("ToxicSpark");
 
-    private final static int DAMAGE_A = 1;
-    private final static int DAMAGE_B = 10;
+    //Spark Stuff
+    private final static int SPARK_DAMAGE = 1;
+    private final static int SPARK_EMBER_GAIN = 1;
+    private final static int UPGRADE_SPARK_EMBER_GAIN = 0;
+    private final static int SPARK_POISON_APPLICATION = 1;
+    private final static int UPGRADE_SPARK_POISON_APPLICATION = 0;
 
-    private final static int MAGIC_NUMBER_A = 1; //ember gain
-    private final static int MAGIC_NUMBER_B = 1; //ember multiplier
-    private final static int SECOND_MAGIC_NUMBER_A = 1; //spark poison application
-    private final static int SECOND_MAGIC_NUMBER_B = 1; //breath poison application
-    private final static int UPGRADE_MAGIC_NUMBER_B = 1; //ember multiplier increase
-    private final static int UPGRADE_SECOND_MAGIC_NUMBER_B = 1; //breath poison application increase
+    //Breath Stuff
+    private final static int BREATH_DAMAGE = 10;
+    private final static int BREATH_EMBER_MULTIPLIER = 1;
+    private final static int UPGRADE_BREATH_EMBER_MULTIPLIER = 1;
+    private final static int BREATH_POISON_APPLICATION = 1;
+    private final static int UPGRADE_BREATH_POISON_APPLICATION = 1;
 
     public ToxicSpark(boolean needsPreview) {
         super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CardTarget.ALL_ENEMY, needsPreview);
-        setDamage(DAMAGE_A, DAMAGE_B);
-        setMagic(MAGIC_NUMBER_A, MAGIC_NUMBER_B);
-        setSecondMagic(SECOND_MAGIC_NUMBER_A, SECOND_MAGIC_NUMBER_B);
+        setDamage(SPARK_DAMAGE, BREATH_DAMAGE);
+        setMagic(SPARK_EMBER_GAIN, BREATH_EMBER_MULTIPLIER);
+        setSecondMagic(SPARK_POISON_APPLICATION, BREATH_POISON_APPLICATION);
 
         initializeSide();
     }
@@ -47,7 +51,7 @@ public class ToxicSpark extends AbstractSparkBreathCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (isFront) {
             dmg(m, AbstractGameAction.AttackEffect.FIRE);
-            applyToEnemy(m, new PoisonPower(m, p, SECOND_MAGIC_NUMBER_A));
+            applyToEnemy(m, new PoisonPower(m, p, secondMagic));
             applyToSelf(new EmberPower(p, magicNumber));
             if(upgraded){
                 atb(new DrawCardAction(1));
@@ -109,8 +113,8 @@ public class ToxicSpark extends AbstractSparkBreathCard {
 
     @Override
     public void upp() {
-        upgradeMagicNumber(0, UPGRADE_MAGIC_NUMBER_B);
-        upgradeSecondMagicNumber(0, UPGRADE_SECOND_MAGIC_NUMBER_B);
+        upgradeMagicNumber(UPGRADE_SPARK_EMBER_GAIN, UPGRADE_BREATH_EMBER_MULTIPLIER);
+        upgradeSecondMagic(UPGRADE_SPARK_POISON_APPLICATION, UPGRADE_BREATH_POISON_APPLICATION);
         descriptionA = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
     }

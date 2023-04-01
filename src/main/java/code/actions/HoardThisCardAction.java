@@ -1,10 +1,10 @@
 package code.actions;
 
+import code.powers.PridePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 
 import static code.util.Wiz.*;
 
@@ -19,7 +19,7 @@ public class HoardThisCardAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        applyToSelfTop(new PlatedArmorPower(adp(), 1));
+        applyToSelfTop(new PridePower(adp(), 1));
         att(new ExhaustSpecificCardAction(c, p.hand));
         this.isDone = true;
     }

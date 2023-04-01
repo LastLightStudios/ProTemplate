@@ -290,7 +290,7 @@ public abstract class AbstractTwoSidedCard extends AbstractEasyCard{
         magicNumber = baseMagicNumber;
     }
 
-    protected void upgradeSecondMagicNumber(int amountA, int amountB) {
+    protected void upgradeSecondMagic(int amountA, int amountB) {
         baseSecondMagicA += amountA;
         baseSecondMagicB += amountB;
         if (isFront) {

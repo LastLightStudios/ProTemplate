@@ -13,7 +13,8 @@ public class StretchYourWings extends AbstractEasyCard {
     public final static String ID = makeID("StretchYourWings");
     private final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-    private final static int ENERGY_GAIN = 4;
+    private final static int ENERGY_GAIN = 3;
+    private final static int UPGRADE_ENERGY_GAIN = 1;
 
     public StretchYourWings() {
         super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
@@ -26,8 +27,8 @@ public class StretchYourWings extends AbstractEasyCard {
     }
 
     public void upp() {
+        upgradeMagicNumber(UPGRADE_ENERGY_GAIN);
         rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-        exhaust = false;
         initializeDescription();
     }
 }

@@ -17,14 +17,13 @@ public class WingRake extends AbstractEasyCard {
     private final static int DAMAGE = 15;
     private final static int UPGRADE_DAMAGE = 5;
     private final static int CARD_DRAW = 2;
-    private final static int UPGRADE_CARD_DRAW = 1; //no longer used to bring it in line with Wheel Kick/Predator
+    private final static int UPGRADE_CARD_DRAW = 1; //used to be 1(2). Is now in line with Wheel Kick/Predator
 
 
     public WingRake() {
         super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = CARD_DRAW;
-        isMultiDamage = true;
         rawDescription = cardStrings.UPGRADE_DESCRIPTION; //the upgraded description has "cards" instead of "card"
         initializeDescription();
     }
@@ -32,7 +31,7 @@ public class WingRake extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new SFXAction("ATTACK_WHIRLWIND"));
         vfx(new WhirlwindEffect(), 0.0f);
-        allDmg(AbstractGameAction.AttackEffect.NONE);
+        dmg(m, AbstractGameAction.AttackEffect.NONE);
         atb(new DrawCardAction(magicNumber));
     }
 

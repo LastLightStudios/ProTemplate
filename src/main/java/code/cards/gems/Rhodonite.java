@@ -2,6 +2,7 @@ package code.cards.gems;
 
 import code.actions.HoardThisCardAction;
 import code.powers.EmberPower;
+import code.powers.PridePower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
@@ -24,7 +25,7 @@ public class Rhodonite extends AbstractGemCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         applyToSelf(new EmberPower(p, magicNumber));
-        atb(new HoardThisCardAction(p, this));
+        applyToSelf(new PridePower(p, 1));
     }
 
     public void upp() {

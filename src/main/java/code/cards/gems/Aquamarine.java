@@ -1,10 +1,12 @@
 package code.cards.gems;
 
 import code.actions.HoardThisCardAction;
+import code.powers.PridePower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.ModFile.makeID;
+import static code.util.Wiz.applyToSelf;
 import static code.util.Wiz.atb;
 
 public class Aquamarine extends AbstractGemCard {
@@ -21,7 +23,7 @@ public class Aquamarine extends AbstractGemCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         blck();
-        atb(new HoardThisCardAction(p, this));
+        applyToSelf(new PridePower(p, 1));
     }
 
     public void upp() {

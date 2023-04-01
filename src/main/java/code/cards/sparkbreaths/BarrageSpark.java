@@ -17,20 +17,23 @@ import static code.util.Wiz.*;
 public class BarrageSpark extends AbstractSparkBreathCard {
     public final static String ID = makeID("BarrageSpark");
 
-    private final static int DAMAGE_A = 1;
-    private final static int DAMAGE_B = 1;
+    //Spark Stuff
+    private final static int SPARK_DAMAGE = 1;
+    private final static int SPARK_EMBER_GAIN = 1;
+    private final static int SPARK_NUMBER_OF_HITS = 3;
+    private final static int UPGRADE_NUMBER_OF_HITS = 0;
 
-    private final static int MAGIC_NUMBER_A = 1; //spark gain
-    private final static int MAGIC_NUMBER_B = 1; //spark multiplier
-    private final static int SECOND_MAGIC_NUMBER_A = 5; //Number of hits
-    private final static int SECOND_MAGIC_NUMBER_B = 5; //Number of hits
-    private final static int UPGRADE_MAGIC_NUMBER_B = 2; //Number of hits increase
+    //Breath Stuff
+    private final static int BREATH_DAMAGE = 1;
+    private final static int BREATH_EMBER_MULTIPLIER = 1; //ember multiplier
+    private final static int BREATH_NUMBER_OF_HITS = 4; //Number of hits
+    private final static int UPGRADE_BREATH_NUMBER_OF_HITS = 1; //Number of hits increase
 
     public BarrageSpark(boolean needsPreview) {
         super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY, CardTarget.ALL_ENEMY, needsPreview);
-        setDamage(DAMAGE_A, DAMAGE_B);
-        setMagic(MAGIC_NUMBER_A, MAGIC_NUMBER_B);
-        setSecondMagic(SECOND_MAGIC_NUMBER_A, SECOND_MAGIC_NUMBER_B);
+        setDamage(SPARK_DAMAGE, BREATH_DAMAGE);
+        setMagic(SPARK_EMBER_GAIN, BREATH_EMBER_MULTIPLIER);
+        setSecondMagic(SPARK_NUMBER_OF_HITS, BREATH_NUMBER_OF_HITS);
 
         initializeSide();
     }
@@ -96,7 +99,7 @@ public class BarrageSpark extends AbstractSparkBreathCard {
 
     @Override
     public void upp() {
-        upgradeMagicNumber(0, UPGRADE_MAGIC_NUMBER_B);
+        upgradeSecondMagic(UPGRADE_NUMBER_OF_HITS, UPGRADE_BREATH_NUMBER_OF_HITS);
         descriptionA = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
     }

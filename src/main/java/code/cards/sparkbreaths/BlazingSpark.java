@@ -15,17 +15,19 @@ import static code.util.Wiz.*;
 public class BlazingSpark extends AbstractSparkBreathCard {
     public final static String ID = makeID("BlazingSpark");
 
-    private final static int DAMAGE_A = 1;
-    private final static int DAMAGE_B = 10;
+    //Spark Stuff
+    private final static int SPARK_DAMAGE = 1;
+    private final static int SPARK_EMBER_GAIN = 1;
 
-    private final static int MAGIC_NUMBER_A = 1; //spark gain
-    private final static int MAGIC_NUMBER_B = 1; //spark multiplier
-    private final static int UPGRADE_MAGIC_NUMBER_B = 1; //spark multiplier increase
+    //Breath Stuff
+    private final static int BREATH_DAMAGE = 10;
+    private final static int BREATH_EMBER_MULTIPLIER = 1;
+    private final static int UPGRADE_BREATH_EMBER_MULTIPLIER = 1;
 
     public BlazingSpark(boolean needsPreview) {
         super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY, CardTarget.ALL_ENEMY, needsPreview);
-        setDamage(DAMAGE_A, DAMAGE_B);
-        setMagic(MAGIC_NUMBER_A, MAGIC_NUMBER_B);
+        setDamage(SPARK_DAMAGE, BREATH_DAMAGE);
+        setMagic(SPARK_EMBER_GAIN, BREATH_EMBER_MULTIPLIER);
 
         initializeSide();
     }
@@ -87,7 +89,7 @@ public class BlazingSpark extends AbstractSparkBreathCard {
 
     @Override
     public void upp() {
-        upgradeMagicNumber(0, UPGRADE_MAGIC_NUMBER_B);
+        upgradeMagicNumber(0, UPGRADE_BREATH_EMBER_MULTIPLIER);
         descriptionA = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
     }

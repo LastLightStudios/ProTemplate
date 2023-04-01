@@ -8,8 +8,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static code.ModFile.makeID;
 import static code.util.Wiz.applyToEnemy;
 
-public class FireFang extends AbstractEasyCard {
-    public final static String ID = makeID("FireFang");
+public class SaltTheWound extends AbstractEasyCard {
+    public final static String ID = makeID("SaltTheWound");
 
     private final static int DAMAGE = 6;
     private final static int UPGRADE_DAMAGE = 3;
@@ -18,7 +18,7 @@ public class FireFang extends AbstractEasyCard {
     private final static int CAUTERIZE_APPLICATION = 1;
     private final static int UPGRADE_CAUTERIZE_APPLICATION = 0;
 
-    public FireFang() {
+    public SaltTheWound() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         baseDamage = DAMAGE;
         baseSecondDamage = SECOND_DAMAGE;

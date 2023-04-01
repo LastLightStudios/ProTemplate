@@ -1,5 +1,7 @@
 package code.powers;
 
+import code.cards.SearingFang;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -16,6 +18,7 @@ public class CauterizePower extends AbstractEasyPower {
 
     public CauterizePower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.DEBUFF, false, owner, amount);
+        this.amount = amount;
     }
 
     @Override
@@ -25,8 +28,12 @@ public class CauterizePower extends AbstractEasyPower {
     }
 
     @Override
-    public float atDamageReceive(float damage, DamageInfo.DamageType type) {
-        return type == DamageInfo.DamageType.NORMAL ? damage + (float)this.amount : damage;
+    public float atDamageReceive(float damage, DamageInfo.DamageType type, AbstractCard card) {
+        int multiplier = 1;
+        if (card instanceof SearingFang){
+            multiplier = ((SearingFang)card).getCauterizeMultiplier();
+        }
+        return type == DamageInfo.DamageType.NORMAL ? damage + ((float)this.amount * multiplier) : damage;
     }
 
     @Override

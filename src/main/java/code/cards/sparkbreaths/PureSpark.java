@@ -15,21 +15,23 @@ import static code.util.Wiz.*;
 public class PureSpark extends AbstractSparkBreathCard {
     public final static String ID = makeID("PureSpark");
 
-    private final static int DAMAGE_A = 1;
-    private final static int DAMAGE_B = 10;
+    //Spark Stuff
+    private final static int SPARK_DAMAGE = 1;
+    private final static int SPARK_EMBER_GAIN = 1;
+    private final static int SPARK_PRIDE_GAIN = 3;
+    private final static int UPGRADE_SPARK_PRIDE_GAIN = 0;
 
-    private final static int MAGIC_NUMBER_A = 1; //spark gain
-    private final static int MAGIC_NUMBER_B = 1; //spark multiplier
-    private final static int BLOCK_NUMBER_A = 3;
-    private final static int BLOCK_NUMBER_B = 10;
-    private final static int UPGRADE_BLOCK_NUMBER_A = 2;
-    private final static int UPGRADE_BLOCK_NUMBER_B = 5;
+    //Breath Stuff
+    private final static int BREATH_DAMAGE = 10;
+    private final static int BREATH_EMBER_MULTIPLIER = 1;
+    private final static int BREATH_PRIDE_GAIN = 10;
+    private final static int UPGRADE_BREATH_PRIDE_GAIN = 5;
 
     public PureSpark(boolean needsPreview) {
         super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CardTarget.ALL_ENEMY, needsPreview);
-        setDamage(DAMAGE_A, DAMAGE_B);
-        setBlock(BLOCK_NUMBER_A, BLOCK_NUMBER_B);
-        setMagic(MAGIC_NUMBER_A, MAGIC_NUMBER_B);
+        setDamage(SPARK_DAMAGE, BREATH_DAMAGE);
+        setMagic(SPARK_EMBER_GAIN, BREATH_EMBER_MULTIPLIER);
+        setSecondMagic(SPARK_PRIDE_GAIN, BREATH_PRIDE_GAIN);
 
         initializeSide();
     }
@@ -45,14 +47,14 @@ public class PureSpark extends AbstractSparkBreathCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (isFront) {
-            blck();
+            applyToSelf(new EmberPower(p, secondMagic));
             dmg(m, AbstractGameAction.AttackEffect.FIRE);
             applyToSelf(new EmberPower(p, magicNumber));
             if(upgraded){
                 atb(new DrawCardAction(1));
             }
         } else { // Breath
-            blck();
+            applyToSelf(new EmberPower(p, secondMagic));
             allDmg(AbstractGameAction.AttackEffect.FIRE);
             atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
         }
@@ -69,15 +71,12 @@ public class PureSpark extends AbstractSparkBreathCard {
                 int realBaseDamage = baseDamage; //temp store realBaseDamage b/c baseDamage is used in card damage calculations
                 baseDamage = baseDamage + (magicNumber * ember.amount);
 
-                // adjusting Block values based on Ember
-                int realBaseBlock = baseBlock;
-                baseBlock = baseBlock + (magicNumber * ember.amount);
+                secondMagic = secondMagic + (magicNumber * ember.amount);
                 super.calculateCardDamage(m);
 
                 baseDamage = realBaseDamage; //restore the realBaseDamage
-                baseBlock = realBaseBlock;
                 isDamageModified = (damage != baseDamage);
-                isBlockModified = (block != baseBlock);
+                isSecondMagicModified = (secondMagic != baseSecondMagic);
             }
         }
     }
@@ -92,22 +91,19 @@ public class PureSpark extends AbstractSparkBreathCard {
                 int realBaseDamage = baseDamage; //temp store realBaseDamage b/c baseDamage is used in card damage calculations
                 baseDamage = baseDamage + (magicNumber * ember.amount);
 
-                // adjusting Block values based on Ember
-                int realBaseBlock = baseBlock;
-                baseBlock = baseBlock + (magicNumber * ember.amount);
+                secondMagic = secondMagic + (magicNumber * ember.amount);
                 super.applyPowers();
 
                 baseDamage = realBaseDamage; //restore the realBaseDamage
-                baseBlock = realBaseBlock;
                 isDamageModified = (damage != baseDamage);
-                isBlockModified = (block != baseBlock);
+                isSecondMagicModified = (secondMagic != baseSecondMagic);
             }
         }
     }
 
     @Override
     public void upp() {
-        upgradeBlock(UPGRADE_BLOCK_NUMBER_A, UPGRADE_BLOCK_NUMBER_B);
+        upgradeSecondMagic(UPGRADE_SPARK_PRIDE_GAIN, UPGRADE_BREATH_PRIDE_GAIN);
         descriptionA = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
     }

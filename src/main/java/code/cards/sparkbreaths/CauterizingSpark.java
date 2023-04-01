@@ -17,26 +17,26 @@ public class CauterizingSpark extends AbstractSparkBreathCard {
     public final static String ID = makeID("CauterizingSpark");
 
     //Spark Stuff
-    private final static int DAMAGE_A = 1;
-    private final static int UPGRADE_DAMAGE_A = 0;
-    private final static int MAGIC_NUMBER_A = 1; //ember gain
-    private final static int UPGRADE_MAGIC_NUMBER_A = 0; //ember gain increase
-    private final static int SECOND_MAGIC_NUMBER_A = 1; //cauterize application
-    private final static int UPGRADE_SECOND_MAGIC_NUMBER_A = 0; //cauterize application increase
+    private final static int SPARK_DAMAGE = 1;
+    private final static int UPGRADE_SPARK_DAMAGE = 0;
+    private final static int SPARK_EMBER_GAIN = 1;
+    private final static int UPGRADE_SPARK_EMBER_GAIN = 0;
+    private final static int SPARK_CAUTERIZE_APPLICATION = 1;
+    private final static int UPGRADE_SPARK_CAUTERIZE_APPLICATION = 0;
 
-    // Breath Stuff
-    private final static int DAMAGE_B = 10;
-    private final static int UPGRADE_DAMAGE_B = 5; // increases base AoE dmg b/c the ember multiplier doesn't increase
-    private final static int MAGIC_NUMBER_B = 1; //ember multiplier
-    private final static int UPGRADE_MAGIC_NUMBER_B = 0; //ember multiplier increase
-    private final static int SECOND_MAGIC_NUMBER_B = 0; //cauterize application
-    private final static int UPGRADE_SECOND_MAGIC_NUMBER_B = 0; //breath cauterize application increase
+    //Breath Stuff
+    private final static int BREATH_DAMAGE = 10;
+    private final static int UPGRADE_BREATH_DAMAGE = 5;
+    private final static int BREATH_EMBER_MULTIPLIER = 1;
+    private final static int UPGRADE_EMBER_MULTIPLIER = 0;
+    private final static int BREATH_CAUTERIZE_APPLICATION = 0;
+    private final static int UPGRADE_BREATH_CAUTERIZE_APPLICATION = 0;
 
     public CauterizingSpark(boolean needsPreview) {
-        super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CardTarget.ALL_ENEMY, needsPreview);
-        setDamage(DAMAGE_A, DAMAGE_B);
-        setMagic(MAGIC_NUMBER_A, MAGIC_NUMBER_B);
-        setSecondMagic(SECOND_MAGIC_NUMBER_A, SECOND_MAGIC_NUMBER_B);
+        super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY, CardTarget.ALL_ENEMY, needsPreview);
+        setDamage(SPARK_DAMAGE, BREATH_DAMAGE);
+        setMagic(SPARK_EMBER_GAIN, BREATH_EMBER_MULTIPLIER);
+        setSecondMagic(SPARK_CAUTERIZE_APPLICATION, BREATH_CAUTERIZE_APPLICATION);
 
         initializeSide();
     }
@@ -112,7 +112,7 @@ public class CauterizingSpark extends AbstractSparkBreathCard {
 
     @Override
     public void upp() {
-        upgradeDamage(UPGRADE_DAMAGE_A,UPGRADE_DAMAGE_B);
+        upgradeDamage(UPGRADE_SPARK_DAMAGE, UPGRADE_BREATH_DAMAGE);
         descriptionA = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
     }

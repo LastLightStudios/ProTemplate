@@ -20,8 +20,8 @@
       "Deal !D! damage to ALL enemies. NL Consumes all ${ModID}:Ember to deal increase damage by !M! per ${ModID}:Ember."
     ]
   },
-  "${ModID}:BurningClaw": {
-    "NAME": "Burning Claw",
+  "${ModID}:SmolderingClaw": {
+    "NAME": "Smoldering Claw",
     "DESCRIPTION": "Deal !D! damage. NL Gain !M! ${ModID}:Ember."
   },
   "${ModID}:TreasureClaw": {
@@ -31,8 +31,8 @@
   },
   "${ModID}:MassiveClaw": {
     "NAME": "Massive Claw",
-    "DESCRIPTION": "Deal damage equal to the number of cards in your draw pile or discard pile, whichever is greater.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Deal damage equal to the number of cards in your draw pile or discard pile, whichever is greater.",
+    "DESCRIPTION": "Deal damage equal to your deck size, increased by your ${ModID}:Pride.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Deal damage equal to your deck size, increased by your ${ModID}:Pride.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
@@ -51,21 +51,25 @@
     "DESCRIPTION": "Deal !D! damage. NL Put a random ${ModID}:Gem and the next card you play this turn on top of your draw pile.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Put a random ${ModID}:Gem+ and the next card you play this turn on top of your draw pile."
   },
-  "${ModID}:FireFang": {
-    "NAME": "Fire Fang",
+  "${ModID}:SaltTheWound": {
+    "NAME": "Salt The Wound",
     "DESCRIPTION": "Deal !D! damage. NL If the target has ${ModID}:Cauterize, deal !${ModID}:sd! damage again. NL If not, apply !M! ${ModID}:Cauterize."
+  },
+  "${ModID}:SearingFang": {
+    "NAME": "Searing Fang",
+    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Cauterize affects this card !M! times. NL Apply !${ModID}:m2! ${ModID}:Cauterize."
   },
   "${ModID}:Ignition": {
     "NAME": "Ignition",
     "DESCRIPTION": "Gain !M! ${ModID}:Ember. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Gain !M! ${ModID}:Ember."
   },
-  "${ModID}:BurningScales": {
-    "NAME": "Burning Scales",
+  "${ModID}:SmolderingScales": {
+    "NAME": "Smoldering Scales",
     "DESCRIPTION": "Gain !B! Block. NL Gain !M! ${ModID}:Ember."
   },
-  "${ModID}:BurningHeart": {
-    "NAME": "Burning Heart",
+  "${ModID}:SmolderingHeart": {
+    "NAME": "Smoldering Heart",
     "DESCRIPTION": "Gain !${ModID}:m2! ${ModID}:Ember. NL Draw !M! cards."
   },
   "${ModID}:WingGuard": {
@@ -79,7 +83,7 @@
   },
   "${ModID}:LetThemCome": {
     "NAME": "Let Them Come!",
-    "DESCRIPTION": "Gain !B! Block for each enemy in combat."
+    "DESCRIPTION": "Gain !M! !${ModID}:Pride for each enemy in combat."
   },
   "${ModID}:BlazingScales": {
     "NAME": "Blazing Scales",
@@ -87,8 +91,8 @@
   },
   "${ModID}:StretchYourWings": {
     "NAME": "Stretch Your Wings",
-    "DESCRIPTION": "Gain [E] [E] [E] [E]. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain [E] [E] [E] [E]."
+    "DESCRIPTION": "Gain [E] [E] [E]. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain [E] [E] [E] [E]. NL Exhaust."
   },
   "${ModID}:StretchYourLegs": {
     "NAME": "Stretch Your Legs",
@@ -112,8 +116,8 @@
   },
   "${ModID}:MassiveScale": {
     "NAME": "Massive Scale",
-    "DESCRIPTION": "Gain Block equal to the number of cards in your draw pile or discard pile, whichever is greater.",
-    "UPGRADE_DESCRIPTION": "Gain Block equal to the number of cards in your draw pile or discard pile, whichever is greater, +3.",
+    "DESCRIPTION": "Gain Block equal to your deck size, increased by your Pride.",
+    "UPGRADE_DESCRIPTION": "Gain Block equal to your deck size, increased by your Pride +3.",
     "EXTENDED_DESCRIPTION": [
       " NL (Gains !B! Block.)"
     ]
@@ -263,8 +267,8 @@
     "DESCRIPTION": "Gain X ${ModID}:Ember. NL Apply X ${ModID}:Cauterize. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Gain X+1 ${ModID}:Ember. NL Apply X+1 ${ModID}:Cauterize. NL Exhaust."
   },
-  "${ModID}:BurningTemper": {
-    "NAME": "Burning Temper",
+  "${ModID}:RoaringTemper": {
+    "NAME": "Roaring Temper",
     "DESCRIPTION": "Discard your hand. NL Add a random ${ModID}:Spark into your hand for each card discarded.",
     "UPGRADE_DESCRIPTION": "Discard your hand. NL Add a random ${ModID}:Spark+ into your hand for each card discarded."
   },

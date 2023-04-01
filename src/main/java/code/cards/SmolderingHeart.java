@@ -10,8 +10,8 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.applyToSelf;
 import static code.util.Wiz.atb;
 
-public class BurningHeart extends AbstractEasyCard {
-    public final static String ID = makeID("BurningHeart");
+public class SmolderingHeart extends AbstractEasyCard {
+    public final static String ID = makeID("SmolderingHeart");
 
     private final static int CARD_DRAW = 2;
     private final static int UPGRADE_CARD_DRAW = 1;
@@ -19,7 +19,7 @@ public class BurningHeart extends AbstractEasyCard {
     private final static int UPGRADE_EMBER_GAIN = 1;
 
 
-    public BurningHeart() {
+    public SmolderingHeart() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, DRAGON_COLOR);
         baseMagicNumber = magicNumber = CARD_DRAW;
         baseSecondMagic = secondMagic = EMBER_GAIN;

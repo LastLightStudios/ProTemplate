@@ -12,11 +12,11 @@ import static code.DragonCharacterFile.Enums.DRAGON_COLOR;
 import static code.ModFile.makeID;
 import static code.util.Wiz.*;
 
-public class BurningTemper extends AbstractEasyCard {
-    public final static String ID = makeID("BurningTemper");
+public class RoaringTemper extends AbstractEasyCard {
+    public final static String ID = makeID("RoaringTemper");
 
 
-    public BurningTemper() {
+    public RoaringTemper() {
         super(ID, 2, CardType.SKILL, CardRarity.RARE, CardTarget.SELF, DRAGON_COLOR);
     }
 

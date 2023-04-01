@@ -37,7 +37,7 @@
       "Gems",
       "gems"
     ],
-    "DESCRIPTION": "yGems are 0 cost skills with #yHoard."
+    "DESCRIPTION": "#yGems are 0 cost skills with #yHoard."
   },
   {
     "PROPER_NAME": "Nest",
@@ -69,7 +69,7 @@
       "Sheds",
       "sheds"
     ],
-    "DESCRIPTION": "The Dragon #ySheds her scales, removing a layer of #yDebuffs from her."
+    "DESCRIPTION": "Reduces all #yDebuffs."
   },
   {
     "PROPER_NAME": "Hoard",
@@ -79,14 +79,14 @@
       "Hoards",
       "hoards"
     ],
-    "DESCRIPTION": "#yExhaust and gain 1 #yPlated #yArmor."
+    "DESCRIPTION": "#yExhaust and gain 1 #yPride."
   },
   {
-    "PROPER_NAME": "Plated Armor",
+    "PROPER_NAME": "Pride",
     "NAMES": [
-      "Plated Armor",
-      "plated armor"
+      "Pride",
+      "pride"
     ],
-    "DESCRIPTION": "At the end of your turn, gain #yBlock. #yPlated #yArmor is reduced by unblocked attack damage"
+    "DESCRIPTION": "At the end of your turn, if an enemy intends to attack, gain #yBlock and lose half your #yPride."
   }
 ]

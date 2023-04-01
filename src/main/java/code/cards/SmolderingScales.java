@@ -8,8 +8,8 @@ import static code.DragonCharacterFile.Enums.DRAGON_COLOR;
 import static code.ModFile.makeID;
 import static code.util.Wiz.applyToSelf;
 
-public class BurningScales extends AbstractEasyCard {
-    public final static String ID = makeID("BurningScales");
+public class SmolderingScales extends AbstractEasyCard {
+    public final static String ID = makeID("SmolderingScales");
 
     private final static int BLOCK = 7;
     private final static int UPGRADE_BLOCK = 3;
@@ -17,7 +17,7 @@ public class BurningScales extends AbstractEasyCard {
     private final static int UPGRADE_EMBER_GAIN = 1;
 
 
-    public BurningScales() {
+    public SmolderingScales() {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, DRAGON_COLOR);
         baseBlock = BLOCK;
         baseMagicNumber = magicNumber = EMBER_GAIN;

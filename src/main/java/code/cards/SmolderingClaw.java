@@ -8,15 +8,15 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static code.ModFile.makeID;
 import static code.util.Wiz.applyToSelf;
 
-public class BurningClaw extends AbstractEasyCard {
-    public final static String ID = makeID("BurningClaw");
+public class SmolderingClaw extends AbstractEasyCard {
+    public final static String ID = makeID("SmolderingClaw");
 
     private final static int DAMAGE = 8;
     private final static int UPGRADE_DAMAGE = 2;
     private final static int EMBER_GAIN = 2;
     private final static int UPGRADE_EMBER_GAIN = 1;
 
-    public BurningClaw() {
+    public SmolderingClaw() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = EMBER_GAIN;

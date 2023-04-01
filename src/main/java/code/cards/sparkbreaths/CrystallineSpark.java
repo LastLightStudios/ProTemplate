@@ -16,18 +16,20 @@ import static code.util.Wiz.*;
 public class CrystallineSpark extends AbstractSparkBreathCard {
     public final static String ID = makeID("CrystallineSpark");
 
-    private final static int DAMAGE_A = 1;
-    private final static int DAMAGE_B = 10;
-    private final static int UPGRADE_DAMAGE_A = 0;
-    private final static int UPGRADE_DAMAGE_B = 5;
+    //Spark Stuff
+    private final static int SPARK_DAMAGE = 1;
+    private final static int UPGRADE_SPARK_DAMAGE = 0;
+    private final static int SPARK_EMBER_GAIN = 1;
 
-    private final static int MAGIC_NUMBER_A = 1; //spark gain
-    private final static int MAGIC_NUMBER_B = 1; //spark multiplier
+    //Breath Stuff
+    private final static int BREATH_DAMAGE = 10;
+    private final static int UPGRADE_BREATH_DAMAGE = 5;
+    private final static int BREATH_EMBER_MULTIPLIER = 1;
 
     public CrystallineSpark(boolean needsPreview) {
         super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CardTarget.ALL_ENEMY, needsPreview);
-        setDamage(DAMAGE_A, DAMAGE_B);
-        setMagic(MAGIC_NUMBER_A, MAGIC_NUMBER_B);
+        setDamage(SPARK_DAMAGE, BREATH_DAMAGE);
+        setMagic(SPARK_EMBER_GAIN, BREATH_EMBER_MULTIPLIER);
 
         initializeSide();
     }
@@ -51,7 +53,7 @@ public class CrystallineSpark extends AbstractSparkBreathCard {
             }
         } else { // Breath
             allDmg(AbstractGameAction.AttackEffect.FIRE);
-            for (int i = 0; i <= pwrAmt(adp(), EmberPower.POWER_ID); i++) {
+            for (int i = 0; i <= pwrAmt(p, EmberPower.POWER_ID); i++) {
                 //i <= pwrAmt instead of i < pwrAmt because there's a base 1 gem before consuming Ember for bonus gems
                 makeInHand(DragonUtils.returnTrulyRandomCardWithTagInCombat(DragonUtils.CustomTags.GEM).makeCopy());
             }
@@ -95,7 +97,7 @@ public class CrystallineSpark extends AbstractSparkBreathCard {
 
     @Override
     public void upp() {
-        upgradeDamage(UPGRADE_DAMAGE_A, UPGRADE_DAMAGE_B);
+        upgradeDamage(UPGRADE_SPARK_DAMAGE, UPGRADE_BREATH_DAMAGE);
         descriptionA = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
     }

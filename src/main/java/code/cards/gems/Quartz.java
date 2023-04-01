@@ -1,6 +1,7 @@
 package code.cards.gems;
 
 import code.actions.HoardThisCardAction;
+import code.powers.PridePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -10,8 +11,7 @@ import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static code.ModFile.makeID;
-import static code.util.Wiz.atb;
-import static code.util.Wiz.getEnemies;
+import static code.util.Wiz.*;
 
 public class Quartz extends AbstractGemCard {
     public final static String ID = makeID("Quartz");
@@ -26,7 +26,7 @@ public class Quartz extends AbstractGemCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new DrawCardAction(magicNumber));
-        atb(new HoardThisCardAction(p, this));
+        applyToSelf(new PridePower(p, 1));
     }
 
     public void upp() {

@@ -72,10 +72,25 @@
     ]
   },
   "${ModID}:CauterizePower": {
-    "NAME": "Cauterized",
+    "NAME": "Cauterize",
     "DESCRIPTIONS": [
       "When attacked, receives #b",
       " additional damage."
+    ]
+  },
+  "${ModID}:PridePower": {
+    "NAME": "Pride",
+    "DESCRIPTIONS": [
+      "At the end of your turn, if an enemy intends to attack, gain #b",
+      " #yBlock and lose half your #yPride. ( #b",
+      " #yPride )"
+    ]
+  },
+  "${ModID}:BurnoutPower": {
+    "NAME": "Burnout",
+    "DESCRIPTIONS": [
+      "After using a #yBreath attack the #yDragon starts at #b",
+      " #Ember."
     ]
   },
   "${ModID}:ComfyNestPower": {

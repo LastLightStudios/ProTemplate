@@ -1,6 +1,7 @@
-package code.cards;
+package code.deprecatedcards;
 
 import code.actions.ChooseHoardCardAction;
+import code.cards.AbstractEasyCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 

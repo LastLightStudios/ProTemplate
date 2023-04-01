@@ -75,26 +75,6 @@ public class EmberPower extends AbstractEasyPower {
                 atb(new TransformTwoSidedCardAction((AbstractTwoSidedCard) c, true, Color.valueOf("cc5500")));
             }
         }
-        /*
-        for (AbstractCard c : adp().hand.group){
-            if (isSpark(c) && c instanceof  AbstractSwappableCard){
-                att(new SwapCardsAction((AbstractSwappableCard)c, (AbstractSwappableCard)c.cardsToPreview, adp().hand));
-            }
-        }for (AbstractCard c : adp().drawPile.group){
-            if (isSpark(c) && c instanceof  AbstractSwappableCard){
-                att(new SwapCardsAction((AbstractSwappableCard)c, (AbstractSwappableCard)c.cardsToPreview, adp().drawPile));
-            }
-        }
-        for (AbstractCard c : adp().discardPile.group){
-            if (isSpark(c) && c instanceof  AbstractSwappableCard){
-                att(new SwapCardsAction((AbstractSwappableCard)c, (AbstractSwappableCard)c.cardsToPreview, adp().discardPile));
-            }
-        }for (AbstractCard c : adp().exhaustPile.group){
-            if (isSpark(c) && c instanceof  AbstractSwappableCard){
-                att(new SwapCardsAction((AbstractSwappableCard)c, (AbstractSwappableCard)c.cardsToPreview, adp().exhaustPile));
-            }
-        }
-        */
     }
 
     public void swapBreathCards(){ // Swap Breaths to Sparks
@@ -103,26 +83,6 @@ public class EmberPower extends AbstractEasyPower {
                 atb(new TransformTwoSidedCardAction((AbstractTwoSidedCard) c, false, Color.valueOf("cc5500")));
             }
         }
-        /*
-        for (AbstractCard c : adp().hand.group){
-            if (isBreath(c) && c instanceof  AbstractSwappableCard){
-                att(new SwapCardsAction((AbstractSwappableCard)c, (AbstractSwappableCard)c.cardsToPreview, adp().hand));
-            }
-        }for (AbstractCard c : adp().drawPile.group){
-            if (isBreath(c) && c instanceof  AbstractSwappableCard){
-                att(new SwapCardsAction((AbstractSwappableCard)c, (AbstractSwappableCard)c.cardsToPreview, adp().drawPile));
-            }
-        }
-        for (AbstractCard c : adp().discardPile.group){
-            if (isBreath(c) && c instanceof  AbstractSwappableCard){
-                att(new SwapCardsAction((AbstractSwappableCard)c, (AbstractSwappableCard)c.cardsToPreview, adp().discardPile));
-            }
-        }for (AbstractCard c : adp().exhaustPile.group){
-            if (isBreath(c) && c instanceof  AbstractSwappableCard){
-                att(new SwapCardsAction((AbstractSwappableCard)c, (AbstractSwappableCard)c.cardsToPreview, adp().exhaustPile));
-            }
-        }
-         */
     }
 
     public static boolean isSpark(AbstractCard c){
@@ -141,4 +101,9 @@ public class EmberPower extends AbstractEasyPower {
     public void updateDescription() {
         description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     };
+
+    @Override
+    public void onVictory(){
+        swapBreathCards();
+    }
 }

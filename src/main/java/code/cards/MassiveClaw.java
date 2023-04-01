@@ -1,8 +1,10 @@
 package code.cards;
 
+import code.powers.PridePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static code.ModFile.makeID;
 import static code.util.Wiz.*;
@@ -10,20 +12,12 @@ import static code.util.Wiz.*;
 public class MassiveClaw extends AbstractEasyCard {
     public final static String ID = makeID("MassiveClaw");
 
-    private final static int DAMAGE = 0; //used to be 5
-    private final static int UPGRADE_DAMAGE = 2;
-    private final static int DAMAGE_SCALAR = 1;
-    private final static int PER_CARDS = 4;
-    private final static int UPGRADE_PER_CARDS = -1;
+    private final static int DAMAGE = 0;
 
     public MassiveClaw() {
         super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
         baseDamage = DAMAGE;
         isInnate = false;
-        /*
-        baseMagicNumber = magicNumber = DAMAGE_SCALAR;
-        baseSecondMagic = secondMagic = PER_CARDS;
-         */
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -63,7 +57,12 @@ public class MassiveClaw extends AbstractEasyCard {
         baseDamage = realBaseDamage;
         isDamageModified = (damage != baseDamage);
          */
-        baseDamage = java.lang.Math.max(adp().drawPile.size(), adp().discardPile.size());
+        //baseDamage = java.lang.Math.max(adp().drawPile.size(), adp().discardPile.size());
+        baseDamage = adp().masterDeck.size();
+        AbstractPower pride = adp().getPower(PridePower.POWER_ID);
+        if (pride != null){
+            baseDamage += pride.amount;
+        }
         super.applyPowers();
         if (!upgraded){
             rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
@@ -75,8 +74,6 @@ public class MassiveClaw extends AbstractEasyCard {
 
     public void upp() {
         isInnate = true;
-        //upgradeDamage(UPGRADE_DAMAGE);
-        //upgradeSecondMagic(UPGRADE_PER_CARDS);
         rawDescription = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
     }

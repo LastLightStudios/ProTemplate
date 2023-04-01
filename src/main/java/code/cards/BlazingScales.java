@@ -4,6 +4,7 @@ import code.powers.BurningScalesPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.ConstrictedPower;
 import com.megacrit.cardcrawl.vfx.combat.FlameBarrierEffect;
 
 import static code.DragonCharacterFile.Enums.DRAGON_COLOR;

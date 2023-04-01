@@ -1,6 +1,7 @@
 package code.cards.gems;
 
 import code.actions.HoardThisCardAction;
+import code.powers.PridePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,8 +11,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 import static code.ModFile.makeID;
-import static code.util.Wiz.atb;
-import static code.util.Wiz.getEnemies;
+import static code.util.Wiz.*;
 
 public class Garnet extends AbstractGemCard {
     public final static String ID = makeID("Garnet");
@@ -28,7 +28,7 @@ public class Garnet extends AbstractGemCard {
         for (AbstractMonster mon : getEnemies()){
             atb(new ApplyPowerAction(mon, p, new VulnerablePower(mon, magicNumber, false), magicNumber, true, AbstractGameAction.AttackEffect.NONE));
         }
-        atb(new HoardThisCardAction(p, this));
+        applyToSelf(new PridePower(p, 1));
     }
 
     public void upp() {
