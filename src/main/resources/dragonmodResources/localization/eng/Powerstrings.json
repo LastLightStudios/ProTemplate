@@ -96,7 +96,7 @@
   "${ModID}:ComfyNestPower": {
     "NAME": "Comfy Nest",
     "DESCRIPTIONS": [
-      "For each #yEnergy you have at the end of your turn, gain #b",
+      "If #yEnergy you have at the end of your turn, gain #b",
       " #yEmber at the start of your next turn."
     ]
   },
@@ -110,7 +110,7 @@
   "${ModID}:DesertNestPower": {
     "NAME": "Desert Nest",
     "DESCRIPTIONS": [
-      "For each #yEnergy you have at the end of your turn, gain #b",
+      "If #yEnergy you have at the end of your turn, gain #b",
       " temporary #yStrength at the start of your next turn."
     ]
   },

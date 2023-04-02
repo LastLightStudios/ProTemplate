@@ -18,7 +18,7 @@ public class ComfyNest extends AbstractNestCard {
     private final static int EMBER_PER_ENERGY = 2;
 
     public ComfyNest() {
-        super(ID, 1, CardRarity.RARE);
+        super(ID, 1, CardRarity.UNCOMMON);
         baseMagicNumber = magicNumber = EMBER_PER_ENERGY;
         baseSecondMagic = secondMagic = IMMEDIATE_EMBER_UPGRADE;
     }

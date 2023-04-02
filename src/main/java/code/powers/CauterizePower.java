@@ -1,6 +1,6 @@
 package code.powers;
 
-import code.cards.SearingFang;
+import code.cards.ScorchingFang;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -30,8 +30,8 @@ public class CauterizePower extends AbstractEasyPower {
     @Override
     public float atDamageReceive(float damage, DamageInfo.DamageType type, AbstractCard card) {
         int multiplier = 1;
-        if (card instanceof SearingFang){
-            multiplier = ((SearingFang)card).getCauterizeMultiplier();
+        if (card instanceof ScorchingFang){
+            multiplier = ((ScorchingFang)card).getCauterizeMultiplier();
         }
         return type == DamageInfo.DamageType.NORMAL ? damage + ((float)this.amount * multiplier) : damage;
     }

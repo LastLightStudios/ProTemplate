@@ -25,7 +25,8 @@ public class DesertNestPower extends AbstractEasyPower {
     @Override
     public void atEndOfTurn(boolean isPlayer){
         if (EnergyPanel.getCurrentEnergy() > 0){
-            applyToSelf(new DelayedTempStrPower(adp(), EnergyPanel.getCurrentEnergy() * amount));
+            //applyToSelf(new DelayedTempStrPower(adp(), EnergyPanel.getCurrentEnergy() * amount));
+            applyToSelf(new DelayedTempStrPower(adp(), amount));
         }
     }
 

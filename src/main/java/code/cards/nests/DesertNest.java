@@ -15,7 +15,7 @@ public class DesertNest extends AbstractNestCard {
     public final static String ID = makeID("DesertNest");
     private final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-    private final static int IMMEDIATE_STR_UPGRADE = 2;
+    private final static int IMMEDIATE_STR_UPGRADE = 4;
     private final static int STR_PER_ENERGY = 4;
 
     public DesertNest() {

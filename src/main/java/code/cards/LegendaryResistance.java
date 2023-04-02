@@ -1,12 +1,8 @@
 package code.cards;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.ArtifactPower;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 
 import static code.DragonCharacterFile.Enums.DRAGON_COLOR;
 import static code.ModFile.makeID;
@@ -25,6 +21,7 @@ public class LegendaryResistance extends AbstractEasyCard {
         super(ID, 3, CardType.SKILL, CardRarity.RARE, CardTarget.SELF, DRAGON_COLOR);
         baseBlock = BLOCK;
         baseMagicNumber = magicNumber = ARTIFACT;
+        exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

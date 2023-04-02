@@ -4,7 +4,6 @@ import code.powers.AbstractEasyPower;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.NextTurnBlockPower;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 import static code.ModFile.makeID;
@@ -25,7 +24,8 @@ public class ComfyNestPower extends AbstractEasyPower {
     @Override
     public void atEndOfTurn(boolean isPlayer){
         if (EnergyPanel.getCurrentEnergy() > 0){
-            applyToSelf(new DelayedEmberPower(adp(), EnergyPanel.getCurrentEnergy() * amount));
+            //applyToSelf(new DelayedEmberPower(adp(), EnergyPanel.getCurrentEnergy() * amount));
+            applyToSelf(new DelayedEmberPower(adp(), amount));
         }
     }
 

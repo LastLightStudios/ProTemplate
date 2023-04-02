@@ -21,7 +21,7 @@ public class TestHoardThreeCards extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        atb(new ChooseHoardCardAction(p, magicNumber));
+        atb(new ChooseHoardCardAction(magicNumber));
     }
 
     public void upp() {

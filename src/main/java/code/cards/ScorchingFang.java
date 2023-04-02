@@ -8,8 +8,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static code.ModFile.makeID;
 import static code.util.Wiz.applyToEnemy;
 
-public class SearingFang extends AbstractEasyCard {
-    public final static String ID = makeID("SearingFang");
+public class ScorchingFang extends AbstractEasyCard {
+    public final static String ID = makeID("ScorchingFang");
 
     private final static int DAMAGE = 6;
     private final static int UPGRADE_DAMAGE = 0;
@@ -17,7 +17,7 @@ public class SearingFang extends AbstractEasyCard {
     private final static int CAUTERIZE_APPLICATION = 1;
     private final static int UPGRADE_CAUTERIZE_APPLICATION = 1;
 
-    public SearingFang() {
+    public ScorchingFang() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = BONUS_CAUTERIZE_SCALING;

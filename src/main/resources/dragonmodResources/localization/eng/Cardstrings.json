@@ -55,8 +55,8 @@
     "NAME": "Salt The Wound",
     "DESCRIPTION": "Deal !D! damage. NL If the target has ${ModID}:Cauterize, deal !${ModID}:sd! damage again. NL If not, apply !M! ${ModID}:Cauterize."
   },
-  "${ModID}:SearingFang": {
-    "NAME": "Searing Fang",
+  "${ModID}:ScorchingFang": {
+    "NAME": "Scorching Fang",
     "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Cauterize affects this card !M! times. NL Apply !${ModID}:m2! ${ModID}:Cauterize."
   },
   "${ModID}:Ignition": {
@@ -216,6 +216,25 @@
     "DESCRIPTION": "Shuffle !${ModID}:m2! ${ModID}:Gem into your deck. NL Draw !M! cards.",
     "UPGRADE_DESCRIPTION": "Shuffle !${ModID}:m2! ${ModID}:Gems+ into your deck. NL Draw !M! cards."
   },
+  "${ModID}:VolcanicHoard": {
+    "NAME": "Volcanic Hoard",
+    "DESCRIPTION": "Hoard any number of cards in your hand. NL For each card ${ModID}:Hoarded, gain an additional !M! ${ModID}:Pride and apply !${ModID}:m2! ${ModID}:Cauterize to ALL enemies.."
+  },
+  "${ModID}:ScourTheTrove": {
+    "NAME": "Scour The Trove",
+    "DESCRIPTION": "Draw !M! cards. Draw 2 less next turn.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. Draw 2 less next turn. (Shed !${ModID}:m2!)."
+  },
+  "${ModID}:Rummage": {
+    "NAME": "Rummage",
+    "DESCRIPTION": "Draw !M! cards. Hoard !${ModID}:m2! cards.",
+    "UPGRADE_DESCRIPTION": "Gain 2 Pride. Draw !M! cards. Hoard !${ModID}:m2! cards."
+  },
+  "${ModID}:Sear": {
+    "NAME": "Sear",
+    "DESCRIPTION": "Apply !M! Cauterize to ALL enemies. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Apply !M! Cauterize to ALL enemies."
+  },
   "${ModID}:TakeFlight": {
     "NAME": "Take Flight",
     "DESCRIPTION": "Gain !M! Buffer at the start of your next turn.",
@@ -279,7 +298,7 @@
   },
   "${ModID}:LegendaryResistance": {
     "NAME": "Legendary Resistance",
-    "DESCRIPTION": "Gain !B! Block and !M! Artifact."
+    "DESCRIPTION": "Gain !B! Block and !M! Artifact. NL Exhaust."
   },
   "${ModID}:TradeOffer": {
     "NAME": "Trade Offer",
@@ -300,13 +319,13 @@
   },
   "${ModID}:ComfyNest": {
     "NAME": "Comfy Nest",
-    "DESCRIPTION": "Whenever you have [E] at the end of your turn, gain !M! ${ModID}:Ember for each [E] at the start of your next turn.",
-    "UPGRADE_DESCRIPTION": "Gain !${ModID}:m2! ${ModID}:Ember. NL Whenever you have [E] at the end of your turn, gain !M! ${ModID}:Ember for each [E] at the start of your next turn."
+    "DESCRIPTION": "If you have [E] at the end of your turn, gain !M! ${ModID}:Ember at the start of your next turn.",
+    "UPGRADE_DESCRIPTION": "Gain !${ModID}:m2! ${ModID}:Ember. NL If you have [E] at the end of your turn, gain !M! ${ModID}:Ember at the start of your next turn."
   },
   "${ModID}:DesertNest": {
     "NAME": "Desert Nest",
-    "DESCRIPTION": "Whenever you have [E] at the end of your turn, gain !M! temporary Strength for each [E] at the start of your next turn.",
-    "UPGRADE_DESCRIPTION": "Gain !${ModID}:m2! temporary Strength. NL Whenever you have [E] at the end of your turn, gain !M! temporary Strength for each [E] at the start of your next turn."
+    "DESCRIPTION": "If you have [E] at the end of your turn, gain !M! temporary Strength at the start of your next turn.",
+    "UPGRADE_DESCRIPTION": "Gain !${ModID}:m2! temporary Strength. NL Whenever you have [E] at the end of your turn, gain !M! temporary Strength at the start of your next turn."
   },
   "${ModID}:ForestNest": {
     "NAME": "Forest Nest",
