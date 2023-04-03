@@ -1,6 +1,7 @@
-package code.cards.sparkbreaths;
+package code.deprecatedcards;
 
 import code.cards.AbstractTwoSidedCard;
+import code.cards.sparkbreaths.AbstractSparkBreathCard;
 import code.powers.EmberPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;

@@ -3,12 +3,7 @@ package code.cards;
 import basemod.BaseMod;
 import code.actions.HoardCardAction;
 import code.powers.CauterizePower;
-import code.powers.PridePower;
-import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.ModFile.makeID;
@@ -31,9 +26,9 @@ public class VolcanicHoard extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
 
         atb(new HoardCardAction(BaseMod.MAX_HAND_SIZE, HoardCardAction.CAN_PICK_ZERO | HoardCardAction.ANY_NUMBER, magicNumber, selectedCards ->{
-            for (int i = 0; i < selectedCards.size(); ++i) {
+            for (int i = 0; i < selectedCards.size(); i++) {
                 for (AbstractMonster mon : getEnemies()){
-                    applyToEnemy(mon, new CauterizePower(mon, secondMagic * selectedCards.size()));
+                    applyToEnemy(mon, new CauterizePower(mon, secondMagic));
                 }
             }
         }));

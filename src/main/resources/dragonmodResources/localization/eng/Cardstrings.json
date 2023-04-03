@@ -204,6 +204,14 @@
       "Deal !D! damage to ALL enemies. NL Add a random ${ModID}:Gem into your hand. NL Consumes all ${ModID}:Ember to increase both effects by !M! per ${ModID}:Ember."
     ]
   },
+  "${ModID}:InjuredPride": {
+    "NAME": "Injured Pride",
+    "DESCRIPTION": "Lose half your ${ModID}:Pride to deal damage equal to the ${ModID}:Pride lost.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Lose half your ${ModID}:Pride to deal damage equal to the ${ModID}:Pride lost.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Lose !M! ${ModID}:Pride. NL Deals !D! Damage.)"
+    ]
+  },
   "${ModID}:SearingSwipe": {
     "NAME": "Searing Swipe",
     "DESCRIPTION": "Deal !D! damage and apply !M! ${ModID}:Cauterize to ALL enemies. NL Exhaust."

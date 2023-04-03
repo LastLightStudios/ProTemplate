@@ -152,7 +152,7 @@ public class HoardCardAction extends AbstractGameAction {
             // this branch is only reached if firstCall = false && completed = false, so it should only be the branch that opened the Card Select Screen
             if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved){
                 if (callback != null){
-                    callback.accept(p.hand.group);
+                    callback.accept(AbstractDungeon.handCardSelectScreen.selectedCards.group);
                 }
                 hoardCards(AbstractDungeon.handCardSelectScreen.selectedCards.group);
                 AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
@@ -177,11 +177,11 @@ public class HoardCardAction extends AbstractGameAction {
     }
 
     private void hoardCards(List<AbstractCard> cardList){
+        int tmp = cardList.size();
         for (AbstractPower power : p.powers){
             if (power instanceof HoardingPowerInterface){
                 ((HoardingPowerInterface) power).onHoard(cardList);
             }
-            int tmp = cardList.size();
             for (AbstractCard c : cardList){
                 /*
                 if (card instanceof cardWithOnHoard){
@@ -190,10 +190,10 @@ public class HoardCardAction extends AbstractGameAction {
                 p.hand.moveToExhaustPile(c);
             }
             CardCrawlGame.dungeon.checkForPactAchievement();
-            for (int i = 0; i < tmp; i++) {
-                // this happens in a second loop so that all the cards exhaust in a row, then the Pride adds up for each card Hoarded
-                applyToSelfTop(new PridePower(p, prideGainPerHoardedCard));
-            }
+        }
+        for (int i = 0; i < tmp; i++) {
+            // this happens in a second loop so that all the cards exhaust in a row, then the Pride adds up for each card Hoarded
+            applyToSelfTop(new PridePower(p, prideGainPerHoardedCard));
         }
     }
 }
