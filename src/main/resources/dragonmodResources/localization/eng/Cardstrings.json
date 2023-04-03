@@ -92,7 +92,7 @@
   },
   "${ModID}:LetThemCome": {
     "NAME": "Let Them Come!",
-    "DESCRIPTION": "Gain !M! !${ModID}:Pride for each enemy in combat."
+    "DESCRIPTION": "Gain !M! ${ModID}:Pride for each enemy in combat."
   },
   "${ModID}:BlazingScales": {
     "NAME": "Blazing Scales",
@@ -169,11 +169,11 @@
   },
   "${ModID}:PureSpark": {
     "NAME": "Pure Spark",
-    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember. NL Draw 1 card.",
+    "DESCRIPTION": "Gain !${ModID}:m2! ${ModID}:Pride. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
+    "UPGRADE_DESCRIPTION": "Gain !${ModID}:m2! ${ModID}:Pride. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember. NL Draw 1 card.",
     "EXTENDED_DESCRIPTION": [
       "Pure Breath",
-      "Gain !B! Block. NL Deal !D! damage to ALL enemies. NL Consumes all ${ModID}:Ember to increase both effects by !M! per ${ModID}:Ember."
+      "Gain !${ModID}:m2! ${ModID}:Pride. NL Deal !D! damage to ALL enemies. NL Consumes all ${ModID}:Ember to increase both effects by !M! per ${ModID}:Ember."
     ]
   },
   "${ModID}:RadiantSpark": {
@@ -235,7 +235,7 @@
   },
   "${ModID}:VolcanicHoard": {
     "NAME": "Volcanic Hoard",
-    "DESCRIPTION": "${ModID}:Hoard any number of cards in your hand. NL For each card ${ModID}:Hoarded, gain an additional !M! ${ModID}:Pride and apply !${ModID}:m2! ${ModID}:Cauterize to ALL enemies.."
+    "DESCRIPTION": "${ModID}:Hoard any number of cards in your hand. NL For each card ${ModID}:Hoarded, gain an additional !M! ${ModID}:Pride and apply !${ModID}:m2! ${ModID}:Cauterize to ALL enemies."
   },
   "${ModID}:ScourTheTrove": {
     "NAME": "Scour The Trove",
@@ -249,8 +249,13 @@
   },
   "${ModID}:Sear": {
     "NAME": "Sear",
-    "DESCRIPTION": "Apply !M! Cauterize to ALL enemies. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Apply !M! Cauterize to ALL enemies."
+    "DESCRIPTION": "Apply !M! ${ModID}:Cauterize to ALL enemies. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Apply !M! ${ModID}:Cauterize to ALL enemies."
+  },
+  "${ModID}:TerrifyingRoar": {
+    "NAME": "Terrifying Roar",
+    "DESCRIPTION": "ALL enemies lose !M! Strength this turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "ALL enemies lose !M! Strength this turn."
   },
   "${ModID}:TakeFlight": {
     "NAME": "Take Flight",
@@ -385,8 +390,8 @@
   },
   "${ModID}:MoltingNest": {
     "NAME": "Molting Nest",
-    "DESCRIPTION": "If you have [E] at the end of your turn, !${ModID}:Shed !M!.",
-    "UPGRADE_DESCRIPTION": "!${ModID}:Shed !${ModID}:m2!. NL If you have [E] at the end of your turn, !${ModID}:Shed !M!."
+    "DESCRIPTION": "If you have [E] at the end of your turn, ${ModID}:Shed !M!.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Shed !${ModID}:m2!. NL If you have [E] at the end of your turn, ${ModID}:Shed !M!."
   },
   "${ModID}:HeavenlyNest": {
     "NAME": "Heavenly Nest",
@@ -395,8 +400,8 @@
   },
   "${ModID}:VolcanicNest": {
     "NAME": "Volcanic Nest",
-    "DESCRIPTION": "If you have [E] at the end of your turn, apply !M! !${ModID}:Cauterize to ALL enemies.",
-    "UPGRADE_DESCRIPTION": "Apply !${ModID}:m2! !${ModID}:Cauterize to ALL enemies. NL If you have [E] at the end of your turn, apply !M! !${ModID}:Cauterize to ALL enemies."
+    "DESCRIPTION": "If you have [E] at the end of your turn, apply !M! ${ModID}:Cauterize to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Apply !${ModID}:m2! ${ModID}:Cauterize to ALL enemies. NL If you have [E] at the end of your turn, apply !M! ${ModID}:Cauterize to ALL enemies."
   },
   "${ModID}:NestingForm": {
     "NAME": "Nesting Form",

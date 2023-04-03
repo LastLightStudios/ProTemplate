@@ -2,6 +2,7 @@ package code.cards.sparkbreaths;
 
 import code.cards.AbstractTwoSidedCard;
 import code.powers.EmberPower;
+import code.powers.PridePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -47,14 +48,14 @@ public class PureSpark extends AbstractSparkBreathCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (isFront) {
-            applyToSelf(new EmberPower(p, secondMagic));
+            applyToSelf(new PridePower(p, secondMagic));
             dmg(m, AbstractGameAction.AttackEffect.FIRE);
             applyToSelf(new EmberPower(p, magicNumber));
             if(upgraded){
                 atb(new DrawCardAction(1));
             }
         } else { // Breath
-            applyToSelf(new EmberPower(p, secondMagic));
+            applyToSelf(new PridePower(p, secondMagic));
             allDmg(AbstractGameAction.AttackEffect.FIRE);
             atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
         }

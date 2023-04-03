@@ -17,7 +17,7 @@ public class DragonUtils {
 
     public static int countRaresInDeck(){
         int count = 0;
-        for (AbstractCard c : getAllCardsInCardGroups(true, true)){
+        for (AbstractCard c : adp().masterDeck.group){
             if (c.rarity == AbstractCard.CardRarity.RARE){
                 count++;
             }

@@ -33,7 +33,6 @@ public class Rummage extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(UPGRADE_CARD_DRAW);
         rawDescription = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
     }

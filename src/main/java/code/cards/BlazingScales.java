@@ -16,8 +16,8 @@ public class BlazingScales extends AbstractEasyCard {
 
     private final static int BLOCK = 15;
     private final static int UPGRADE_BLOCK = 5;
-    private final static int RETURN_DMG = 10;
-    private final static int UPGRADE_RETURN_DMG = 5;
+    private final static int RETURN_DMG = 6;
+    private final static int UPGRADE_RETURN_DMG = 4;
 
 
     public BlazingScales() {

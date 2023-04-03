@@ -23,6 +23,7 @@ public class PridefulScale extends AbstractEasyCard {
         super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         baseBlock = BLOCK;
         baseMagicNumber = magicNumber = BLOCK_SCALAR;
+        baseSecondMagic = secondMagic = PRIDE_SCALAR;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
