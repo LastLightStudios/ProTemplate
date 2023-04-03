@@ -20,6 +20,7 @@ public class ScaleGuard extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         applyToSelf(new PridePower(p, magicNumber));
+        applyToSelf(new PridePower(p, magicNumber));
     }
 
     public void upp() {

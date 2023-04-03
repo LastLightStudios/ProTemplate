@@ -9,7 +9,7 @@
   },
   "${ModID}:ScaleGuard": {
     "NAME": "Scale Guard",
-    "DESCRIPTION": "Gain !B! Block twice."
+    "DESCRIPTION": "Gain !M! ${ModID}:Pride twice."
   },
   "${ModID}:BlazingSpark": {
     "NAME": "Blazing Spark",
