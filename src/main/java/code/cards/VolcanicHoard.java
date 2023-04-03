@@ -1,10 +1,10 @@
 package code.cards;
 
 import basemod.BaseMod;
+import code.actions.HoardCardAction;
 import code.powers.CauterizePower;
 import code.powers.PridePower;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -16,7 +16,6 @@ import static code.util.Wiz.*;
 
 public class VolcanicHoard extends AbstractEasyCard {
     public final static String ID = makeID("VolcanicHoard");
-    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(makeID("Hoard"));
 
     private final static int PRIDE_GAIN = 1;
     private final static int UPGRADE_PRIDE_GAIN = 1;
@@ -30,15 +29,12 @@ public class VolcanicHoard extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        atb(new SelectCardsInHandAction(BaseMod.MAX_HAND_SIZE, uiStrings.TEXT[2], true, true, c -> true, selectedCards -> {
-            selectedCards.forEach(card -> {
-                atb(new ExhaustSpecificCardAction(card, p.hand));
-            });
+
+        atb(new HoardCardAction(BaseMod.MAX_HAND_SIZE, HoardCardAction.CAN_PICK_ZERO | HoardCardAction.ANY_NUMBER, magicNumber, selectedCards ->{
             for (int i = 0; i < selectedCards.size(); ++i) {
-                applyToSelf(new PridePower(p, magicNumber));
-            }
-            for (AbstractMonster mon : getEnemies()){
-                applyToEnemy(mon, new CauterizePower(mon, secondMagic * selectedCards.size()));
+                for (AbstractMonster mon : getEnemies()){
+                    applyToEnemy(mon, new CauterizePower(mon, secondMagic * selectedCards.size()));
+                }
             }
         }));
     }

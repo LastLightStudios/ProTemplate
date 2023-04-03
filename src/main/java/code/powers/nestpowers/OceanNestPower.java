@@ -25,7 +25,7 @@ public class OceanNestPower extends AbstractEasyPower {
     @Override
     public void atEndOfTurn(boolean isPlayer){
         if (EnergyPanel.getCurrentEnergy() > 0){
-            applyToSelf(new DrawCardNextTurnPower(adp(), EnergyPanel.getCurrentEnergy() * amount));
+            applyToSelf(new DrawCardNextTurnPower(adp(), amount));
         }
     }
 

@@ -1,5 +1,6 @@
-package code.cards.nests;
+package code.deprecatedcards;
 
+import code.cards.nests.AbstractNestCard;
 import code.powers.nestpowers.TundraNestPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;

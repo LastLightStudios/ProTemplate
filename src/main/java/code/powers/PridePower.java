@@ -2,14 +2,14 @@ package code.powers;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.ModFile.makeID;
-import static code.util.Wiz.*;
+import static code.util.Wiz.atb;
+import static code.util.Wiz.getEnemies;
 
 public class PridePower extends AbstractEasyPower {
 

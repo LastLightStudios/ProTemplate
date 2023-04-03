@@ -1,7 +1,7 @@
 package code.cards.nests;
 
-import code.powers.EmberPower;
-import code.powers.nestpowers.ComfyNestPower;
+import code.powers.PridePower;
+import code.powers.nestpowers.ExtravagantNestPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -10,24 +10,24 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static code.ModFile.makeID;
 import static code.util.Wiz.applyToSelf;
 
-public class ComfyNest extends AbstractNestCard {
-    public final static String ID = makeID("ComfyNest");
+public class ExtravagantNest extends AbstractNestCard {
+    public final static String ID = makeID("ExtravagantNest");
     private final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-    private final static int EMBER_GAIN = 2;
-    private final static int IMMEDIATE_EMBER_UPGRADE = 2;
+    private final static int PRIDE_GAIN = 5;
+    private final static int IMMEDIATE_PRIDE_UPGRADE = 5;
 
-    public ComfyNest() {
+    public ExtravagantNest() {
         super(ID, 1, CardRarity.UNCOMMON);
-        baseMagicNumber = magicNumber = EMBER_GAIN;
-        baseSecondMagic = secondMagic = IMMEDIATE_EMBER_UPGRADE;
+        baseMagicNumber = magicNumber = PRIDE_GAIN;
+        baseSecondMagic = secondMagic = IMMEDIATE_PRIDE_UPGRADE;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (upgraded){
-            applyToSelf(new EmberPower(p, secondMagic));
+            applyToSelf(new PridePower(p, secondMagic));
         }
-        applyToSelf(new ComfyNestPower(p, magicNumber));
+        applyToSelf(new ExtravagantNestPower(p, magicNumber));
     }
 
     public void upp() {

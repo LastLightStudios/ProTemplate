@@ -14,13 +14,13 @@ public class OceanNest extends AbstractNestCard {
     public final static String ID = makeID("OceanNest");
     private final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-    private final static int CARDS_DRAWN_UPGRADE = 1;
-    private final static int CARDS_PER_ENERGY = 1;
+    private final static int CARDS_DRAWN = 1;
+    private final static int IMMEDIATE_CARDS_DRAWN_UPGRADE = 1;
 
     public OceanNest() {
         super(ID, 1, CardRarity.UNCOMMON);
-        baseMagicNumber = magicNumber = CARDS_PER_ENERGY;
-        baseSecondMagic = secondMagic = CARDS_DRAWN_UPGRADE;
+        baseMagicNumber = magicNumber = CARDS_DRAWN;
+        baseSecondMagic = secondMagic = IMMEDIATE_CARDS_DRAWN_UPGRADE;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

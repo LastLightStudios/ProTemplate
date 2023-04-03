@@ -1,6 +1,7 @@
 package code.powers.nestpowers;
 
 import code.powers.AbstractEasyPower;
+import code.util.DragonUtils;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;

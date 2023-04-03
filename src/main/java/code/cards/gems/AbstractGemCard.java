@@ -2,6 +2,7 @@ package code.cards.gems;
 
 import basemod.helpers.TooltipInfo;
 import code.DragonCharacterFile;
+import code.actions.HoardCardAction;
 import code.cards.AbstractEasyCard;
 import code.util.DragonUtils.CustomTags;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -11,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static code.ModFile.makeID;
+import static code.util.Wiz.atb;
+import static code.util.Wiz.getEnemies;
 
 public abstract class AbstractGemCard extends AbstractEasyCard {
     protected static final UIStrings gemUIStrings = CardCrawlGame.languagePack.getUIString(makeID("Gem"));
@@ -18,8 +21,12 @@ public abstract class AbstractGemCard extends AbstractEasyCard {
 
     public AbstractGemCard(final String cardID, final CardType type, final CardRarity rarity, final CardTarget target) {
         super(cardID, 0, type, rarity, target, DragonCharacterFile.Enums.DRAGON_COLOR);
+        retain = true;
         tags.add(CustomTags.GEM);
-        exhaust = true;
+    }
+
+    public void hoardThisGem(){
+        atb(new HoardCardAction(this));
     }
 
     @Override

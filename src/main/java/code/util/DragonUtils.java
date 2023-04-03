@@ -1,5 +1,6 @@
 package code.util;
 
+import code.cards.NestingForm;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -48,41 +49,7 @@ public class DragonUtils {
         ArrayList<AbstractCard> list = tagsWithLists.get(tag);
         return list.get(AbstractDungeon.cardRandomRng.random(list.size() - 1));
     }
-/*
-    static ArrayList<AbstractCard> gemList = new ArrayList<AbstractCard>(Arrays.asList(
-            new Aquamarine(),
-            new Emerald(),
-            new Rhodonite(),
-            new Ruby(),
-            new Amethyst(),
-            new Garnet(),
-            new Quartz(),
-            new Citrine()
-    ));
 
-    static ArrayList<AbstractCard> sparkList = new ArrayList<AbstractCard>(Arrays.asList(
-            new BarrageSpark(),
-            new CrystallineSpark(),
-            new FocusedSpark(),
-            new ProfaneSpark(),
-            new PureSpark(),
-            new RadiantSpark(),
-            new SwiftSpark(),
-            new ToxicSpark()
-    ));
-
-    static ArrayList<AbstractCard> nestList = new ArrayList<AbstractCard>(Arrays.asList(
-            new AbyssNest(),
-            new AncientNest(),
-            new ComfyNest(),
-            new DesertNest(),
-            new ForestNest(),
-            new HeavenlyNest(),
-            new OceanNest(),
-            new TundraNest(),
-            new VolcanicNest(),
-    ));
-*/
     public static class CustomTags {
         @SpireEnum
         public static AbstractCard.CardTags SPARK;
@@ -94,5 +61,12 @@ public class DragonUtils {
         public static AbstractCard.CardTags GEM;
         @SpireEnum
         public static AbstractCard.CardTags NEST;
+    }
+
+    public static class PowerPriorities {
+        public static final int NESTING_FORM_PRIORITY = 2;
+        public static final int EARLY_NEST_PRIORITY = 3;
+        public static final int CAUTERIZE_NEST_PRIORITY = 4;
+        public static final int DEFAULT = 5;
     }
 }

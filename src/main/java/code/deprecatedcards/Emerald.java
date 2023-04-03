@@ -1,7 +1,6 @@
-package code.cards.gems;
+package code.deprecatedcards;
 
-import code.actions.HoardThisCardAction;
-import code.powers.PridePower;
+import code.cards.gems.AbstractGemCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
@@ -24,7 +23,7 @@ public class Emerald extends AbstractGemCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         applyToSelf(new DexterityPower(p, magicNumber));
         applyToSelf(new LoseDexterityPower(p, magicNumber));
-        applyToSelf(new PridePower(p, 1));
+        hoardThisGem();
     }
 
     public void upp() {

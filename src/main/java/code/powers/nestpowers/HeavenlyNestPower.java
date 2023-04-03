@@ -24,7 +24,7 @@ public class HeavenlyNestPower extends AbstractEasyPower {
     @Override
     public void atEndOfTurn(boolean isPlayer){
         if (EnergyPanel.getCurrentEnergy() > 0){
-            applyToSelf(new DelayedGainMiraclePower(adp(), EnergyPanel.getCurrentEnergy() * amount));
+            applyToSelf(new DelayedGainMiraclePower(adp(), amount));
         }
     }
 

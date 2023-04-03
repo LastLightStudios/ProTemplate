@@ -1,13 +1,10 @@
-package code.cards.gems;
+package code.deprecatedcards;
 
-import code.actions.HoardThisCardAction;
-import code.powers.PridePower;
+import code.cards.gems.AbstractGemCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.ModFile.makeID;
-import static code.util.Wiz.applyToSelf;
-import static code.util.Wiz.atb;
 
 public class Aquamarine extends AbstractGemCard {
     public final static String ID = makeID("Aquamarine");
@@ -23,7 +20,7 @@ public class Aquamarine extends AbstractGemCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         blck();
-        applyToSelf(new PridePower(p, 1));
+        hoardThisGem();
     }
 
     public void upp() {

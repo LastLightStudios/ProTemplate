@@ -28,6 +28,12 @@ public class CauterizePower extends AbstractEasyPower {
     }
 
     @Override
+    public int onHeal(int healAmount){
+        flash();
+        return 0;
+    }
+
+    @Override
     public float atDamageReceive(float damage, DamageInfo.DamageType type, AbstractCard card) {
         int multiplier = 1;
         if (card instanceof ScorchingFang){

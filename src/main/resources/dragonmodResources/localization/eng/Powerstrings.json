@@ -71,6 +71,13 @@
       " cards."
     ]
   },
+  "${ModID}:MonstrousGreedPower": {
+    "NAME": "Monstrous Greed",
+    "DESCRIPTIONS": [
+      "Whenever you #yHoard a card deal #b",
+      " damage to ALL enemies."
+    ]
+  },
   "${ModID}:CauterizePower": {
     "NAME": "Cauterize",
     "DESCRIPTIONS": [
@@ -96,7 +103,7 @@
   "${ModID}:ComfyNestPower": {
     "NAME": "Comfy Nest",
     "DESCRIPTIONS": [
-      "If #yEnergy you have at the end of your turn, gain #b",
+      "If you have #yEnergy at the end of your turn, gain #b",
       " #yEmber at the start of your next turn."
     ]
   },
@@ -110,7 +117,7 @@
   "${ModID}:DesertNestPower": {
     "NAME": "Desert Nest",
     "DESCRIPTIONS": [
-      "If #yEnergy you have at the end of your turn, gain #b",
+      "If you have #yEnergy at the end of your turn, gain #b",
       " temporary #yStrength at the start of your next turn."
     ]
   },
@@ -119,6 +126,20 @@
     "DESCRIPTIONS": [
       "Gain #b",
       " temporary #yStrength at the start of your next turn."
+    ]
+  },
+  "${ModID}:ImposingNestPower": {
+    "NAME": "Imposing Nest",
+    "DESCRIPTIONS": [
+      "If you have #yEnergy at the end of your turn, ALL enemies lose #b",
+      " Strength this turn."
+    ]
+  },
+  "${ModID}:ExtravagantNestPower": {
+    "NAME": "Extravagant Nest",
+    "DESCRIPTIONS": [
+      "If you have #yEnergy at the end of your turn, gain #b",
+      " #yPride."
     ]
   },
   "${ModID}:ForestNestPower": {
@@ -138,7 +159,7 @@
   "${ModID}:OceanNestPower": {
     "NAME": "Ocean Nest",
     "DESCRIPTIONS": [
-      "For each #yEnergy you have at the end of your turn, draw #b",
+      "If you have #yEnergy at the end of your turn, draw #b",
       " #ycards at the start of your next turn."
     ]
   },
@@ -177,10 +198,17 @@
       " #yArtifact at the start of your next turn."
     ]
   },
+  "${ModID}:MoltingNestPower": {
+    "NAME": "Molting Nest",
+    "DESCRIPTIONS": [
+      "If you have #yEnergy at the end of your turn, reduce your debuffs by #b",
+      "."
+    ]
+  },
   "${ModID}:HeavenlyNestPower": {
     "NAME": "Heavenly Nest",
     "DESCRIPTIONS": [
-      "For each #yEnergy you have at the end of your turn, add #b",
+      "If you have #yEnergy at the end of your turn, add #b",
       " #yMiracles to your hand at the start of your next turn."
     ]
   },

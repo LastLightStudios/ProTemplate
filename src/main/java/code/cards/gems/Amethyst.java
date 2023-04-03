@@ -1,7 +1,5 @@
 package code.cards.gems;
 
-import code.actions.HoardThisCardAction;
-import code.powers.PridePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -32,7 +30,7 @@ public class Amethyst extends AbstractGemCard {
             if (!mon.hasPower(ArtifactPower.POWER_ID))
             atb(new ApplyPowerAction(mon, p, new GainStrengthPower(mon, magicNumber), magicNumber, true, AbstractGameAction.AttackEffect.NONE));
         }
-        applyToSelf(new PridePower(p, 1));
+        hoardThisGem();
     }
 
     public void upp() {

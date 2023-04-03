@@ -1,4 +1,4 @@
-package code.actions;
+package code.actions.deprecated;
 
 import code.powers.PridePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;

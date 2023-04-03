@@ -1,6 +1,6 @@
 package code.cards;
 
-import code.actions.ChooseHoardCardAction;
+import code.actions.HoardCardAction;
 import code.powers.PridePower;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -29,7 +29,7 @@ public class Rummage extends AbstractEasyCard {
             applyToSelf(new PridePower(p, PRIDE_GAIN));
         }
         atb(new DrawCardAction(magicNumber));
-        atb(new ChooseHoardCardAction(secondMagic));
+        atb(new HoardCardAction(secondMagic));
     }
 
     public void upp() {
