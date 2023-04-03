@@ -14,8 +14,8 @@ public class ExtravagantNest extends AbstractNestCard {
     public final static String ID = makeID("ExtravagantNest");
     private final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-    private final static int PRIDE_GAIN = 5;
-    private final static int IMMEDIATE_PRIDE_UPGRADE = 5;
+    private final static int PRIDE_GAIN = 4;
+    private final static int IMMEDIATE_PRIDE_UPGRADE = 4;
 
     public ExtravagantNest() {
         super(ID, 1, CardRarity.UNCOMMON);

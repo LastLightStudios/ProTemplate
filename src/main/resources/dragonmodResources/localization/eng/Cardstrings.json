@@ -65,7 +65,7 @@
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL ${ModID}:Hoard !M! card."
   },
   "${ModID}:GloriousStrike": {
-    "NAME": "GloriousStrike",
+    "NAME": "Glorious Strike",
     "DESCRIPTION": "Deal !D! damage. NL Gain !M! ${ModID}:Pride."
   },
   "${ModID}:Ignition": {
@@ -240,7 +240,7 @@
   "${ModID}:ScourTheTrove": {
     "NAME": "Scour The Trove",
     "DESCRIPTION": "Draw !M! cards. Draw 2 less next turn.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. Draw 2 less next turn. (Shed !${ModID}:m2!)."
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. Draw 2 less next turn. (Shed !${ModID}:m2! )."
   },
   "${ModID}:Rummage": {
     "NAME": "Rummage",
