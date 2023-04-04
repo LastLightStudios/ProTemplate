@@ -49,7 +49,7 @@ public class InjuredPride extends AbstractEasyCard {
     public void applyPowers(){
         AbstractPower pride = adp().getPower(PridePower.POWER_ID);
         if (pride != null){
-            baseDamage = pride.amount / 2;
+            baseDamage = pride.amount;
             magicNumber = pride.amount / 2;
             isMagicNumberModified = true;
         }
@@ -70,5 +70,6 @@ public class InjuredPride extends AbstractEasyCard {
     public void upp() {
         selfRetain = true;
         rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+        initializeDescription();
     }
 }

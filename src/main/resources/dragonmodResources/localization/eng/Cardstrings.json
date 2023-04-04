@@ -29,14 +29,6 @@
     "DESCRIPTION": "Deal !D! damage. NL Shuffle a random ${ModID}:Gem into your deck.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Shuffle a random ${ModID}:Gem+ into your deck."
   },
-  "${ModID}:MassiveClaw": {
-    "NAME": "Massive Claw",
-    "DESCRIPTION": "Deal damage equal to your deck size, increased by your ${ModID}:Pride.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Deal damage equal to your deck size, increased by your ${ModID}:Pride.",
-    "EXTENDED_DESCRIPTION": [
-      " NL (Deals !D! damage.)"
-    ]
-  },
   "${ModID}:Wingbeat": {
     "NAME": "Wingbeat",
     "DESCRIPTION": "Deal !D! damage to ALL enemies !M! times."
@@ -123,6 +115,14 @@
     "DESCRIPTION": "Gain !B! Block. NL Shuffle a random ${ModID}:Gem into your deck.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Shuffle a random ${ModID}:Gem+ into your deck."
   },
+  "${ModID}:MassiveClaw": {
+    "NAME": "Massive Claw",
+    "DESCRIPTION": "Deal damage equal to your deck size, increased by !M! by each point of your ${ModID}:Pride.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to your deck size, increased by !M! by each point of your ${ModID}:Pride",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
+  },
   "${ModID}:MassiveScale": {
     "NAME": "Massive Scale",
     "DESCRIPTION": "Gain Block equal to your deck size, increased by your Pride.",
@@ -206,10 +206,10 @@
   },
   "${ModID}:InjuredPride": {
     "NAME": "Injured Pride",
-    "DESCRIPTION": "Lose half your ${ModID}:Pride to deal damage equal to the ${ModID}:Pride lost.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Lose half your ${ModID}:Pride to deal damage equal to the ${ModID}:Pride lost.",
+    "DESCRIPTION": "Deal damage equal to your ${ModID}:Pride. NL Lose half your ${ModID}:Pride.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Deal damage equal to your ${ModID}:Pride. NL Lose half your ${ModID}:Pride.",
     "EXTENDED_DESCRIPTION": [
-      " NL (Lose !M! ${ModID}:Pride. NL Deals !D! Damage.)"
+      " NL (Deals !D! Damage. NL Lose !M! ${ModID}:Pride. )"
     ]
   },
   "${ModID}:SearingSwipe": {
@@ -240,7 +240,7 @@
   "${ModID}:ScourTheTrove": {
     "NAME": "Scour The Trove",
     "DESCRIPTION": "Draw !M! cards. NL Draw 2 less cards next turn.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Draw 2 less cards next turn. NL (Shed !${ModID}:m2!)."
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Draw 2 less cards next turn. NL Shed !${ModID}:m2!."
   },
   "${ModID}:Rummage": {
     "NAME": "Rummage",
@@ -319,8 +319,8 @@
   },
   "${ModID}:FrightfulPresence": {
     "NAME": "Frightful Presence",
-    "DESCRIPTION": "Apply !M! Weak and !M! Vulnerable. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Apply !M! Weak and !M! Vulnerable to ALL enemies. NL Exhaust"
+    "DESCRIPTION": "Apply !M! Weak and !M! Vulnerable. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Apply !M! Weak and !M! Vulnerable to ALL enemies. NL Exhaust."
   },
   "${ModID}:LegendaryResistance": {
     "NAME": "Legendary Resistance",
@@ -351,12 +351,12 @@
   "${ModID}:DesertNest": {
     "NAME": "Desert Nest",
     "DESCRIPTION": "If you have [E] at the end of your turn, gain !M! temporary Strength at the start of your next turn.",
-    "UPGRADE_DESCRIPTION": "Gain !${ModID}:m2! temporary Strength. NL Whenever you have [E] at the end of your turn, gain !M! temporary Strength at the start of your next turn."
+    "UPGRADE_DESCRIPTION": "Gain !${ModID}:m2! temporary Strength. NL If you have [E] at the end of your turn, gain !M! temporary Strength at the start of your next turn."
   },
   "${ModID}:ImposingNest": {
     "NAME": "Imposing Nest",
-    "DESCRIPTION": "If you have [E] at the end of your turn, gain !M! temporary Strength at the start of your next turn.",
-    "UPGRADE_DESCRIPTION": "Gain !${ModID}:m2! temporary Strength. NL Whenever you have [E] at the end of your turn, gain !M! temporary Strength at the start of your next turn."
+    "DESCRIPTION": "If you have [E] at the end of your turn, ALL enemies lose !M! Strength this turn.",
+    "UPGRADE_DESCRIPTION": "ALL enemies lose !${ModID}:m2! Strength. NL If you have [E] at the end of your turn, ALL enemies lose !M! Strength this turn."
   },
   "${ModID}:ExtravagantNest": {
     "NAME": "Extravagant Nest",
@@ -444,6 +444,10 @@
     "NAME": "Citrine",
     "DESCRIPTION": "Retain. NL Gain [E]. NL ${ModID}:Hoard this card.",
     "UPGRADE_DESCRIPTION": "Retain. NL Gain [E][E]. NL ${ModID}:Hoard this card."
+  },
+  "${ModID}:Onyx": {
+    "NAME": "Onyx",
+    "DESCRIPTION": "Retain. NL ${ModID}:Shed !M!. NL ${ModID}:Hoard this card."
   },
   "${ModID}:TestHoardThreeCards": {
     "NAME": "Test Hoard Three Cards",

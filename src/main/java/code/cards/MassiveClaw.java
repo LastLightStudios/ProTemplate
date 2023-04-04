@@ -13,68 +13,42 @@ public class MassiveClaw extends AbstractEasyCard {
     public final static String ID = makeID("MassiveClaw");
 
     private final static int DAMAGE = 0;
+    private final static int PRIDE_SCALAR = 1;
+    private final static int UPGRADE_PRIDE_SCALAR = 1;
 
     public MassiveClaw() {
-        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
         baseDamage = DAMAGE;
-        isInnate = false;
+        baseMagicNumber = magicNumber = PRIDE_SCALAR;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.SLASH_HEAVY);
-        if (!upgraded){
-            rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
-        } else {
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
-        }
+        rawDescription = cardStrings.DESCRIPTION;
         initializeDescription();
     }
 
     @Override
     public void calculateCardDamage(AbstractMonster mon){
-        /*
-        int realBaseDamage = baseDamage;
-        baseDamage += magicNumber * (adp().masterDeck.size()/secondMagic);
         super.calculateCardDamage(mon);
-        baseDamage = realBaseDamage;
-        isDamageModified = (damage != baseDamage);
-         */
-        super.calculateCardDamage(mon);
-        if (!upgraded){
-            rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
-        } else {
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
-        }
+        rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
         initializeDescription();
     }
 
     @Override
     public void applyPowers(){
-        /*
-        int realBaseDamage = baseDamage;
-        baseDamage += magicNumber * (adp().masterDeck.size()/secondMagic);
-        super.applyPowers();
-        baseDamage = realBaseDamage;
-        isDamageModified = (damage != baseDamage);
-         */
         //baseDamage = java.lang.Math.max(adp().drawPile.size(), adp().discardPile.size());
         baseDamage = adp().masterDeck.size();
         AbstractPower pride = adp().getPower(PridePower.POWER_ID);
         if (pride != null){
-            baseDamage += pride.amount;
+            baseDamage += magicNumber * pride.amount;
         }
         super.applyPowers();
-        if (!upgraded){
-            rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
-        } else {
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
-        }
+        rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
         initializeDescription();
     }
 
     public void upp() {
-        isInnate = true;
-        rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-        initializeDescription();
+        upgradeMagicNumber(UPGRADE_PRIDE_SCALAR);
     }
 }

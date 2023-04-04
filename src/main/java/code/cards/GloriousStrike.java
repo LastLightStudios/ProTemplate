@@ -12,10 +12,10 @@ import static code.util.Wiz.applyToSelf;
 public class GloriousStrike extends AbstractEasyCard {
     public final static String ID = makeID("GloriousStrike");
 
-    private final static int DAMAGE = 9;
-    private final static int UPGRADE_DAMAGE = 3;
-    private final static int PRIDE_GAIN = 9;
-    private final static int UPGRADE_PRIDE_GAIN = 3;
+    private final static int DAMAGE = 12;
+    private final static int UPGRADE_DAMAGE = 4;
+    private final static int PRIDE_GAIN = 6;
+    private final static int UPGRADE_PRIDE_GAIN = 2;
 
     public GloriousStrike() {
         super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
