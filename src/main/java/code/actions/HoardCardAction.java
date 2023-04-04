@@ -116,7 +116,7 @@ public class HoardCardAction extends AbstractGameAction {
                 if (callback != null){
                     callback.accept(p.hand.group);
                 }
-                hoardCards(p.hand.group);
+                hoardCards(new ArrayList<>(p.hand.group));
             } else if (isRandom){
                 //
                 if (amount > p.hand.size()){
