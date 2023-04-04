@@ -21,6 +21,7 @@ public class InjuredPride extends AbstractEasyCard {
         super(ID, 0, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = BIG_NUMBER_SO_IT_SHOWS_RED;
+        selfRetain = false;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -67,6 +68,7 @@ public class InjuredPride extends AbstractEasyCard {
     }
 
     public void upp() {
-        retain = true;
+        selfRetain = true;
+        rawDescription = cardStrings.UPGRADE_DESCRIPTION;
     }
 }

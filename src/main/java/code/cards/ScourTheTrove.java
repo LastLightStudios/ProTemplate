@@ -32,7 +32,7 @@ public class ScourTheTrove extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(UPGRADE_CARD_DRAW);
+        //upgradeMagicNumber(UPGRADE_CARD_DRAW);
         rawDescription = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
     }

@@ -9,7 +9,6 @@ import code.powers.EmberPower;
 import code.util.DragonUtils.CustomTags;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.UIStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,11 +61,11 @@ public abstract class AbstractSparkBreathCard extends AbstractTwoSidedCard {
                 changeToBreath = true;
             }
         }
-        changeSide(changeToBreath);
+        changeToBack(changeToBreath);
     }
 
     @Override
-    public void changeSide(boolean changeToBack){
+    public void changeToBack(boolean changeToBack){
         if (!changeToBack) { // change to Spark
             tags.add(CustomTags.SPARK);
             tags.remove(CustomTags.BREATH);
@@ -74,6 +73,6 @@ public abstract class AbstractSparkBreathCard extends AbstractTwoSidedCard {
             tags.add(CustomTags.BREATH);
             tags.remove(CustomTags.SPARK);
         }
-        super.changeSide(changeToBack);
+        super.changeToBack(changeToBack);
     }
 }

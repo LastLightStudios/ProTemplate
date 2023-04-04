@@ -64,6 +64,7 @@ public class DragonUtils {
     }
 
     public static class PowerPriorities {
+        public static final int EMBER_PRIORITY = 1;
         public static final int NESTING_FORM_PRIORITY = 2;
         public static final int EARLY_NEST_PRIORITY = 3;
         public static final int CAUTERIZE_NEST_PRIORITY = 4;

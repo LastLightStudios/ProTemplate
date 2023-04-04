@@ -30,7 +30,7 @@ public class ScorchingFang extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeDamage(UPGRADE_DAMAGE);
+        //upgradeDamage(UPGRADE_DAMAGE);
         upgradeSecondMagic(UPGRADE_CAUTERIZE_APPLICATION);
     }
 

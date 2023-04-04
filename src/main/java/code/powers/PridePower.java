@@ -1,15 +1,13 @@
 package code.powers;
 
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import code.actions.PridePowerAction;
+import code.powers.nestpowers.ExtravagantNestPower;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.ModFile.makeID;
 import static code.util.Wiz.atb;
-import static code.util.Wiz.getEnemies;
 
 public class PridePower extends AbstractEasyPower {
 
@@ -28,33 +26,19 @@ public class PridePower extends AbstractEasyPower {
         updateDescription();
     }
 
-    public boolean isAnEnemyAttacking(){
-        for (AbstractMonster mon : getEnemies()){
-            if (mon != null && mon.getIntentBaseDmg() >= 0){
-                return true;
-            }
-        }
-        return false;
-    }
-
     @Override
     public void updateDescription() {
-        if (this.amount == 1){
-            description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + "1" + DESCRIPTIONS[2];
+        if (amount == 1){
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + "1" + DESCRIPTIONS[2];
         } else {
-            description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + (this.amount / 2) + DESCRIPTIONS[2];
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + (amount / 2) + DESCRIPTIONS[2];
         }
     };
 
     public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
-        if (isAnEnemyAttacking()){
-            flash();
-            atb(new GainBlockAction(this.owner, this.owner, this.amount));
-            if (this.amount == 1){
-                atb(new ReducePowerAction(this.owner, this.owner, this, 1));
-            } else {
-                atb(new ReducePowerAction(this.owner, this.owner, this, (this.amount / 2)));
-            }
+        // only trigger if the player does not have the Nest power b/c the Nest power will trigger the PridePowerAction
+        if (!owner.hasPower(ExtravagantNestPower.POWER_ID)){
+            atb(new PridePowerAction(this));
         }
     }
 }

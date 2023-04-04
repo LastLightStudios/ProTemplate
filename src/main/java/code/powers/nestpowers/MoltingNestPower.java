@@ -24,7 +24,7 @@ public class MoltingNestPower extends AbstractEasyPower {
     }
 
     @Override
-    public void atEndOfTurn(boolean isPlayer){
+    public void atEndOfTurnPreEndTurnCards(boolean isPlayer){
         if (EnergyPanel.getCurrentEnergy() > 0){
             flash();
             atb(new ReduceDebuffsAction(owner, amount));

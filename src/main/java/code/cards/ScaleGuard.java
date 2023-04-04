@@ -10,7 +10,7 @@ import static code.util.Wiz.applyToSelf;
 
 public class ScaleGuard extends AbstractEasyCard {
     public final static String ID = makeID("ScaleGuard");
-    private final static int PRIDE_GAIN = 6;
+    private final static int PRIDE_GAIN = 5;
     private final static int UPGRADE_PRIDE_GAIN = 2;
 
     public ScaleGuard() {

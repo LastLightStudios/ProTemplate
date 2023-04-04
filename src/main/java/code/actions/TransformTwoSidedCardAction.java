@@ -19,7 +19,7 @@ public class TransformTwoSidedCardAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        changingCard.changeSide(changeToBack);
+        changingCard.changeToBack(changeToBack);
         changingCard.superFlash(color);
         this.isDone = true;
     }

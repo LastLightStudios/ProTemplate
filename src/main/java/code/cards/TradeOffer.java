@@ -21,7 +21,7 @@ public class TradeOffer extends AbstractEasyCard {
 
     public TradeOffer() {
         super(ID, 0, CardType.SKILL, CardRarity.RARE, CardTarget.SELF, DRAGON_COLOR);
-        retain = false;
+        selfRetain = false;
         exhaust = true;
         baseMagicNumber = magicNumber = NUM_CARDS_TO_TRADE; //if this changes, will have to change the gem generation code
     }
@@ -48,7 +48,7 @@ public class TradeOffer extends AbstractEasyCard {
     }
 
     public void upp() {
-        retain = true;
+        selfRetain = true;
         rawDescription = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
     }

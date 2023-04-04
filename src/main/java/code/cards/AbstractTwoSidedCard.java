@@ -126,7 +126,7 @@ public abstract class AbstractTwoSidedCard extends AbstractEasyCard{
         }
     }
 
-    public void changeSide(boolean changeToBack){
+    public void changeToBack(boolean changeToBack){
         if (!changeToBack){ // change to Spark
             name = nameA;
             rawDescription = descriptionA;
@@ -172,12 +172,12 @@ public abstract class AbstractTwoSidedCard extends AbstractEasyCard{
         if (!changeToBack){ //has changed to Spark
             // the preview doesn't have a preview, so have to do a null check.
             if(cardsToPreview != null){
-                ((AbstractTwoSidedCard)cardsToPreview).changeSide(true); // make the preview a Breath
+                ((AbstractTwoSidedCard)cardsToPreview).changeToBack(true); // make the preview a Breath
             }
         } else { //has changed to Breath
             // the preview doesn't have a preview, so have to do a null check.
             if(cardsToPreview != null){
-                ((AbstractTwoSidedCard)cardsToPreview).changeSide(false); // make the preview a Spark
+                ((AbstractTwoSidedCard)cardsToPreview).changeToBack(false); // make the preview a Spark
             }
         }
     }

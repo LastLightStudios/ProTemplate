@@ -11,8 +11,8 @@ import static code.util.Wiz.*;
 public class LetThemCome extends AbstractEasyCard {
     public final static String ID = makeID("LetThemCome");
 
-    private final static int PRIDE = 7;
-    private final static int UPGRADE_PRIDE = 3;
+    private final static int PRIDE = 5;
+    private final static int UPGRADE_PRIDE = 2;
 
 
     public LetThemCome() {

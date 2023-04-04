@@ -21,7 +21,7 @@ public abstract class AbstractGemCard extends AbstractEasyCard {
 
     public AbstractGemCard(final String cardID, final CardType type, final CardRarity rarity, final CardTarget target) {
         super(cardID, 0, type, rarity, target, DragonCharacterFile.Enums.DRAGON_COLOR);
-        retain = true;
+        selfRetain = true;
         tags.add(CustomTags.GEM);
     }
 

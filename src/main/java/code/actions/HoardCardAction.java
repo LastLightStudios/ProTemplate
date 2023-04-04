@@ -118,6 +118,7 @@ public class HoardCardAction extends AbstractGameAction {
                 }
                 hoardCards(p.hand.group);
             } else if (isRandom){
+                //
                 if (amount > p.hand.size()){
                     amount = p.hand.size();
                 }
@@ -160,6 +161,8 @@ public class HoardCardAction extends AbstractGameAction {
                 AbstractDungeon.player.hand.refreshHandLayout();
                 AbstractDungeon.player.hand.applyPowers();
                 completed = true;
+            } else {
+                //
             }
         }
         return;

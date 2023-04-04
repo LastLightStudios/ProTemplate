@@ -3,6 +3,7 @@ package code.powers;
 
 import code.actions.TransformTwoSidedCardAction;
 import code.cards.AbstractTwoSidedCard;
+import code.util.DragonUtils;
 import code.util.Wiz;
 
 import com.badlogic.gdx.graphics.Color;
@@ -27,6 +28,7 @@ public class EmberPower extends AbstractEasyPower {
 
     public EmberPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
+        priority = DragonUtils.PowerPriorities.EMBER_PRIORITY;
         if (this.amount >= 9999)
             this.amount = 9999;
 

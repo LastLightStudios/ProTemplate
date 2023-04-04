@@ -60,7 +60,7 @@
     "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Cauterize affects this card !M! times. NL Apply !${ModID}:m2! ${ModID}:Cauterize."
   },
   "${ModID}:GreedyStrike": {
-    "NAME": "GreedyStrike",
+    "NAME": "Greedy Strike",
     "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Hoard a random card.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL ${ModID}:Hoard !M! card."
   },
@@ -239,8 +239,8 @@
   },
   "${ModID}:ScourTheTrove": {
     "NAME": "Scour The Trove",
-    "DESCRIPTION": "Draw !M! cards. Draw 2 less next turn.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. Draw 2 less next turn. (Shed !${ModID}:m2! )."
+    "DESCRIPTION": "Draw !M! cards. NL Draw 2 less cards next turn.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Draw 2 less cards next turn. NL (Shed !${ModID}:m2!)."
   },
   "${ModID}:Rummage": {
     "NAME": "Rummage",
@@ -255,7 +255,7 @@
   "${ModID}:TerrifyingRoar": {
     "NAME": "Terrifying Roar",
     "DESCRIPTION": "ALL enemies lose !M! Strength this turn. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "ALL enemies lose !M! Strength this turn."
+    "UPGRADE_DESCRIPTION": "ALL enemies lose !M! Strength this turn. NL Exhaust."
   },
   "${ModID}:TakeFlight": {
     "NAME": "Take Flight",

@@ -70,12 +70,13 @@ public class PureSpark extends AbstractSparkBreathCard {
             AbstractPower ember = adp().getPower(EmberPower.POWER_ID);
             if (ember != null) {
                 int realBaseDamage = baseDamage; //temp store realBaseDamage b/c baseDamage is used in card damage calculations
+                int realSecondMagic = baseSecondMagic;
                 baseDamage = baseDamage + (magicNumber * ember.amount);
-
-                secondMagic = secondMagic + (magicNumber * ember.amount);
+                baseSecondMagic = baseSecondMagic + (magicNumber * ember.amount);
                 super.calculateCardDamage(m);
 
                 baseDamage = realBaseDamage; //restore the realBaseDamage
+                baseSecondMagic = realSecondMagic;
                 isDamageModified = (damage != baseDamage);
                 isSecondMagicModified = (secondMagic != baseSecondMagic);
             }
@@ -90,12 +91,13 @@ public class PureSpark extends AbstractSparkBreathCard {
             AbstractPower ember = adp().getPower(EmberPower.POWER_ID);
             if (ember != null) {
                 int realBaseDamage = baseDamage; //temp store realBaseDamage b/c baseDamage is used in card damage calculations
+                int realSecondMagic = baseSecondMagic;
                 baseDamage = baseDamage + (magicNumber * ember.amount);
-
-                secondMagic = secondMagic + (magicNumber * ember.amount);
+                baseSecondMagic = baseSecondMagic + (magicNumber * ember.amount);
                 super.applyPowers();
 
                 baseDamage = realBaseDamage; //restore the realBaseDamage
+                baseSecondMagic = realSecondMagic;
                 isDamageModified = (damage != baseDamage);
                 isSecondMagicModified = (secondMagic != baseSecondMagic);
             }
