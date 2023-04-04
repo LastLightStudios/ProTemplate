@@ -1,6 +1,7 @@
 package code.cards;
 
 import code.actions.ReduceDebuffsAction;
+import code.powers.DrawLessNextTurnPower;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -25,7 +26,7 @@ public class ScourTheTrove extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new DrawCardAction(magicNumber));
-        applyToSelf(new DrawReductionPower(p, CARD_DRAW_PENALTY));
+        applyToSelf(new DrawLessNextTurnPower(p, CARD_DRAW_PENALTY));
         if (upgraded){
             atb(new ReduceDebuffsAction(p, secondMagic));
         }

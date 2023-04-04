@@ -7,6 +7,7 @@ import code.util.DragonUtils;
 import code.util.Wiz;
 
 import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -107,5 +108,6 @@ public class EmberPower extends AbstractEasyPower {
     @Override
     public void onVictory(){
         swapBreathCards();
+        atb(new RemoveSpecificPowerAction(owner, owner, POWER_ID));
     }
 }

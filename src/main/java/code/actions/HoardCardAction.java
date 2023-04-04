@@ -6,7 +6,6 @@ import code.powers.PridePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -26,11 +25,10 @@ https://github.com/kiooeht/StSLib/blob/master/src/main/java/com/evacipated/cardc
 
 public class HoardCardAction extends AbstractGameAction {
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(makeID("Hoard"));
-    private static final AbstractPlayer p = adp();
 
-    public static final int IS_RANDOM = 2;
-    public static final int CAN_PICK_ZERO = 4;
-    public static final int ANY_NUMBER = 8;
+    public static final int IS_RANDOM = 1;
+    public static final int CAN_PICK_ZERO = 2;
+    public static final int ANY_NUMBER = 4;
 
     private static final int basePrideGainPerHoardedCard = 1;
     private static int prideGainPerHoardedCard = 1;
@@ -64,9 +62,9 @@ public class HoardCardAction extends AbstractGameAction {
 
     public HoardCardAction(int amount, int flags){
         this.amount = amount;
-        isRandom = (flags & IS_RANDOM) == IS_RANDOM;
-        canPickZero = (flags & CAN_PICK_ZERO) == CAN_PICK_ZERO;
-        anyNumber = (flags & ANY_NUMBER) == ANY_NUMBER;
+        isRandom = (flags & IS_RANDOM) != 0;
+        canPickZero = (flags & CAN_PICK_ZERO) != 0;
+        anyNumber = (flags & ANY_NUMBER) != 0;
 
         tempHand = new ArrayList<>();
     }
@@ -101,38 +99,38 @@ public class HoardCardAction extends AbstractGameAction {
                 //TODO ? add a check in here to see if its a duplicated card from double tap/burst...but maybe not, I think the card would still give Pride, just not end up in Exhaust pile
                 applyToSelfTop(new PridePower(adp(), prideGainPerHoardedCard));
                 setCardToExhaust(playedCard);
-                for (AbstractPower power : p.powers) {
+                for (AbstractPower power : adp().powers) {
                     if (power instanceof HoardingPowerInterface) {
                         tempHand.add(playedCard);
                         ((HoardingPowerInterface) power).onHoard(tempHand);
                     }
                 }
-            } else if (p.hand.size() == 0) {
+            } else if (adp().hand.size() == 0) {
                 // if the hand is empty then there's nothing to Hoard
-            } else if (!anyNumber && p.hand.size() <= amount) {
+            } else if (!anyNumber && adp().hand.size() <= amount) {
                 // if the player is required to Hoard more than the remaining cards in their hand
-                amount = p.hand.size();
-                int tmp = p.hand.size();
+                amount = adp().hand.size();
+                int tmp = adp().hand.size();
                 if (callback != null){
-                    callback.accept(p.hand.group);
+                    callback.accept(adp().hand.group);
                 }
-                hoardCards(new ArrayList<>(p.hand.group));
+                hoardCards(new ArrayList<>(adp().hand.group));
             } else if (isRandom){
                 //
-                if (amount > p.hand.size()){
-                    amount = p.hand.size();
+                if (amount > adp().hand.size()){
+                    amount = adp().hand.size();
                 }
                 if (callback != null){
-                    callback.accept(p.hand.group);
+                    callback.accept(adp().hand.group);
                 }
                 for (int i = 0; i < amount; i++){
-                    AbstractCard card = p.hand.getRandomCard(AbstractDungeon.cardRandomRng);
+                    AbstractCard card = adp().hand.getRandomCard(AbstractDungeon.cardRandomRng);
                     tempHand.add(card);
-                    p.hand.moveToExhaustPile(card);
+                    adp().hand.moveToExhaustPile(card);
                     CardCrawlGame.dungeon.checkForPactAchievement();
-                    applyToSelfTop(new PridePower(p, prideGainPerHoardedCard));
+                    applyToSelfTop(new PridePower(adp(), prideGainPerHoardedCard));
                 }
-                for (AbstractPower power : p.powers) {
+                for (AbstractPower power : adp().powers) {
                     if (power instanceof HoardingPowerInterface) {
                         ((HoardingPowerInterface) power).onHoard(tempHand);
                     }
@@ -181,7 +179,7 @@ public class HoardCardAction extends AbstractGameAction {
 
     private void hoardCards(List<AbstractCard> cardList){
         int tmp = cardList.size();
-        for (AbstractPower power : p.powers){
+        for (AbstractPower power : adp().powers){
             if (power instanceof HoardingPowerInterface){
                 ((HoardingPowerInterface) power).onHoard(cardList);
             }
@@ -190,13 +188,13 @@ public class HoardCardAction extends AbstractGameAction {
                 if (card instanceof cardWithOnHoard){
                 card.OnHoard();}
                  */
-                p.hand.moveToExhaustPile(c);
+                adp().hand.moveToExhaustPile(c);
             }
             CardCrawlGame.dungeon.checkForPactAchievement();
         }
         for (int i = 0; i < tmp; i++) {
             // this happens in a second loop so that all the cards exhaust in a row, then the Pride adds up for each card Hoarded
-            applyToSelfTop(new PridePower(p, prideGainPerHoardedCard));
+            applyToSelfTop(new PridePower(adp(), prideGainPerHoardedCard));
         }
     }
 }

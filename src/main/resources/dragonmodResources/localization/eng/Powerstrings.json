@@ -100,6 +100,14 @@
       " #Ember."
     ]
   },
+  "${ModID}:DrawLessNextTurnPower": {
+    "NAME": "Draw Reduction",
+    "DESCRIPTIONS": [
+      "Draw #b",
+      " less card next turn.",
+      " less cards next turn."
+    ]
+  },
   "${ModID}:ComfyNestPower": {
     "NAME": "Comfy Nest",
     "DESCRIPTIONS": [
@@ -222,8 +230,8 @@
   "${ModID}:VolcanicNestPower": {
     "NAME": "Volcanic Nest",
     "DESCRIPTIONS": [
-      "For each #yEnergy you have at the end of your turn, gain #b",
-      " #yDemon #yForm at the start of your next turn."
+      "If you have #yEnergy at the end of your turn, apply #b",
+      " #yCauterize to ALL enemies."
     ]
   },
   "${ModID}:DelayedDemonFormPower": {
