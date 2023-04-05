@@ -1,18 +1,26 @@
-This is an example character template for the more experienced Slay the Spire modder.
-It contains the basics of an empty character, as well as:
-- Improved X cost action framework (Alchyr)
-- General action use wizard for any effects (GK + my own stuff)
-- Lambda power support (mine)
-- AbstractRelic, Power and Card with improved image loading and other shortcuts (alchyr + mine)
-- AbstractCard comes with secondary variable and secondary damage (me + Kio)
-- Automatic card recoloring (me + Mayhem)
-- Hopefully more! Let me know if there's something you'd want added!!
+This is The Dragon mod, made by Last Light.
+Other contributors include: Nines, and the Slay the Spire modding community
 
-Setup guide:
-1. Clone the project with Github, preferably downloading with Github Desktop to make it so IntelliJ integration is easy!
-2. Go into your pom.xml, and change the path to your steam installation, the artifactId, version number, name, description, and modID fields inside of that.
-3. Rename the mod's Resources folder. (the folder under the "resources" folder, initially named todomodResources. The change needs to match your mod ID, plus "Resources". IE: if your modid is "blah", "blahResources".)
-4. In the modded character file, go to the Enums section at the bottom and change the PlayerClass and CardColor enums. They're also annotated with TODOs.
-5. In the main mod file, change the modID to match the modID field in your pom.xml.
 
-6+. You'll probably want to rename your character in the CharStrings file to start off. From there, it's just making the mod of your dreams!
+The Dragon has a few new mechanics including:
+Sparks + Breaths: These are special cards that transform between the their Spark and Breath form.
+Sparks are 0 cost cards that deal minor damage and generate Ember. When upgraded, they draw a card.
+At 5 Ember, ALL Sparks transform into their Breath Form.
+Breaths are 2 cost cards that deal lots of (AoE) damage, consuming Ember to increase the damage. ALL Breaths will revert to Sparks after the Ember is consumed.
+Pride: At the end of her turn if any enemy intends to attack, the Dragon gain Block based on her Pride, and then loses half.
+Hoard: This Exhausts a card and generates Pride.
+Gems: Varied 0 cost Tokens that can be generated and Hoard on play.
+Nests: A special power that grants an effect when the Dragon has remaining Energy at the end of her turn.
+Shed: Reduces all debuff durations by 1 turn.
+
+
+OVERVIEW:
+
+The Dragon is a fearsome threat with lots of large AoE attacks. Many of her cards are higher cost, so she uses Pride, Gems, and Nests to make up for her
+sometimes inefficient energy usage. She can generate energy, but not without a cost, potentially debuffing herself. However, she also has the ability to Shed
+and reduce those debuffs. She also has various cards that encourage her to collect and expand her Deck.
+
+This is a Spreadsheet of the cards, and is generally up to date. It may occasionally be ahead of the latest available release, but generally should be accurate.
+
+https://docs.google.com/spreadsheets/d/1J3X3-6nb_ntc8iLl-yvQY8s6RzABFpVymCVFDy6sh6o
+
