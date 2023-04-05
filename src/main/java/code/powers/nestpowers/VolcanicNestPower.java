@@ -23,6 +23,7 @@ public class VolcanicNestPower extends AbstractEasyPower {
     public VolcanicNestPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
         priority = DragonUtils.PowerPriorities.CAUTERIZE_NEST_PRIORITY;
+        loadRegion("firebreathing");
     }
 
     @Override

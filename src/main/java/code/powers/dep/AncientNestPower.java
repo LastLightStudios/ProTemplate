@@ -1,32 +1,31 @@
-package code.powers.nestpowers;
+package code.powers.dep;
 
 import code.powers.AbstractEasyPower;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.DemonFormPower;
-import com.megacrit.cardcrawl.powers.MetallicizePower;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 import static code.ModFile.makeID;
-import static code.util.Wiz.*;
+import static code.util.Wiz.adp;
+import static code.util.Wiz.applyToSelf;
 
-public class DelayedDemonFormPower extends AbstractEasyPower {
+public class AncientNestPower extends AbstractEasyPower {
 
-    public static final String POWER_ID = makeID("DelayedDemonFormPower");
+    public static final String POWER_ID = makeID("AncientNestPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public DelayedDemonFormPower(AbstractCreature owner, int amount) {
+    public AncientNestPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
     }
 
     @Override
-    public void atStartOfTurn(){
-        flash();
-        applyToSelf(new DemonFormPower(adp(), amount));
-        atb(new RemoveSpecificPowerAction(adp(), adp(),POWER_ID));
+    public void atEndOfTurn(boolean isPlayer){
+        if (EnergyPanel.getCurrentEnergy() > 0){
+            applyToSelf(new DelayedArtifactPower(adp(), EnergyPanel.getCurrentEnergy() * amount));
+        }
     }
 
     @Override

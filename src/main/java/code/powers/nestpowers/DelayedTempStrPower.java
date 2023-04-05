@@ -22,6 +22,7 @@ public class DelayedTempStrPower extends AbstractEasyPower {
 
     public DelayedTempStrPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
+        loadRegion("backattack");
     }
 
     @Override

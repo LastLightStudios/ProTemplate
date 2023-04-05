@@ -18,6 +18,7 @@ public class TakingFlightPower extends AbstractEasyPower {
 
     public TakingFlightPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, true, owner, amount);
+        loadRegion("flight");
     }
 
     @Override

@@ -1,32 +1,31 @@
-package code.powers.nestpowers;
+package code.powers.dep;
 
 import code.powers.AbstractEasyPower;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.LoseStrengthPower;
+import com.megacrit.cardcrawl.powers.DemonFormPower;
 import com.megacrit.cardcrawl.powers.MetallicizePower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static code.ModFile.makeID;
 import static code.util.Wiz.*;
 
-public class DelayedMetallicizePower extends AbstractEasyPower {
+public class DelayedDemonFormPower extends AbstractEasyPower {
 
-    public static final String POWER_ID = makeID("DelayedMetallicizePower");
+    public static final String POWER_ID = makeID("DelayedDemonFormPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public DelayedMetallicizePower(AbstractCreature owner, int amount) {
+    public DelayedDemonFormPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
     }
 
     @Override
     public void atStartOfTurn(){
         flash();
-        applyToSelf(new MetallicizePower(adp(), amount));
+        applyToSelf(new DemonFormPower(adp(), amount));
         atb(new RemoveSpecificPowerAction(adp(), adp(),POWER_ID));
     }
 

@@ -24,7 +24,6 @@ public abstract class AbstractSparkBreathCard extends AbstractTwoSidedCard {
 
     public AbstractSparkBreathCard(String cardID, CardType typeA, CardType typeB, CardRarity rarity, CardTarget targetA, CardTarget targetB, boolean generatePreview){
         super(cardID, 0, 2, typeA, typeB, rarity, targetA, targetB, DragonCharacterFile.Enums.DRAGON_COLOR, generatePreview);
-        tags.add(CustomTags.DOUBLE_SIDED);
     }
 
     @Override

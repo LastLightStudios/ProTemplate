@@ -17,7 +17,7 @@ import static code.util.Wiz.getEnemies;
 
 public abstract class AbstractGemCard extends AbstractEasyCard {
     protected static final UIStrings gemUIStrings = CardCrawlGame.languagePack.getUIString(makeID("Gem"));
-    protected static final UIStrings hoardUIStrings = CardCrawlGame.languagePack.getUIString(makeID("Hoard"));
+    protected static final UIStrings prideUIStrings = CardCrawlGame.languagePack.getUIString(makeID("Pride"));
 
     public AbstractGemCard(final String cardID, final CardType type, final CardRarity rarity, final CardTarget target) {
         super(cardID, 0, type, rarity, target, DragonCharacterFile.Enums.DRAGON_COLOR);
@@ -40,7 +40,7 @@ public abstract class AbstractGemCard extends AbstractEasyCard {
     public List<TooltipInfo> getCustomTooltips() {
         ArrayList<TooltipInfo> retVal = new ArrayList<>();
         retVal.add(new TooltipInfo(gemUIStrings.TEXT[0], gemUIStrings.TEXT[1]));
-        retVal.add(new TooltipInfo(hoardUIStrings.TEXT[3], hoardUIStrings.TEXT[4]));
+        retVal.add(new TooltipInfo(prideUIStrings.TEXT[0], prideUIStrings.TEXT[1]));
         return retVal;
     }
 }

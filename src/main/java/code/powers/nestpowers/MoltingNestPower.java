@@ -21,6 +21,7 @@ public class MoltingNestPower extends AbstractEasyPower {
     public MoltingNestPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
         priority = DragonUtils.PowerPriorities.EARLY_NEST_PRIORITY;
+        loadRegion("closeUp");
     }
 
     @Override

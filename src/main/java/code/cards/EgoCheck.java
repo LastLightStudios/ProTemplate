@@ -31,9 +31,12 @@ public class EgoCheck extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
         AbstractPower pride = adp().getPower(PridePower.POWER_ID);
+        /*
         if (pride != null){
             applyToSelf(new PridePower(p, -pride.amount / 2));
         }
+
+         */
         rawDescription = cardStrings.DESCRIPTION;
         initializeDescription();
     }
@@ -50,8 +53,11 @@ public class EgoCheck extends AbstractEasyCard {
         AbstractPower pride = adp().getPower(PridePower.POWER_ID);
         if (pride != null){
             baseDamage = pride.amount;
+            /*
             magicNumber = pride.amount / 2;
             isMagicNumberModified = true;
+
+             */
         }
         super.applyPowers();
         rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];

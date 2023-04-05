@@ -18,6 +18,7 @@ public class PridePower extends AbstractEasyPower {
 
     public PridePower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
+        loadRegion("channel");
     }
 
     @Override

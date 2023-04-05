@@ -20,7 +20,7 @@ public class HoardingInstinctPower extends AbstractEasyPower {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
         if (this.amount >= 9999)
             this.amount = 9999;
-
+        loadRegion("deva2");
         updateDescription();
     }
 

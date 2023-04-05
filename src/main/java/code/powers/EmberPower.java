@@ -16,6 +16,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 
 import code.util.DragonUtils.CustomTags;
+import com.megacrit.cardcrawl.powers.PhantasmalPower;
+import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 
 import static code.ModFile.makeID;
 import static code.util.Wiz.*;
@@ -34,7 +36,7 @@ public class EmberPower extends AbstractEasyPower {
         priority = DragonUtils.PowerPriorities.EMBER_PRIORITY;
         if (this.amount >= 9999)
             this.amount = 9999;
-
+        loadRegion("vigor");
         updateDescription();
     }
 
@@ -80,6 +82,7 @@ public class EmberPower extends AbstractEasyPower {
                 atb(new TransformTwoSidedCardAction((AbstractTwoSidedCard) c, true, Color.valueOf("cc5500")));
             }
         }
+        loadRegion("doubleDamage");
     }
 
     public void swapBreathCards(){ // Swap Breaths to Sparks
@@ -88,6 +91,7 @@ public class EmberPower extends AbstractEasyPower {
                 atb(new TransformTwoSidedCardAction((AbstractTwoSidedCard) c, false, Color.valueOf("cc5500")));
             }
         }
+        loadRegion("vigor");
     }
 
     public static int getEmberBreakpoint(){

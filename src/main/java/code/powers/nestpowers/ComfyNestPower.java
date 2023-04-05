@@ -20,6 +20,7 @@ public class ComfyNestPower extends AbstractEasyPower {
 
     public ComfyNestPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
+        loadRegion("combust");
     }
 
     @Override

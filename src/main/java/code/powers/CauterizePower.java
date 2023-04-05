@@ -19,6 +19,9 @@ public class CauterizePower extends AbstractEasyPower {
     public CauterizePower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.DEBUFF, false, owner, amount);
         this.amount = amount;
+        if (this.amount >= 9999)
+            this.amount = 9999;
+        loadRegion("nirvana");
     }
 
     @Override

@@ -12,8 +12,8 @@ public class ScorchingFang extends AbstractEasyCard {
     public final static String ID = makeID("ScorchingFang");
 
     private final static int DAMAGE = 6;
-    private final static int UPGRADE_DAMAGE = 0;
     private final static int BONUS_CAUTERIZE_SCALING = 2;
+    private final static int UPGRADE_BONUS_CAUTERIZE_SCALING = 1;
     private final static int CAUTERIZE_APPLICATION = 1;
     private final static int UPGRADE_CAUTERIZE_APPLICATION = 1;
 
@@ -30,7 +30,7 @@ public class ScorchingFang extends AbstractEasyCard {
     }
 
     public void upp() {
-        //upgradeDamage(UPGRADE_DAMAGE);
+        upgradeMagicNumber(UPGRADE_BONUS_CAUTERIZE_SCALING);
         upgradeSecondMagic(UPGRADE_CAUTERIZE_APPLICATION);
     }
 

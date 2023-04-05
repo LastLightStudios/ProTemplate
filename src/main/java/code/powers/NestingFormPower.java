@@ -21,7 +21,7 @@ public class NestingFormPower extends AbstractEasyPower {
         priority = DragonUtils.PowerPriorities.NESTING_FORM_PRIORITY;
         if (this.amount >= 9999)
             this.amount = 9999;
-
+        loadRegion("curiousity");
         updateDescription();
     }
 

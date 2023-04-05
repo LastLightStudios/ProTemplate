@@ -16,6 +16,7 @@ public class OutscalePower extends AbstractEasyPower {
 
     public OutscalePower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, NeutralPowertypePatch.NEUTRAL, false, owner, amount);
+        loadRegion("deva");
     }
     @Override
     public void updateDescription() {

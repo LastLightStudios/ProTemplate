@@ -9,7 +9,7 @@
   },
   "${ModID}:ScaleGuard": {
     "NAME": "Scale Guard",
-    "DESCRIPTION": "Gain !M! ${ModID}:Pride twice."
+    "DESCRIPTION": "Gain !M! ${ModID}:Pride. ${ModID}:Hoard a card."
   },
   "${ModID}:BlazingSpark": {
     "NAME": "Blazing Spark",
@@ -86,8 +86,8 @@
     "NAME": "Let Them Come!",
     "DESCRIPTION": "Gain !M! ${ModID}:Pride for each enemy in combat."
   },
-  "${ModID}:BlazingScales": {
-    "NAME": "Blazing Scales",
+  "${ModID}:BurningScales": {
+    "NAME": "Burning Scales",
     "DESCRIPTION": "Gain !B! Block. Whenever you are attacked this turn, deal !M! damage back, increased by ${ModID}:Cauterize."
   },
   "${ModID}:StretchYourWings": {
@@ -239,7 +239,7 @@
   "${ModID}:ScourTheTrove": {
     "NAME": "Scour The Trove",
     "DESCRIPTION": "Draw !M! cards. NL Draw 2 less cards next turn.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Draw 2 less cards next turn. NL Shed !${ModID}:m2!."
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Draw 2 less cards next turn. NL ${ModID}:Shed !${ModID}:m2!."
   },
   "${ModID}:Rummage": {
     "NAME": "Rummage",
@@ -314,7 +314,11 @@
   "${ModID}:RoaringTemper": {
     "NAME": "Roaring Temper",
     "DESCRIPTION": "Discard your hand. NL Add a random ${ModID}:Spark into your hand for each card discarded.",
-    "UPGRADE_DESCRIPTION": "Discard your hand. NL Add a random ${ModID}:Spark+ into your hand for each card discarded."
+    "UPGRADE_DESCRIPTION": "Discard your hand. NL Add a random ${ModID}:Spark+ into your hand for each card discarded.",
+    "EXTENDED_DESCRIPTION": [
+      "Discard your hand. NL Add a random ${ModID}:Breath into your hand for each card discarded.",
+      "Discard your hand. NL Add a random ${ModID}:Breath+ into your hand for each card discarded."
+    ]
   },
   "${ModID}:FrightfulPresence": {
     "NAME": "Frightful Presence",
@@ -332,8 +336,8 @@
   },
   "${ModID}:Inferno": {
     "NAME": "Inferno",
-    "DESCRIPTION": "Play all Spark cards in your Hand, Draw Pile, and Discard Pile and Exhaust them. NL Then, add Infernal Breath into your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Play all Spark cards in your Hand, Draw Pile, and Discard Pile and Exhaust them. NL Then, add Infernal Breath+ into your hand. NL Exhaust.",
+    "DESCRIPTION": "Convert ALL your Breath cards to Sparks. NL Play and exhaust ALL Spark cards. NL Then, add Infernal Breath into your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Convert ALL your Breath cards to Sparks. NL Play and exhaust ALL Spark cards. NL Then, add Infernal Breath+ into your hand. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       "All my Sparks are Breaths because I have too much Ember."
     ]

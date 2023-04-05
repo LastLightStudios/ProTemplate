@@ -21,6 +21,7 @@ public class ExtravagantNestPower extends AbstractEasyPower {
 
     public ExtravagantNestPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
+        loadRegion("heartDef");
     }
 
     @Override

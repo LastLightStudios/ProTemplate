@@ -21,6 +21,7 @@ public class CrashingPower extends AbstractEasyPower {
 
     public CrashingPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
+        loadRegion("cExplosion");
     }
 
     @Override

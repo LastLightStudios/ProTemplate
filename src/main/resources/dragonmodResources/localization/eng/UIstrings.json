@@ -29,10 +29,13 @@
   "${ModID}:Hoard": {
     "TEXT": [
       "Hoard",
-      "Hoard. This Exhausts the card and you gain 1 Pride.",
-      "Hoard. This Exhausts the cards and you gain 1 Pride for each card Hoarded.",
-      "Exhaust",
-      "Removed until end of combat."
+      "Exhausts and gain #yPride."
+    ]
+  },
+  "${ModID}:Pride": {
+    "TEXT": [
+      "Pride",
+      "At the end of your turn, if an enemy intends to attack, gain #yBlock and lose half your #yPride."
     ]
   }
 }

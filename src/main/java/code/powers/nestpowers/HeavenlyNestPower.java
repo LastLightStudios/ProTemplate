@@ -19,6 +19,7 @@ public class HeavenlyNestPower extends AbstractEasyPower {
 
     public HeavenlyNestPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
+        loadRegion("reactive");
     }
 
     @Override

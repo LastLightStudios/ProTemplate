@@ -22,9 +22,7 @@ public class MonstrousGreedPower extends AbstractEasyPower implements HoardingPo
 
     public MonstrousGreedPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
-        if (this.amount >= 9999)
-            this.amount = 9999;
-
+        loadRegion("nirvana");
         updateDescription();
     }
 

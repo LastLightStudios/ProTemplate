@@ -25,6 +25,7 @@ public class ImposingNestPower extends AbstractEasyPower {
     public ImposingNestPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
         priority = DragonUtils.PowerPriorities.EARLY_NEST_PRIORITY;
+        loadRegion("noPain");
     }
 
     @Override

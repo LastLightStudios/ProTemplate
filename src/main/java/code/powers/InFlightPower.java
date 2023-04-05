@@ -18,6 +18,7 @@ public class InFlightPower extends AbstractEasyPower {
 
     public InFlightPower(AbstractCreature owner) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, -1);
+        loadRegion("flight");
     }
 
     @Override

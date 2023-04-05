@@ -18,6 +18,7 @@ public class DrawLessNextTurnPower extends AbstractEasyPower {
     public DrawLessNextTurnPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.DEBUFF, true, owner, amount);
         this.updateDescription();
+        loadRegion("lessdraw");
     }
 
     @Override

@@ -20,6 +20,7 @@ public class OceanNestPower extends AbstractEasyPower {
 
     public OceanNestPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
+        loadRegion("establishment");
     }
 
     @Override

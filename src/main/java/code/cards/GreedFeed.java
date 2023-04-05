@@ -3,6 +3,7 @@ package code.cards;
 import code.actions.IncreaseCardCostAction;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.unique.FeedAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
@@ -26,6 +27,7 @@ public class GreedFeed extends AbstractEasyCard {
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAX_HP_INCREASE;
         isEthereal = true;
+        tags.add(AbstractCard.CardTags.HEALING);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

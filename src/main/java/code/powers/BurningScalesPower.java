@@ -21,6 +21,7 @@ public class BurningScalesPower extends AbstractEasyPower {
 
     public BurningScalesPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
+        loadRegion("flameBarrier");
     }
 
     @Override

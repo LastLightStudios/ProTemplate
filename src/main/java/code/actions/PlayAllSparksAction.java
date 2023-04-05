@@ -52,6 +52,13 @@ public class PlayAllSparksAction extends AbstractGameAction {
                     adp().limbo.group.add(c);
                     att(new NewQueueCardAction(c, this.target, false, true));
                     att(new UnlimboAction(c));
+                } else if (DragonUtils.isBreath(c)){
+                    tempList.add(c);
+                    ((AbstractSparkBreathCard) c).changeToBack(false);
+                    c.exhaustOnUseOnce = true;
+                    adp().limbo.group.add(c);
+                    att(new NewQueueCardAction(c, this.target, false, true));
+                    att(new UnlimboAction(c));
                 }
             }
             adp().drawPile.group.removeAll(tempList);
@@ -59,6 +66,13 @@ public class PlayAllSparksAction extends AbstractGameAction {
             for (AbstractCard c : adp().discardPile.group) {
                 if (DragonUtils.isSpark(c)){
                     tempList.add(c);
+                    c.exhaustOnUseOnce = true;
+                    adp().limbo.group.add(c);
+                    att(new NewQueueCardAction(c, this.target, false, true));
+                    att(new UnlimboAction(c));
+                } else if (DragonUtils.isBreath(c)){
+                    tempList.add(c);
+                    ((AbstractSparkBreathCard) c).changeToBack(false);
                     c.exhaustOnUseOnce = true;
                     adp().limbo.group.add(c);
                     att(new NewQueueCardAction(c, this.target, false, true));

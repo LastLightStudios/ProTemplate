@@ -138,9 +138,9 @@ public class HoardCardAction extends AbstractGameAction {
             } else {
                 // This branch should be for conditions that require the Card Select screen
                 if (amount == 1){
-                    AbstractDungeon.handCardSelectScreen.open(uiStrings.TEXT[1], amount, anyNumber, canPickZero);
+                    AbstractDungeon.handCardSelectScreen.open(uiStrings.TEXT[0], amount, anyNumber, canPickZero);
                 } else {
-                    AbstractDungeon.handCardSelectScreen.open(uiStrings.TEXT[2], amount, anyNumber, canPickZero);
+                    AbstractDungeon.handCardSelectScreen.open(uiStrings.TEXT[0], amount, anyNumber, canPickZero);
                 }
                 firstCall = false;
                 return;

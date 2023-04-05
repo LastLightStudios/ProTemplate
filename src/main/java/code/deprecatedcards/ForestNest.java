@@ -1,7 +1,7 @@
 package code.deprecatedcards;
 
 import code.cards.nests.AbstractNestCard;
-import code.powers.nestpowers.ForestNestPower;
+import code.powers.dep.ForestNestPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
