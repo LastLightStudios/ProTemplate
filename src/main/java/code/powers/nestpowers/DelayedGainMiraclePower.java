@@ -19,7 +19,7 @@ public class DelayedGainMiraclePower extends AbstractEasyPower {
 
     public DelayedGainMiraclePower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
-        loadRegion("backattack");
+        loadRegion("backAttack");
     }
 
     @Override

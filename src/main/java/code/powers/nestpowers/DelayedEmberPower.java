@@ -20,7 +20,7 @@ public class DelayedEmberPower extends AbstractEasyPower {
 
     public DelayedEmberPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
-        loadRegion("backattack");
+        loadRegion("backAttack");
     }
 
     @Override
