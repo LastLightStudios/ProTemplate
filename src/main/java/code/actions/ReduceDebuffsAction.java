@@ -18,11 +18,7 @@ public class ReduceDebuffsAction extends AbstractGameAction {
 
     @Override
     public void update() {
-
-        Iterator var1 = this.c.powers.iterator();
-
-        while(var1.hasNext()) {
-            AbstractPower p = (AbstractPower)var1.next();
+        for (AbstractPower p : c.powers){
             boolean isTurnBased = ReflectionHacks.getPrivate(p, AbstractPower.class, "isTurnBased");
             if ((p.type == PowerType.DEBUFF) && isTurnBased) {
                 this.addToTop(new ReducePowerAction(this.c, this.c, p.ID, amount));

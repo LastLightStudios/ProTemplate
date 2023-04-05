@@ -10,20 +10,22 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.adp;
 import static code.util.Wiz.applyToSelf;
 
-public class InjuredPride extends AbstractEasyCard {
-    public final static String ID = makeID("InjuredPride");
+public class EgoCheck extends AbstractEasyCard {
+    public final static String ID = makeID("EgoCheck");
 
     private final static int DAMAGE = 0;
     private final static int UPGRADE_COST = 0;
     private final static int BIG_NUMBER_SO_IT_SHOWS_RED = 9999;
 
-    public InjuredPride() {
-        super(ID, 0, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
+    public EgoCheck() {
+        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
         baseDamage = DAMAGE;
+        // The next 3 lines are some fuckery that doesn't matter any more cuz there's no Pride loss
+        /*
         baseMagicNumber = BIG_NUMBER_SO_IT_SHOWS_RED;
         magicNumber = 0;
         isMagicNumberModified = true;
-        selfRetain = false;
+         */
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -39,11 +41,7 @@ public class InjuredPride extends AbstractEasyCard {
     @Override
     public void calculateCardDamage(AbstractMonster mon){
         super.calculateCardDamage(mon);
-        if (!upgraded){
-            rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
-        } else {
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
-        }
+        rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
         initializeDescription();
     }
 
@@ -56,11 +54,7 @@ public class InjuredPride extends AbstractEasyCard {
             isMagicNumberModified = true;
         }
         super.applyPowers();
-        if (!upgraded){
-            rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
-        } else {
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
-        }
+        rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
         initializeDescription();
     }
 
@@ -70,8 +64,6 @@ public class InjuredPride extends AbstractEasyCard {
     }
 
     public void upp() {
-        selfRetain = true;
-        rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-        initializeDescription();
+        upgradeBaseCost(UPGRADE_COST);
     }
 }

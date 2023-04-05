@@ -32,7 +32,7 @@ public class Inferno extends AbstractEasyCard {
             makeInHand(new InfernalBreath());
         }
     }
-
+/*
     public boolean canUse(AbstractPlayer p, AbstractMonster m){
         boolean canUse = super.canUse(p, m);
         if (!canUse){
@@ -47,6 +47,8 @@ public class Inferno extends AbstractEasyCard {
         }
         return canUse;
     }
+
+ */
 
     public void upp() {
         rawDescription = cardStrings.UPGRADE_DESCRIPTION;

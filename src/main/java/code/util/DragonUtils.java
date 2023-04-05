@@ -1,6 +1,7 @@
 package code.util;
 
 import code.cards.NestingForm;
+import code.cards.sparkbreaths.AbstractSparkBreathCard;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -14,6 +15,16 @@ import static code.util.Wiz.*;
 
 public class DragonUtils {
     private static HashMap<AbstractCard.CardTags, ArrayList<AbstractCard>> tagsWithLists = new HashMap<>();
+
+
+
+    public static boolean isSpark(AbstractCard c){
+        return (c instanceof AbstractSparkBreathCard && ((AbstractSparkBreathCard) c).isFront());
+    }
+
+    public static boolean isBreath(AbstractCard c){
+        return (c instanceof AbstractSparkBreathCard && !((AbstractSparkBreathCard) c).isFront());
+    }
 
     public static int countRaresInDeck(){
         int count = 0;

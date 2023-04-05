@@ -1,5 +1,6 @@
 package code.actions;
 
+import code.cards.sparkbreaths.AbstractSparkBreathCard;
 import code.util.DragonUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
@@ -27,8 +28,15 @@ public class PlayAllSparksAction extends AbstractGameAction {
         if (this.duration == Settings.ACTION_DUR_FAST){
             ArrayList<AbstractCard> tempList = new ArrayList<>();
             for (AbstractCard c : adp().hand.group) {
-                if (c.hasTag(DragonUtils.CustomTags.SPARK)){
+                if (DragonUtils.isSpark(c)){
                     tempList.add(c);
+                    c.exhaustOnUseOnce = true;
+                    adp().limbo.group.add(c);
+                    att(new NewQueueCardAction(c, this.target, false, true));
+                    att(new UnlimboAction(c));
+                } else if (DragonUtils.isBreath(c)){
+                    tempList.add(c);
+                    ((AbstractSparkBreathCard) c).changeToBack(false);
                     c.exhaustOnUseOnce = true;
                     adp().limbo.group.add(c);
                     att(new NewQueueCardAction(c, this.target, false, true));
@@ -38,7 +46,7 @@ public class PlayAllSparksAction extends AbstractGameAction {
             adp().hand.group.removeAll(tempList);
             tempList.clear();
             for (AbstractCard c : adp().drawPile.group) {
-                if (c.hasTag(DragonUtils.CustomTags.SPARK)){
+                if (DragonUtils.isSpark(c)){
                     tempList.add(c);
                     c.exhaustOnUseOnce = true;
                     adp().limbo.group.add(c);
@@ -49,7 +57,7 @@ public class PlayAllSparksAction extends AbstractGameAction {
             adp().drawPile.group.removeAll(tempList);
             tempList.clear();
             for (AbstractCard c : adp().discardPile.group) {
-                if (c.hasTag(DragonUtils.CustomTags.SPARK)){
+                if (DragonUtils.isSpark(c)){
                     tempList.add(c);
                     c.exhaustOnUseOnce = true;
                     adp().limbo.group.add(c);

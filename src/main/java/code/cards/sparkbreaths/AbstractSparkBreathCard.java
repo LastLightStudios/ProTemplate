@@ -63,7 +63,7 @@ public abstract class AbstractSparkBreathCard extends AbstractTwoSidedCard {
         }
         changeToBack(changeToBreath);
     }
-
+    /*
     @Override
     public void changeToBack(boolean changeToBack){
         if (!changeToBack) { // change to Spark
@@ -75,4 +75,6 @@ public abstract class AbstractSparkBreathCard extends AbstractTwoSidedCard {
         }
         super.changeToBack(changeToBack);
     }
+
+     */
 }

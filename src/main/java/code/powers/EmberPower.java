@@ -3,6 +3,7 @@ package code.powers;
 
 import code.actions.TransformTwoSidedCardAction;
 import code.cards.AbstractTwoSidedCard;
+import code.cards.sparkbreaths.AbstractSparkBreathCard;
 import code.util.DragonUtils;
 import code.util.Wiz;
 
@@ -75,7 +76,7 @@ public class EmberPower extends AbstractEasyPower {
 
     public void swapSparkCards(){ // Swap Sparks to Breaths
         for (AbstractCard c : Wiz.getAllCardsInCardGroups(true, true)){
-            if (isSpark(c) && c instanceof AbstractTwoSidedCard){
+            if (DragonUtils.isSpark(c) && c instanceof AbstractTwoSidedCard){
                 atb(new TransformTwoSidedCardAction((AbstractTwoSidedCard) c, true, Color.valueOf("cc5500")));
             }
         }
@@ -83,18 +84,10 @@ public class EmberPower extends AbstractEasyPower {
 
     public void swapBreathCards(){ // Swap Breaths to Sparks
         for (AbstractCard c : Wiz.getAllCardsInCardGroups(true, true)){
-            if (isBreath(c) && c instanceof AbstractTwoSidedCard){
+            if (DragonUtils.isBreath(c) && c instanceof AbstractTwoSidedCard){
                 atb(new TransformTwoSidedCardAction((AbstractTwoSidedCard) c, false, Color.valueOf("cc5500")));
             }
         }
-    }
-
-    public static boolean isSpark(AbstractCard c){
-        return c.hasTag(CustomTags.SPARK);
-    }
-
-    public static boolean isBreath(AbstractCard c){
-        return c.hasTag(CustomTags.BREATH);
     }
 
     public static int getEmberBreakpoint(){
