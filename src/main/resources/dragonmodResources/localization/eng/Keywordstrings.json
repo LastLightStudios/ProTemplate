@@ -69,7 +69,7 @@
       "Sheds",
       "sheds"
     ],
-    "DESCRIPTION": "Reduces all #yDebuffs."
+    "DESCRIPTION": "Reduces the duration of #yDebuffs."
   },
   {
     "PROPER_NAME": "Hoard",

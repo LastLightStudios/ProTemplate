@@ -138,8 +138,8 @@ public abstract class AbstractTwoSidedCard extends AbstractEasyCard{
             type = cardTypeA;
             target = cardTargetA;
 
-            baseDamage = baseDamageA;
-            baseBlock = baseBlockA;
+            baseDamage = damage = baseDamageA;
+            baseBlock = block = baseBlockA;
             baseMagicNumber = magicNumber = baseMagicNumberA;
             baseSecondMagic = secondMagic = baseSecondMagicA;
             baseSecondDamage = secondDamage = baseSecondDamageA;
@@ -154,8 +154,8 @@ public abstract class AbstractTwoSidedCard extends AbstractEasyCard{
             type = cardTypeB;
             target = cardTargetB;
 
-            baseDamage = baseDamageB;
-            baseBlock = baseBlockB;
+            baseDamage = damage = baseDamageB;
+            baseBlock = block = baseBlockB;
             baseMagicNumber = magicNumber = baseMagicNumberB;
             baseSecondMagic = secondMagic = baseSecondMagicB;
             baseSecondDamage = secondDamage = baseSecondDamageB;

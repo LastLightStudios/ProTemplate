@@ -14,10 +14,10 @@ import static code.util.Wiz.*;
 public class BlazingScales extends AbstractEasyCard {
     public final static String ID = makeID("BlazingScales");
 
-    private final static int BLOCK = 15;
+    private final static int BLOCK = 20;
     private final static int UPGRADE_BLOCK = 5;
     private final static int RETURN_DMG = 6;
-    private final static int UPGRADE_RETURN_DMG = 4;
+    private final static int UPGRADE_RETURN_DMG = 2;
 
 
     public BlazingScales() {

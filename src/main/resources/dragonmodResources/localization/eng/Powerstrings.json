@@ -25,7 +25,7 @@
     "NAME": "Burning Scales",
     "DESCRIPTIONS": [
       "When attacked, deals #b",
-      " damage back."
+      " damage back, increased by #yCauterize."
     ]
   },
   "${ModID}:KindlePower": {
@@ -209,7 +209,7 @@
   "${ModID}:MoltingNestPower": {
     "NAME": "Molting Nest",
     "DESCRIPTIONS": [
-      "If you have #yEnergy at the end of your turn, reduce your debuffs by #b",
+      "If you have #yEnergy at the end of your turn, reduce the duration of your debuffs by #b",
       "."
     ]
   },

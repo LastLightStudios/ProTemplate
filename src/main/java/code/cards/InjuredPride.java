@@ -20,7 +20,9 @@ public class InjuredPride extends AbstractEasyCard {
     public InjuredPride() {
         super(ID, 0, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
         baseDamage = DAMAGE;
-        baseMagicNumber = magicNumber = BIG_NUMBER_SO_IT_SHOWS_RED;
+        baseMagicNumber = BIG_NUMBER_SO_IT_SHOWS_RED;
+        magicNumber = 0;
+        isMagicNumberModified = true;
         selfRetain = false;
     }
 

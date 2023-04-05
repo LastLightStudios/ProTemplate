@@ -1,5 +1,6 @@
 package code.actions;
 
+import basemod.ReflectionHacks;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -22,7 +23,8 @@ public class ReduceDebuffsAction extends AbstractGameAction {
 
         while(var1.hasNext()) {
             AbstractPower p = (AbstractPower)var1.next();
-            if (p.type == PowerType.DEBUFF) {
+            boolean isTurnBased = ReflectionHacks.getPrivate(p, AbstractPower.class, "isTurnBased");
+            if ((p.type == PowerType.DEBUFF) && isTurnBased) {
                 this.addToTop(new ReducePowerAction(this.c, this.c, p.ID, amount));
             }
         }

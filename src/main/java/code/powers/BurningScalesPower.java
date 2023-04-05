@@ -33,7 +33,11 @@ public class BurningScalesPower extends AbstractEasyPower {
     public int onAttacked(DamageInfo info, int damageAmount){
         if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != this.owner) {
             flash();
-            att(new DamageAction(info.owner, new DamageInfo(AbstractDungeon.player, amount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
+            int damage = amount;
+            if (info.owner.hasPower(CauterizePower.POWER_ID)) {
+                damage += info.owner.getPower(CauterizePower.POWER_ID).amount;
+            }
+            att(new DamageAction(info.owner, new DamageInfo(AbstractDungeon.player, damage, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
         }
         return damageAmount;
     }
