@@ -75,9 +75,17 @@ public class RoaringTemper extends AbstractEasyCard {
 
     private void useBreathDesc(){
         if (upgraded){
+            if (rawDescription == cardStrings.UPGRADE_DESCRIPTION){
+                flash();
+            }
             rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
+            initializeDescription();
         } else {
+            if (rawDescription == cardStrings.DESCRIPTION){
+                flash();
+            }
             rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
+            initializeDescription();
         }
 
     }
