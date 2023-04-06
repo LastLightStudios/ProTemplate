@@ -1,10 +1,14 @@
 package code.cards;
 
+import basemod.helpers.TooltipInfo;
 import code.actions.ReduceDebuffsAction;
+import code.util.DragonUtils;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
+
+import java.util.List;
 
 import static code.ModFile.makeID;
 import static code.util.Wiz.applyToSelf;
@@ -22,6 +26,15 @@ public class StretchYourLegs extends AbstractEasyCard {
         super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         magicNumber = baseMagicNumber = ENERGY_GAIN;
         secondMagic = baseSecondMagic = WEAK_GAIN;
+    }
+
+    @Override
+    public List<TooltipInfo> getCustomTooltips() {
+        if (upgraded){
+            return DragonUtils.getSheddableDebuffTooltips();
+        } else {
+            return null;
+        }
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

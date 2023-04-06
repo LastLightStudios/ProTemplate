@@ -103,9 +103,10 @@
   "${ModID}:DrawLessNextTurnPower": {
     "NAME": "Draw Reduction",
     "DESCRIPTIONS": [
-      "Draw #b",
-      " less card next turn.",
-      " less cards next turn."
+      "Draw #b1 less card ",
+      "next turn.",
+      "for the next #b",
+      " turns."
     ]
   },
   "${ModID}:ComfyNestPower": {

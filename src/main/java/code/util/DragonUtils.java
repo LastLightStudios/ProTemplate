@@ -1,19 +1,25 @@
 package code.util;
 
-import code.cards.NestingForm;
+import basemod.helpers.TooltipInfo;
 import code.cards.sparkbreaths.AbstractSparkBreathCard;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.relics.PrismaticShard;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import static code.ModFile.makeID;
 import static code.util.Wiz.*;
 
 public class DragonUtils {
+    protected static final UIStrings shedUIStrings = CardCrawlGame.languagePack.getUIString(makeID("Shed"));
     private static HashMap<AbstractCard.CardTags, ArrayList<AbstractCard>> tagsWithLists = new HashMap<>();
 
 
@@ -34,6 +40,16 @@ public class DragonUtils {
             }
         }
         return count;
+    }
+
+    public static List<TooltipInfo> getSheddableDebuffTooltips(){
+        ArrayList<TooltipInfo> retVal = new ArrayList<>();
+        if (adp() != null && adp().hasRelic(PrismaticShard.ID)){
+            retVal.add(new TooltipInfo(shedUIStrings.TEXT[2], shedUIStrings.TEXT[4]));
+        } else {
+            retVal.add(new TooltipInfo(shedUIStrings.TEXT[2], shedUIStrings.TEXT[3]));
+        }
+        return retVal;
     }
 
     public static AbstractCard returnTrulyRandomCardWithTagInCombat(AbstractCard.CardTags tag){

@@ -1,12 +1,13 @@
 package code.actions;
 
-import basemod.ReflectionHacks;
+import code.powers.DrawLessNextTurnPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.powers.AbstractPower.PowerType;
-import java.util.Iterator;
 
 public class ReduceDebuffsAction extends AbstractGameAction {
     private AbstractCreature c;
@@ -19,9 +20,26 @@ public class ReduceDebuffsAction extends AbstractGameAction {
     @Override
     public void update() {
         for (AbstractPower p : c.powers){
-            boolean isTurnBased = ReflectionHacks.getPrivate(p, AbstractPower.class, "isTurnBased");
-            if ((p.type == PowerType.DEBUFF) && isTurnBased) {
-                this.addToTop(new ReducePowerAction(this.c, this.c, p.ID, amount));
+            if (p.type == PowerType.DEBUFF) {
+                if ((p instanceof StrengthPower) || (p instanceof DexterityPower) || (p instanceof FocusPower)) {
+                    if (p.amount < 0 && Math.abs(p.amount) <= this.amount) {
+                        this.addToTop(new RemoveSpecificPowerAction(this.c, this.c, p));
+                    } else {
+                        this.addToTop(new AbstractGameAction() {
+                            @Override
+                            public void update() {
+                                p.stackPower(ReduceDebuffsAction.this.amount);
+                                p.updateDescription();
+                                AbstractDungeon.onModifyPower();
+                                this.isDone = true;
+                            }
+                        });
+                    }
+                } else if ((p instanceof LoseStrengthPower) || (p instanceof LoseDexterityPower) ||
+                        (p instanceof WeakPower) || (p instanceof VulnerablePower) || (p instanceof FrailPower) ||
+                        (p instanceof DrawReductionPower) || (p instanceof DrawLessNextTurnPower) || (p instanceof NoBlockPower)){
+                    this.addToTop(new ReducePowerAction(this.c, this.c, p.ID, amount));
+                }
             }
         }
         this.isDone = true;

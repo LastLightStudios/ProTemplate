@@ -1,5 +1,6 @@
 package code.powers;
 
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -23,37 +24,34 @@ public class DrawLessNextTurnPower extends AbstractEasyPower {
 
     @Override
     public void onInitialApplication() {
-        adp().gameHandSize -= amount;
-    }
-
-    @Override
-    public void stackPower(int stackAmount) {
-        adp().gameHandSize -= stackAmount;
-        super.stackPower(stackAmount);
+        adp().gameHandSize--;
     }
 
     @Override
     public void onRemove() {
-        adp().gameHandSize += amount;
+        adp().gameHandSize++;
     }
 
     @Override
     public void reducePower(int reduceAmount) {
-        adp().gameHandSize += Math.min(reduceAmount,amount);
         super.reducePower(reduceAmount);
     }
 
     @Override
     public void atStartOfTurnPostDraw() {
-        atb(new RemoveSpecificPowerAction(owner, owner, this));
+        if (amount == 0){
+            atb(new RemoveSpecificPowerAction(owner, owner, this));
+        } else {
+            atb(new ReducePowerAction(owner, owner, this, 1));
+        }
     }
 
     @Override
     public void updateDescription() {
         if (amount == 1){
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+            description = DESCRIPTIONS[0] + DESCRIPTIONS[1];
         } else {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
+            description = DESCRIPTIONS[0] + DESCRIPTIONS[2] + amount + DESCRIPTIONS[3];
         }
     };
 }

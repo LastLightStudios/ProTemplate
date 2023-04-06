@@ -1,11 +1,14 @@
 package code.cards;
 
+import basemod.helpers.TooltipInfo;
 import code.actions.ReduceDebuffsAction;
 import code.powers.DrawLessNextTurnPower;
+import code.util.DragonUtils;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.DrawReductionPower;
+
+import java.util.List;
 
 import static code.ModFile.makeID;
 import static code.util.Wiz.*;
@@ -22,6 +25,15 @@ public class ScourTheTrove extends AbstractEasyCard {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         baseMagicNumber = magicNumber = CARD_DRAW;
         baseSecondMagic = secondMagic = SHED_VALUE;
+    }
+
+    @Override
+    public List<TooltipInfo> getCustomTooltips() {
+        if (upgraded){
+            return DragonUtils.getSheddableDebuffTooltips();
+        } else {
+            return null;
+        }
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

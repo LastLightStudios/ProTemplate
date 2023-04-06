@@ -37,5 +37,14 @@
       "Pride",
       "At the end of your turn, if an enemy intends to attack, gain #yBlock and lose half your #yPride."
     ]
+  },
+  "${ModID}:Shed": {
+    "TEXT": [
+      "Shed",
+      "Reduces #ySheddable #yDebuffs.",
+      "Sheddable Debuffs",
+      "#yNegative #yStrength, #yNegative #yDexterity, #yStrength #yDown, #yDexterity #yDown, #yWeak, #yVulnerable, #yFrail, #yDraw #yReduction, #yNo #yBlock.",
+      "#yNegative #yStrength, #yNegative #yDexterity, #yNegative #yFocuse, #yStrength #yDown, #yDexterity #yDown, #yWeak, #yVulnerable, #yFrail, #yDraw #yReduction, #yNo #yBlock."
+    ]
   }
 }
