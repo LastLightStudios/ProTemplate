@@ -1,11 +1,15 @@
 package code.cards.nests;
 
+import basemod.helpers.TooltipInfo;
 import code.actions.ReduceDebuffsAction;
 import code.powers.nestpowers.MoltingNestPower;
+import code.util.DragonUtils;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import java.util.List;
 
 import static code.ModFile.makeID;
 import static code.util.Wiz.applyToSelf;
@@ -22,6 +26,11 @@ public class MoltingNest extends AbstractNestCard {
         super(ID, 1, CardRarity.RARE);
         baseMagicNumber = magicNumber = SHED_VALUE;
         baseSecondMagic = secondMagic = IMMEDIATE_SHED_VALUE;
+    }
+
+    @Override
+    public List<TooltipInfo> getCustomTooltips() {
+        return DragonUtils.getSheddableDebuffTooltips();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

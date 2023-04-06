@@ -1,8 +1,12 @@
 package code.cards.gems;
 
+import basemod.helpers.TooltipInfo;
 import code.actions.ReduceDebuffsAction;
+import code.util.DragonUtils;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import java.util.List;
 
 import static code.ModFile.makeID;
 import static code.util.Wiz.atb;
@@ -16,6 +20,11 @@ public class Onyx extends AbstractGemCard {
     public Onyx() {
         super(ID, CardType.SKILL, CardRarity.SPECIAL, CardTarget.SELF);
         baseMagicNumber = magicNumber = SHED_VALUE;
+    }
+
+    @Override
+    public List<TooltipInfo> getCustomTooltips() {
+        return DragonUtils.getSheddableDebuffTooltips();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

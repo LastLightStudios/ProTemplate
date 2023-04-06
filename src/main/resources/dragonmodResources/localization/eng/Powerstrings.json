@@ -210,7 +210,7 @@
   "${ModID}:MoltingNestPower": {
     "NAME": "Molting Nest",
     "DESCRIPTIONS": [
-      "If you have #yEnergy at the end of your turn, reduce the duration of your debuffs by #b",
+      "If you have #yEnergy at the end of your turn, reduce your #ySheddable #yDebuffs by #b",
       "."
     ]
   },
