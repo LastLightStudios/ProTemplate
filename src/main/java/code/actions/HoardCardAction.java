@@ -179,19 +179,22 @@ public class HoardCardAction extends AbstractGameAction {
 
     private void hoardCards(List<AbstractCard> cardList){
         int tmp = cardList.size();
-        for (AbstractPower power : adp().powers){
-            if (power instanceof HoardingPowerInterface){
-                ((HoardingPowerInterface) power).onHoard(cardList);
+        for (int i = 0; i < tmp; i++) {
+            // the following for loop doesn't actually do anything xd
+            for (AbstractPower power : adp().powers){
+                if (power instanceof HoardingPowerInterface){
+                    ((HoardingPowerInterface) power).onHoard(cardList);
+                }
             }
-            for (AbstractCard c : cardList){
                 /*
                 if (card instanceof cardWithOnHoard){
                 card.OnHoard();}
                  */
-                adp().hand.moveToExhaustPile(c);
-            }
-            CardCrawlGame.dungeon.checkForPactAchievement();
         }
+        for (AbstractCard c : cardList){
+            adp().hand.moveToExhaustPile(c);
+        }
+        CardCrawlGame.dungeon.checkForPactAchievement();
         for (int i = 0; i < tmp; i++) {
             // this happens in a second loop so that all the cards exhaust in a row, then the Pride adds up for each card Hoarded
             applyToSelfTop(new PridePower(adp(), prideGainPerHoardedCard));

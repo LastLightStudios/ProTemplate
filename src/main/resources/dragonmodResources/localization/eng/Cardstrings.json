@@ -238,8 +238,8 @@
   },
   "${ModID}:ScourTheTrove": {
     "NAME": "Scour The Trove",
-    "DESCRIPTION": "Draw !M! cards. NL Draw 2 less cards next turn.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Draw 2 less cards next turn. NL ${ModID}:Shed !${ModID}:m2!."
+    "DESCRIPTION": "Draw !M! cards. NL Draw 1 less card for the next 2 next turns.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Draw 1 less card for the next 2 next turns. NL ${ModID}:Shed !${ModID}:m2!."
   },
   "${ModID}:Rummage": {
     "NAME": "Rummage",
