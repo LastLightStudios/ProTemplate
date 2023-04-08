@@ -32,8 +32,8 @@ public class FrightfulPresence extends AbstractEasyCard {
             applyToEnemy(m, new WeakPower(m, magicNumber, false));
         } else {
             for (AbstractMonster mon : getEnemies()){
-                applyToEnemy(m, new VulnerablePower(mon, magicNumber, false));
-                applyToEnemy(m, new WeakPower(mon, magicNumber, false));
+                applyToEnemy(mon, new VulnerablePower(mon, magicNumber, false));
+                applyToEnemy(mon, new WeakPower(mon, magicNumber, false));
             }
         }
     }
