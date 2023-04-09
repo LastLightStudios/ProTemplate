@@ -43,8 +43,8 @@
       "Shed",
       "Reduces #ySheddable #yDebuffs.",
       "Sheddable Debuffs",
-      "#yNegative #yStrength, #yNegative #yDexterity, #yStrength #yDown, #yDexterity #yDown, #yBurning #yScales #yDown, #yWeak, #yVulnerable, #yFrail, #yDraw #yReduction, #yNo #yBlock.",
-      "#yNegative #yStrength, #yNegative #yDexterity, #yNegative #yFocuse, #yStrength #yDown, #yDexterity #yDown, #yBurning #yScales #yDown, #yWeak, #yVulnerable, #yFrail, #yDraw #yReduction, #yNo #yBlock."
+      "#yNegative #yStrength, #yNegative #yDexterity, #yStrength #yDown, #yDexterity #yDown, #yBurning #yScales #yDown, #yWeak, #yVulnerable, #yFrail, #yDraw #yReduction, #yNo #yBlock, #No #Energy.",
+      "#yNegative #yStrength, #yNegative #yDexterity, #yNegative #yFocuse, #yStrength #yDown, #yDexterity #yDown, #yBurning #yScales #yDown, #yWeak, #yVulnerable, #yFrail, #yDraw #yReduction, #yNo #yBlock, #No #Energy."
     ]
   }
 }

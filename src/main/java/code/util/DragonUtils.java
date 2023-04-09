@@ -96,5 +96,6 @@ public class DragonUtils {
         public static final int EARLY_NEST_PRIORITY = 3;
         public static final int CAUTERIZE_NEST_PRIORITY = 4;
         public static final int DEFAULT = 5;
+        public static final int NO_ENERGY_PRIORITY = 20;
     }
 }

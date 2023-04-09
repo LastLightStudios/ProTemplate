@@ -11,7 +11,7 @@ import static code.util.Wiz.applyToSelf;
 public class Obsidian extends AbstractGemCard {
     public final static String ID = makeID("Obsidian");
 
-    private final static int BURNING_SCALES_VALUE = 4; //Energy Gain
+    private final static int BURNING_SCALES_VALUE = 2; //Energy Gain
     private final static int UPGRADE_BURNING_SCALES_VALUE = 2; //increase energy gain
 
     public Obsidian() {

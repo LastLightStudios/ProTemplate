@@ -116,6 +116,14 @@
       " turns."
     ]
   },
+  "${ModID}:NoEnergyPower": {
+    "NAME": "No Energy",
+    "DESCRIPTIONS": [
+      "You cannot gain Energy during your turn for #b",
+      " turn.",
+      " turns."
+    ]
+  },
   "${ModID}:ComfyNestPower": {
     "NAME": "Comfy Nest",
     "DESCRIPTIONS": [

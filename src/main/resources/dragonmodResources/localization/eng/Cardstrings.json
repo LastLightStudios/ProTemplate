@@ -60,6 +60,15 @@
     "NAME": "Glorious Strike",
     "DESCRIPTION": "Deal !D! damage. NL Gain !M! ${ModID}:Pride."
   },
+  "${ModID}:EarlyBird": {
+    "NAME": "Early Bird",
+    "DESCRIPTION": "Deal !D! damage. NL If you have played less than !M! cards this turn, gain [E].",
+    "EXTENDED_DESCRIPTION": [
+      " NL (",
+      " card played.)",
+      " cards played.)"
+    ]
+  },
   "${ModID}:Ignition": {
     "NAME": "Ignition",
     "DESCRIPTION": "Gain !M! ${ModID}:Ember. NL Exhaust.",
@@ -109,6 +118,11 @@
     "NAME": "Stretch Your Belly",
     "DESCRIPTION": "Gain [E] [E]. NL Gain !${ModID}:m2! Vulnerable.",
     "UPGRADE_DESCRIPTION": "Gain [E] [E]. NL Gain !${ModID}:m2! Vulnerable. NL ${ModID}:Shed 1."
+  },
+  "${ModID}:INeedItNow": {
+    "NAME": "I Need It Now!",
+    "DESCRIPTION": "Gain [E] [E]. NL You cannot gain [E] during your turn for !M! turns.",
+    "UPGRADE_DESCRIPTION": "Gain [E] [E]. NL You cannot gain [E] during your turn for !M! turn."
   },
   "${ModID}:TreasureScale": {
     "NAME": "Treasure Scale",
