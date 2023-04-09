@@ -28,6 +28,13 @@
       " damage back, increased by #yCauterize."
     ]
   },
+  "${ModID}:LoseBurningScalesPower": {
+    "NAME": "Burning Scales Down",
+    "DESCRIPTIONS": [
+      "Lose #b",
+      " #yBurning #yScales at the start of your next turn."
+    ]
+  },
   "${ModID}:KindlePower": {
     "NAME": "Kindle",
     "DESCRIPTIONS": [

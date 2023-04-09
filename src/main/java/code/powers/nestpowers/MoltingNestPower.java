@@ -1,6 +1,6 @@
 package code.powers.nestpowers;
 
-import code.actions.ReduceDebuffsAction;
+import code.actions.ShedAction;
 import code.powers.AbstractEasyPower;
 import code.util.DragonUtils;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -28,7 +28,7 @@ public class MoltingNestPower extends AbstractEasyPower {
     public void atEndOfTurnPreEndTurnCards(boolean isPlayer){
         if (EnergyPanel.getCurrentEnergy() > 0){
             flash();
-            atb(new ReduceDebuffsAction(owner, amount));
+            atb(new ShedAction(owner, amount));
         }
     }
 

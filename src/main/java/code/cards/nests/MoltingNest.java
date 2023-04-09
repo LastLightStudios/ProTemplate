@@ -1,7 +1,7 @@
 package code.cards.nests;
 
 import basemod.helpers.TooltipInfo;
-import code.actions.ReduceDebuffsAction;
+import code.actions.ShedAction;
 import code.powers.nestpowers.MoltingNestPower;
 import code.util.DragonUtils;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -35,7 +35,7 @@ public class MoltingNest extends AbstractNestCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (upgraded){
-            atb(new ReduceDebuffsAction(p, secondMagic));
+            atb(new ShedAction(p, secondMagic));
         }
         applyToSelf(new MoltingNestPower(p, magicNumber));
     }

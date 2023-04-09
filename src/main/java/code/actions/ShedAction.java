@@ -1,6 +1,7 @@
 package code.actions;
 
 import code.powers.DrawLessNextTurnPower;
+import code.powers.LoseBurningScalesPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -9,10 +10,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.powers.AbstractPower.PowerType;
 
-public class ReduceDebuffsAction extends AbstractGameAction {
+public class ShedAction extends AbstractGameAction {
     private AbstractCreature c;
 
-    public ReduceDebuffsAction(AbstractCreature c, int amount) {
+    public ShedAction(AbstractCreature c, int amount) {
         this.c = c;
         this.amount = amount;
     }
@@ -28,14 +29,14 @@ public class ReduceDebuffsAction extends AbstractGameAction {
                         this.addToTop(new AbstractGameAction() {
                             @Override
                             public void update() {
-                                p.stackPower(ReduceDebuffsAction.this.amount);
+                                p.stackPower(ShedAction.this.amount);
                                 p.updateDescription();
                                 AbstractDungeon.onModifyPower();
                                 this.isDone = true;
                             }
                         });
                     }
-                } else if ((p instanceof LoseStrengthPower) || (p instanceof LoseDexterityPower) ||
+                } else if ((p instanceof LoseStrengthPower) || (p instanceof LoseDexterityPower) || (p instanceof LoseBurningScalesPower) ||
                         (p instanceof WeakPower) || (p instanceof VulnerablePower) || (p instanceof FrailPower) ||
                         (p instanceof DrawReductionPower) || (p instanceof DrawLessNextTurnPower) || (p instanceof NoBlockPower)){
                     this.addToTop(new ReducePowerAction(this.c, this.c, p.ID, amount));

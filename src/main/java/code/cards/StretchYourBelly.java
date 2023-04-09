@@ -1,7 +1,7 @@
 package code.cards;
 
 import basemod.helpers.TooltipInfo;
-import code.actions.ReduceDebuffsAction;
+import code.actions.ShedAction;
 import code.util.DragonUtils;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -41,7 +41,7 @@ public class StretchYourBelly extends AbstractEasyCard {
         atb(new GainEnergyAction(magicNumber));
         applyToSelf(new VulnerablePower(p, secondMagic, false));
         if (upgraded){
-            atb(new ReduceDebuffsAction(p, SHED_VALUE));
+            atb(new ShedAction(p, SHED_VALUE));
         }
     }
 

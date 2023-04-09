@@ -1,6 +1,7 @@
 package code.cards;
 
 import code.powers.BurningScalesPower;
+import code.powers.LoseBurningScalesPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -34,6 +35,7 @@ public class BurningScales extends AbstractEasyCard {
         }
         blck();
         applyToSelf(new BurningScalesPower(p, magicNumber));
+        applyToSelf(new LoseBurningScalesPower(p, magicNumber));
     }
 
     public void upp() {

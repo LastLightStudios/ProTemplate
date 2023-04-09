@@ -44,11 +44,6 @@ public class BurningScalesPower extends AbstractEasyPower {
     }
 
     @Override
-    public void atStartOfTurn(){
-        atb(new RemoveSpecificPowerAction(adp(), adp(), POWER_ID));
-    }
-
-    @Override
     public void updateDescription() {
         description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     };

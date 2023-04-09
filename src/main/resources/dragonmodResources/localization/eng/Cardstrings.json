@@ -293,6 +293,10 @@
     "NAME": "Monstrous Greed",
     "DESCRIPTION": "Whenever you ${ModID}:Hoard a card, deal !M! damage to ALL enemies."
   },
+  "${ModID}:SpikyScales": {
+    "NAME": "SpikyScales",
+    "DESCRIPTION": "Whenever you are attacked, deal !M! damage back, increased by ${ModID}:Cauterize."
+  },
   "${ModID}:CauterizingSpark": {
     "NAME": "Cauterizing Spark",
     "DESCRIPTION": "Deal !D! damage. NL Apply !${ModID}:m2! ${ModID}:Cauterize. NL Gain !M! ${ModID}:Ember.",
@@ -451,6 +455,10 @@
   "${ModID}:Onyx": {
     "NAME": "Onyx",
     "DESCRIPTION": "Retain. NL ${ModID}:Shed !M!. NL ${ModID}:Hoard this card."
+  },
+  "${ModID}:Obsidian": {
+    "NAME": "Obsidian",
+    "DESCRIPTION": "Retain. NL Whenever you are attacked this turn, deal !M! damage back, increased by ${ModID}:Cauterize. NL ${ModID}:Hoard this card."
   },
   "${ModID}:TestHoardThreeCards": {
     "NAME": "Test Hoard Three Cards",

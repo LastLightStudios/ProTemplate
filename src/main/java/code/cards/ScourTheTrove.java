@@ -1,7 +1,7 @@
 package code.cards;
 
 import basemod.helpers.TooltipInfo;
-import code.actions.ReduceDebuffsAction;
+import code.actions.ShedAction;
 import code.powers.DrawLessNextTurnPower;
 import code.util.DragonUtils;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -40,7 +40,7 @@ public class ScourTheTrove extends AbstractEasyCard {
         atb(new DrawCardAction(magicNumber));
         applyToSelf(new DrawLessNextTurnPower(p, CARD_DRAW_PENALTY));
         if (upgraded){
-            atb(new ReduceDebuffsAction(p, secondMagic));
+            atb(new ShedAction(p, secondMagic));
         }
     }
 

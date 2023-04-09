@@ -1,7 +1,7 @@
 package code.cards.gems;
 
 import basemod.helpers.TooltipInfo;
-import code.actions.ReduceDebuffsAction;
+import code.actions.ShedAction;
 import code.util.DragonUtils;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -28,7 +28,7 @@ public class Onyx extends AbstractGemCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        atb(new ReduceDebuffsAction(p, magicNumber));
+        atb(new ShedAction(p, magicNumber));
         hoardThisGem();
     }
 
