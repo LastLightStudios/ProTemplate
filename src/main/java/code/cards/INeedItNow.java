@@ -7,7 +7,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.DragonCharacterFile.Enums.DRAGON_COLOR;
 import static code.ModFile.makeID;
-import static code.util.Wiz.*;
+import static code.util.Wiz.applyToSelf;
+import static code.util.Wiz.atb;
 
 public class INeedItNow extends AbstractEasyCard {
     public final static String ID = makeID("INeedItNow");
@@ -32,5 +33,6 @@ public class INeedItNow extends AbstractEasyCard {
     public void upp() {
         upgradeMagicNumber(UPGRADE_TURN_PENALTY);
         rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+        initializeDescription();
     }
 }

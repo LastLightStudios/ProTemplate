@@ -1,4 +1,4 @@
-package code.powers;
+package code.interfaces;
 
 
 import com.megacrit.cardcrawl.cards.AbstractCard;

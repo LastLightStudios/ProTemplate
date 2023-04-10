@@ -270,6 +270,21 @@
     "DESCRIPTION": "ALL enemies lose !M! Strength this turn. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "ALL enemies lose !M! Strength this turn. NL Exhaust."
   },
+  "${ModID}:RenovateNest": {
+    "NAME": "Renovate Nest",
+    "DESCRIPTION": "${ModID}:Hoard !M! card. NL Gain [E].",
+    "UPGRADE_DESCRIPTION": "${ModID}:Hoard !M! card. NL Gain [E]. NL ${ModID}:Shed !${ModID}:m2!."
+  },
+  "${ModID}:SingedArmor": {
+    "NAME": "Singed Armor",
+    "DESCRIPTION": "Gain !B! Block. NL If this card is ${ModID}:Hoarded, gain [E] [E].",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL If this card is ${ModID}:Hoarded, gain [E] [E] [E]."
+  },
+  "${ModID}:Aggravate": {
+    "NAME": "Aggravate",
+    "DESCRIPTION": "Double an enemy's ${ModID}:Cauterize. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Triple an enemy's ${ModID}:Cauterize. NL Exhaust."
+  },
   "${ModID}:TakeFlight": {
     "NAME": "Take Flight",
     "DESCRIPTION": "Gain !M! Buffer at the start of your next turn.",
@@ -464,7 +479,7 @@
   "${ModID}:Citrine": {
     "NAME": "Citrine",
     "DESCRIPTION": "Retain. NL Gain [E]. NL ${ModID}:Hoard this card.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Gain [E][E]. NL ${ModID}:Hoard this card."
+    "UPGRADE_DESCRIPTION": "Retain. NL Gain [E] [E]. NL ${ModID}:Hoard this card."
   },
   "${ModID}:Onyx": {
     "NAME": "Onyx",
