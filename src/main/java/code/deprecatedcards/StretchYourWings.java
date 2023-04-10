@@ -1,5 +1,6 @@
-package code.cards;
+package code.deprecatedcards;
 
+import code.cards.AbstractEasyCard;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;

@@ -14,9 +14,9 @@ import static code.util.Wiz.*;
 public class BurningScales extends AbstractEasyCard {
     public final static String ID = makeID("BurningScales");
 
-    private final static int BLOCK = 20;
-    private final static int UPGRADE_BLOCK = 5;
-    private final static int RETURN_DMG = 6;
+    private final static int BLOCK = 24;
+    private final static int UPGRADE_BLOCK = 6;
+    private final static int RETURN_DMG = 4;
     private final static int UPGRADE_RETURN_DMG = 2;
 
 

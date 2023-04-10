@@ -287,11 +287,7 @@
   },
   "${ModID}:TakeFlight": {
     "NAME": "Take Flight",
-    "DESCRIPTION": "Gain !M! Buffer at the start of your next turn.",
-    "EXTENDED_DESCRIPTION": [
-      "I am already Taking Flight, so I cannot Take Flight.",
-      "I am In Flight, so I cannot Take Flight."
-    ]
+    "DESCRIPTION": "Prevent the next time you would lose HP next turn. NL Exhaust."
   },
   "${ModID}:CrashLanding": {
     "NAME": "Crash Landing",

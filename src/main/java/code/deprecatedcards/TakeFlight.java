@@ -1,7 +1,8 @@
-package code.cards;
+package code.deprecatedcards;
 
-import code.powers.TakingFlightPower;
-import code.powers.InFlightPower;
+import code.cards.AbstractEasyCard;
+import code.powers.dep.TakingFlightPower;
+import code.powers.dep.InFlightPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;

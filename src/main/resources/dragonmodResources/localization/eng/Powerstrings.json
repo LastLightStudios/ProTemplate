@@ -73,6 +73,21 @@
       "You are currently #yIn #yFlight and cannot #yTake #yFlight."
     ]
   },
+  "${ModID}:PreparingToFlyPower": {
+    "NAME": "PreparingToFly",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain #b",
+      " #yFlying."
+    ]
+  },
+  "${ModID}:FlyingPower": {
+    "NAME": "Flying",
+    "DESCRIPTIONS": [
+      "Prevent the next time you would lose HP this turn.",
+      "Prevent the next #b",
+      " times you would lose HP this turn."
+    ]
+  },
   "${ModID}:CrashingPower": {
     "NAME": "Crashing",
     "DESCRIPTIONS": [

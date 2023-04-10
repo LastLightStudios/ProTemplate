@@ -1,31 +1,32 @@
-package code.powers;
+package code.powers.dep;
 
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import code.powers.AbstractEasyPower;
+import code.powers.EmberPower;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.BufferPower;
 
 import static code.ModFile.makeID;
 import static code.util.Wiz.*;
 
-public class TakingFlightPower extends AbstractEasyPower {
+public class KindlePower extends AbstractEasyPower {
 
-    public static final String POWER_ID = makeID("TakingFlightPower");
+    public static final String POWER_ID = makeID("KindlePower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public TakingFlightPower(AbstractCreature owner, int amount) {
-        super(POWER_ID, NAME, PowerType.BUFF, true, owner, amount);
-        loadRegion("flight");
+    public KindlePower(AbstractCreature owner, int amount) {
+        super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
+        if (this.amount >= 9999)
+            this.amount = 9999;
+
+        updateDescription();
     }
 
     @Override
     public void atStartOfTurn(){
-        applyToSelf(new BufferPower(adp(), amount));
-        applyToSelf(new InFlightPower(adp()));
-        atb(new RemoveSpecificPowerAction(adp(), adp(), POWER_ID));
+        applyToSelf(new EmberPower(adp(), amount));
     }
 
     @Override

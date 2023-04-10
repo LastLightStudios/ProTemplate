@@ -1,7 +1,7 @@
 package code.deprecatedcards;
 
 import code.cards.AbstractEasyCard;
-import code.powers.KindlePower;
+import code.powers.dep.KindlePower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
