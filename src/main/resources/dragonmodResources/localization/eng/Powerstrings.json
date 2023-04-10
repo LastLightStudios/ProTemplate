@@ -44,6 +44,15 @@
       " cards."
     ]
   },
+  "${ModID}:FavoriteToyPower": {
+    "NAME": "Favorite Toy",
+    "DESCRIPTIONS": [
+      "Add a ",
+      " card into your hand at the start of your next turn.",
+      " card into your hand at the start of your next #b",
+      " turns."
+    ]
+  },
   "${ModID}:KindlePower": {
     "NAME": "Kindle",
     "DESCRIPTIONS": [

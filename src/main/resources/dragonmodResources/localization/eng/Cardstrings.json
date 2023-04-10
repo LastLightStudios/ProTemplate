@@ -373,8 +373,7 @@
   },
   "${ModID}:FavoriteToy": {
     "NAME": "FavoriteToy",
-    "DESCRIPTION": "Put a card from draw or discard pile into your hand. NL Add a random ${ModID}:Gem where it was. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Put a card from draw or discard pile into your hand. NL Add a random ${ModID}:Gem+ where it was. NL Exhaust."
+    "DESCRIPTION": "Choose a card in your draw pile. At the beginning of your next !M! turns, add a copy of that card into your hand. Exhaust."
   },
   "${ModID}:Inferno": {
     "NAME": "Inferno",

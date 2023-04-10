@@ -27,14 +27,14 @@ public class TradeOffer extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractCard gem;
-        gem = DragonUtils.returnTrulyRandomCardWithTagInCombat(DragonUtils.CustomTags.GEM).makeCopy();
-        if (upgraded){
-            gem.upgrade();
-        }
         atb(new MultiGroupSelectAction(UIStrings[0], (list, map) ->
         {
+            AbstractCard gem;
             for (AbstractCard c : list) {
+                gem = DragonUtils.returnTrulyRandomCardWithTagInCombat(DragonUtils.CustomTags.GEM).makeCopy();
+                if (upgraded){
+                    gem.upgrade();
+                }
                 CardGroup group = map.get(c);
                 int index = group.group.indexOf(c);
                 group.group.set(index, gem);
