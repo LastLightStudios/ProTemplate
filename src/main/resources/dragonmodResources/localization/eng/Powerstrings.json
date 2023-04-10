@@ -35,6 +35,15 @@
       " #yBurning #yScales at the start of your next turn."
     ]
   },
+  "${ModID}:SmolderingFurriesPower": {
+    "NAME": "Smoldering Furries",
+    "DESCRIPTIONS": [
+      "Whenever you draw a #yBurn card, #yHoard it, gain #b1 #yEmber, and draw #b1 card.",
+      "Whenever you draw a #yBurn card, #yHoard it, gain #b",
+      " #yEmber, and draw #b",
+      " cards."
+    ]
+  },
   "${ModID}:KindlePower": {
     "NAME": "Kindle",
     "DESCRIPTIONS": [

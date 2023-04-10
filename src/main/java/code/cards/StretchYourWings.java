@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.ModFile.makeID;
-import static code.util.Wiz.*;
+import static code.util.Wiz.atb;
 
 public class StretchYourWings extends AbstractEasyCard {
     public final static String ID = makeID("StretchYourWings");

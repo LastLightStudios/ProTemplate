@@ -1,6 +1,7 @@
 package code.actions;
 
 import code.powers.DrawLessNextTurnPower;
+import code.powers.EmberPower;
 import code.powers.LoseBurningScalesPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
@@ -22,7 +23,7 @@ public class ShedAction extends AbstractGameAction {
     public void update() {
         for (AbstractPower p : c.powers){
             if (p.type == PowerType.DEBUFF) {
-                if ((p instanceof StrengthPower) || (p instanceof DexterityPower) || (p instanceof FocusPower)) {
+                if ((p instanceof EmberPower) || (p instanceof StrengthPower) || (p instanceof DexterityPower) || (p instanceof FocusPower)) {
                     if (p.amount < 0 && Math.abs(p.amount) <= this.amount) {
                         this.addToTop(new RemoveSpecificPowerAction(this.c, this.c, p));
                     } else {

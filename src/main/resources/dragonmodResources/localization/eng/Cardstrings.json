@@ -367,10 +367,19 @@
     "DESCRIPTION": "Put a card from draw or discard pile into your hand. NL Add a random ${ModID}:Gem where it was. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Retain. NL Put a card from draw or discard pile into your hand. NL Add a random ${ModID}:Gem+ where it was. NL Exhaust."
   },
+  "${ModID}:Soar": {
+    "NAME": "Soar",
+    "DESCRIPTION": "Draw !M! cards. NL ${ModID}:Shed !${ModID}:m2!. NL Exhaust."
+  },
+  "${ModID}:FavoriteToy": {
+    "NAME": "FavoriteToy",
+    "DESCRIPTION": "Put a card from draw or discard pile into your hand. NL Add a random ${ModID}:Gem where it was. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Put a card from draw or discard pile into your hand. NL Add a random ${ModID}:Gem+ where it was. NL Exhaust."
+  },
   "${ModID}:Inferno": {
     "NAME": "Inferno",
-    "DESCRIPTION": "Convert ALL your Breath cards to Sparks. NL Play and exhaust ALL Spark cards. NL Then, add Infernal Breath into your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Convert ALL your Breath cards to Sparks. NL Play and exhaust ALL Spark cards. NL Then, add Infernal Breath+ into your hand. NL Exhaust.",
+    "DESCRIPTION": "Convert ALL your Breath cards to Sparks. NL Play and Exhaust ALL Spark cards. NL Then, add Infernal Breath into your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Convert ALL your Breath cards to Sparks. NL Play and Exhaust ALL Spark cards. NL Then, add Infernal Breath+ into your hand. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       "All my Sparks are Breaths because I have too much Ember."
     ]

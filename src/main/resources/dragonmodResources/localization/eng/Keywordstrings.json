@@ -103,6 +103,6 @@
       "Sheddable debuff",
       "sheddable debuff"
     ],
-    "DESCRIPTION": "#yNegative #yStrength, #yNegative #yDexterity, #yNegative #yFocuse, #yStrength #yDown, #yDexterity #yDown, #yBurning #yScales #yDown, #yWeak, #yVulnerable, #yFrail, #yDraw #yReduction, #yNo #yBlock."
+    "DESCRIPTION": "#yNegative #yEmber, #yNegative #yStrength, #yNegative #yDexterity, #yNegative #yFocus, #yStrength #yDown, #yDexterity #yDown, #yBurning #yScales #yDown, #yWeak, #yVulnerable, #yFrail, #yDraw #yReduction, #yNo #yBlock."
   }
 ]

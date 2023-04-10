@@ -37,6 +37,7 @@ public class EmberPower extends AbstractEasyPower {
         if (this.amount >= 9999)
             this.amount = 9999;
         loadRegion("vigor");
+        canGoNegative = true;
         updateDescription();
     }
 
@@ -101,6 +102,11 @@ public class EmberPower extends AbstractEasyPower {
     @Override
     public void updateDescription() {
         description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+        if (amount > 0){
+            type = PowerType.BUFF;
+        } else {
+            type = PowerType.DEBUFF;
+        }
     };
 
     @Override

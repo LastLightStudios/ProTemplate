@@ -48,7 +48,7 @@ public class HoardCardAction extends AbstractGameAction {
     private ArrayList<AbstractCard> listOfHoardedCards;
 
     // These are for "Hoard this card"
-    private AbstractCard playedCard;
+    private AbstractCard specificCard;
     boolean hoardThisCard = false;
 
     // These are to Hoard other cards
@@ -56,8 +56,8 @@ public class HoardCardAction extends AbstractGameAction {
     private boolean canPickZero = false;
     private boolean anyNumber = false;
 
-    public HoardCardAction(AbstractCard playedCard) {
-        this.playedCard = playedCard;
+    public HoardCardAction(AbstractCard specificCard) {
+        this.specificCard = specificCard;
         hoardThisCard = true;
 
         listOfHoardedCards = new ArrayList<>();
@@ -103,16 +103,16 @@ public class HoardCardAction extends AbstractGameAction {
             if (hoardThisCard) {
                 // "Hoard this card." means that none of the other branches apply.
                 //TODO ? add a check in here to see if its a duplicated card from double tap/burst...but maybe not, I think the card would still give Pride, just not end up in Exhaust pile
-                applyToSelfTop(new PridePower(adp(), getCardHoardValue(playedCard)));
-                setCardToExhaust(playedCard);
+                applyToSelfTop(new PridePower(adp(), getCardHoardValue(specificCard)));
+                setCardToExhaust(specificCard);
                 for (AbstractPower power : adp().powers) {
                     if (power instanceof HoardingPowerInterface) {
-                        listOfHoardedCards.add(playedCard);
+                        listOfHoardedCards.add(specificCard);
                         ((HoardingPowerInterface) power).onHoard(listOfHoardedCards);
                     }
                 }
-                if (playedCard instanceof HoardingCardInterface){
-                    ((HoardingCardInterface) playedCard).triggerOnHoard();
+                if (specificCard instanceof HoardingCardInterface){
+                    ((HoardingCardInterface) specificCard).triggerOnHoard();
                 }
             } else if (adp().hand.size() == 0) {
                 // if the hand is empty then there's nothing to Hoard
