@@ -18,6 +18,7 @@ public class Fly extends AbstractEasyCard {
     public Fly() {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, DRAGON_COLOR);
         baseMagicNumber = magicNumber = FLY_GAIN;
+        exhaust = true;
     }
 
     @Override
