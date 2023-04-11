@@ -291,7 +291,7 @@
   },
   "${ModID}:CrashLanding": {
     "NAME": "Crash Landing",
-    "DESCRIPTION": "Gain !B! Block. At the end of your turn, ALL characters take !D! damage."
+    "DESCRIPTION": "Gain !B! Block. At the end of your turn, ALL characters take !M! damage."
   },
   "${ModID}:PridefulScale": {
     "NAME": "Prideful Scale",
