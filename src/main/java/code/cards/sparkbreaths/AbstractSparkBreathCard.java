@@ -19,7 +19,7 @@ import static code.util.Wiz.*;
 
 public abstract class AbstractSparkBreathCard extends AbstractTwoSidedCard {
     protected static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(makeID("Spark"));
-
+    protected static boolean affectSecondMagic = false;
     private static ArrayList<TooltipInfo> SparkBreathTooltip;
 
     public AbstractSparkBreathCard(String cardID, CardType typeA, CardType typeB, CardRarity rarity, CardTarget targetA, CardTarget targetB, boolean generatePreview){
@@ -62,18 +62,8 @@ public abstract class AbstractSparkBreathCard extends AbstractTwoSidedCard {
         }
         changeToBack(changeToBreath);
     }
-    /*
-    @Override
-    public void changeToBack(boolean changeToBack){
-        if (!changeToBack) { // change to Spark
-            tags.add(CustomTags.SPARK);
-            tags.remove(CustomTags.BREATH);
-        } else { // change to Breath
-            tags.add(CustomTags.BREATH);
-            tags.remove(CustomTags.SPARK);
-        }
-        super.changeToBack(changeToBack);
-    }
 
-     */
+    public static boolean isAffectSecondMagic() {
+        return affectSecondMagic;
+    }
 }

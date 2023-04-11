@@ -43,6 +43,8 @@ public class InfernalBreath extends AbstractEasyCard {
 
             baseDamage = realBaseDamage; //restore the realBaseDamage
             isDamageModified = (damage != baseDamage);
+        } else {
+            super.calculateCardDamage(m);
         }
     }
 
@@ -56,6 +58,8 @@ public class InfernalBreath extends AbstractEasyCard {
 
             baseDamage = realBaseDamage; //restore the realBaseDamage
             isDamageModified = (damage != baseDamage);
+        } else {
+            super.applyPowers();
         }
     }
 

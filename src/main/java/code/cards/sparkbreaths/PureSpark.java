@@ -1,5 +1,7 @@
 package code.cards.sparkbreaths;
 
+import basemod.helpers.CardModifierManager;
+import code.cardmodifiers.BreathModifier;
 import code.cards.AbstractTwoSidedCard;
 import code.powers.EmberPower;
 import code.powers.PridePower;
@@ -18,14 +20,12 @@ public class PureSpark extends AbstractSparkBreathCard {
 
     //Spark Stuff
     private final static int SPARK_DAMAGE = 1;
-    private final static int UPGRADE_SPARK_DAMAGE = 0;
     private final static int SPARK_EMBER_GAIN = 1;
     private final static int SPARK_PRIDE_GAIN = 3;
     private final static int UPGRADE_SPARK_PRIDE_GAIN = 0;
 
     //Breath Stuff
     private final static int BREATH_DAMAGE = 10;
-    private final static int UPGRADE_BREATH_DAMAGE = 5;
     private final static int BREATH_EMBER_MULTIPLIER = 1;
     private final static int BREATH_PRIDE_GAIN = 10;
     private final static int UPGRADE_BREATH_PRIDE_GAIN = 5;
@@ -35,8 +35,9 @@ public class PureSpark extends AbstractSparkBreathCard {
         setDamage(SPARK_DAMAGE, BREATH_DAMAGE);
         setMagic(SPARK_EMBER_GAIN, BREATH_EMBER_MULTIPLIER);
         setSecondMagic(SPARK_PRIDE_GAIN, BREATH_PRIDE_GAIN);
-
         initializeSide();
+        affectSecondMagic = true;
+        CardModifierManager.addModifier(this, new BreathModifier());
     }
 
     public PureSpark() {
@@ -65,46 +66,7 @@ public class PureSpark extends AbstractSparkBreathCard {
     }
 
     @Override
-    public void calculateCardDamage(AbstractMonster m){
-        if (isFront) {
-            super.calculateCardDamage(m);
-        } else {
-            AbstractPower ember = adp().getPower(EmberPower.POWER_ID);
-            if (ember != null) {
-                int realBaseDamage = baseDamage; //temp store realBaseDamage b/c baseDamage is used in card damage calculations
-                baseDamage = baseDamage + (magicNumber * ember.amount);
-                super.calculateCardDamage(m);
-                baseDamage = realBaseDamage; //restore the realBaseDamage
-                isDamageModified = (damage != baseDamage);
-
-                secondMagic = baseSecondMagic + (magicNumber * ember.amount);
-                isSecondMagicModified = (secondMagic != baseSecondMagic);
-            }
-        }
-    }
-
-    @Override
-    public void applyPowers() {
-        if (isFront) {
-            super.applyPowers();
-        } else {
-            AbstractPower ember = adp().getPower(EmberPower.POWER_ID);
-            if (ember != null) {
-                int realBaseDamage = baseDamage; //temp store realBaseDamage b/c baseDamage is used in card damage calculations
-                baseDamage = baseDamage + (magicNumber * ember.amount);
-                super.applyPowers();
-                baseDamage = realBaseDamage; //restore the realBaseDamage
-                isDamageModified = (damage != baseDamage);
-
-                secondMagic = baseSecondMagic + (magicNumber * ember.amount);
-                isSecondMagicModified = (secondMagic != baseSecondMagic);
-            }
-        }
-    }
-
-    @Override
     public void upp() {
-        upgradeDamage(UPGRADE_SPARK_DAMAGE, UPGRADE_BREATH_DAMAGE);
         upgradeSecondMagic(UPGRADE_SPARK_PRIDE_GAIN, UPGRADE_BREATH_PRIDE_GAIN);
         descriptionA = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();

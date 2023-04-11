@@ -1,5 +1,7 @@
 package code.cards.sparkbreaths;
 
+import basemod.helpers.CardModifierManager;
+import code.cardmodifiers.BreathModifier;
 import code.cards.AbstractTwoSidedCard;
 import code.powers.EmberPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -34,8 +36,8 @@ public class BarrageSpark extends AbstractSparkBreathCard {
         setDamage(SPARK_DAMAGE, BREATH_DAMAGE);
         setMagic(SPARK_EMBER_GAIN, BREATH_EMBER_MULTIPLIER);
         setSecondMagic(SPARK_NUMBER_OF_HITS, BREATH_NUMBER_OF_HITS);
-
         initializeSide();
+        CardModifierManager.addModifier(this, new BreathModifier());
     }
 
     public BarrageSpark() {
@@ -63,38 +65,6 @@ public class BarrageSpark extends AbstractSparkBreathCard {
             atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
         }
         checkEmberTrigger();
-    }
-
-    @Override
-    public void calculateCardDamage(AbstractMonster m){
-        if (isFront) {
-            super.calculateCardDamage(m);
-        } else {
-            AbstractPower ember = adp().getPower(EmberPower.POWER_ID);
-            if (ember != null) {
-                int realBaseDamage = baseDamage; //temp store realBaseDamage b/c baseDamage is used in card damage calculations
-                baseDamage = baseDamage + ember.amount;
-                super.calculateCardDamage(m);
-                baseDamage = realBaseDamage; //restore the realBaseDamage
-                isDamageModified = (damage != baseDamage);
-            }
-        }
-    }
-
-    @Override
-    public void applyPowers() {
-        if (isFront) {
-            super.applyPowers();
-        } else {
-            AbstractPower ember = adp().getPower(EmberPower.POWER_ID);
-            if (ember != null) {
-                int realBaseDamage = baseDamage; //temp store realBaseDamage b/c baseDamage is used in card damage calculations
-                baseDamage = baseDamage + ember.amount;
-                super.applyPowers();
-                baseDamage = realBaseDamage; //restore the realBaseDamage
-                isDamageModified = (damage != baseDamage);
-            }
-        }
     }
 
     @Override

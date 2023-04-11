@@ -1,5 +1,7 @@
 package code.cards.sparkbreaths;
 
+import basemod.helpers.CardModifierManager;
+import code.cardmodifiers.BreathModifier;
 import code.cards.AbstractTwoSidedCard;
 import code.powers.EmberPower;
 import code.util.DragonUtils;
@@ -20,18 +22,22 @@ public class CrystallineSpark extends AbstractSparkBreathCard {
     private final static int SPARK_DAMAGE = 1;
     private final static int UPGRADE_SPARK_DAMAGE = 0;
     private final static int SPARK_EMBER_GAIN = 1;
+    private final static int SPARK_GEM_GAIN = 1;
 
     //Breath Stuff
     private final static int BREATH_DAMAGE = 10;
     private final static int UPGRADE_BREATH_DAMAGE = 5;
     private final static int BREATH_EMBER_MULTIPLIER = 1;
+    private final static int BREATH_GEM_GAIN = 1;
 
     public CrystallineSpark(boolean needsPreview) {
         super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CardTarget.ALL_ENEMY, needsPreview);
         setDamage(SPARK_DAMAGE, BREATH_DAMAGE);
         setMagic(SPARK_EMBER_GAIN, BREATH_EMBER_MULTIPLIER);
-
+        setSecondMagic(SPARK_GEM_GAIN, BREATH_GEM_GAIN);
         initializeSide();
+        affectSecondMagic = true;
+        CardModifierManager.addModifier(this, new BreathModifier());
     }
 
     public CrystallineSpark() {
@@ -53,8 +59,7 @@ public class CrystallineSpark extends AbstractSparkBreathCard {
             }
         } else { // Breath
             allDmg(AbstractGameAction.AttackEffect.FIRE);
-            for (int i = 0; i <= pwrAmt(p, EmberPower.POWER_ID); i++) {
-                //i <= pwrAmt instead of i < pwrAmt because there's a base 1 gem before consuming Ember for bonus gems
+            for (int i = 0; i < secondMagic; i++) {
                 makeInHand(DragonUtils.returnTrulyRandomCardWithTagInCombat(DragonUtils.CustomTags.GEM).makeCopy());
             }
             atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
