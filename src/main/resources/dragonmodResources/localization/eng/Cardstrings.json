@@ -285,8 +285,8 @@
     "DESCRIPTION": "Double an enemy's ${ModID}:Cauterize. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Triple an enemy's ${ModID}:Cauterize. NL Exhaust."
   },
-  "${ModID}:TakeFlight": {
-    "NAME": "Take Flight",
+  "${ModID}:Fly": {
+    "NAME": "Fly",
     "DESCRIPTION": "Prevent the next time you would lose HP next turn. NL Exhaust."
   },
   "${ModID}:CrashLanding": {
@@ -319,7 +319,7 @@
     "DESCRIPTION": "Whenever you ${ModID}:Hoard a card, deal !M! damage to ALL enemies."
   },
   "${ModID}:SpikyScales": {
-    "NAME": "SpikyScales",
+    "NAME": "Spiky Scales",
     "DESCRIPTION": "Whenever you are attacked, deal !M! damage back, increased by ${ModID}:Cauterize."
   },
   "${ModID}:CauterizingSpark": {
@@ -368,7 +368,7 @@
     "DESCRIPTION": "Draw !M! cards. NL ${ModID}:Shed !${ModID}:m2!. NL Exhaust."
   },
   "${ModID}:FavoriteToy": {
-    "NAME": "FavoriteToy",
+    "NAME": "Favorite Toy",
     "DESCRIPTION": "Choose a card in your draw pile. At the beginning of your next !M! turns, add a copy of that card into your hand. Exhaust."
   },
   "${ModID}:Inferno": {
