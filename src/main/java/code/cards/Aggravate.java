@@ -31,6 +31,6 @@ public class Aggravate extends AbstractEasyCard{
 
     public void upp() {
         rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-        initialize();
+        initializeDescription();
     }
 }

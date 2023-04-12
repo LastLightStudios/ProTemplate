@@ -369,7 +369,7 @@
   },
   "${ModID}:FavoriteToy": {
     "NAME": "Favorite Toy",
-    "DESCRIPTION": "Choose a card in your draw pile. At the beginning of your next !M! turns, add a copy of that card into your hand. Exhaust."
+    "DESCRIPTION": "Choose a card in your hand. At the beginning of your next !M! turns, add a copy of that card into your hand. Exhaust."
   },
   "${ModID}:Inferno": {
     "NAME": "Inferno",

@@ -16,7 +16,7 @@ public class FavoriteToy extends AbstractEasyCard {
     public final static String ID = makeID("FavoriteToy");
     public static final String[] UIStrings = CardCrawlGame.languagePack.getUIString(makeID("FavoriteToyScreen")).TEXT;
 
-    private final static int NO_OF_TURNS = 2;
+    private final static int NO_OF_TURNS = 3;
     private final static int NO_OF_CARDS_SELECTED = 1;
     private final static int UPGRADE_COST = 2;
 
@@ -33,8 +33,7 @@ public class FavoriteToy extends AbstractEasyCard {
                 makeInHand(c);
                 applyToSelf(new FavoriteToyPower(adp(), magicNumber, c));
             }
-        }, NO_OF_CARDS_SELECTED, CardGroup.CardGroupType.DRAW_PILE));
-        atb(new ShedAction(p, secondMagic));
+        }, NO_OF_CARDS_SELECTED, CardGroup.CardGroupType.HAND));
     }
 
     public void upp() {
