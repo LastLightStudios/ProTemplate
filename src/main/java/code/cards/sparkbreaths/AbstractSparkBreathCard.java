@@ -19,8 +19,9 @@ import static code.util.Wiz.*;
 
 public abstract class AbstractSparkBreathCard extends AbstractTwoSidedCard {
     protected static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(makeID("Spark"));
-    protected static boolean affectSecondMagic = false;
-    private static ArrayList<TooltipInfo> SparkBreathTooltip;
+
+    private ArrayList<TooltipInfo> SparkBreathTooltip;
+    protected boolean affectSecondMagic = false;
 
     public AbstractSparkBreathCard(String cardID, CardType typeA, CardType typeB, CardRarity rarity, CardTarget targetA, CardTarget targetB, boolean generatePreview){
         super(cardID, 0, 2, typeA, typeB, rarity, targetA, targetB, DragonCharacterFile.Enums.DRAGON_COLOR, generatePreview);
@@ -67,7 +68,7 @@ public abstract class AbstractSparkBreathCard extends AbstractTwoSidedCard {
         changeToBack(changeToBreath);
     }
 
-    public static boolean isAffectSecondMagic() {
+    public boolean isAffectSecondMagic() {
         return affectSecondMagic;
     }
 }

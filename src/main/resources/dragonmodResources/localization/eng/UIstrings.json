@@ -36,8 +36,8 @@
       "Shed",
       "Reduces #ySheddable #yDebuffs.",
       "Sheddable Debuffs",
-      "#yNegative #yEmber, #yNegative #yStrength, #yNegative #yDexterity, #yStrength #yDown, #yDexterity #yDown, #yBurning #yScales #yDown, #yWeak, #yVulnerable, #yFrail, #yDraw #yReduction, #yNo #yBlock, #No #Energy.",
-      "#yNegative #yEmber, #yNegative #yStrength, #yNegative #yDexterity, #yNegative #yFocuse, #yStrength #yDown, #yDexterity #yDown, #yBurning #yScales #yDown, #yWeak, #yVulnerable, #yFrail, #yDraw #yReduction, #yNo #yBlock, #No #Energy."
+      "#yNegative #yEmber, #yNegative #yStrength, #yNegative #yDexterity, #yStrength #yDown, #yDexterity #yDown, #yBurning #yScales #yDown, #yWeak, #yVulnerable, #yFrail, #yDraw #yReduction, #yNo #yBlock, #yNo #yEnergy.",
+      "#yNegative #yEmber, #yNegative #yStrength, #yNegative #yDexterity, #yNegative #yFocuse, #yStrength #yDown, #yDexterity #yDown, #yBurning #yScales #yDown, #yWeak, #yVulnerable, #yFrail, #yDraw #yReduction, #yNo #yBlock, #yNo #yEnergy."
     ]
   },
   "${ModID}:TradeOfferScreen": {

@@ -1,5 +1,7 @@
 package code.cards.sparkbreaths;
 
+import basemod.helpers.CardModifierManager;
+import code.cardmodifiers.BreathModifier;
 import code.cards.AbstractTwoSidedCard;
 import code.powers.EmberPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -33,8 +35,8 @@ public class FocusedSpark extends AbstractSparkBreathCard {
         super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CardTarget.ENEMY, needsPreview);
         setDamage(SPARK_DAMAGE, BREATH_DAMAGE);
         setMagic(SPARK_EMBER_GAIN, BREATH_EMBER_MULTIPLIER);
-
         initializeSide();
+        CardModifierManager.addModifier(this, new BreathModifier());
     }
 
     public FocusedSpark() {
@@ -48,7 +50,12 @@ public class FocusedSpark extends AbstractSparkBreathCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (isFront) {
-            dmg(m, AbstractGameAction.AttackEffect.FIRE);
+            for (AbstractMonster monster : getEnemies()){
+                dmg(m, AbstractGameAction.AttackEffect.FIRE);
+            }
+            if (getEnemies().size() > 2){
+                atb(new SFXAction("ATTACK_BOWLING"));
+            }
             applyToSelf(new EmberPower(p, magicNumber));
             if(upgraded){
                 atb(new DrawCardAction(1));
@@ -63,38 +70,6 @@ public class FocusedSpark extends AbstractSparkBreathCard {
             atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
         }
         checkEmberTrigger();
-    }
-
-    @Override
-    public void calculateCardDamage(AbstractMonster m){
-        if (isFront) {
-            super.calculateCardDamage(m);
-        } else {
-            AbstractPower ember = adp().getPower(EmberPower.POWER_ID);
-            if (ember != null) {
-                int realBaseDamage = baseDamage; //temp store realBaseDamage b/c baseDamage is used in card damage calculations
-                baseDamage = baseDamage + ember.amount;
-                super.calculateCardDamage(m);
-                baseDamage = realBaseDamage; //restore the realBaseDamage
-                isDamageModified = (damage != baseDamage);
-            }
-        }
-    }
-
-    @Override
-    public void applyPowers() {
-        if (isFront) {
-            super.applyPowers();
-        } else {
-            AbstractPower ember = adp().getPower(EmberPower.POWER_ID);
-            if (ember != null) {
-                int realBaseDamage = baseDamage; //temp store realBaseDamage b/c baseDamage is used in card damage calculations
-                baseDamage = baseDamage + ember.amount;
-                super.applyPowers();
-                baseDamage = realBaseDamage; //restore the realBaseDamage
-                isDamageModified = (damage != baseDamage);
-            }
-        }
     }
 
     @Override

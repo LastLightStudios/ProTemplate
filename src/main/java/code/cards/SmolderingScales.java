@@ -18,7 +18,7 @@ public class SmolderingScales extends AbstractEasyCard {
 
 
     public SmolderingScales() {
-        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, DRAGON_COLOR);
+        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, DRAGON_COLOR);
         baseBlock = BLOCK;
         baseMagicNumber = magicNumber = EMBER_GAIN;
     }
