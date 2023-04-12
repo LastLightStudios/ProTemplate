@@ -138,7 +138,6 @@ public class HoardCardAction extends AbstractGameAction {
                     }
                 }
                 for (int i = 0; i < amount; i++){
-
                     AbstractCard card = adp().hand.getRandomCard(AbstractDungeon.cardRandomRng);
                     listOfHoardedCards.add(card);
                     adp().hand.moveToExhaustPile(card);

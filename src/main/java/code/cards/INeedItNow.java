@@ -31,7 +31,7 @@ public class INeedItNow extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(UPGRADE_TURN_PENALTY);
+        upgradeSecondMagic(UPGRADE_TURN_PENALTY);
         rawDescription = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
     }

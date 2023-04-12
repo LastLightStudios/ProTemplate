@@ -27,16 +27,17 @@ public class NoEnergyPower extends AbstractEasyPower {
         loadRegion("no_stance");
     }
 
-    public void atTurnStartPostDraw() {
+    @Override
+    public void atStartOfTurnPostDraw() {
         addToBot(new AbstractGameAction() {
             public void update() {
-                this.isDone = true;
                 addToBot(new AbstractGameAction() {
                     public void update() {
                         allowEnergyGain = false;
                         this.isDone = true;
                     }
                 });
+                this.isDone = true;
             }
         });
     }

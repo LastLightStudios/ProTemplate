@@ -121,8 +121,8 @@
   },
   "${ModID}:INeedItNow": {
     "NAME": "I Need It Now!",
-    "DESCRIPTION": "Gain [E] [E]. NL You cannot gain [E] during your turn for !M! turns.",
-    "UPGRADE_DESCRIPTION": "Gain [E] [E]. NL You cannot gain [E] during your turn for !M! turn."
+    "DESCRIPTION": "Gain [E] [E]. NL You cannot gain [E] during your turn for !${ModID}:m2! turns.",
+    "UPGRADE_DESCRIPTION": "Gain [E] [E]. NL You cannot gain [E] during your turn for !${ModID}:m2! turn."
   },
   "${ModID}:TreasureScale": {
     "NAME": "Treasure Scale",
