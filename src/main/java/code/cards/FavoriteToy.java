@@ -30,7 +30,6 @@ public class FavoriteToy extends AbstractEasyCard {
         atb(new MultiGroupSelectAction(UIStrings[0], (list, map) ->
         {
             for (AbstractCard c : list) {
-                makeInHand(c);
                 applyToSelf(new FavoriteToyPower(adp(), magicNumber, c));
             }
         }, NO_OF_CARDS_SELECTED, CardGroup.CardGroupType.HAND));
