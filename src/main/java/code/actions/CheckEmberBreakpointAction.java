@@ -24,7 +24,7 @@ public class CheckEmberBreakpointAction extends AbstractGameAction {
             if (ember.amount >= getEmberBreakpoint() && changingCard.isFront()){
                 // if it is a Spark and ember is at or above the breakpoint, transform to Breath
                 att(new TransformTwoSidedCardAction(changingCard, true, Color.valueOf("cc5500")));
-            } else if (ember.amount < getEmberBreakpoint() && changingCard.isFront()) {
+            } else if (ember.amount < getEmberBreakpoint() && !changingCard.isFront()) {
                 // if it is a Breath and below the breakpoint, transform to a Spark
                 att(new TransformTwoSidedCardAction(changingCard, false, Color.valueOf("cc5500")));
             }

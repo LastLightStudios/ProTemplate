@@ -311,8 +311,8 @@
   },
   "${ModID}:MoreMoreMore": {
     "NAME": "More. More! More!!",
-    "DESCRIPTION": "Whenever you draw a ${ModID}:Gem, draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Whenever you draw a ${ModID}:Gem, draw !M! cards."
+    "DESCRIPTION": "Whenever a card is ${ModID}:Hoarded, draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Whenever a card is ${ModID}:Hoarded, draw !M! cards."
   },
   "${ModID}:MonstrousGreed": {
     "NAME": "Monstrous Greed",

@@ -1,5 +1,7 @@
 package code.powers;
 
+import code.cards.sparkbreaths.AbstractSparkBreathCard;
+import code.util.DragonUtils;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -22,6 +24,7 @@ public class FavoriteToyPower extends AbstractEasyPower {
     public FavoriteToyPower(AbstractCreature owner, int amount, AbstractCard copyMe) {
         super(POWER_ID, NAME, PowerType.BUFF, true, owner, amount);
         loadRegion("nightmare");
+        priority = DragonUtils.PowerPriorities.NO_ENERGY_PRIORITY;
         this.card = copyMe.makeStatEquivalentCopy();
         this.card.resetAttributes();
         updateDescription();
@@ -29,6 +32,9 @@ public class FavoriteToyPower extends AbstractEasyPower {
 
     @Override
     public void atStartOfTurn(){
+        if (card instanceof AbstractSparkBreathCard){
+            ((AbstractSparkBreathCard) card).checkEmberTriggerTop();
+        }
         makeInHand(card);
         atb(new ReducePowerAction(adp(), adp(), POWER_ID, 1));
     }
@@ -37,7 +43,7 @@ public class FavoriteToyPower extends AbstractEasyPower {
     public void updateDescription() {
         if (card != null){ //this is a fix for when the super calls updateDescription() before card has been assigned
             if (amount == 1){
-                description = DESCRIPTIONS[0] + FontHelper.colorString(card.name, "y");
+                description = DESCRIPTIONS[0] + FontHelper.colorString(card.name, "y") + DESCRIPTIONS[1];
             } else {
                 description = DESCRIPTIONS[0] + FontHelper.colorString(card.name, "y") + DESCRIPTIONS[2] + amount + DESCRIPTIONS[3];
             }

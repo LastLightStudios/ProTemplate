@@ -1,6 +1,7 @@
 package code.powers;
 
 
+import code.actions.CheckEmberBreakpointAction;
 import code.actions.TransformTwoSidedCardAction;
 import code.cards.AbstractTwoSidedCard;
 import code.cards.sparkbreaths.AbstractSparkBreathCard;
@@ -79,8 +80,8 @@ public class EmberPower extends AbstractEasyPower {
 
     public void swapSparkCards(){ // Swap Sparks to Breaths
         for (AbstractCard c : Wiz.getAllCardsInCardGroups(true, true)){
-            if (DragonUtils.isSpark(c) && c instanceof AbstractTwoSidedCard){
-                atb(new TransformTwoSidedCardAction((AbstractTwoSidedCard) c, true, Color.valueOf("cc5500")));
+            if (c instanceof AbstractSparkBreathCard){
+                att(new CheckEmberBreakpointAction((AbstractSparkBreathCard)c));
             }
         }
         loadRegion("doubleDamage");
@@ -88,8 +89,8 @@ public class EmberPower extends AbstractEasyPower {
 
     public void swapBreathCards(){ // Swap Breaths to Sparks
         for (AbstractCard c : Wiz.getAllCardsInCardGroups(true, true)){
-            if (DragonUtils.isBreath(c) && c instanceof AbstractTwoSidedCard){
-                atb(new TransformTwoSidedCardAction((AbstractTwoSidedCard) c, false, Color.valueOf("cc5500")));
+            if (c instanceof AbstractSparkBreathCard){
+                att(new CheckEmberBreakpointAction((AbstractSparkBreathCard)c));
             }
         }
         loadRegion("vigor");
@@ -113,6 +114,8 @@ public class EmberPower extends AbstractEasyPower {
     public void onVictory(){
         swapBreathCards();
         this.amount = 0;
+        //I don't think the next 3 lines are neccesary but at this point I'm kinda afraid to take them out and find out it doesn't work later
+        //the previous line should be the one that's actually fixing it, though.
         AbstractGameAction hailMary = new RemoveSpecificPowerAction(owner, owner, POWER_ID);
         hailMary.actionType = AbstractGameAction.ActionType.DAMAGE;
         atb(hailMary);

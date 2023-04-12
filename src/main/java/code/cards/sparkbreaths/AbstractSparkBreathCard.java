@@ -52,6 +52,10 @@ public abstract class AbstractSparkBreathCard extends AbstractTwoSidedCard {
         atb(new CheckEmberBreakpointAction(this));
     }
 
+    public void checkEmberTriggerTop(){
+        att(new CheckEmberBreakpointAction(this));
+    }
+
     // call this at the end of the Card constructor
     public void initializeSide() {
         boolean changeToBreath = false;

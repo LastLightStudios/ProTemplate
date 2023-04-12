@@ -1,15 +1,17 @@
 package code.powers;
 
-import code.util.DragonUtils;
+import code.interfaces.HoardingPowerInterface;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 
+import java.util.List;
+
 import static code.ModFile.makeID;
 
-public class MoreMoreMorePower extends AbstractEasyPower {
+public class MoreMoreMorePower extends AbstractEasyPower implements HoardingPowerInterface {
 
     public static final String POWER_ID = makeID("MoreMoreMorePower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -24,18 +26,20 @@ public class MoreMoreMorePower extends AbstractEasyPower {
 
     @Override
     public void updateDescription() {
-        if (this.amount == 1) {
-            this.description = powerStrings.DESCRIPTIONS[0] + powerStrings.DESCRIPTIONS[1];
+        if (amount == 1) {
+            description = powerStrings.DESCRIPTIONS[0] + amount + powerStrings.DESCRIPTIONS[1];
         } else {
-            this.description = powerStrings.DESCRIPTIONS[0] + this.amount + powerStrings.DESCRIPTIONS[2];
+            description = powerStrings.DESCRIPTIONS[0] + amount + powerStrings.DESCRIPTIONS[2];
         }
     }
 
     @Override
-    public void onCardDraw(AbstractCard card) {
-        if (card.hasTag(DragonUtils.CustomTags.GEM) && !this.owner.hasPower("No Draw")) {
-            flash();
-            addToBot(new DrawCardAction(this.owner, this.amount));
+    public void onHoard(List<AbstractCard> hoardedCardsList) {
+        if (!owner.hasPower("No Draw")){
+            for (AbstractCard c : hoardedCardsList){
+                flash();
+                addToBot(new DrawCardAction(owner, amount));
+            }
         }
     }
 }

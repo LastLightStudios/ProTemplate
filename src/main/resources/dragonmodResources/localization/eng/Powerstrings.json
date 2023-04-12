@@ -106,8 +106,8 @@
   "${ModID}:MoreMoreMorePower": {
     "NAME": "More. More! More!!",
     "DESCRIPTIONS": [
-      "Whenever you draw a #yGem, draw",
-      " a card.",
+      "Whenever a card is #yHoarded, draw",
+      " card.",
       " cards."
     ]
   },
