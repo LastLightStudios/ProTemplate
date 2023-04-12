@@ -1,10 +1,14 @@
 package code.cards;
 
+import basemod.helpers.TooltipInfo;
 import code.actions.HoardCardAction;
 import code.actions.ShedAction;
+import code.util.DragonUtils;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import java.util.List;
 
 import static code.DragonCharacterFile.Enums.DRAGON_COLOR;
 import static code.ModFile.makeID;
@@ -25,6 +29,15 @@ public class RenovateNest extends AbstractEasyCard {
     }
 
     @Override
+    public List<TooltipInfo> getCustomTooltips() {
+        if (upgraded){
+            return DragonUtils.getSheddableDebuffTooltips();
+        } else {
+            return null;
+        }
+    }
+
+    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new HoardCardAction(magicNumber));
         atb(new GainEnergyAction(ENERGY_GAIN));
@@ -35,6 +48,6 @@ public class RenovateNest extends AbstractEasyCard {
 
     public void upp() {
         rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-        initialize();
+        initializeDescription();
     }
 }

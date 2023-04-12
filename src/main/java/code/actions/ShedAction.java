@@ -3,6 +3,7 @@ package code.actions;
 import code.powers.DrawLessNextTurnPower;
 import code.powers.EmberPower;
 import code.powers.LoseBurningScalesPower;
+import code.powers.NoEnergyPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -39,7 +40,7 @@ public class ShedAction extends AbstractGameAction {
                     }
                 } else if ((p instanceof LoseStrengthPower) || (p instanceof LoseDexterityPower) || (p instanceof LoseBurningScalesPower) ||
                         (p instanceof WeakPower) || (p instanceof VulnerablePower) || (p instanceof FrailPower) ||
-                        (p instanceof DrawReductionPower) || (p instanceof DrawLessNextTurnPower) || (p instanceof NoBlockPower)){
+                        (p instanceof DrawReductionPower) || (p instanceof DrawLessNextTurnPower) || (p instanceof NoBlockPower) || (p instanceof NoEnergyPower)){
                     this.addToTop(new ReducePowerAction(this.c, this.c, p.ID, amount));
                 }
             }

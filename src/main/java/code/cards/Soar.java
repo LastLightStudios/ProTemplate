@@ -1,9 +1,13 @@
 package code.cards;
 
+import basemod.helpers.TooltipInfo;
 import code.actions.ShedAction;
+import code.util.DragonUtils;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import java.util.List;
 
 import static code.ModFile.makeID;
 import static code.util.Wiz.atb;
@@ -21,6 +25,11 @@ public class Soar extends AbstractEasyCard {
         baseMagicNumber = magicNumber = CARD_DRAW;
         baseSecondMagic = secondMagic = SHED_VALUE;
         exhaust = true;
+    }
+
+    @Override
+    public List<TooltipInfo> getCustomTooltips() {
+        return DragonUtils.getSheddableDebuffTooltips();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

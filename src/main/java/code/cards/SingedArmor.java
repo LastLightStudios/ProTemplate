@@ -38,6 +38,6 @@ public class SingedArmor extends AbstractEasyCard implements HoardingCardInterfa
         upgradeBlock(UPGRADE_BLOCK);
         upgradeMagicNumber(UPGRADE_ENERGY_GAIN);
         rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-        initialize();
+        initializeDescription();
     }
 }
