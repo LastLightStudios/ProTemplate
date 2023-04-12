@@ -132,12 +132,13 @@ public class HoardCardAction extends AbstractGameAction {
                 if (callback != null){
                     callback.accept(new ArrayList<>(adp().hand.group));
                 }
-                for (int i = 0; i < amount; i++){
-                    for (AbstractPower power : adp().powers) {
-                        if (power instanceof HoardingPowerInterface) {
-                            ((HoardingPowerInterface) power).onHoard(listOfHoardedCards);
-                        }
+                for (AbstractPower power : adp().powers) {
+                    if (power instanceof HoardingPowerInterface) {
+                        ((HoardingPowerInterface) power).onHoard(listOfHoardedCards);
                     }
+                }
+                for (int i = 0; i < amount; i++){
+
                     AbstractCard card = adp().hand.getRandomCard(AbstractDungeon.cardRandomRng);
                     listOfHoardedCards.add(card);
                     adp().hand.moveToExhaustPile(card);
@@ -190,13 +191,9 @@ public class HoardCardAction extends AbstractGameAction {
     }
 
     private void hoardCards(List<AbstractCard> cardList){
-        int tmp = cardList.size();
-        for (int i = 0; i < tmp; i++) {
-            // the following for loop doesn't actually do anything xd
-            for (AbstractPower power : adp().powers){
-                if (power instanceof HoardingPowerInterface){
-                    ((HoardingPowerInterface) power).onHoard(cardList);
-                }
+        for (AbstractPower power : adp().powers){
+            if (power instanceof HoardingPowerInterface){
+                ((HoardingPowerInterface) power).onHoard(cardList);
             }
         }
         for (AbstractCard c : cardList){
