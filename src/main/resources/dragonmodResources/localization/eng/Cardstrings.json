@@ -285,6 +285,10 @@
     "DESCRIPTION": "Double an enemy's ${ModID}:Cauterize. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Triple an enemy's ${ModID}:Cauterize. NL Exhaust."
   },
+  "${ModID}:Inhale": {
+    "NAME": "Inhale",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Ember. NL The next attack you play costs 0."
+  },
   "${ModID}:Fly": {
     "NAME": "Fly",
     "DESCRIPTION": "Prevent the next time you would lose HP next turn. NL Exhaust."
