@@ -239,7 +239,7 @@
   },
   "${ModID}:TreasureBath": {
     "NAME": "Treasure Bath",
-    "DESCRIPTION": "Fill your hand with random ${ModID}:Gems."
+    "DESCRIPTION": "Add random ${ModID}:Gems to your hand until you have !M! cards in your hand."
   },
   "${ModID}:TreasureMind": {
     "NAME": "Treasure Mind",
