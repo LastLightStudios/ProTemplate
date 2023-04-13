@@ -13,7 +13,7 @@ import static code.util.Wiz.atb;
 
 public class MoltingNestPower extends AbstractEasyPower {
 
-    public static final String POWER_ID = makeID("ImposingNestPower");
+    public static final String POWER_ID = makeID("MoltingNestPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;

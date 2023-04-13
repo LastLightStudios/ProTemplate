@@ -22,7 +22,7 @@
   "${ModID}:Hoard": {
     "TEXT": [
       "Hoard",
-      "Exhausts and gain #yPride."
+      "Exhausts and gain #yPride based on card's rarity."
     ]
   },
   "${ModID}:Pride": {
