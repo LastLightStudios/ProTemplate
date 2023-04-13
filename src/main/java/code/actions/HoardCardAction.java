@@ -3,6 +3,7 @@ package code.actions;
 import basemod.ReflectionHacks;
 import code.interfaces.HoardingCardInterface;
 import code.interfaces.HoardingPowerInterface;
+import code.patches.CardCounterPatches;
 import code.powers.PridePower;
 import code.util.DragonUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -88,6 +89,7 @@ public class HoardCardAction extends AbstractGameAction {
 
     @Override
     public void update() {
+        listOfHoardedCards.clear();
         if (completed){
             // if (effect.isDone || !AbstractDungeon.topLevelEffects.contains(effect))  where effect is some `private HoardCardEffect effect` I haven't figured out yet
             isDone = true;
@@ -101,6 +103,7 @@ public class HoardCardAction extends AbstractGameAction {
         }
         if (firstCall){
             if (hoardThisCard) {
+                listOfHoardedCards.add(specificCard);
                 // "Hoard this card." means that none of the other branches apply.
                 //TODO ? add a check in here to see if its a duplicated card from double tap/burst...but maybe not, I think the card would still give Pride, just not end up in Exhaust pile
                 applyToSelfTop(new PridePower(adp(), getCardHoardValue(specificCard)));
@@ -114,14 +117,15 @@ public class HoardCardAction extends AbstractGameAction {
                 if (specificCard instanceof HoardingCardInterface){
                     ((HoardingCardInterface) specificCard).triggerOnHoard();
                 }
+                updateCardsDidHoard();
+                CardCounterPatches.cardsHoardedThisTurn += listOfHoardedCards.size();
+                CardCounterPatches.cardsHoardedThisCombat += listOfHoardedCards.size();
             } else if (adp().hand.size() == 0) {
                 // if the hand is empty then there's nothing to Hoard
             } else if (!anyNumber && adp().hand.size() <= amount) {
                 // if the player is required to Hoard more than the remaining cards in their hand
-                amount = adp().hand.size();
-                int tmp = adp().hand.size();
                 if (callback != null){
-                    callback.accept(adp().hand.group);
+                    callback.accept(new ArrayList<>(adp().hand.group));
                 }
                 hoardCards(new ArrayList<>(adp().hand.group));
             } else if (isRandom){
@@ -145,8 +149,11 @@ public class HoardCardAction extends AbstractGameAction {
                     if (card instanceof HoardingCardInterface){
                         ((HoardingCardInterface) card).triggerOnHoard();
                     }
+                    updateCardsDidHoard();
                     applyToSelfTop(new PridePower(adp(), getCardHoardValue(card)));
                 }
+                CardCounterPatches.cardsHoardedThisTurn += listOfHoardedCards.size();
+                CardCounterPatches.cardsHoardedThisCombat += listOfHoardedCards.size();
             } else {
                 // This branch should be for conditions that require the Card Select screen
                 if (amount == 1){
@@ -196,16 +203,38 @@ public class HoardCardAction extends AbstractGameAction {
             }
         }
         for (AbstractCard c : cardList){
+            listOfHoardedCards.add(c);
             adp().hand.moveToExhaustPile(c);
         }
         for (AbstractCard c : cardList){
             if (c instanceof HoardingCardInterface){
                 ((HoardingCardInterface) c).triggerOnHoard();
             }
+            updateCardsDidHoard();
         }
         CardCrawlGame.dungeon.checkForPactAchievement();
         for (AbstractCard c : cardList){
             applyToSelfTop(new PridePower(adp(), getCardHoardValue(c)));
+        }
+        CardCounterPatches.cardsHoardedThisTurn += listOfHoardedCards.size();
+        CardCounterPatches.cardsHoardedThisCombat += listOfHoardedCards.size();
+    }
+
+    private void updateCardsDidHoard(){
+        for (AbstractCard c : adp().hand.group){
+            if (c instanceof HoardingCardInterface){
+                ((HoardingCardInterface) c).didHoard();
+            }
+        }
+        for (AbstractCard c : adp().discardPile.group){
+            if (c instanceof HoardingCardInterface){
+                ((HoardingCardInterface) c).didHoard();
+            }
+        }
+        for (AbstractCard c : adp().drawPile.group){
+            if (c instanceof HoardingCardInterface){
+                ((HoardingCardInterface) c).didHoard();
+            }
         }
     }
 
