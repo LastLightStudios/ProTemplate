@@ -287,7 +287,11 @@
   },
   "${ModID}:Inhale": {
     "NAME": "Inhale",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Ember. NL The next attack you play costs 0."
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! ${ModID}:Ember. NL The next attack you play costs 0."
+  },
+  "${ModID}:Safeguard": {
+    "NAME": "Safeguard",
+    "DESCRIPTION": "Costs 1 less [E] for each card you ${ModID}:Hoard this combat. NL Gain !B! Block."
   },
   "${ModID}:Fly": {
     "NAME": "Fly",
@@ -341,8 +345,8 @@
   },
   "${ModID}:Conflagration": {
     "NAME": "Conflagration",
-    "DESCRIPTION": "Gain X ${ModID}:Ember. NL Apply X ${ModID}:Cauterize. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain X+1 ${ModID}:Ember. NL Apply X+1 ${ModID}:Cauterize. NL Exhaust."
+    "DESCRIPTION": "Gain !M! ${ModID}:Ember X times. NL Apply !${ModID}:m2! ${ModID}:Cauterize X times. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !M! ${ModID}:Ember X times. NL Apply !${ModID}:m2! ${ModID}:Cauterize X times. NL Exhaust."
   },
   "${ModID}:RoaringTemper": {
     "NAME": "Roaring Temper",

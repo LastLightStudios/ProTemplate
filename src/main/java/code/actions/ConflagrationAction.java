@@ -17,8 +17,10 @@ public class ConflagrationAction extends AbstractGameAction {
     private AbstractPlayer p;
     private AbstractMonster m;
     private int energyOnUse = -1;
+    private int emberMultiplier = -1;
+    private int cauterizeMultiplier = -1;
 
-    public ConflagrationAction(AbstractPlayer p, AbstractMonster m, boolean upgraded, boolean freeToPlayOnce, int energyOnUse) {
+    public ConflagrationAction(AbstractPlayer p, AbstractMonster m, boolean upgraded, boolean freeToPlayOnce, int energyOnUse, int emberMultiplier, int cauterizeMultiplier) {
         this.p = p;
         this.m = m;
         this.freeToPlayOnce = freeToPlayOnce;
@@ -26,6 +28,8 @@ public class ConflagrationAction extends AbstractGameAction {
         this.duration = Settings.ACTION_DUR_XFAST;
         this.actionType = AbstractGameAction.ActionType.SPECIAL;
         this.energyOnUse = energyOnUse;
+        this.emberMultiplier = emberMultiplier;
+        this.cauterizeMultiplier = cauterizeMultiplier;
     }
 
     @Override
@@ -40,8 +44,8 @@ public class ConflagrationAction extends AbstractGameAction {
         if (this.upgraded)
             effect++;
         if (effect > 0) {
-            applyToSelf(new EmberPower(p, effect));
-            applyToEnemy(m, new CauterizePower(m, effect));
+            applyToSelf(new EmberPower(p, effect * emberMultiplier));
+            applyToEnemy(m, new CauterizePower(m, effect * cauterizeMultiplier));
             if (!this.freeToPlayOnce)
                 this.p.energy.use(EnergyPanel.totalCount);
         }
