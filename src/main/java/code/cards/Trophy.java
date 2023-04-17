@@ -2,7 +2,7 @@ package code.cards;
 
 import basemod.helpers.TooltipInfo;
 import code.actions.HoardCardAction;
-import code.powers.PostCombatExtraCardRewardPower;
+import code.powers.TrophyRewardPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.UIStrings;
@@ -34,7 +34,7 @@ public class Trophy extends AbstractEasyCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        applyToSelf(new PostCombatExtraCardRewardPower(p, ADDITIONAL_CARD_REWARD));
+        applyToSelf(new TrophyRewardPower(p, ADDITIONAL_CARD_REWARD));
         atb(new HoardCardAction(this));
     }
 

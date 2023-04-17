@@ -4,6 +4,8 @@ import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
+import code.patches.TrophyRewardPatch;
+import code.rewards.TrophyReward;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
@@ -15,6 +17,7 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.rewards.RewardSave;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import code.cards.AbstractEasyCard;
 import code.cards.cardvars.SecondDamage;
@@ -30,7 +33,8 @@ public class ModFile implements
         EditRelicsSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
-        EditCharactersSubscriber {
+        EditCharactersSubscriber,
+        PostInitializeSubscriber {
 
     public static final String modID = "dragonmod";
 
@@ -163,5 +167,17 @@ public class ModFile implements
                 BaseMod.addKeyword(modID, keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
         }
+    }
+
+    @Override
+    public void receivePostInitialize(){
+        BaseMod.registerCustomReward(
+                TrophyRewardPatch.DRAGONMOD_TROPHYREWARD,
+                (rewardSave) -> {
+                    return new TrophyReward();
+                    },
+                (customReward) -> {
+                    return new RewardSave(customReward.type.toString(), null);
+                });
     }
 }

@@ -52,5 +52,11 @@
       "Favorite Toy",
       "add a copy to your hand and at the beginning of the next 2 turns."
     ]
+  },
+  "${ModID}:TrophyItem": {
+    "TEXT": [
+      "Add a card to your deck (Trophy)",
+      "Choose a Card"
+    ]
   }
 }

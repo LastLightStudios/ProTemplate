@@ -106,7 +106,7 @@
   "${ModID}:MoreMoreMorePower": {
     "NAME": "More. More! More!!",
     "DESCRIPTIONS": [
-      "Whenever a card is #yHoarded, draw",
+      "Whenever a card is #yHoarded, draw #b",
       " card.",
       " cards."
     ]
@@ -298,7 +298,7 @@
       " random #yNest cards into your hand."
     ]
   },
-  "${ModID}:PostCombatExtraCardRewardPower": {
+  "${ModID}:TrophyRewardPower": {
     "NAME": "Trophies Collected",
     "DESCRIPTIONS": [
       "At the end of combat, obtain #b",

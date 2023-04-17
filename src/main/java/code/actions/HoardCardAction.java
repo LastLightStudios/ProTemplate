@@ -110,7 +110,6 @@ public class HoardCardAction extends AbstractGameAction {
                 setCardToExhaust(specificCard);
                 for (AbstractPower power : adp().powers) {
                     if (power instanceof HoardingPowerInterface) {
-                        listOfHoardedCards.add(specificCard);
                         ((HoardingPowerInterface) power).onHoard(listOfHoardedCards);
                     }
                 }
