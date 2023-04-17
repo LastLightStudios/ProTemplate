@@ -40,12 +40,12 @@ public class DragonCharacterFile extends CustomPlayer {
 
     public DragonCharacterFile(String name, PlayerClass setClass) {
         super(name, setClass, new CustomEnergyOrb(orbTextures, modID + "Resources/images/char/mainChar/orb/vfx.png", null), new SpriterAnimation(
-                modID + "Resources/images/char/mainChar/static.scml"));
+                modID + "Resources/images/char/mainChar/static.scml")); // new SpriterAnimation(modID + "Resources/images/char/mainChar/static.scml") in place of MAIN_CHAR_IMG
         initializeClass(null,
                 SHOULDER1,
                 SHOULDER2,
                 CORPSE,
-                getLoadout(), 20.0F, -10.0F, 166.0F, 327.0F, new EnergyManager(3));
+                getLoadout(), 20.0F, -25.0F, 166.0F, 327.0F, new EnergyManager(3));
 
 
         dialogX = (drawX + 0.0F * Settings.scale);

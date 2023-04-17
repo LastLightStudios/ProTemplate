@@ -459,8 +459,8 @@
   },
   "${ModID}:HeavenlyNest": {
     "NAME": "Heavenly Nest",
-    "DESCRIPTION": "If you have [E] at the end of your turn, add !M! Miracle into your hand at the start of your next turn.",
-    "UPGRADE_DESCRIPTION": "Put !${ModID}:m2! Miracle into your hand. NL If you have [E] at the end of your turn, add !M! Miracle into your hand at the start of your next turn."
+    "DESCRIPTION": "If you have [E] at the end of your turn, add !M! *Miracle into your hand at the start of your next turn.",
+    "UPGRADE_DESCRIPTION": "Put !${ModID}:m2! Miracle into your hand. NL If you have [E] at the end of your turn, add !M! *Miracle into your hand at the start of your next turn."
   },
   "${ModID}:VolcanicNest": {
     "NAME": "Volcanic Nest",

@@ -44,9 +44,10 @@ public class ModFile implements
 
     public static Color characterColor = Color.valueOf("FFD700"); // This should be changed eventually is "MathUtils.random(), MathUtils.random(), MathUtils.random(), 1" by default
 
-    public static final String SHOULDER1 = modID + "Resources/images/char/mainChar/shoulder.png";
-    public static final String SHOULDER2 = modID + "Resources/images/char/mainChar/shoulder2.png";
-    public static final String CORPSE = modID + "Resources/images/char/mainChar/corpse.png";
+    public static final String MAIN_CHAR_IMG = modID + "Resources/images/char/mainChar/Chibi_dragon_neutral.png";
+    public static final String SHOULDER1 = modID + "Resources/images/char/mainChar/Chibi_dragon_campfire.png";
+    public static final String SHOULDER2 = modID + "Resources/images/char/mainChar/Chibi_dragon_campfire.png";
+    public static final String CORPSE = modID + "Resources/images/char/mainChar/Chibi_dragon_sad.png";
     private static final String ATTACK_S_ART = modID + "Resources/images/512/attack.png";
     private static final String SKILL_S_ART = modID + "Resources/images/512/skill.png";
     private static final String POWER_S_ART = modID + "Resources/images/512/power.png";

@@ -74,7 +74,7 @@
     ]
   },
   "${ModID}:PreparingToFlyPower": {
-    "NAME": "PreparingToFly",
+    "NAME": "Preparing To Fly",
     "DESCRIPTIONS": [
       "At the start of your turn, gain #b",
       " #yFlying."
