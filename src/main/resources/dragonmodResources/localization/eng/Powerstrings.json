@@ -297,5 +297,13 @@
       " random #yNest card into your hand.",
       " random #yNest cards into your hand."
     ]
+  },
+  "${ModID}:PostCombatExtraCardRewardPower": {
+    "NAME": "Trophies Collected",
+    "DESCRIPTIONS": [
+      "At the end of combat, obtain #b",
+      " additional card reward.",
+      " additional card reward."
+    ]
   }
 }
