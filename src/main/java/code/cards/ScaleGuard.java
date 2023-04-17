@@ -28,13 +28,6 @@ public class ScaleGuard extends AbstractEasyCard {
         baseMagicNumber = magicNumber = PRIDE_GAIN;
     }
 
-    @Override
-    public List<TooltipInfo> getCustomTooltips() {
-        ArrayList<TooltipInfo> retVal = new ArrayList<>();
-        retVal.add(new TooltipInfo(prideUIStrings.TEXT[0], prideUIStrings.TEXT[1]));
-        return retVal;
-    }
-
     public void use(AbstractPlayer p, AbstractMonster m) {
         applyToSelf(new PridePower(p, magicNumber));
         atb(new HoardCardAction(CARDS_HOARDED));

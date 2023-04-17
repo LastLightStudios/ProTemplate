@@ -20,7 +20,7 @@ public class MoreMoreMore extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        applyToSelf(new MoreMoreMorePower(p, 1));
+        applyToSelf(new MoreMoreMorePower(p, magicNumber));
     }
 
     public void upp() {

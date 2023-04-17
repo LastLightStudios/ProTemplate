@@ -9,7 +9,7 @@
   },
   "${ModID}:ScaleGuard": {
     "NAME": "Scale Guard",
-    "DESCRIPTION": "Gain !M! ${ModID}:Pride. ${ModID}:Hoard a card."
+    "DESCRIPTION": "Gain !M! ${ModID}:Pride. NL ${ModID}:Hoard a card."
   },
   "${ModID}:BlazingSpark": {
     "NAME": "Blazing Spark",
@@ -17,7 +17,7 @@
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain !M! ${ModID}:Ember. NL Draw 1 card.",
     "EXTENDED_DESCRIPTION": [
       "Blazing Breath",
-      "Deal !D! damage to ALL enemies. NL Consumes all ${ModID}:Ember to deal increase damage by !M! per ${ModID}:Ember."
+      "Deal !D! damage to ALL enemies. NL Consumes all ${ModID}:Ember to increase damage by !M! per ${ModID}:Ember."
     ]
   },
   "${ModID}:SmolderingClaw": {
@@ -26,8 +26,8 @@
   },
   "${ModID}:TreasureClaw": {
     "NAME": "Treasure Claw",
-    "DESCRIPTION": "Deal !D! damage. NL Shuffle a random ${ModID}:Gem into your deck.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Shuffle a random ${ModID}:Gem+ into your deck."
+    "DESCRIPTION": "Deal !D! damage. NL Shuffle a random ${ModID}:Gem into your draw pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Shuffle a random ${ModID}:Gem+ into your draw pile."
   },
   "${ModID}:Wingbeat": {
     "NAME": "Wingbeat",
@@ -126,8 +126,8 @@
   },
   "${ModID}:TreasureScale": {
     "NAME": "Treasure Scale",
-    "DESCRIPTION": "Gain !B! Block. NL Shuffle a random ${ModID}:Gem into your deck.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Shuffle a random ${ModID}:Gem+ into your deck."
+    "DESCRIPTION": "Gain !B! Block. NL Shuffle a random ${ModID}:Gem into your draw pile.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Shuffle a random ${ModID}:Gem+ into your draw pile."
   },
   "${ModID}:MassiveClaw": {
     "NAME": "Massive Claw",
@@ -243,8 +243,8 @@
   },
   "${ModID}:TreasureMind": {
     "NAME": "Treasure Mind",
-    "DESCRIPTION": "Shuffle !${ModID}:m2! ${ModID}:Gem into your deck. NL Draw !M! cards.",
-    "UPGRADE_DESCRIPTION": "Shuffle !${ModID}:m2! ${ModID}:Gems+ into your deck. NL Draw !M! cards."
+    "DESCRIPTION": "Shuffle !${ModID}:m2! ${ModID}:Gem into your draw pile. NL Draw !M! cards.",
+    "UPGRADE_DESCRIPTION": "Shuffle !${ModID}:m2! ${ModID}:Gems+ into your draw pile. NL Draw !M! cards."
   },
   "${ModID}:VolcanicHoard": {
     "NAME": "Volcanic Hoard",
@@ -341,7 +341,7 @@
   },
   "${ModID}:GreedFeed": {
     "NAME": "Greed Feed",
-    "DESCRIPTION": "Ethereal. NL Deal !D! damage. Costs 1 more Energy each time you play this card this combat. NL If Fatal, raise your Max HP by !M!."
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage. Costs 1 more [E] each time you play this card this combat. NL If Fatal, raise your Max HP by !M!."
   },
   "${ModID}:Conflagration": {
     "NAME": "Conflagration",
