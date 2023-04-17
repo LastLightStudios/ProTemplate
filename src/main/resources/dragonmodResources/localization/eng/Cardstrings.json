@@ -192,12 +192,12 @@
   },
   "${ModID}:RadiantSpark": {
     "NAME": "Radiant Spark",
-    "DESCRIPTION": "Deal !D! damage. NL Gain [E]. NL Gain !M! ${ModID}:Ember.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain [E]. NL Gain !M! ${ModID}:Ember. NL Draw 1 card.",
+    "DESCRIPTION": "Deal !D! damage. NL Gain [E]. NL Gain !M! ${ModID}:Ember. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain [E]. NL Gain !M! ${ModID}:Ember. NL Draw 1 card. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       "Radiant Breath",
-      "Deal !D! damage to ALL enemies. NL Gain [E]. NL Consumes all ${ModID}:Ember to deal increase damage by !M! per ${ModID}:Ember.",
-      "Deal !D! damage to ALL enemies. NL Gain [E] [E] . NL Consumes all ${ModID}:Ember to deal increase damage by !M! per ${ModID}:Ember."
+      "Deal !D! damage to ALL enemies. NL Gain [E]. NL Consumes all ${ModID}:Ember to deal increase both effects by !M! per ${ModID}:Ember. NL Exhaust.",
+      "Deal !D! damage to ALL enemies. NL Gain [E]. NL Consumes all ${ModID}:Ember to deal increase both effects by !M! per ${ModID}:Ember. NL Exhaust."
     ]
   },
   "${ModID}:FocusedSpark": {
@@ -257,8 +257,8 @@
   },
   "${ModID}:Rummage": {
     "NAME": "Rummage",
-    "DESCRIPTION": "Draw !M! cards. NL ${ModID}:Hoard !${ModID}:m2! cards.",
-    "UPGRADE_DESCRIPTION": "Gain 2 Pride. NL Draw !M! cards. NL ${ModID}:Hoard !${ModID}:m2! cards."
+    "DESCRIPTION": "Draw !M! card. NL ${ModID}:Hoard !${ModID}:m2! card.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL ${ModID}:Hoard !${ModID}:m2! cards."
   },
   "${ModID}:Sear": {
     "NAME": "Sear",

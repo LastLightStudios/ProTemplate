@@ -45,5 +45,7 @@ public class Rummage extends AbstractEasyCard {
     public void upp() {
         upgradeMagicNumber(UPGRADE_CARD_DRAW);
         upgradeSecondMagic(UPGRADE_CARDS_HOARDED);
+        rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+        initializeDescription();
     }
 }

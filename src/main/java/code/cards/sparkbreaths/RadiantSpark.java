@@ -20,6 +20,7 @@ public class RadiantSpark extends AbstractSparkBreathCard {
 
     //Spark Stuff
     private final static int SPARK_DAMAGE = 1;
+    private final static int UPGRADE_SPARK_DAMAGE = 0;
     private final static int SPARK_EMBER_GAIN = 1;
     private final static int UPGRADE_SPARK_EMBER_GAIN = 0;
     private final static int SPARK_ENERGY_GAIN = 1;
@@ -27,18 +28,21 @@ public class RadiantSpark extends AbstractSparkBreathCard {
 
     //Breath Stuff
     private final static int BREATH_DAMAGE = 10;
+    private final static int UPGRADE_BREATH_DAMAGE = 5;
     private final static int BREATH_EMBER_MULTIPLIER = 1;
     private final static int UPGRADE_BREATH_EMBER_MULTIPLIER = 1;
     private final static int BREATH_ENERGY_GAIN = 1; //Energy Gain
     private final static int UPGRADE_BREATH_ENERGY_GAIN = 1; //Energy Gain increase
 
     public RadiantSpark(boolean needsPreview) {
-        super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CardTarget.ALL_ENEMY, needsPreview);
+        super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY, CardTarget.ALL_ENEMY, needsPreview);
         setDamage(SPARK_DAMAGE, BREATH_DAMAGE);
         setMagic(SPARK_EMBER_GAIN, BREATH_EMBER_MULTIPLIER);
         setSecondMagic(SPARK_ENERGY_GAIN, BREATH_ENERGY_GAIN);
         initializeSide();
+        affectSecondMagic = true;
         CardModifierManager.addModifier(this, new BreathModifier());
+        exhaust = true;
     }
 
     public RadiantSpark() {
@@ -68,7 +72,7 @@ public class RadiantSpark extends AbstractSparkBreathCard {
 
     @Override
     public void upp() {
-        upgradeMagicNumber(UPGRADE_SPARK_EMBER_GAIN, UPGRADE_BREATH_EMBER_MULTIPLIER);
+        upgradeDamage(UPGRADE_SPARK_DAMAGE, UPGRADE_BREATH_DAMAGE);
         upgradeSecondMagic(UPGRADE_SPARK_ENERGY_GAIN, UPGRADE_BREATH_ENERGY_GAIN);
         descriptionA = cardStrings.UPGRADE_DESCRIPTION;
         descriptionB = cardStrings.EXTENDED_DESCRIPTION[2];
