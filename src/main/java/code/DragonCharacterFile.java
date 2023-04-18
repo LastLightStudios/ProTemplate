@@ -40,7 +40,7 @@ public class DragonCharacterFile extends CustomPlayer {
 
     public DragonCharacterFile(String name, PlayerClass setClass) {
         super(name, setClass, new CustomEnergyOrb(orbTextures, modID + "Resources/images/char/mainChar/orb/vfx.png", null), new SpriterAnimation(
-                modID + "Resources/images/char/mainChar/static.scml")); // new SpriterAnimation(modID + "Resources/images/char/mainChar/static.scml") in place of MAIN_CHAR_IMG
+                modID + "Resources/images/char/mainChar/static.scml"));
         initializeClass(null,
                 SHOULDER1,
                 SHOULDER2,

@@ -32,23 +32,6 @@ public class Inferno extends AbstractEasyCard {
             makeInHand(new InfernalBreath());
         }
     }
-/*
-    public boolean canUse(AbstractPlayer p, AbstractMonster m){
-        boolean canUse = super.canUse(p, m);
-        if (!canUse){
-            return false;
-        }
-        AbstractPower ember = adp().getPower(EmberPower.POWER_ID);
-        if (ember != null){
-            if (ember.amount >= getEmberBreakpoint()){
-                canUse = false;
-                cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
-            }
-        }
-        return canUse;
-    }
-
- */
 
     public void upp() {
         rawDescription = cardStrings.UPGRADE_DESCRIPTION;

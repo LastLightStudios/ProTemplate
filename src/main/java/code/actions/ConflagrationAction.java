@@ -41,8 +41,11 @@ public class ConflagrationAction extends AbstractGameAction {
             effect += 2;
             this.p.getRelic("Chemical X").flash();
         }
+        /**
+         * this is leftover from when the upgrade took it from X to X + 1, now its 2X and 3X, and the upgrade is implicitly passed in via the multipliers
         if (this.upgraded)
             effect++;
+         **/
         if (effect > 0) {
             applyToSelf(new EmberPower(p, effect * emberMultiplier));
             applyToEnemy(m, new CauterizePower(m, effect * cauterizeMultiplier));

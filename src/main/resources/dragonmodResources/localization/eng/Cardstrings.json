@@ -235,7 +235,7 @@
   },
   "${ModID}:Armorfryer": {
     "NAME": "Armorfryer",
-    "DESCRIPTION": "Remove all block from ALL enemies. NL Deal !D! damage to ALL enemies."
+    "DESCRIPTION": "Remove all Block from ALL enemies. NL Deal !D! damage to ALL enemies."
   },
   "${ModID}:TreasureBath": {
     "NAME": "Treasure Bath",
@@ -291,11 +291,11 @@
   },
   "${ModID}:Safeguard": {
     "NAME": "Safeguard",
-    "DESCRIPTION": "Costs 1 less [E] for each card you ${ModID}:Hoard this combat. NL Gain !B! Block."
+    "DESCRIPTION": "Costs 1 less [E] for each card ${ModID}:Hoarded this combat. NL Gain !B! Block."
   },
   "${ModID}:Fly": {
     "NAME": "Fly",
-    "DESCRIPTION": "Prevent the next time you would lose HP next turn. NL Exhaust."
+    "DESCRIPTION": "Prevent the next time you would lose HP during your next turn. NL Exhaust."
   },
   "${ModID}:CrashLanding": {
     "NAME": "Crash Landing",
@@ -381,11 +381,8 @@
   },
   "${ModID}:Inferno": {
     "NAME": "Inferno",
-    "DESCRIPTION": "Convert ALL your Breath cards to Sparks. NL Play and Exhaust ALL Spark cards. NL Then, add *Infernal *Breath into your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Convert ALL your Breath cards to Sparks. NL Play and Exhaust ALL Spark cards. NL Then, add *Infernal *Breath+ into your hand. NL Exhaust.",
-    "EXTENDED_DESCRIPTION": [
-      "All my Sparks are Breaths because I have too much Ember."
-    ]
+    "DESCRIPTION": "Convert ALL your ${ModID}:Breath cards to Sparks. NL Play and Exhaust ALL ${ModID}:Spark cards. NL Then, add *Infernal *Breath into your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Convert ALL your ${ModID}:Breath cards to Sparks. NL Play and Exhaust ALL ${ModID}:Spark cards. NL Then, add *Infernal *Breath+ into your hand. NL Exhaust."
   },
   "${ModID}:InfernalBreath": {
     "NAME": "Infernal Breath",
@@ -420,7 +417,7 @@
   "${ModID}:ImposingNest": {
     "NAME": "Imposing Nest",
     "DESCRIPTION": "If you have [E] at the end of your turn, ALL enemies lose !M! Strength this turn.",
-    "UPGRADE_DESCRIPTION": "ALL enemies lose !${ModID}:m2! Strength. NL If you have [E] at the end of your turn, ALL enemies lose !M! Strength this turn."
+    "UPGRADE_DESCRIPTION": "ALL enemies lose !${ModID}:m2! Strength this turn. NL If you have [E] at the end of your turn, ALL enemies lose !M! Strength this turn."
   },
   "${ModID}:ExtravagantNest": {
     "NAME": "Extravagant Nest",

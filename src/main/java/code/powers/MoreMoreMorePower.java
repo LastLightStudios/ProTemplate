@@ -20,7 +20,7 @@ public class MoreMoreMorePower extends AbstractEasyPower implements HoardingPowe
 
     public MoreMoreMorePower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
-        loadRegion("deva2");
+        loadRegion("rushdown");
         updateDescription();
     }
 
