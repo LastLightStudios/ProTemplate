@@ -1,7 +1,9 @@
 package code.cards;
 
 import code.powers.EmberPower;
+import code.powers.FirepowerPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -31,6 +33,7 @@ public class InfernalBreath extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         allDmg(AbstractGameAction.AttackEffect.FIRE);
         atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
+        atb(new ApplyPowerAction(adp(), adp(), new FirepowerPower(adp()), 1)); // can't use incrementFirepowerPower() b/c InfernalBreath is a fake Breath
     }
 
     @Override

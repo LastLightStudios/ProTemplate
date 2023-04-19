@@ -17,7 +17,7 @@
       "Sparks",
       "sparks"
     ],
-    "DESCRIPTION": "This card has a #ySpark and #yBreath form. Whenever you have 5 or more #yEmbers this card transforms into its #yBreath form."
+    "DESCRIPTION": "This card has a #ySpark and #yBreath form. Whenever you have #yEmber equal or greater than your #Firepower, this card transforms into its #yBreath form."
   },
   {
     "PROPER_NAME": "Breath",
@@ -27,7 +27,7 @@
       "Breaths",
       "breaths"
     ],
-    "DESCRIPTION": "This card has a #ySpark and #yBreath form. Whenever you have less than 5 #yEmbers this card transforms into its #ySpark form."
+    "DESCRIPTION": "This card has a #ySpark and #yBreath form. Whenever you have #yEmber less than your #Firepower, this card transforms into its #ySpark form."
   },
   {
     "PROPER_NAME": "Gem",
