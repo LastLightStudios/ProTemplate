@@ -14,7 +14,7 @@ public class Dragonstone extends AbstractEasyRelic {
 
 
     // Stats
-    private static final int STARTING_EMBER_AMOUNT = 2;
+    private static final int STARTING_EMBER_AMOUNT = 3;
 
     public Dragonstone() {
         super(ID, RelicTier.STARTER, LandingSound.MAGICAL, DragonCharacterFile.Enums.DRAGON_COLOR);
