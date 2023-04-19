@@ -6,7 +6,6 @@ import code.cards.AbstractTwoSidedCard;
 import code.powers.EmberPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -21,7 +20,7 @@ public class BarrageSpark extends AbstractSparkBreathCard {
 
     //Spark Stuff
     private final static int SPARK_DAMAGE = 1;
-    private final static int SPARK_EMBER_GAIN = 2;
+    private final static int SPARK_EMBER_GAIN = 1;
     private final static int UPGRADE_SPARK_EMBER_GAIN = 1;
     private final static int SPARK_NUMBER_OF_HITS = 3;
     private final static int UPGRADE_NUMBER_OF_HITS = 1;

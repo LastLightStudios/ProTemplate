@@ -13,6 +13,12 @@ import static code.util.Wiz.*;
 public class BreathModifier extends AbstractCardModifier {
 
     @Override
+    public boolean isInherent(AbstractCard card) {
+        return true;
+    }
+
+
+    @Override
     public float modifyDamage(float damage, DamageInfo.DamageType type, AbstractCard card, AbstractMonster target) {
         if (!((AbstractSparkBreathCard)card).isFront()){
             AbstractPower ember = adp().getPower(EmberPower.POWER_ID);

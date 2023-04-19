@@ -5,7 +5,6 @@ import code.cardmodifiers.BreathModifier;
 import code.cards.AbstractTwoSidedCard;
 import code.powers.EmberPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -19,9 +18,9 @@ public class FocusedSpark extends AbstractSparkBreathCard {
     public final static String ID = makeID("FocusedSpark");
 
     //Spark Stuff
-    private final static int SPARK_DAMAGE = 3;
-    private final static int UPGRADE_SPARK_DAMAGE = 1;
-    private final static int SPARK_EMBER_GAIN = 2;
+    private final static int SPARK_DAMAGE = 2;
+    private final static int UPGRADE_SPARK_DAMAGE = 2;
+    private final static int SPARK_EMBER_GAIN = 1;
     private final static int UPGRADE_SPARK_EMBER_GAIN = 1;
 
     //Breath Stuff

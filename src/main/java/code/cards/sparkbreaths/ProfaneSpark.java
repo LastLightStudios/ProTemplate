@@ -5,11 +5,9 @@ import code.cardmodifiers.BreathModifier;
 import code.cards.AbstractTwoSidedCard;
 import code.powers.EmberPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
 import static code.ModFile.makeID;
@@ -20,8 +18,8 @@ public class ProfaneSpark extends AbstractSparkBreathCard {
 
     //Spark Stuff
     private final static int SPARK_DAMAGE = 4;
-    private final static int UPGRADE_SPARK_DAMAGE = 3;
-    private final static int SPARK_EMBER_GAIN = 2;
+    private final static int UPGRADE_SPARK_DAMAGE = 2;
+    private final static int SPARK_EMBER_GAIN = 1;
     private final static int UPGRADE_SPARK_EMBER_GAIN = 1;
     private final static int SPARK_WEAK_APPLICATION = 1;
     private final static int UPGRADE_SPARK_WEAK_APPLICATION = 1;
@@ -33,10 +31,6 @@ public class ProfaneSpark extends AbstractSparkBreathCard {
     private final static int UPGRADE_BREATH_EMBER_MULTIPLIER = 1; //spark multiplier increase
     private final static int BREATH_WEAK_APPLICATION = 2; //weak application
     private final static int UPGRADE_BREATH_WEAK_APPLICATION = 1; //weak application increase
-
-    /*
-    Ember only increases damage, not weak application
-     */
 
     public ProfaneSpark(boolean needsPreview) {
         super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CardTarget.ALL_ENEMY, needsPreview);
