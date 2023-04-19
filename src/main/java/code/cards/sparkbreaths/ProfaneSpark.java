@@ -28,7 +28,7 @@ public class ProfaneSpark extends AbstractSparkBreathCard {
 
     //Breath Stuff
     private final static int BREATH_DAMAGE = 5;
-    private final static int UPGRADE_BREATH_DAMAGE = 5;
+    private final static int UPGRADE_BREATH_DAMAGE = 0;
     private final static int BREATH_EMBER_MULTIPLIER = 2;
     private final static int UPGRADE_BREATH_EMBER_MULTIPLIER = 1; //spark multiplier increase
     private final static int BREATH_WEAK_APPLICATION = 2; //weak application

@@ -14,8 +14,8 @@ public class ComfyNest extends AbstractNestCard {
     public final static String ID = makeID("ComfyNest");
     private final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-    private final static int EMBER_GAIN = 3;
-    private final static int IMMEDIATE_EMBER_UPGRADE = 3;
+    private final static int EMBER_GAIN = 4;
+    private final static int IMMEDIATE_EMBER_UPGRADE = 4;
 
     public ComfyNest() {
         super(ID, 1, CardRarity.UNCOMMON);

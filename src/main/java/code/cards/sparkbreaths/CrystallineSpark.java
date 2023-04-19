@@ -28,7 +28,7 @@ public class CrystallineSpark extends AbstractSparkBreathCard {
 
     //Breath Stuff
     private final static int BREATH_DAMAGE = 5;
-    private final static int UPGRADE_BREATH_DAMAGE = 5;
+    private final static int UPGRADE_BREATH_DAMAGE = 0;
     private final static int BREATH_EMBER_MULTIPLIER = 2;
     private final static int UPGRADE_BREATH_EMBER_MULTIPLIER = 1;
     private final static int BREATH_GEM_GAIN = 3;
