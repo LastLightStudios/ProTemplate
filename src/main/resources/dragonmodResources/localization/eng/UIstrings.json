@@ -3,8 +3,8 @@
     "TEXT": [
       "Spark",
       "Breath",
-      "This card has a #ySpark and #yBreath form. Whenever you have #yEmber equal or greater than your #Firepower, this card transforms into its #yBreath form.",
-      "This card has a #ySpark and #yBreath form. Whenever you have #yEmber than your #Firepower, this card transforms into its #ySpark form."
+      "This card has a #ySpark and #yBreath form. Whenever you have #yEmber equal or greater than your #yFirepower, this card transforms into its #yBreath form.",
+      "This card has a #ySpark and #yBreath form. Whenever you have #yEmber than your #yFirepower, this card transforms into its #ySpark form."
     ]
   },
   "${ModID}:Gem": {
