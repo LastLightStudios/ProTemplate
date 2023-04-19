@@ -57,9 +57,6 @@ public class CrystallineSpark extends AbstractSparkBreathCard {
             dmg(m, AbstractGameAction.AttackEffect.FIRE);
             applyToSelf(new EmberPower(p, magicNumber));
             makeInHand(DragonUtils.returnTrulyRandomCardWithTagInCombat(DragonUtils.CustomTags.GEM).makeCopy());
-            if(upgraded){
-                atb(new DrawCardAction(1));
-            }
         } else { // Breath
             allDmg(AbstractGameAction.AttackEffect.FIRE);
             for (int i = 0; i < secondMagic; i++) {

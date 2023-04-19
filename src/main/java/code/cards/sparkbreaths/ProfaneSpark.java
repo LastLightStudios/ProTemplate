@@ -61,9 +61,6 @@ public class ProfaneSpark extends AbstractSparkBreathCard {
             dmg(m, AbstractGameAction.AttackEffect.FIRE);
             applyToEnemy(m, new WeakPower(m, secondMagic, false));
             applyToSelf(new EmberPower(p, magicNumber));
-            if(upgraded){
-                atb(new DrawCardAction(1));
-            }
         } else { // Breath
             allDmg(AbstractGameAction.AttackEffect.FIRE);
             for (AbstractMonster monster : getEnemies()){

@@ -56,9 +56,6 @@ public class FocusedSpark extends AbstractSparkBreathCard {
                 atb(new SFXAction("ATTACK_BOWLING"));
             }
             applyToSelf(new EmberPower(p, magicNumber));
-            if(upgraded){
-                atb(new DrawCardAction(1));
-            }
         } else { // Breath
             for (AbstractMonster monster : getEnemies()){
                 dmg(m, AbstractGameAction.AttackEffect.FIRE);

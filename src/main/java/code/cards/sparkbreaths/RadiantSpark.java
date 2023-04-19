@@ -28,7 +28,7 @@ public class RadiantSpark extends AbstractSparkBreathCard {
 
     //Breath Stuff
     private final static int BREATH_DAMAGE = 10;
-    private final static int UPGRADE_BREATH_DAMAGE = 10;
+    private final static int UPGRADE_BREATH_DAMAGE = 5;
     private final static int BREATH_EMBER_MULTIPLIER = 1;
     private final static int UPGRADE_BREATH_EMBER_MULTIPLIER = 0;
     private final static int BREATH_ENERGY_GAIN = 0; //Energy Gain
@@ -59,9 +59,6 @@ public class RadiantSpark extends AbstractSparkBreathCard {
             dmg(m, AbstractGameAction.AttackEffect.FIRE);
             atb(new GainEnergyAction(secondMagic));
             applyToSelf(new EmberPower(p, magicNumber));
-            if (upgraded){
-                atb(new DrawCardAction(1));
-            }
         } else { // Breath
             allDmg(AbstractGameAction.AttackEffect.FIRE);
             atb(new GainEnergyAction(secondMagic));

@@ -58,9 +58,6 @@ public class CauterizingSpark extends AbstractSparkBreathCard {
             dmg(m, AbstractGameAction.AttackEffect.FIRE);
             applyToEnemy(m, new CauterizePower(m, secondMagic));
             applyToSelf(new EmberPower(p, magicNumber));
-            if(upgraded){
-                atb(new DrawCardAction(1));
-            }
         } else { // Breath
             allDmg(AbstractGameAction.AttackEffect.FIRE);
             for (AbstractMonster monster : getEnemies()){

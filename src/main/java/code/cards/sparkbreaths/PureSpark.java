@@ -58,9 +58,6 @@ public class PureSpark extends AbstractSparkBreathCard {
             applyToSelf(new PridePower(p, secondMagic));
             dmg(m, AbstractGameAction.AttackEffect.FIRE);
             applyToSelf(new EmberPower(p, magicNumber));
-            if(upgraded){
-                atb(new DrawCardAction(1));
-            }
         } else { // Breath
             applyToSelf(new PridePower(p, secondMagic));
             allDmg(AbstractGameAction.AttackEffect.FIRE);
