@@ -55,6 +55,7 @@ public class BlazingSpark extends AbstractSparkBreathCard {
         } else { // Breath
             allDmg(AbstractGameAction.AttackEffect.FIRE);
             atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
+            applyToSelf(new EmberPower(p, secondMagic));
             incrementFirepowerPower();
         }
         checkEmberTrigger();

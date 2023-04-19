@@ -16,7 +16,7 @@ import static code.util.Wiz.adp;
 public class InfernalBreath extends AbstractEasyCard {
     public final static String ID = makeID("InfernalBreath");
 
-    private final static int DAMAGE = 5;
+    private final static int DAMAGE = 15;
     private final static int UPGRADE_DAMAGE = 10;
     private final static int EMBER_MULTIPLIER = 3;
     private final static int UPGRADE_EMBER_MULTIPLIER = 2;
