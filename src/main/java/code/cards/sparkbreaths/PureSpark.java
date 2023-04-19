@@ -18,7 +18,7 @@ public class PureSpark extends AbstractSparkBreathCard {
     public final static String ID = makeID("PureSpark");
 
     //Spark Stuff
-    private final static int SPARK_DAMAGE = 4;
+    private final static int SPARK_DAMAGE = 3;
     private final static int UPGRADE_SPARK_DAMAGE = 2;
     private final static int SPARK_EMBER_GAIN = 1;
     private final static int UPGRADE_SPARK_EMBER_GAIN = 0;

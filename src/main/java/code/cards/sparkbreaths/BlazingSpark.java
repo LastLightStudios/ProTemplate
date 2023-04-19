@@ -19,7 +19,7 @@ public class BlazingSpark extends AbstractSparkBreathCard {
     //Spark Stuff
     private final static int SPARK_DAMAGE = 4;
     private final static int UPGRADE_SPARK_DAMAGE = 2;
-    private final static int SPARK_EMBER_GAIN = 1;
+    private final static int SPARK_EMBER_GAIN = 2;
     private final static int UPGRADE_SPARK_EMBER_GAIN = 1;
 
     //Breath Stuff
