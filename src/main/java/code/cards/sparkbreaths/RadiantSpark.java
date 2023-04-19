@@ -19,20 +19,20 @@ public class RadiantSpark extends AbstractSparkBreathCard {
     public final static String ID = makeID("RadiantSpark");
 
     //Spark Stuff
-    private final static int SPARK_DAMAGE = 1;
-    private final static int UPGRADE_SPARK_DAMAGE = 0;
+    private final static int SPARK_DAMAGE = 3;
+    private final static int UPGRADE_SPARK_DAMAGE = 2;
     private final static int SPARK_EMBER_GAIN = 1;
     private final static int UPGRADE_SPARK_EMBER_GAIN = 0;
     private final static int SPARK_ENERGY_GAIN = 1;
-    private final static int UPGRADE_SPARK_ENERGY_GAIN = 0;
+    private final static int UPGRADE_SPARK_ENERGY_GAIN = 1;
 
     //Breath Stuff
     private final static int BREATH_DAMAGE = 10;
-    private final static int UPGRADE_BREATH_DAMAGE = 5;
+    private final static int UPGRADE_BREATH_DAMAGE = 10;
     private final static int BREATH_EMBER_MULTIPLIER = 1;
-    private final static int UPGRADE_BREATH_EMBER_MULTIPLIER = 1;
-    private final static int BREATH_ENERGY_GAIN = 1; //Energy Gain
-    private final static int UPGRADE_BREATH_ENERGY_GAIN = 1; //Energy Gain increase
+    private final static int UPGRADE_BREATH_EMBER_MULTIPLIER = 0;
+    private final static int BREATH_ENERGY_GAIN = 0; //Energy Gain
+    private final static int UPGRADE_BREATH_ENERGY_GAIN = 0; //Energy Gain increase
 
     public RadiantSpark(boolean needsPreview) {
         super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY, CardTarget.ALL_ENEMY, needsPreview);
@@ -64,8 +64,9 @@ public class RadiantSpark extends AbstractSparkBreathCard {
             }
         } else { // Breath
             allDmg(AbstractGameAction.AttackEffect.FIRE);
-            atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
             atb(new GainEnergyAction(secondMagic));
+            atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
+            incrementFirepowerPower();
         }
         checkEmberTrigger();
     }
@@ -75,7 +76,6 @@ public class RadiantSpark extends AbstractSparkBreathCard {
         upgradeDamage(UPGRADE_SPARK_DAMAGE, UPGRADE_BREATH_DAMAGE);
         upgradeSecondMagic(UPGRADE_SPARK_ENERGY_GAIN, UPGRADE_BREATH_ENERGY_GAIN);
         descriptionA = cardStrings.UPGRADE_DESCRIPTION;
-        descriptionB = cardStrings.EXTENDED_DESCRIPTION[2];
         initializeDescription();
     }
 }

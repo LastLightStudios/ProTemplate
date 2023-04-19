@@ -1,24 +1,16 @@
 package code.cards;
 
-import basemod.helpers.TooltipInfo;
 import code.cards.sparkbreaths.AbstractSparkBreathCard;
 import code.powers.EmberPower;
-import code.util.DragonUtils;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static code.DragonCharacterFile.Enums.DRAGON_COLOR;
+import static code.util.DragonUtils.getEmberBreakpoint;
 import static code.ModFile.makeID;
-import static code.powers.EmberPower.getEmberBreakpoint;
 import static code.util.Wiz.*;
 
 public class RoaringTemper extends AbstractEasyCard {

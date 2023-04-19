@@ -19,16 +19,20 @@ public class CrystallineSpark extends AbstractSparkBreathCard {
     public final static String ID = makeID("CrystallineSpark");
 
     //Spark Stuff
-    private final static int SPARK_DAMAGE = 1;
-    private final static int UPGRADE_SPARK_DAMAGE = 0;
+    private final static int SPARK_DAMAGE = 3;
+    private final static int UPGRADE_SPARK_DAMAGE = 2;
     private final static int SPARK_EMBER_GAIN = 1;
+    private final static int UPGRADE_SPARK_EMBER_GAIN = 0;
     private final static int SPARK_GEM_GAIN = 1;
+    private final static int UPGRADE_SPARK_GEM_GAIN = 1;
 
     //Breath Stuff
-    private final static int BREATH_DAMAGE = 10;
+    private final static int BREATH_DAMAGE = 5;
     private final static int UPGRADE_BREATH_DAMAGE = 5;
-    private final static int BREATH_EMBER_MULTIPLIER = 1;
-    private final static int BREATH_GEM_GAIN = 1;
+    private final static int BREATH_EMBER_MULTIPLIER = 2;
+    private final static int UPGRADE_BREATH_EMBER_MULTIPLIER = 1;
+    private final static int BREATH_GEM_GAIN = 3;
+    private final static int UPGRADE_BREATH_GEM_GAIN = 1;
 
     public CrystallineSpark(boolean needsPreview) {
         super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CardTarget.ALL_ENEMY, needsPreview);
@@ -36,7 +40,6 @@ public class CrystallineSpark extends AbstractSparkBreathCard {
         setMagic(SPARK_EMBER_GAIN, BREATH_EMBER_MULTIPLIER);
         setSecondMagic(SPARK_GEM_GAIN, BREATH_GEM_GAIN);
         initializeSide();
-        affectSecondMagic = true;
         CardModifierManager.addModifier(this, new BreathModifier());
     }
 
@@ -63,46 +66,16 @@ public class CrystallineSpark extends AbstractSparkBreathCard {
                 makeInHand(DragonUtils.returnTrulyRandomCardWithTagInCombat(DragonUtils.CustomTags.GEM).makeCopy());
             }
             atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
+            incrementFirepowerPower();
         }
         checkEmberTrigger();
     }
 
     @Override
-    public void calculateCardDamage(AbstractMonster m){
-        if (isFront) {
-            super.calculateCardDamage(m);
-        } else {
-            AbstractPower ember = adp().getPower(EmberPower.POWER_ID);
-            if (ember != null) {
-                int realBaseDamage = baseDamage; //temp store realBaseDamage b/c baseDamage is used in card damage calculations
-                baseDamage = baseDamage + (magicNumber * ember.amount);
-                super.calculateCardDamage(m);
-
-                baseDamage = realBaseDamage; //restore the realBaseDamage
-                isDamageModified = (damage != baseDamage);
-            }
-        }
-    }
-
-    @Override
-    public void applyPowers() {
-        if (isFront) {
-            super.applyPowers();
-        } else {
-            AbstractPower ember = adp().getPower(EmberPower.POWER_ID);
-            if (ember != null) {
-                int realBaseDamage = baseDamage; //temp store realBaseDamage b/c baseDamage is used in card damage calculations
-                baseDamage = baseDamage + (magicNumber * ember.amount);
-                super.applyPowers();
-                baseDamage = realBaseDamage; //restore the realBaseDamage
-                isDamageModified = (damage != baseDamage);
-            }
-        }
-    }
-
-    @Override
     public void upp() {
         upgradeDamage(UPGRADE_SPARK_DAMAGE, UPGRADE_BREATH_DAMAGE);
+        upgradeMagicNumber(UPGRADE_SPARK_EMBER_GAIN, UPGRADE_BREATH_EMBER_MULTIPLIER);
+        upgradeSecondMagic(UPGRADE_SPARK_GEM_GAIN, UPGRADE_BREATH_GEM_GAIN);
         descriptionA = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
     }

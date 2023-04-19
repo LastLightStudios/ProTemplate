@@ -9,27 +9,33 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static code.ModFile.makeID;
-import static code.util.Wiz.*;
+import static code.util.Wiz.applyToSelf;
+import static code.util.Wiz.atb;
 
 public class BlazingSpark extends AbstractSparkBreathCard {
     public final static String ID = makeID("BlazingSpark");
 
     //Spark Stuff
-    private final static int SPARK_DAMAGE = 1;
-    private final static int SPARK_EMBER_GAIN = 1;
+    private final static int SPARK_DAMAGE = 4;
+    private final static int UPGRADE_SPARK_DAMAGE = 3;
+    private final static int SPARK_EMBER_GAIN = 3;
+    private final static int UPGRADE_SPARK_EMBER_GAIN = 1;
 
     //Breath Stuff
-    private final static int BREATH_DAMAGE = 10;
-    private final static int BREATH_EMBER_MULTIPLIER = 1;
+    private final static int BREATH_DAMAGE = 5;
+    private final static int UPGRADE_BREATH_DAMAGE = 5;
+    private final static int BREATH_EMBER_MULTIPLIER = 2;
     private final static int UPGRADE_BREATH_EMBER_MULTIPLIER = 1;
+    private final static int BREATH_EMBER_GAIN = 3;
+    private final static int UPGRADE_BREATH_EMBER_GAIN = 1;
 
     public BlazingSpark(boolean needsPreview) {
         super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY, CardTarget.ALL_ENEMY, needsPreview);
         setDamage(SPARK_DAMAGE, BREATH_DAMAGE);
         setMagic(SPARK_EMBER_GAIN, BREATH_EMBER_MULTIPLIER);
+        setSecondMagic(0, BREATH_EMBER_GAIN);
         initializeSide();
         CardModifierManager.addModifier(this, new BreathModifier());
     }
@@ -53,14 +59,15 @@ public class BlazingSpark extends AbstractSparkBreathCard {
         } else { // Breath
             allDmg(AbstractGameAction.AttackEffect.FIRE);
             atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
+            incrementFirepowerPower();
         }
         checkEmberTrigger();
     }
 
     @Override
     public void upp() {
-        upgradeMagicNumber(0, UPGRADE_BREATH_EMBER_MULTIPLIER);
-        descriptionA = cardStrings.UPGRADE_DESCRIPTION;
-        initializeDescription();
+        upgradeDamage(UPGRADE_SPARK_DAMAGE, UPGRADE_BREATH_DAMAGE);
+        upgradeMagicNumber(UPGRADE_SPARK_EMBER_GAIN, UPGRADE_BREATH_EMBER_MULTIPLIER);
+        upgradeSecondMagic(0, UPGRADE_BREATH_EMBER_GAIN);
     }
 }

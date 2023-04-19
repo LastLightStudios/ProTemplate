@@ -10,10 +10,10 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static code.ModFile.makeID;
-import static code.util.Wiz.*;
+import static code.util.Wiz.applyToSelf;
+import static code.util.Wiz.atb;
 
 
 public class BarrageSpark extends AbstractSparkBreathCard {
@@ -21,13 +21,15 @@ public class BarrageSpark extends AbstractSparkBreathCard {
 
     //Spark Stuff
     private final static int SPARK_DAMAGE = 1;
-    private final static int SPARK_EMBER_GAIN = 1;
+    private final static int SPARK_EMBER_GAIN = 2;
+    private final static int UPGRADE_SPARK_EMBER_GAIN = 1;
     private final static int SPARK_NUMBER_OF_HITS = 3;
-    private final static int UPGRADE_NUMBER_OF_HITS = 0;
+    private final static int UPGRADE_NUMBER_OF_HITS = 1;
 
     //Breath Stuff
     private final static int BREATH_DAMAGE = 1;
     private final static int BREATH_EMBER_MULTIPLIER = 1; //ember multiplier
+    private final static int UPGRADE_BREATH_EMBER_MULTIPLIER = 0; //ember multiplier
     private final static int BREATH_NUMBER_OF_HITS = 4; //Number of hits
     private final static int UPGRADE_BREATH_NUMBER_OF_HITS = 1; //Number of hits increase
 
@@ -63,14 +65,14 @@ public class BarrageSpark extends AbstractSparkBreathCard {
                 atb(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.FIRE));
             }
             atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
+            incrementFirepowerPower();
         }
         checkEmberTrigger();
     }
 
     @Override
     public void upp() {
+        upgradeMagicNumber(UPGRADE_SPARK_EMBER_GAIN, UPGRADE_BREATH_EMBER_MULTIPLIER);
         upgradeSecondMagic(UPGRADE_NUMBER_OF_HITS, UPGRADE_BREATH_NUMBER_OF_HITS);
-        descriptionA = cardStrings.UPGRADE_DESCRIPTION;
-        initializeDescription();
     }
 }

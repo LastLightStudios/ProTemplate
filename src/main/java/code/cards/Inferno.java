@@ -1,16 +1,14 @@
 package code.cards;
 
 import code.actions.PlayAllSparksAction;
-import code.powers.EmberPower;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
-import static code.powers.EmberPower.getEmberBreakpoint;
 import static code.DragonCharacterFile.Enums.DRAGON_COLOR;
 import static code.ModFile.makeID;
-import static code.util.Wiz.*;
+import static code.util.Wiz.atb;
+import static code.util.Wiz.makeInHand;
 
 public class Inferno extends AbstractEasyCard {
     public final static String ID = makeID("Inferno");

@@ -19,18 +19,18 @@ public class CauterizingSpark extends AbstractSparkBreathCard {
     public final static String ID = makeID("CauterizingSpark");
 
     //Spark Stuff
-    private final static int SPARK_DAMAGE = 1;
-    private final static int UPGRADE_SPARK_DAMAGE = 0;
+    private final static int SPARK_DAMAGE = 3;
+    private final static int UPGRADE_SPARK_DAMAGE = 2;
     private final static int SPARK_EMBER_GAIN = 1;
     private final static int UPGRADE_SPARK_EMBER_GAIN = 0;
     private final static int SPARK_CAUTERIZE_APPLICATION = 1;
-    private final static int UPGRADE_SPARK_CAUTERIZE_APPLICATION = 0;
+    private final static int UPGRADE_SPARK_CAUTERIZE_APPLICATION = 1;
 
     //Breath Stuff
     private final static int BREATH_DAMAGE = 10;
-    private final static int UPGRADE_BREATH_DAMAGE = 5;
+    private final static int UPGRADE_BREATH_DAMAGE = 0;
     private final static int BREATH_EMBER_MULTIPLIER = 1;
-    private final static int UPGRADE_EMBER_MULTIPLIER = 0;
+    private final static int UPGRADE_EMBER_MULTIPLIER = 1;
     private final static int BREATH_CAUTERIZE_APPLICATION = 0;
     private final static int UPGRADE_BREATH_CAUTERIZE_APPLICATION = 0;
 
@@ -67,6 +67,7 @@ public class CauterizingSpark extends AbstractSparkBreathCard {
                 applyToEnemy(monster, new CauterizePower(monster, secondMagic));
             }
             atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
+            incrementFirepowerPower();
         }
         checkEmberTrigger();
     }
@@ -74,7 +75,7 @@ public class CauterizingSpark extends AbstractSparkBreathCard {
     @Override
     public void upp() {
         upgradeDamage(UPGRADE_SPARK_DAMAGE, UPGRADE_BREATH_DAMAGE);
-        descriptionA = cardStrings.UPGRADE_DESCRIPTION;
-        initializeDescription();
+        upgradeMagicNumber(UPGRADE_SPARK_EMBER_GAIN, UPGRADE_EMBER_MULTIPLIER);
+        upgradeSecondMagic(UPGRADE_SPARK_CAUTERIZE_APPLICATION, UPGRADE_BREATH_CAUTERIZE_APPLICATION);
     }
 }

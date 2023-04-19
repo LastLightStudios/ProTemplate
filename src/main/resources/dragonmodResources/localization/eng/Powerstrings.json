@@ -7,6 +7,13 @@
       " #yDexterity."
     ]
   },
+  "${ModID}:FirepowerPower": {
+    "NAME": "Firepower",
+    "DESCRIPTIONS": [
+      "The Dragon's #ySparks become #yBreaths at #b",
+      " #yEmber. The required #yEmber increases by #b1 every time a #yBreath is played."
+    ]
+  },
   "${ModID}:EmberPower": {
   "NAME": "Ember",
   "DESCRIPTIONS": [

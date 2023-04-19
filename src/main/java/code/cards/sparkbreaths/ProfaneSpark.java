@@ -19,17 +19,17 @@ public class ProfaneSpark extends AbstractSparkBreathCard {
     public final static String ID = makeID("ProfaneSpark");
 
     //Spark Stuff
-    private final static int SPARK_DAMAGE = 1;
-    private final static int UPGRADE_SPARK_DAMAGE = 0;
-    private final static int SPARK_EMBER_GAIN = 1;
-    private final static int UPGRADE_SPARK_EMBER_GAIN = 0;
+    private final static int SPARK_DAMAGE = 4;
+    private final static int UPGRADE_SPARK_DAMAGE = 3;
+    private final static int SPARK_EMBER_GAIN = 2;
+    private final static int UPGRADE_SPARK_EMBER_GAIN = 1;
     private final static int SPARK_WEAK_APPLICATION = 1;
-    private final static int UPGRADE_SPARK_WEAK_APPLICATION = 0;
+    private final static int UPGRADE_SPARK_WEAK_APPLICATION = 1;
 
     //Breath Stuff
-    private final static int BREATH_DAMAGE = 10;
+    private final static int BREATH_DAMAGE = 5;
     private final static int UPGRADE_BREATH_DAMAGE = 5;
-    private final static int BREATH_EMBER_MULTIPLIER = 1;
+    private final static int BREATH_EMBER_MULTIPLIER = 2;
     private final static int UPGRADE_BREATH_EMBER_MULTIPLIER = 1; //spark multiplier increase
     private final static int BREATH_WEAK_APPLICATION = 2; //weak application
     private final static int UPGRADE_BREATH_WEAK_APPLICATION = 1; //weak application increase
@@ -70,6 +70,7 @@ public class ProfaneSpark extends AbstractSparkBreathCard {
                 applyToEnemy(monster, new WeakPower(monster, secondMagic, false));
             }
             atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
+            incrementFirepowerPower();
         }
         checkEmberTrigger();
     }
@@ -79,7 +80,5 @@ public class ProfaneSpark extends AbstractSparkBreathCard {
         upgradeDamage(UPGRADE_SPARK_DAMAGE, UPGRADE_BREATH_DAMAGE);
         upgradeMagicNumber(UPGRADE_SPARK_EMBER_GAIN, UPGRADE_BREATH_EMBER_MULTIPLIER);
         upgradeSecondMagic(UPGRADE_SPARK_WEAK_APPLICATION, UPGRADE_BREATH_WEAK_APPLICATION);
-        descriptionA = cardStrings.UPGRADE_DESCRIPTION;
-        initializeDescription();
     }
 }

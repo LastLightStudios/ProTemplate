@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static code.ModFile.makeID;
 import static code.util.Wiz.*;
@@ -20,15 +19,15 @@ public class FocusedSpark extends AbstractSparkBreathCard {
     public final static String ID = makeID("FocusedSpark");
 
     //Spark Stuff
-    private final static int SPARK_DAMAGE = 1;
-    private final static int UPGRADE_SPARK_DAMAGE = 0;
-    private final static int SPARK_EMBER_GAIN = 1;
-    private final static int UPGRADE_SPARK_EMBER_GAIN = 0;
+    private final static int SPARK_DAMAGE = 3;
+    private final static int UPGRADE_SPARK_DAMAGE = 1;
+    private final static int SPARK_EMBER_GAIN = 2;
+    private final static int UPGRADE_SPARK_EMBER_GAIN = 1;
 
     //Breath Stuff
-    private final static int BREATH_DAMAGE = 10;
+    private final static int BREATH_DAMAGE = 5;
     private final static int UPGRADE_BREATH_DAMAGE = 5;
-    private final static int BREATH_EMBER_MULTIPLIER = 1;
+    private final static int BREATH_EMBER_MULTIPLIER = 2;
     private final static int UPGRADE_BREATH_EMBER_MULTIPLIER = 1;
 
     public FocusedSpark(boolean needsPreview) {
@@ -68,6 +67,7 @@ public class FocusedSpark extends AbstractSparkBreathCard {
                 atb(new SFXAction("ATTACK_BOWLING"));
             }
             atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
+            incrementFirepowerPower();
         }
         checkEmberTrigger();
     }
@@ -76,7 +76,5 @@ public class FocusedSpark extends AbstractSparkBreathCard {
     public void upp() {
         upgradeDamage(UPGRADE_SPARK_DAMAGE, UPGRADE_BREATH_DAMAGE);
         upgradeMagicNumber(UPGRADE_SPARK_EMBER_GAIN, UPGRADE_BREATH_EMBER_MULTIPLIER);
-        descriptionA = cardStrings.UPGRADE_DESCRIPTION;
-        initializeDescription();
     }
 }

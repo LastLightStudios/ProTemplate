@@ -2,13 +2,9 @@ package code.powers;
 
 
 import code.actions.CheckEmberBreakpointAction;
-import code.actions.TransformTwoSidedCardAction;
-import code.cards.AbstractTwoSidedCard;
 import code.cards.sparkbreaths.AbstractSparkBreathCard;
 import code.util.DragonUtils;
 import code.util.Wiz;
-
-import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -16,11 +12,8 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 
-import code.util.DragonUtils.CustomTags;
-import com.megacrit.cardcrawl.powers.PhantasmalPower;
-import com.megacrit.cardcrawl.powers.watcher.VigorPower;
-
 import static code.ModFile.makeID;
+import static code.util.DragonUtils.getEmberBreakpoint;
 import static code.util.Wiz.*;
 
 public class EmberPower extends AbstractEasyPower {
@@ -30,15 +23,13 @@ public class EmberPower extends AbstractEasyPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private static final int EMBER_BREAKPOINT = 5;
-
     public EmberPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
         priority = DragonUtils.PowerPriorities.EMBER_PRIORITY;
-        if (this.amount >= 9999)
-            this.amount = 9999;
         loadRegion("vigor");
-        canGoNegative = true;
+        if(!owner.hasPower(FirepowerPower.POWER_ID)){
+            applyToSelf(new FirepowerPower(owner));
+        }
         updateDescription();
     }
 
@@ -46,7 +37,7 @@ public class EmberPower extends AbstractEasyPower {
     // probably need to extract into a change to spark and change to breath method
     @Override
     public void onInitialApplication(){
-        if (amount >= EMBER_BREAKPOINT){
+        if (amount >= getEmberBreakpoint()){
             swapSparkCards();
         } else {
             swapBreathCards();
@@ -56,7 +47,7 @@ public class EmberPower extends AbstractEasyPower {
     @Override
     public void stackPower(int stackAmount){
         super.stackPower(stackAmount);
-        if (amount >= EMBER_BREAKPOINT){
+        if (amount >= getEmberBreakpoint()){
             swapSparkCards();
         } else {
             swapBreathCards();
@@ -71,7 +62,7 @@ public class EmberPower extends AbstractEasyPower {
     @Override
     public void reducePower(int reduceAmount){
         super.reducePower(reduceAmount);
-        if (amount >= EMBER_BREAKPOINT){
+        if (amount >= getEmberBreakpoint()){
             swapSparkCards();
         } else {
             swapBreathCards();
@@ -94,10 +85,6 @@ public class EmberPower extends AbstractEasyPower {
             }
         }
         loadRegion("vigor");
-    }
-
-    public static int getEmberBreakpoint(){
-        return EMBER_BREAKPOINT;
     }
 
     @Override

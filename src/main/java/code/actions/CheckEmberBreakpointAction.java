@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-import static code.powers.EmberPower.getEmberBreakpoint;
+import static code.util.DragonUtils.getEmberBreakpoint;
 import static code.util.Wiz.adp;
 import static code.util.Wiz.att;
 

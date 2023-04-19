@@ -31,8 +31,10 @@ public class SwiftSpark extends AbstractSparkBreathCard {
     private final static int BREATH_CARDS_DRAWN = 2; //cards drawn
     private final static int UPGRADE_BREATH_CARDS_DRAWN = 1; //cards drawn increase
 
+    //currently removing as 0 cost unconditional cantrip may not be the best space for spark/breath
+
     public SwiftSpark(boolean needsPreview) {
-        super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CardTarget.ALL_ENEMY, needsPreview);
+        super(ID, CardType.ATTACK, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ENEMY, CardTarget.ALL_ENEMY, needsPreview);
         setDamage(SPARK_DAMAGE, BREATH_DAMAGE);
         setMagic(SPARK_EMBER_GAIN, BREATH_EMBER_MULTIPLIER);
         setSecondMagic(SPARK_CARDS_DRAWN, BREATH_CARDS_DRAWN);
@@ -56,8 +58,9 @@ public class SwiftSpark extends AbstractSparkBreathCard {
             atb(new DrawCardAction(secondMagic));
         } else { // Breath
             allDmg(AbstractGameAction.AttackEffect.FIRE);
-            atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
             atb(new DrawCardAction(secondMagic));
+            atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
+            incrementFirepowerPower();
         }
         checkEmberTrigger();
     }

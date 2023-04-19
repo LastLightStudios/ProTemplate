@@ -2,6 +2,7 @@ package code.util;
 
 import basemod.helpers.TooltipInfo;
 import code.cards.sparkbreaths.AbstractSparkBreathCard;
+import code.powers.FirepowerPower;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -22,7 +23,16 @@ public class DragonUtils {
     protected static final UIStrings shedUIStrings = CardCrawlGame.languagePack.getUIString(makeID("Shed"));
     private static HashMap<AbstractCard.CardTags, ArrayList<AbstractCard>> tagsWithLists = new HashMap<>();
 
+    public static final int DEFAULT_EMBER_BREAKPOINT = 5;
 
+    public static int getEmberBreakpoint(){
+        if (adp() != null){
+            if (adp().hasPower(FirepowerPower.POWER_ID)){
+                return adp().getPower(FirepowerPower.POWER_ID).amount;
+            }
+        }
+        return DEFAULT_EMBER_BREAKPOINT;
+    }
 
     public static boolean isSpark(AbstractCard c){
         return (c instanceof AbstractSparkBreathCard && ((AbstractSparkBreathCard) c).isFront());
@@ -91,9 +101,10 @@ public class DragonUtils {
     }
 
     public static class PowerPriorities {
-        public static final int EMBER_PRIORITY = 1;
+        public static final int FIREPOWER_PRIORITY = 0; // I want this in front of Ember
+        public static final int EMBER_PRIORITY = 1; // I want Ember to be on the far left for visibility
         public static final int NESTING_FORM_PRIORITY = 2;
-        public static final int EARLY_NEST_PRIORITY = 3;
+        public static final int EARLY_NEST_PRIORITY = 3; // Imposing Nest wants to debuff enemies before Cauterize
         public static final int CAUTERIZE_NEST_PRIORITY = 4;
         public static final int DEFAULT = 5;
         public static final int NO_ENERGY_PRIORITY = 20;
