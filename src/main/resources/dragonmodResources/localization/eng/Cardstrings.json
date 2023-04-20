@@ -224,8 +224,8 @@
   },
   "${ModID}:TreasureMind": {
     "NAME": "Treasure Mind",
-    "DESCRIPTION": "Add !${ModID}:m2! ${ModID}:Gem into your hand. NL Draw !M! cards.",
-    "UPGRADE_DESCRIPTION": "Add !${ModID}:m2! Upgraded ${ModID}:Gems into your hand. NL Draw !M! cards."
+    "DESCRIPTION": "Add !${ModID}:m2! random ${ModID}:Gem into your hand. NL Draw !M! cards.",
+    "UPGRADE_DESCRIPTION": "Add !${ModID}:m2! random Upgraded ${ModID}:Gems into your hand. NL Draw !M! cards."
   },
   "${ModID}:VolcanicHoard": {
     "NAME": "Volcanic Hoard",
