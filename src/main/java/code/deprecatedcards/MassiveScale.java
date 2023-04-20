@@ -1,5 +1,6 @@
-package code.cards;
+package code.deprecatedcards;
 
+import code.cards.AbstractEasyCard;
 import code.powers.PridePower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
