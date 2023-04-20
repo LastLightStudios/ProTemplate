@@ -42,7 +42,6 @@ public class TreasureMind extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(UPGRADE_CARD_DRAW);
         upgradeSecondMagic(UPGRADE_GEMS);
         rawDescription = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
