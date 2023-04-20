@@ -28,12 +28,11 @@ public class StrikeGold extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
         AbstractDungeon.effectList.add(new RainingGoldEffect(MAKE_IT_RAIN, false));
-        //makeInHand(DragonUtils.returnTrulyRandomCardWithTagInCombat(DragonUtils.CustomTags.GEM).makeCopy());
         AbstractCard gem = DragonUtils.returnTrulyRandomCardWithTagInCombat(DragonUtils.CustomTags.GEM).makeCopy();
         if (upgraded){
             gem.upgrade();
         }
-        topDeck(gem);
+        makeInHand(gem);
         applyToSelf(new ReboundPower(p));
     }
 

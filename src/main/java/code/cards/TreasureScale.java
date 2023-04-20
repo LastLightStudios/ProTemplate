@@ -1,7 +1,6 @@
 package code.cards;
 
 import code.util.DragonUtils;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -10,7 +9,6 @@ import com.megacrit.cardcrawl.vfx.RainingGoldEffect;
 
 import static code.ModFile.makeID;
 import static code.util.Wiz.makeInHand;
-import static code.util.Wiz.shuffleIn;
 
 public class TreasureScale extends AbstractEasyCard {
     public final static String ID = makeID("TreasureScale");
@@ -26,12 +24,11 @@ public class TreasureScale extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         blck();
-        //makeInHand(DragonUtils.returnTrulyRandomCardWithTagInCombat(DragonUtils.CustomTags.GEM).makeCopy());
         AbstractCard gem = DragonUtils.returnTrulyRandomCardWithTagInCombat(DragonUtils.CustomTags.GEM).makeCopy();
         if (upgraded){
             gem.upgrade();
         }
-        shuffleIn(gem);
+        makeInHand(gem);
         AbstractDungeon.effectList.add(new RainingGoldEffect(MAKE_IT_RAIN, true));
     }
 

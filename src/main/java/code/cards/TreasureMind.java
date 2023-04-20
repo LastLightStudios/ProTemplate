@@ -16,7 +16,7 @@ public class TreasureMind extends AbstractEasyCard {
     public final static String ID = makeID("TreasureMind");
 
     private final static int CARD_DRAW = 2;
-    private final static int UPGRADE_CARD_DRAW = 1;
+    private final static int UPGRADE_CARD_DRAW = 0;
     private final static int GEMS = 1;
     private final static int UPGRADE_GEMS = 1;
     private final static int MAKE_IT_RAIN = 25;
@@ -35,8 +35,8 @@ public class TreasureMind extends AbstractEasyCard {
             if (upgraded){
                 gem.upgrade();
             }
-            shuffleIn(gem);
-            AbstractDungeon.effectList.add(new RainingGoldEffect(MAKE_IT_RAIN, false));
+            makeInHand(gem);
+            AbstractDungeon.effectList.add(new RainingGoldEffect(MAKE_IT_RAIN, true));
         }
         atb(new DrawCardAction(magicNumber));
     }

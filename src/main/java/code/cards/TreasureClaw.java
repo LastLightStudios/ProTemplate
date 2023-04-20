@@ -14,7 +14,7 @@ import static code.util.Wiz.*;
 public class TreasureClaw extends AbstractEasyCard {
     public final static String ID = makeID("TreasureClaw");
 
-    private final static int DAMAGE = 9;
+    private final static int DAMAGE = 8;
     private final static int UPGRADE_DAMAGE = 3;
     private final static int MAKE_IT_RAIN = 50;
 
@@ -25,13 +25,12 @@ public class TreasureClaw extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
-        //makeInHand(DragonUtils.returnTrulyRandomCardWithTagInCombat(DragonUtils.CustomTags.GEM).makeCopy());
+        AbstractDungeon.effectList.add(new RainingGoldEffect(MAKE_IT_RAIN, false));
         AbstractCard gem = DragonUtils.returnTrulyRandomCardWithTagInCombat(DragonUtils.CustomTags.GEM).makeCopy();
         if (upgraded){
             gem.upgrade();
         }
-        shuffleIn(gem);
-        AbstractDungeon.effectList.add(new RainingGoldEffect(MAKE_IT_RAIN, false));
+        makeInHand(gem);
     }
 
     public void upp() {
