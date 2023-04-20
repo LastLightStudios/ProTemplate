@@ -16,7 +16,7 @@ public class RecklessClaw extends AbstractEasyCard {
     private final static int DEXTERITY_LOSS = 1;
 
     public RecklessClaw() {
-        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = DEXTERITY_LOSS;
     }

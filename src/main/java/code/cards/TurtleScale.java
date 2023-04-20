@@ -17,7 +17,7 @@ public class TurtleScale extends AbstractEasyCard {
 
 
     public TurtleScale() {
-        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, DRAGON_COLOR);
+        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, DRAGON_COLOR);
         baseBlock = BLOCK;
         baseMagicNumber = magicNumber = STRENGTH_LOSS;
     }
