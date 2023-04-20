@@ -210,6 +210,10 @@
     "NAME": "Prideful Claw",
     "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage for every Rare card in your deck. Deals !${ModID}:m2! additional damage for each ${ModID}:Pride you have."
   },
+  "${ModID}:RecklessClaw": {
+    "NAME": "Reckless Claw",
+    "DESCRIPTION": "Deal !D! damage. NL Lose !M! Dexterity."
+  },
   "${ModID}:Armorfryer": {
     "NAME": "Armorfryer",
     "DESCRIPTION": "Remove all Block from ALL enemies. NL Deal !D! damage to ALL enemies."
@@ -281,6 +285,10 @@
   "${ModID}:PridefulScale": {
     "NAME": "Prideful Scale",
     "DESCRIPTION": "Gain !B! Block. NL Gain !M! additional Block for every Rare card in your deck. Gain !${ModID}:m2! additional Block for each ${ModID}:Pride you have."
+  },
+  "${ModID}:TurtleScale": {
+    "NAME": "Turtle Scale",
+    "DESCRIPTION": "Gain !B! Block. NL Lose !M! Strength."
   },
   "${ModID}:Kindle": {
     "NAME": "Kindle",
