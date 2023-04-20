@@ -26,7 +26,7 @@
   "${ModID}:TreasureClaw": {
     "NAME": "Treasure Claw",
     "DESCRIPTION": "Deal !D! damage. NL Shuffle a random ${ModID}:Gem into your draw pile.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Shuffle a random ${ModID}:Gem+ into your draw pile."
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Shuffle a random upgraded ${ModID}:Gem into your draw pile."
   },
   "${ModID}:Wingbeat": {
     "NAME": "Wingbeat",
@@ -40,7 +40,7 @@
   "${ModID}:StrikeGold": {
     "NAME": "Strike Gold",
     "DESCRIPTION": "Deal !D! damage. NL Put a random ${ModID}:Gem and the next card you play this turn on top of your draw pile.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Put a random ${ModID}:Gem+ and the next card you play this turn on top of your draw pile."
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Put a random upgraded ${ModID}:Gem and the next card you play this turn on top of your draw pile."
   },
   "${ModID}:SaltTheWound": {
     "NAME": "Salt The Wound",
@@ -126,7 +126,7 @@
   "${ModID}:TreasureScale": {
     "NAME": "Treasure Scale",
     "DESCRIPTION": "Gain !B! Block. NL Shuffle a random ${ModID}:Gem into your draw pile.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Shuffle a random ${ModID}:Gem+ into your draw pile."
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Shuffle a random upgraded ${ModID}:Gem into your draw pile."
   },
   "${ModID}:MassiveClaw": {
     "NAME": "Massive Claw",
@@ -221,7 +221,7 @@
   "${ModID}:TreasureMind": {
     "NAME": "Treasure Mind",
     "DESCRIPTION": "Shuffle !${ModID}:m2! ${ModID}:Gem into your draw pile. NL Draw !M! cards.",
-    "UPGRADE_DESCRIPTION": "Shuffle !${ModID}:m2! ${ModID}:Gems+ into your draw pile. NL Draw !M! cards."
+    "UPGRADE_DESCRIPTION": "Shuffle !${ModID}:m2! upgraded ${ModID}:Gems into your draw pile. NL Draw !M! cards."
   },
   "${ModID}:VolcanicHoard": {
     "NAME": "Volcanic Hoard",
@@ -336,10 +336,10 @@
   "${ModID}:RoaringTemper": {
     "NAME": "Roaring Temper",
     "DESCRIPTION": "Discard your hand. NL Add a random ${ModID}:Spark into your hand for each card discarded.",
-    "UPGRADE_DESCRIPTION": "Discard your hand. NL Add a random ${ModID}:Spark+ into your hand for each card discarded.",
+    "UPGRADE_DESCRIPTION": "Discard your hand. NL Add a random upgraded ${ModID}:Spark into your hand for each card discarded.",
     "EXTENDED_DESCRIPTION": [
       "Discard your hand. NL Add a random ${ModID}:Breath into your hand for each card discarded.",
-      "Discard your hand. NL Add a random ${ModID}:Breath+ into your hand for each card discarded."
+      "Discard your hand. NL Add a random upgraded ${ModID}:Breath into your hand for each card discarded."
     ]
   },
   "${ModID}:FrightfulPresence": {
@@ -354,7 +354,7 @@
   "${ModID}:TradeOffer": {
     "NAME": "Trade Offer",
     "DESCRIPTION": "Put a card from draw or discard pile into your hand. NL Add a random ${ModID}:Gem where it was. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Put a card from draw or discard pile into your hand. NL Add a random ${ModID}:Gem+ where it was. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Retain. NL Put a card from draw or discard pile into your hand. NL Add a random upgraded ${ModID}:Gem where it was. NL Exhaust."
   },
   "${ModID}:Soar": {
     "NAME": "Soar",
