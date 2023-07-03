@@ -7,7 +7,6 @@ import code.actions.CheckEmberBreakpointAction;
 import code.cards.AbstractTwoSidedCard;
 import code.powers.EmberPower;
 import code.powers.FirepowerPower;
-import code.util.DragonUtils.CustomTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.UIStrings;

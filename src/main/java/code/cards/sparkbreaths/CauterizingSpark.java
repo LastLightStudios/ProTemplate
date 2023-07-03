@@ -5,8 +5,8 @@ import code.cardmodifiers.BreathModifier;
 import code.cards.AbstractTwoSidedCard;
 import code.powers.CauterizePower;
 import code.powers.EmberPower;
+import code.util.DragonUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -61,7 +61,7 @@ public class CauterizingSpark extends AbstractSparkBreathCard {
             for (AbstractMonster monster : getEnemies()){
                 applyToEnemy(monster, new CauterizePower(monster, secondMagic));
             }
-            atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
+            applyToSelf(new EmberPower(p, -DragonUtils.DEFAULT_EMBER_BREAKPOINT));
             incrementFirepowerPower();
         }
         checkEmberTrigger();

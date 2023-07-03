@@ -16,7 +16,7 @@
     "DESCRIPTION": "Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
     "EXTENDED_DESCRIPTION": [
       "Blazing Breath",
-      "Deal !D! damage to ALL enemies. NL Consumes all ${ModID}:Ember to increase damage by !M! per ${ModID}:Ember. NL Gain !${ModID}:m2! ${ModID}:Ember."
+      "Deal !D! damage to ALL enemies. NL Increase damage by !M! per ${ModID}:Ember. NL Lose 5 Ember. NL Gain !${ModID}:m2! ${ModID}:Ember."
     ]
   },
   "${ModID}:SmolderingClaw": {
@@ -149,7 +149,7 @@
     "DESCRIPTION": "Deal !D! damage. NL Apply !${ModID}:m2! Weak. NL Gain !M! ${ModID}:Ember.",
     "EXTENDED_DESCRIPTION": [
       "Profane Breath",
-      "Deal !D! damage and apply !${ModID}:m2! Weak to ALL enemies. NL Consumes all ${ModID}:Ember to increase damage by !M! per ${ModID}:Ember."
+      "Deal !D! damage and apply !${ModID}:m2! Weak to ALL enemies. NL Increase damage by !M! per ${ModID}:Ember. NL Lose 5 Ember."
     ]
   },
   "${ModID}:SwiftSpark": {
@@ -166,7 +166,7 @@
     "DESCRIPTION": "Deal !D! damage to a random enemy !${ModID}:m2! times. NL Gain !M! ${ModID}:Ember.",
     "EXTENDED_DESCRIPTION": [
       "Barrage Breath",
-      "Deal !D! damage to a random enemy !${ModID}:m2! times. NL Consumes all ${ModID}:Ember to increase damage by !M! per ${ModID}:Ember."
+      "Deal !D! damage to a random enemy !${ModID}:m2! times. NL Increase damage by !M! per ${ModID}:Ember. NL Lose 5 Ember."
     ]
   },
   "${ModID}:PureSpark": {
@@ -174,7 +174,7 @@
     "DESCRIPTION": "Gain !${ModID}:m2! ${ModID}:Pride. NL Deal !D! damage. NL Gain !M! ${ModID}:Ember.",
     "EXTENDED_DESCRIPTION": [
       "Pure Breath",
-      "Gain !${ModID}:m2! ${ModID}:Pride. NL Deal !D! damage to ALL enemies. NL Consumes all ${ModID}:Ember to increase both effects by !M! per ${ModID}:Ember."
+      "Gain !${ModID}:m2! ${ModID}:Pride. NL Deal !D! damage to ALL enemies. NL Increase both effects by !M! per ${ModID}:Ember. NL Lose 5 Ember."
     ]
   },
   "${ModID}:FocusedSpark": {
@@ -183,7 +183,7 @@
     "UPGRADE_DESCRIPTION": "Deal !D! damage for each enemy in combat. NL Gain !M! ${ModID}:Ember. NL Draw 1 card. ",
     "EXTENDED_DESCRIPTION": [
       "Focused Breath",
-      "Deal !D! damage for each enemy in combat. NL Consumes all ${ModID}:Ember to deal increase damage by !M! per ${ModID}:Ember."
+      "Deal !D! damage for each enemy in combat. NL Increase damage by !M! per ${ModID}:Ember. NL Lose 5 Ember."
     ]
   },
   "${ModID}:CrystallineSpark": {
@@ -192,7 +192,7 @@
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain !M! ${ModID}:Ember. NL Add !${ModID}:m2! random ${ModID}:Gems into your hand.",
     "EXTENDED_DESCRIPTION": [
       "Crystalline Breath",
-      "Deal !D! damage to ALL enemies. NL Add !${ModID}:m2! random ${ModID}:Gems into your hand. NL Consumes all ${ModID}:Ember to increase damage by !M! per ${ModID}:Ember."
+      "Deal !D! damage to ALL enemies. NL Add !${ModID}:m2! random ${ModID}:Gems into your hand. NL Increase damage by !M! per ${ModID}:Ember. NL Lose 5 Ember."
     ]
   },
   "${ModID}:EgoCheck": {
@@ -320,7 +320,7 @@
     "DESCRIPTION": "Deal !D! damage. NL Apply !${ModID}:m2! ${ModID}:Cauterize. NL Gain !M! ${ModID}:Ember.",
     "EXTENDED_DESCRIPTION": [
       "Cauterizing Breath",
-      "Deal !D! damage and apply !${ModID}:m2! ${ModID}:Cauterize to ALL enemies. NL Consumes all ${ModID}:Ember to increase both effects by !M! per ${ModID}:Ember."
+      "Deal !D! damage and apply !${ModID}:m2! ${ModID}:Cauterize to ALL enemies. NL Increase both effects by !M! per ${ModID}:Ember. NL Lose 5 Ember."
     ]
   },
   "${ModID}:RadiantSpark": {
@@ -329,7 +329,7 @@
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain [E] [E]. NL Gain !M! ${ModID}:Ember. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       "Radiant Breath",
-      "Deal !D! damage to ALL enemies. NL Gain [E] equal to your ${ModID}:Ember. NL Consumes all ${ModID}:Ember to deal increase damage by !M! per ${ModID}:Ember. NL Exhaust."
+      "Deal !D! damage to ALL enemies. NL Gain [E] equal to your ${ModID}:Ember. NL Increase damage by !M! per ${ModID}:Ember. NL Lose 5 Ember. NL Exhaust."
     ]
   },
   "${ModID}:GreedFeed": {
@@ -379,7 +379,7 @@
   },
   "${ModID}:InfernalBreath": {
     "NAME": "Infernal Breath",
-    "DESCRIPTION": "Ethereal. NL Deal !D! damage to ALL enemies. NL Consumes all ${ModID}:Ember to increase damage by !M! per ${ModID}:Ember. NL Exhaust."
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage to ALL enemies. NL Increase damage by !M! per ${ModID}:Ember. NL Lose 5 Ember. NL Exhaust."
   },
   "${ModID}:KidnapPrincess": {
     "NAME": "Kidnap Princess",

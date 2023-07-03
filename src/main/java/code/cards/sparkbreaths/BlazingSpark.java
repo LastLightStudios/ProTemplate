@@ -4,14 +4,13 @@ import basemod.helpers.CardModifierManager;
 import code.cardmodifiers.BreathModifier;
 import code.cards.AbstractTwoSidedCard;
 import code.powers.EmberPower;
+import code.util.DragonUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.ModFile.makeID;
 import static code.util.Wiz.applyToSelf;
-import static code.util.Wiz.atb;
 
 public class BlazingSpark extends AbstractSparkBreathCard {
     public final static String ID = makeID("BlazingSpark");
@@ -54,7 +53,7 @@ public class BlazingSpark extends AbstractSparkBreathCard {
             applyToSelf(new EmberPower(p, magicNumber));
         } else { // Breath
             allDmg(AbstractGameAction.AttackEffect.FIRE);
-            atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
+            applyToSelf(new EmberPower(p, -DragonUtils.DEFAULT_EMBER_BREAKPOINT));
             applyToSelf(new EmberPower(p, secondMagic));
             incrementFirepowerPower();
         }

@@ -5,14 +5,13 @@ import code.cardmodifiers.BreathModifier;
 import code.cards.AbstractTwoSidedCard;
 import code.powers.EmberPower;
 import code.powers.PridePower;
+import code.util.DragonUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.ModFile.makeID;
 import static code.util.Wiz.applyToSelf;
-import static code.util.Wiz.atb;
 
 public class PureSpark extends AbstractSparkBreathCard {
     public final static String ID = makeID("PureSpark");
@@ -60,7 +59,7 @@ public class PureSpark extends AbstractSparkBreathCard {
         } else { // Breath
             applyToSelf(new PridePower(p, secondMagic));
             allDmg(AbstractGameAction.AttackEffect.FIRE);
-            atb(new RemoveSpecificPowerAction(p, p, EmberPower.POWER_ID));
+            applyToSelf(new EmberPower(p, -DragonUtils.DEFAULT_EMBER_BREAKPOINT));
             incrementFirepowerPower();
         }
         checkEmberTrigger();
