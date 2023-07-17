@@ -14,7 +14,7 @@ public class Sear extends AbstractEasyCard {
     private final static int UPGRADE_CAUTERIZE_APPLICATION = 0;
 
     public Sear() {
-        super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
         baseMagicNumber = magicNumber = CAUTERIZE_APPLICATION;
         exhaust = true;
     }

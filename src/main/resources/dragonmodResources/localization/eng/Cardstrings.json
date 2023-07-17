@@ -96,7 +96,7 @@
   },
   "${ModID}:BurningScales": {
     "NAME": "Burning Scales",
-    "DESCRIPTION": "Gain !B! Block. Whenever you are attacked this turn, deal !M! damage back, increased by ${ModID}:Cauterize."
+    "DESCRIPTION": "Gain !B! Block. NL Apply !${ModID}:m2! ${ModID}:Cauterize to ALL enemies. NL Whenever you are attacked this turn, deal !M! damage back, increased by ${ModID}:Cauterize."
   },
   "${ModID}:StretchYourWings": {
     "NAME": "Stretch Your Wings",
@@ -204,7 +204,7 @@
   },
   "${ModID}:SearingSwipe": {
     "NAME": "Searing Swipe",
-    "DESCRIPTION": "Deal !D! damage and apply !M! ${ModID}:Cauterize to ALL enemies. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage and apply !M! ${ModID}:Cauterize to ALL enemies."
   },
   "${ModID}:PridefulClaw": {
     "NAME": "Prideful Claw",

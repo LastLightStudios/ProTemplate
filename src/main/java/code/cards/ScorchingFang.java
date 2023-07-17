@@ -12,15 +12,16 @@ public class ScorchingFang extends AbstractEasyCard {
     public final static String ID = makeID("ScorchingFang");
 
     private final static int DAMAGE = 6;
-    private final static int BONUS_CAUTERIZE_SCALING = 2;
-    private final static int UPGRADE_BONUS_CAUTERIZE_SCALING = 1;
-    private final static int CAUTERIZE_APPLICATION = 1;
+    private final static int UPGRADE_DAMAGE = 2;
+    private final static int CAUTERIZE_SCALING = 2;
+    private final static int UPGRADE_CAUTERIZE_SCALING = 1;
+    private final static int CAUTERIZE_APPLICATION = 2;
     private final static int UPGRADE_CAUTERIZE_APPLICATION = 1;
 
     public ScorchingFang() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         baseDamage = DAMAGE;
-        baseMagicNumber = magicNumber = BONUS_CAUTERIZE_SCALING;
+        baseMagicNumber = magicNumber = CAUTERIZE_SCALING;
         baseSecondMagic = secondMagic = CAUTERIZE_APPLICATION;
     }
 
@@ -30,8 +31,9 @@ public class ScorchingFang extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(UPGRADE_BONUS_CAUTERIZE_SCALING);
-        upgradeSecondMagic(UPGRADE_CAUTERIZE_APPLICATION);
+        upgradeDamage(UPGRADE_DAMAGE);
+        upgradeMagicNumber(UPGRADE_CAUTERIZE_SCALING);
+        //upgradeSecondMagic(UPGRADE_CAUTERIZE_APPLICATION);
     }
 
     public int getCauterizeMultiplier(){

@@ -15,8 +15,8 @@ public class VolcanicNest extends AbstractNestCard {
     public final static String ID = makeID("VolcanicNest");
     private final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-    private final static int CAUTERIZE_APPLICATION = 1;
-    private final static int IMMEDIATE_CAUTERIZE_APPLICATION = 1;
+    private final static int CAUTERIZE_APPLICATION = 2;
+    private final static int IMMEDIATE_CAUTERIZE_APPLICATION = 2;
 
     public VolcanicNest() {
         super(ID, 1, CardRarity.RARE);

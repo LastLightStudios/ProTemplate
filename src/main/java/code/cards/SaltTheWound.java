@@ -15,11 +15,11 @@ public class SaltTheWound extends AbstractEasyCard {
     private final static int UPGRADE_DAMAGE = 3;
     private final static int SECOND_DAMAGE = 6;
     private final static int UPGRADE_SECOND_DAMAGE = 3;
-    private final static int CAUTERIZE_APPLICATION = 1;
+    private final static int CAUTERIZE_APPLICATION = 2;
     private final static int UPGRADE_CAUTERIZE_APPLICATION = 0;
 
     public SaltTheWound() {
-        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
         baseDamage = DAMAGE;
         baseSecondDamage = SECOND_DAMAGE;
         baseMagicNumber = magicNumber = CAUTERIZE_APPLICATION;

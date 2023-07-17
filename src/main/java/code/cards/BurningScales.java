@@ -1,6 +1,7 @@
 package code.cards;
 
 import code.powers.BurningScalesPower;
+import code.powers.CauterizePower;
 import code.powers.LoseBurningScalesPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
@@ -16,14 +17,17 @@ public class BurningScales extends AbstractEasyCard {
 
     private final static int BLOCK = 24;
     private final static int UPGRADE_BLOCK = 6;
-    private final static int RETURN_DMG = 4;
+    private final static int RETURN_DMG = 3;
     private final static int UPGRADE_RETURN_DMG = 2;
+    private final static int CAUTERIZE_APPLICATION = 2;
+    private final static int UPGRADE_CAUTERIZE_APPLICATION = 2;
 
 
     public BurningScales() {
         super(ID, 3, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, DRAGON_COLOR);
         baseBlock = BLOCK;
         magicNumber = baseMagicNumber = RETURN_DMG;
+        baseSecondMagic = secondMagic = CAUTERIZE_APPLICATION;
     }
 
     @Override
@@ -34,12 +38,15 @@ public class BurningScales extends AbstractEasyCard {
             vfx(new FlameBarrierEffect(p.hb.cX, p.hb.cY), 0.5f);
         }
         blck();
+        for (AbstractMonster mon : getEnemies()){
+            applyToEnemy(mon, new CauterizePower(mon, secondMagic));
+        }
         applyToSelf(new BurningScalesPower(p, magicNumber));
         applyToSelf(new LoseBurningScalesPower(p, magicNumber));
     }
 
     public void upp() {
         upgradeBlock(UPGRADE_BLOCK);
-        upgradeMagicNumber(UPGRADE_RETURN_DMG);
+        upgradeSecondMagic(UPGRADE_CAUTERIZE_APPLICATION);
     }
 }
