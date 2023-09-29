@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.localization.UIStrings;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -101,87 +102,56 @@ public class HoardCardAction extends AbstractGameAction {
             // this is where we would check for powers that would modify the Hoard effect
             return;
         }
-        if (firstCall){
-            if (hoardThisCard) {
-                listOfHoardedCards.add(specificCard);
-                // "Hoard this card." means that none of the other branches apply.
-                //TODO ? add a check in here to see if its a duplicated card from double tap/burst...but maybe not, I think the card would still give Pride, just not end up in Exhaust pile
-                applyToSelfTop(new PridePower(adp(), getCardHoardValue(specificCard)));
-                setCardToExhaust(specificCard);
-                for (AbstractPower power : adp().powers) {
-                    if (power instanceof HoardingPowerInterface) {
-                        ((HoardingPowerInterface) power).onHoard(listOfHoardedCards);
-                    }
-                }
-                if (specificCard instanceof HoardingCardInterface){
-                    ((HoardingCardInterface) specificCard).triggerOnHoard();
-                }
-                updateCardsDidHoard();
-                CardCounterPatches.cardsHoardedThisTurn += listOfHoardedCards.size();
-                CardCounterPatches.cardsHoardedThisCombat += listOfHoardedCards.size();
-            } else if (adp().hand.size() == 0) {
-                // if the hand is empty then there's nothing to Hoard
-            } else if (!anyNumber && adp().hand.size() <= amount) {
+        if (hoardThisCard) {
+            processHoardThisCard();
+            return;
+        }
+        if (adp().hand.size() == 0) {
+            completed = true;
+            return;
+            // if the hand is empty then there's nothing to Hoard
+        }
+        if (!anyNumber && adp().hand.size() <= amount) {
+            // if the player is required to Hoard entire their hand
+            hoardHand();
+            return;
+        }
+        if (isRandom){
+            // not sure if this is actually required because if isRandom is true, then anyNumber should be false?
+            if (amount >= adp().hand.size()){
                 // if the player is required to Hoard more than the remaining cards in their hand
-                if (callback != null){
-                    callback.accept(new ArrayList<>(adp().hand.group));
-                }
-                hoardCards(new ArrayList<>(adp().hand.group));
-            } else if (isRandom){
-                //
-                if (amount > adp().hand.size()){
-                    amount = adp().hand.size();
-                }
-                if (callback != null){
-                    callback.accept(new ArrayList<>(adp().hand.group));
-                }
-                for (AbstractPower power : adp().powers) {
-                    if (power instanceof HoardingPowerInterface) {
-                        ((HoardingPowerInterface) power).onHoard(listOfHoardedCards);
-                    }
-                }
-                for (int i = 0; i < amount; i++){
-                    AbstractCard card = adp().hand.getRandomCard(AbstractDungeon.cardRandomRng);
-                    listOfHoardedCards.add(card);
-                    adp().hand.moveToExhaustPile(card);
-                    CardCrawlGame.dungeon.checkForPactAchievement();
-                    if (card instanceof HoardingCardInterface){
-                        ((HoardingCardInterface) card).triggerOnHoard();
-                    }
-                    updateCardsDidHoard();
-                    applyToSelfTop(new PridePower(adp(), getCardHoardValue(card)));
-                }
-                CardCounterPatches.cardsHoardedThisTurn += listOfHoardedCards.size();
-                CardCounterPatches.cardsHoardedThisCombat += listOfHoardedCards.size();
-            } else {
-                // This branch should be for conditions that require the Card Select screen
-                if (amount == 1){
-                    AbstractDungeon.handCardSelectScreen.open(uiStrings.TEXT[0], amount, anyNumber, canPickZero);
-                } else {
-                    AbstractDungeon.handCardSelectScreen.open(uiStrings.TEXT[0], amount, anyNumber, canPickZero);
-                }
-                firstCall = false;
+                hoardHand();
                 return;
             }
-            completed = true;
-            firstCall = false;
+            processHoardRandomCards();
+            return;
+        }
+        if (AbstractDungeon.handCardSelectScreen.wereCardsRetrieved){
+            // This branch should be for conditions that require the Card Select screen
+            AbstractDungeon.handCardSelectScreen.open(uiStrings.TEXT[0], amount, anyNumber, canPickZero);
         } else {
-            // this branch is only reached if firstCall = false && completed = false, so it should only be the branch that opened the Card Select Screen
-            if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved){
-                if (callback != null){
-                    callback.accept(AbstractDungeon.handCardSelectScreen.selectedCards.group);
-                }
-                hoardCards(AbstractDungeon.handCardSelectScreen.selectedCards.group);
-                AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
-                AbstractDungeon.handCardSelectScreen.selectedCards.clear();
-                AbstractDungeon.player.hand.refreshHandLayout();
-                AbstractDungeon.player.hand.applyPowers();
-                completed = true;
-            } else {
-                //
+            processSelectedCards();
+        }
+    }
+
+    private void processHoardThisCard(){
+        listOfHoardedCards.add(specificCard);
+        // "Hoard this card." means that none of the other branches apply.
+        //TODO ? add a check in here to see if its a duplicated card from double tap/burst...but maybe not, I think the card would still give Pride, just not end up in Exhaust pile
+        applyToSelfTop(new PridePower(adp(), getCardHoardValue(specificCard)));
+        setCardToExhaust(specificCard);
+        for (AbstractPower power : adp().powers) {
+            if (power instanceof HoardingPowerInterface) {
+                ((HoardingPowerInterface) power).onHoard(listOfHoardedCards);
             }
         }
-        return;
+        if (specificCard instanceof HoardingCardInterface){
+            ((HoardingCardInterface) specificCard).triggerOnHoard();
+        }
+        updateCardsDidHoard();
+        CardCounterPatches.cardsHoardedThisTurn += listOfHoardedCards.size();
+        CardCounterPatches.cardsHoardedThisCombat += listOfHoardedCards.size();
+        completed = true;
     }
 
     private void setCardToExhaust(AbstractCard card) {
@@ -193,6 +163,14 @@ public class HoardCardAction extends AbstractGameAction {
                 }
             }
         }
+    }
+
+    private void hoardHand(){
+        if (callback != null){
+            callback.accept(new ArrayList<>(adp().hand.group));
+        }
+        hoardCards(new ArrayList<>(adp().hand.group));
+        completed = true;
     }
 
     private void hoardCards(List<AbstractCard> cardList){
@@ -217,6 +195,31 @@ public class HoardCardAction extends AbstractGameAction {
         }
         CardCounterPatches.cardsHoardedThisTurn += listOfHoardedCards.size();
         CardCounterPatches.cardsHoardedThisCombat += listOfHoardedCards.size();
+    }
+
+    private void processHoardRandomCards(){
+        for (int i = 0; i < amount; i++){
+            AbstractCard card = adp().hand.getRandomCard(AbstractDungeon.cardRandomRng);
+            if (callback != null){
+                callback.accept(new ArrayList<>(Arrays.asList(card)));
+            }
+            listOfHoardedCards.add(card);
+            adp().hand.moveToExhaustPile(card);
+            CardCrawlGame.dungeon.checkForPactAchievement();
+            if (card instanceof HoardingCardInterface){
+                ((HoardingCardInterface) card).triggerOnHoard();
+            }
+            updateCardsDidHoard();
+            applyToSelfTop(new PridePower(adp(), getCardHoardValue(card)));
+        }
+        for (AbstractPower power : adp().powers) {
+            if (power instanceof HoardingPowerInterface) {
+                ((HoardingPowerInterface) power).onHoard(listOfHoardedCards);
+            }
+        }
+        CardCounterPatches.cardsHoardedThisTurn += listOfHoardedCards.size();
+        CardCounterPatches.cardsHoardedThisCombat += listOfHoardedCards.size();
+        completed = true;
     }
 
     private void updateCardsDidHoard(){
@@ -245,6 +248,22 @@ public class HoardCardAction extends AbstractGameAction {
             case RARE: return basePrideGainForRarityRare;
             case SPECIAL: return card.hasTag(DragonUtils.CustomTags.GEM) ? basePrideGainForRarityGem : basePrideGainForRarityOther;
             default: return basePrideGainForRarityOther;
+        }
+    }
+
+    private void processSelectedCards(){
+        if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved){
+            if (callback != null){
+                callback.accept(AbstractDungeon.handCardSelectScreen.selectedCards.group);
+            }
+            hoardCards(AbstractDungeon.handCardSelectScreen.selectedCards.group);
+            AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
+            AbstractDungeon.handCardSelectScreen.selectedCards.clear();
+            AbstractDungeon.player.hand.refreshHandLayout();
+            AbstractDungeon.player.hand.applyPowers();
+            completed = true;
+        } else {
+            //
         }
     }
 }
